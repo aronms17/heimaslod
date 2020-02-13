@@ -1,16 +1,42 @@
 import React from 'react';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
+import { Alert, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import HousesView from './src/views/HousesView/index';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 export default class App extends React.Component {
+    
   render() {
     return (
-      <View>
-        <View style={styles.container}>
-          <MapView style={styles.mapStyle} />
+      <View style={styles.container}>
+        <View>
+          <HousesView/>
         </View>
-        <HousesView/>
+        <MapView
+        style={styles.mapStyle}
+        initialRegion={{
+        latitude: 63.4347866,
+        longitude: -20.2844343,
+        latitudeDelta: 0.095,
+        longitudeDelta: 0.0921}}>
+        <MapView.Marker
+            coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
+            title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
+        />
+    <MapView.Marker
+       description={'Hér datt Keli á segway'}
+       coordinate={{latitude: 63.4386728, longitude: -20.2533841}}
+       title={'Marker'}
+       pinColor={'blue'}
+       onPress={() => Alert.alert(
+        'Hehehe',
+        'hahaha'
+      )}
+    >
+<Image source={require('./heimaslod.png')} style={{height: 75, width:75 }} />
+
+    </MapView.Marker>
+</MapView>
+        
       </View>
     );
   }
