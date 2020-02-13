@@ -1,12 +1,16 @@
 import React from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import HousesView from './src/views/HousesView/index';
 
 export default class App extends React.Component {
     
   render() {
     return (
       <View style={styles.container}>
+        <View>
+          <HousesView/>
+        </View>
         <MapView
         mapType={"satellite"}
         style={styles.mapStyle}
