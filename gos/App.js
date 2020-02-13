@@ -1,8 +1,9 @@
 import React from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 
 export default class App extends React.Component {
+    
   render() {
     return (
       <View style={styles.container}>
@@ -15,12 +16,21 @@ export default class App extends React.Component {
         longitudeDelta: 0.0921}}>
         <MapView.Marker
             coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
-            title={'Deneme'}
+            title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
         />
     <MapView.Marker
-       description={'güzel mekan'}
-       coordinate={{latitude: 38.4555, longitude: 27.1129}}
-       title={'Deneme'}/>
+       description={'Hér datt Keli á segway'}
+       coordinate={{latitude: 63.4386728, longitude: -20.2533841}}
+       title={'Marker'}
+       pinColor={'blue'}
+       onPress={() => Alert.alert(
+        'Hehehe',
+        'hahaha'
+      )}
+    >
+<Image source={require('./heimaslod.png')} style={{height: 75, width:75 }} />
+
+    </MapView.Marker>
 </MapView>
         
       </View>
