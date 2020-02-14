@@ -1,16 +1,16 @@
 import React from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList } from 'react-native';
 import HousesView from './src/views/HousesView/index';
+import data from './src/houses.json'
 
 export default class App extends React.Component {
     
   render() {
+    var haha = data[2];
+    var hehe = data;
     return (
       <View style={styles.container}>
-        <View>
-          <HousesView/>
-        </View>
         <MapView
         mapType={"satellite"}
         style={styles.mapStyle}
@@ -23,19 +23,29 @@ export default class App extends React.Component {
             coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
             title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
         />
-    <MapView.Marker
-       description={'Hér datt Keli á segway'}
-       coordinate={{latitude: 63.4386728, longitude: -20.2533841}}
-       title={'Marker'}
-       pinColor={'blue'}
-       onPress={() => Alert.alert(
-        'Hehehe',
-        'hahaha'
-      )}
-    >
-<Image source={require('./heimaslod.png')} style={{height: 75, width:75 }} />
+        <MapView.Marker
+          description={haha.text}
+          coordinate={{latitude: haha.latitude, longitude: haha.longitude}}
+          title={'Marker'}
+          pinColor={'blue'}
+          onPress={() => console.log(haha.text)
+          }
+        >
+        </MapView.Marker>
 
-    </MapView.Marker>
+        {hehe[0] != null && hehe.map((house, index) => (
+            <MapView.Marker
+                key = {index}
+                coordinate = {{
+                    latitude: house.latitude,
+                    longitude: house.longitude
+                }}
+                title = { house.text }
+            >
+                <Image  style={{width: 50, height: 50}} source={{ uri: house.image}}></Image>
+            </MapView.Marker>
+        ))
+        }
 </MapView>
         
       </View>
