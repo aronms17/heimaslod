@@ -3,18 +3,24 @@
         "id": "1",
         "address": "Grænahlíð 10",
         "text": "þetta er Grænahlíð 10",
-        "image": "http://heimaslod.is/images/thumb/9/9c/Graenahlid_6_8_10.jpg/1600px-Graenahlid_6_8_10.jpg"
+        "image": "http://heimaslod.is/images/thumb/9/9c/Graenahlid_6_8_10.jpg/1600px-Graenahlid_6_8_10.jpg",
+        "latitude": "63.44",
+        "longitude": "-20.26"
     },
     {
         "id": "2",
         "address": "Austurvegur 7",
         "text": "þetta er Austurvegur 7",
-        "image": "http://heimaslod.is/images/thumb/4/46/Austurvegur_7.jpg/1920px-Austurvegur_7.jpg"
+        "image": "http://heimaslod.is/images/thumb/4/46/Austurvegur_7.jpg/1920px-Austurvegur_7.jpg",
+        "longitude": "-20.26",
+        "latitude": "63.44"
     },
     {
         "id": "3",
         "address": "Bakkastígur 21",
         "text": "þetta er Bakkastígur 21",
-        "image": "http://heimaslod.is/images/1/14/Bakkastigur_21.jpg"
+        "image": "http://heimaslod.is/images/1/14/Bakkastigur_21.jpg",
+        "longitude": "-20.261",
+        "latitude": "63.44"
     }
 ]

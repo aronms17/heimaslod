@@ -19,7 +19,7 @@ componentDidMount() {
   render() {
     const { houses } = this.state;
     return (
-      <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 100, height: 400}}>
+      <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 100}}>
         <TouchableOpacity onPress={() => {console.log(data)}}>
                     <Text style={{fontSize: 40, color: 'blue', textAlign: 'center', marginTop: 100}}>Hús undir hrauni</Text>
         </TouchableOpacity>
