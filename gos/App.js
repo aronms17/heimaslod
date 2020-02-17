@@ -1,19 +1,23 @@
 import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Overlay } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList } from 'react-native';
 import HousesView from './src/views/HousesView/index';
-import data from './src/houses.json'
+import data from './src/houses.json';
+import mapjson from './src/mapstyle.json';
 
 export default class App extends React.Component {
     
+
   render() {
     var haha = data[2];
     var hehe = data;
     return (
       <View style={styles.container}>
         <MapView
-        mapType={"satellite"}
+        //mapType={"satellite"}
         style={styles.mapStyle}
+        provider={"google"}
+        customMapStyle={mapjson}
         initialRegion={{
         latitude: 63.4347866,
         longitude: -20.2844343,
@@ -46,6 +50,15 @@ export default class App extends React.Component {
             </MapView.Marker>
         ))
         }
+
+
+        <Overlay 
+        image="https://scontent-arn2-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/86391797_645708835970680_7635390978186018816_n.png?_nc_cat=105&_nc_ohc=V_nz-I8Vf14AX9yzbPo&_nc_ht=scontent-arn2-2.xx&oh=0e619edd96425d44490e27dbff35ea3d&oe=5EBFFAFC"
+        bounds={[
+            [63.434714, -20.268676], 
+            [63.444108, -20.249279]
+        ]}
+        />
 </MapView>
         
       </View>
