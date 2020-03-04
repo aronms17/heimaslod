@@ -1,5 +1,5 @@
 import React from 'react';
-import MapView, { Marker, Overlay } from 'react-native-maps';
+import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList } from 'react-native';
 import HousesView from './src/views/HousesView/index';
 import data from './src/houses.json';
@@ -7,6 +7,13 @@ import mapjson from './src/mapstyle.json';
 
 export default class App extends React.Component {
     
+  poly1 = [
+    {longitude: -20.2654953, latitude: 63.4417692},
+    {longitude: -20.259947776794434, latitude: 63.44536978867365},
+    {longitude: -20.25702953338623, latitude: 63.44220225028902},
+    {longitude: -20.26466846466064, latitude: 63.44301770597973},
+    {longitude: -20.2673077583313, latitude: 63.44239412430521}
+  ]
 
   render() {
     var haha = data[2];
@@ -14,7 +21,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <MapView
-        //mapType={"satellite"}
+        // mapType={"satellite"}
         style={styles.mapStyle}
         provider={"google"}
         customMapStyle={mapjson}
@@ -23,19 +30,34 @@ export default class App extends React.Component {
         longitude: -20.2844343,
         latitudeDelta: 0.095,
         longitudeDelta: 0.0921}}>
+
+        {/* þarf að refresha til að litirnir komi */}
+        <Polygon
+          coordinates={this.poly1}
+          fillColor= {'#656970'}
+          strokeWidth={0}
+          strokeColor={'#393a3d'}
+        />
+        
+        {/* <UrlTile
+        urlTemplate={'http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'}
+        /> */}
+
         <MapView.Marker
             coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
             title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
         />
         <MapView.Marker
           description={haha.text}
-          coordinate={{latitude: haha.latitude, longitude: haha.longitude}}
+          coordinate={{latitude: 63.4417692, longitude: -20.2654953}}
           title={'Marker'}
           pinColor={'blue'}
           onPress={() => console.log(haha.text)
           }
         >
         </MapView.Marker>
+
+
 
         {hehe[0] != null && hehe.map((house, index) => (
             <MapView.Marker
@@ -47,6 +69,7 @@ export default class App extends React.Component {
                 title = { house.text }
             >
                 <Image  style={{width: 50, height: 50}} source={{ uri: house.image}}></Image>
+                {/* <Text style={{color: 'green'}}>{house.id}</Text> */}
             </MapView.Marker>
         ))
         }
