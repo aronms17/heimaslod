@@ -1,12 +1,22 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList, setNativeProps } from 'react-native';
 import HousesView from './src/views/HousesView/index';
 import data from './src/houses.json';
 import mapjson from './src/mapstyle.json';
 import prufupoly from './script/jsonfile.json';
+import CustomPolygon from './src/CustomPolygon.js';
 
 export default class App extends React.Component {
+
+constructor(props) {
+  super(props);
+
+  this.state = {
+    husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
+    goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+  };
+}
     
   poly1 = [
     {longitude: -20.265495314359384, latitude: 63.441769204885134},
@@ -32,11 +42,19 @@ export default class App extends React.Component {
     {longitude: -20.265495314359384, latitude: 63.441769204885134},
   ]
 
-  poly3 = prufupoly.hus[18].coordinates;
+  poly3 = prufupoly.hus[7].coordinates;
+
+componentDidMount() {
+  this.setState({
+    husColor: 'blue',
+    goturColor: 'cyan'
+  })
+}
 
   render() {
     var haha = data[2];
     var hehe = data;
+    const {goturColor, husColor} = this.state;
     return (
       <View style={styles.container}>
         <MapView
@@ -52,12 +70,35 @@ export default class App extends React.Component {
 
         {/* þarf að refresha til að litirnir komi */}
 
-        <Polygon
+        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
+            <CustomPolygon
+              key = {hus.id}
+              coordinates={hus.coordinates}
+              fillColor={husColor}
+            />
+        ))
+        }
+
+        {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index) => (
+            <CustomPolygon
+              key = {gata.id}
+              coordinates={gata.coordinates}
+              fillColor={goturColor}
+            />
+        ))
+        }
+
+            {/* <CustomPolygon
+              coordinates={this.poly3}
+              fillColor={fillColor}
+            /> */}
+
+        {/* <Polygon
           coordinates={this.poly3}
           fillColor= {'purple'}
           strokeWidth={0}
           strokeColor={'#393a3d'}
-        />
+        /> */}
         
         {/* <UrlTile
         urlTemplate={'http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'}
