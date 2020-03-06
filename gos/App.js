@@ -8,11 +8,15 @@ import mapjson from './src/mapstyle.json';
 export default class App extends React.Component {
     
   poly1 = [
-    {longitude: -20.2654953, latitude: 63.4417692},
-    {longitude: -20.259947776794434, latitude: 63.44536978867365},
-    {longitude: -20.25702953338623, latitude: 63.44220225028902},
-    {longitude: -20.26466846466064, latitude: 63.44301770597973},
-    {longitude: -20.2673077583313, latitude: 63.44239412430521}
+    {longitude: -20.265495314359384, latitude: 63.441769204885134},
+    {longitude: -20.265282308859373, latitude: 63.44165257718241},
+    {longitude: -20.265534006243083, latitude: 63.4415683918242},
+    {longitude: -20.265608502546883, latitude: 63.44160728555914},
+    {longitude: -20.265519526899368, latitude: 63.44164252274294},
+    {longitude: -20.26560850816094, latitude: 63.44168900524271},
+    {longitude: -20.265680469733997, latitude: 63.44166307379618},
+    {longitude: -20.265725972807154, latitude: 63.44168772915412},
+    {longitude: -20.265495314359384, latitude: 63.441769204885134},
   ]
 
   render() {
@@ -57,6 +61,14 @@ export default class App extends React.Component {
         >
         </MapView.Marker>
 
+        {/* <Overlay 
+        image="https://scontent-arn2-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/86391797_645708835970680_7635390978186018816_n.png?_nc_cat=105&_nc_ohc=V_nz-I8Vf14AX9yzbPo&_nc_ht=scontent-arn2-2.xx&oh=0e619edd96425d44490e27dbff35ea3d&oe=5EBFFAFC"
+        bounds={[
+            [63.434714, -20.268676], 
+            [63.444108, -20.249279]
+        ]}
+        /> */}
+
 
 
         {hehe[0] != null && hehe.map((house, index) => (
@@ -75,13 +87,7 @@ export default class App extends React.Component {
         }
 
 
-        <Overlay 
-        image="https://scontent-arn2-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/86391797_645708835970680_7635390978186018816_n.png?_nc_cat=105&_nc_ohc=V_nz-I8Vf14AX9yzbPo&_nc_ht=scontent-arn2-2.xx&oh=0e619edd96425d44490e27dbff35ea3d&oe=5EBFFAFC"
-        bounds={[
-            [63.434714, -20.268676], 
-            [63.444108, -20.249279]
-        ]}
-        />
+
 </MapView>
         
       </View>
