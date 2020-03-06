@@ -4,6 +4,7 @@ import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList } from 'reac
 import HousesView from './src/views/HousesView/index';
 import data from './src/houses.json';
 import mapjson from './src/mapstyle.json';
+import prufupoly from './script/jsonfile.json';
 
 export default class App extends React.Component {
     
@@ -18,6 +19,20 @@ export default class App extends React.Component {
     {longitude: -20.265725972807154, latitude: 63.44168772915412},
     {longitude: -20.265495314359384, latitude: 63.441769204885134},
   ]
+
+  poly2 = [
+    {longitude: -20.265495314359384, latitude: 63.441769204885134},
+    {longitude: -20.265282308859373, latitude: 63.44165257718241},
+    {longitude: -20.265534006243083, latitude: 63.4415683918242},
+    {longitude: -20.265608502546883, latitude: 63.44160728555914},
+    {longitude: -20.265519526899368, latitude: 63.44164252274294},
+    {longitude: -20.26560850816094, latitude: 63.44168900524271},
+    {longitude: -20.265680469733997, latitude: 63.44166307379618},
+    {longitude: -20.265725972807154, latitude: 63.44168772915412},
+    {longitude: -20.265495314359384, latitude: 63.441769204885134},
+  ]
+
+  poly3 = prufupoly.hus[18].coordinates;
 
   render() {
     var haha = data[2];
@@ -36,9 +51,10 @@ export default class App extends React.Component {
         longitudeDelta: 0.0921}}>
 
         {/* þarf að refresha til að litirnir komi */}
+
         <Polygon
-          coordinates={this.poly1}
-          fillColor= {'#656970'}
+          coordinates={this.poly3}
+          fillColor= {'purple'}
           strokeWidth={0}
           strokeColor={'#393a3d'}
         />
