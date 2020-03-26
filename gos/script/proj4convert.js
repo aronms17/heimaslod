@@ -81,6 +81,9 @@ var json = JSON.stringify(obj, null, 4);
 
 fs.writeFileSync('jsonfile.json', json, 'utf8');
 
+var csvjson = JSON.stringify(obj.hus, null, 4);
+fs.writeFileSync('csvjsonhus.json', csvjson, 'utf8');
+
 
 //proj4('EPSG:3057', 'WGS84', [ 436831.363512803043704, 326913.244987682381179 ]);
 

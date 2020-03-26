@@ -1,7 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList, setNativeProps } from 'react-native';
-import HousesView from './src/views/HousesView/index';
 import data from './src/houses.json';
 import mapjson from './src/mapstyle.json';
 import prufupoly from './script/jsonfile.json';
@@ -46,9 +45,14 @@ constructor(props) {
 
 componentDidMount() {
   this.setState({
-    husColor: 'blue',
-    goturColor: 'cyan'
+    husColor: '#EC4D37',
+    goturColor: '#262630' //'#1D1B1B'
   })
+}
+
+navigateHouse(houseid) {
+  // this.props.navigation.navigate('screen2', houseid);
+  console.log(houseid);
 }
 
   render() {
@@ -58,7 +62,7 @@ componentDidMount() {
     return (
       <View style={styles.container}>
         <MapView
-        // mapType={"satellite"}
+        
         style={styles.mapStyle}
         provider={"google"}
         customMapStyle={mapjson}
@@ -75,6 +79,8 @@ componentDidMount() {
               key = {hus.id}
               coordinates={hus.coordinates}
               fillColor={husColor}
+              tappable={true}
+              onPress={() => this.navigateHouse(hus.id)}
             />
         ))
         }
@@ -104,7 +110,7 @@ componentDidMount() {
         urlTemplate={'http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'}
         /> */}
 
-        <MapView.Marker
+        {/* <MapView.Marker
             coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
             title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
         />
@@ -116,7 +122,7 @@ componentDidMount() {
           onPress={() => console.log(haha.text)
           }
         >
-        </MapView.Marker>
+        </MapView.Marker> */}
 
         {/* <Overlay 
         image="https://scontent-arn2-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/86391797_645708835970680_7635390978186018816_n.png?_nc_cat=105&_nc_ohc=V_nz-I8Vf14AX9yzbPo&_nc_ht=scontent-arn2-2.xx&oh=0e619edd96425d44490e27dbff35ea3d&oe=5EBFFAFC"
@@ -128,7 +134,7 @@ componentDidMount() {
 
 
 
-        {hehe[0] != null && hehe.map((house, index) => (
+        {/* {hehe[0] != null && hehe.map((house, index) => (
             <MapView.Marker
                 key = {index}
                 coordinate = {{
@@ -138,10 +144,10 @@ componentDidMount() {
                 title = { house.text }
             >
                 <Image  style={{width: 50, height: 50}} source={{ uri: house.image}}></Image>
-                {/* <Text style={{color: 'green'}}>{house.id}</Text> */}
+                
             </MapView.Marker>
         ))
-        }
+        } */}
 
 
 
