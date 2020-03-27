@@ -1,10 +1,10 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList, setNativeProps } from 'react-native';
-import data from './src/houses.json';
-import mapjson from './src/mapstyle.json';
-import prufupoly from './script/jsonfile.json';
-import CustomPolygon from './src/CustomPolygon.js';
+// import data from './src/houses.json';
+import mapjson from '../json/mapstyle.json';
+import prufupoly from '../../script/jsonfile.json';
+import CustomPolygon from '../components/CustomPolygon';
 
 export default class App extends React.Component {
 
@@ -51,13 +51,11 @@ componentDidMount() {
 }
 
 navigateHouse(houseid) {
-  // this.props.navigation.navigate('screen2', houseid);
+  this.props.navigation.navigate('houseDetailScreen', houseid);
   console.log(houseid);
 }
 
   render() {
-    var haha = data[2];
-    var hehe = data;
     const {goturColor, husColor} = this.state;
     return (
       <View style={styles.container}>
@@ -93,62 +91,6 @@ navigateHouse(houseid) {
             />
         ))
         }
-
-            {/* <CustomPolygon
-              coordinates={this.poly3}
-              fillColor={fillColor}
-            /> */}
-
-        {/* <Polygon
-          coordinates={this.poly3}
-          fillColor= {'purple'}
-          strokeWidth={0}
-          strokeColor={'#393a3d'}
-        /> */}
-        
-        {/* <UrlTile
-        urlTemplate={'http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'}
-        /> */}
-
-        {/* <MapView.Marker
-            coordinate={{latitude: 63.4347866, longitude: -20.2844343}}
-            title={'Hér fór Baldvin í sinn fyrsta reiðtúr'}
-        />
-        <MapView.Marker
-          description={haha.text}
-          coordinate={{latitude: 63.4417692, longitude: -20.2654953}}
-          title={'Marker'}
-          pinColor={'blue'}
-          onPress={() => console.log(haha.text)
-          }
-        >
-        </MapView.Marker> */}
-
-        {/* <Overlay 
-        image="https://scontent-arn2-2.xx.fbcdn.net/v/t1.15752-9/s2048x2048/86391797_645708835970680_7635390978186018816_n.png?_nc_cat=105&_nc_ohc=V_nz-I8Vf14AX9yzbPo&_nc_ht=scontent-arn2-2.xx&oh=0e619edd96425d44490e27dbff35ea3d&oe=5EBFFAFC"
-        bounds={[
-            [63.434714, -20.268676], 
-            [63.444108, -20.249279]
-        ]}
-        /> */}
-
-
-
-        {/* {hehe[0] != null && hehe.map((house, index) => (
-            <MapView.Marker
-                key = {index}
-                coordinate = {{
-                    latitude: house.latitude,
-                    longitude: house.longitude
-                }}
-                title = { house.text }
-            >
-                <Image  style={{width: 50, height: 50}} source={{ uri: house.image}}></Image>
-                
-            </MapView.Marker>
-        ))
-        } */}
-
 
 
 </MapView>
