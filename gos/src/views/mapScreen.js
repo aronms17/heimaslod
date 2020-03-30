@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 // import data from './src/houses.json';
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
@@ -53,6 +53,7 @@ testingScreen(houseid) {
 }
 
 previewHouse(houseid) {
+  this.makeVibration();
   this.setModalVisible(true);
   console.log('Previewing house with id,', houseid);
 }
@@ -60,6 +61,10 @@ previewHouse(houseid) {
 navigateHouse(houseid) {
   this.props.navigation.navigate('houseDetailScreen', houseid);
   console.log(houseid);
+}
+
+makeVibration() {
+  Vibration.vibrate(7);
 }
 
   render() {
