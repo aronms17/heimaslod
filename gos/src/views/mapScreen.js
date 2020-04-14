@@ -5,18 +5,20 @@ import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, s
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
-import housePreview from '../modals/housePreview';
+
+import PreviewModal from '../components/PreviewModal';
 
 export default class App extends React.Component {
-constructor(props) {
+
+  constructor(props) {
   super(props);
   this.state = {
-    modalVisible: false,
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+    display: false,
+    houseId: 0,
   };
 }
-
 
 static navigationOptions = {
     title: '',
@@ -35,31 +37,25 @@ static navigationOptions = {
 }
 
   poly3 = prufupoly.hus[7].coordinates;
-
-setModalVisible = (visible) => {
-  this.setState({ modalVisible: visible });
-}
   
 componentDidMount() {
   this.setState({
     husColor: '#EC4D37',
-    goturColor: '#262630' //'#1D1B1B'
+    goturColor: '#262630', //'#1D1B1B'
+    display: false,
+    houseId: 0,
   })
 }
 
-testingScreen(houseid) {
-  this.props.navigation.navigate('testing');
-  console.log('Moving to testing screen');
-}
-
-previewHouse(houseid) {
+previewHouse(id) {
+  console.log('Previewing house with id,', id);
+  this.setState({display: true, houseId: id});
   this.makeVibration();
-  this.setModalVisible(true);
-  console.log('Previewing house with id,', houseid);
 }
 
 navigateHouse(houseid) {
   this.props.navigation.navigate('houseDetailScreen', houseid);
+  this.setState({display: false});
   console.log(houseid);
 }
 
@@ -68,26 +64,25 @@ makeVibration() {
 }
 
   render() {
-    const {goturColor, husColor, modalVisible} = this.state;
+    const {goturColor, husColor, display, houseId} = this.state;
 
     return (
       <View style={styles.component}>
       <View style={styles.container}>
-
         <MapView
         
-        style={styles.mapStyle}
-        provider={"google"}
-        customMapStyle={mapjson}
-        initialRegion={{
-        latitude: 63.4347866,
-        longitude: -20.2844343,
-        latitudeDelta: 0.095,
-        longitudeDelta: 0.0921}}>
+          style={styles.mapStyle}
+          provider={"google"}
+          //customMapStyle={mapjson}
+          initialRegion={{
+          latitude: 63.4347866,
+          longitude: -20.2844343,
+          latitudeDelta: 0.095,
+          longitudeDelta: 0.0921}}>
 
             {/* þarf að refresha til að litirnir komi */}
 
-        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
+        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
             <CustomPolygon
               key = {hus.id}
               coordinates={hus.coordinates}
@@ -106,7 +101,16 @@ makeVibration() {
                 />
             ))
             }
+
             </MapView>
+
+            
+            <PreviewModal
+              data={houseId}
+              display={this.state.display}
+              closeDisplay={() => this.setState({display: false})}
+              goToHouse={() => this.navigateHouse(houseId)}
+            />
             
         </View>
         <View style={styles.search}>
