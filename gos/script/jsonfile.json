@@ -30,7 +30,7 @@
         },
         {
             "id": 2,
-            "address": " ",
+            "address": "Fram",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -222,7 +222,7 @@
         },
         {
             "id": 8,
-            "address": " ",
+            "address": "Urðarvegur 15",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -446,7 +446,7 @@
         },
         {
             "id": 15,
-            "address": " ",
+            "address": "Borg",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -474,7 +474,7 @@
         },
         {
             "id": 16,
-            "address": " ",
+            "address": "Urðarvegur 4",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -554,7 +554,7 @@
         },
         {
             "id": 18,
-            "address": " ",
+            "address": "Urðarvegur 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -654,7 +654,7 @@
         },
         {
             "id": 21,
-            "address": " ",
+            "address": "Bakkastígur 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -682,7 +682,7 @@
         },
         {
             "id": 22,
-            "address": " ",
+            "address": "Bakkastígur 19",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -718,7 +718,7 @@
         },
         {
             "id": 23,
-            "address": " ",
+            "address": "Bakkastígur 10",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -746,7 +746,7 @@
         },
         {
             "id": 24,
-            "address": " ",
+            "address": "Bakkastígur 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -830,7 +830,7 @@
         },
         {
             "id": 27,
-            "address": " ",
+            "address": "Bakkastígur 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -858,7 +858,7 @@
         },
         {
             "id": 28,
-            "address": " ",
+            "address": "Bakkastígur 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -886,7 +886,7 @@
         },
         {
             "id": 29,
-            "address": " ",
+            "address": "Bakkastígur 23",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -914,7 +914,7 @@
         },
         {
             "id": 30,
-            "address": " ",
+            "address": "Bakkastígur 25",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -942,7 +942,7 @@
         },
         {
             "id": 31,
-            "address": " ",
+            "address": "Urðarvegur 43",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -970,7 +970,7 @@
         },
         {
             "id": 32,
-            "address": " ",
+            "address": "Urðarvegur 31",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -998,7 +998,7 @@
         },
         {
             "id": 33,
-            "address": " ",
+            "address": "Urðarvegur 33",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1026,7 +1026,7 @@
         },
         {
             "id": 34,
-            "address": " ",
+            "address": "Urðarvegur 42",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1054,7 +1054,7 @@
         },
         {
             "id": 35,
-            "address": " ",
+            "address": "Urðarvegur 44",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1082,7 +1082,7 @@
         },
         {
             "id": 36,
-            "address": " ",
+            "address": "Urðarvegur 48",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1110,7 +1110,7 @@
         },
         {
             "id": 37,
-            "address": " ",
+            "address": "Landagata 9",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1138,7 +1138,7 @@
         },
         {
             "id": 38,
-            "address": " ",
+            "address": "Landagata 5b",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1166,7 +1166,7 @@
         },
         {
             "id": 39,
-            "address": " ",
+            "address": "Landagata 3b",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1194,7 +1194,7 @@
         },
         {
             "id": 40,
-            "address": " ",
+            "address": "Dvergasteinn",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1258,7 +1258,7 @@
         },
         {
             "id": 42,
-            "address": " ",
+            "address": "Heimagata 25",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1294,7 +1294,7 @@
         },
         {
             "id": 43,
-            "address": " ",
+            "address": "Landagata 22",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1322,7 +1322,7 @@
         },
         {
             "id": 44,
-            "address": " ",
+            "address": "Landagata 24",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1414,7 +1414,7 @@
         },
         {
             "id": 47,
-            "address": " ",
+            "address": "Austurhlíð 2",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1442,7 +1442,7 @@
         },
         {
             "id": 48,
-            "address": " ",
+            "address": "Grænahlíð 3",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1470,7 +1470,7 @@
         },
         {
             "id": 49,
-            "address": " ",
+            "address": "Ásgarður",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1498,7 +1498,7 @@
         },
         {
             "id": 50,
-            "address": " ",
+            "address": "Austurhlíð 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1526,7 +1526,7 @@
         },
         {
             "id": 51,
-            "address": " ",
+            "address": "Grænahlíð 19",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1582,7 +1582,7 @@
         },
         {
             "id": 53,
-            "address": " ",
+            "address": "Þurrkhús",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1610,7 +1610,7 @@
         },
         {
             "id": 54,
-            "address": " ",
+            "address": "Grænahlíð 10",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1638,7 +1638,7 @@
         },
         {
             "id": 55,
-            "address": " ",
+            "address": "Grænahlíð 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1666,7 +1666,7 @@
         },
         {
             "id": 56,
-            "address": " ",
+            "address": "Grænahlíð 25",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1694,7 +1694,7 @@
         },
         {
             "id": 57,
-            "address": " ",
+            "address": "Austurvegur 3",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1722,7 +1722,7 @@
         },
         {
             "id": 58,
-            "address": " ",
+            "address": "Austurvegur 6",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1758,7 +1758,7 @@
         },
         {
             "id": 59,
-            "address": " ",
+            "address": "Austurvegur 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1814,7 +1814,7 @@
         },
         {
             "id": 61,
-            "address": " ",
+            "address": "Austurvegur 26",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1842,7 +1842,7 @@
         },
         {
             "id": 62,
-            "address": " ",
+            "address": "Austurvegur 28",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -1898,7 +1898,7 @@
         },
         {
             "id": 64,
-            "address": " ",
+            "address": "Austurvegur 31",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2382,7 +2382,7 @@
         },
         {
             "id": 79,
-            "address": " ",
+            "address": "Suðurvegur 13",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2418,7 +2418,7 @@
         },
         {
             "id": 80,
-            "address": " ",
+            "address": "Suðurvegur 17",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2446,7 +2446,7 @@
         },
         {
             "id": 81,
-            "address": " ",
+            "address": "Búastaðabraut 15",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2474,7 +2474,7 @@
         },
         {
             "id": 82,
-            "address": " ",
+            "address": "Ásavegur 41",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2510,7 +2510,7 @@
         },
         {
             "id": 83,
-            "address": " ",
+            "address": "Kirkjubæjarbraut 22",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2538,7 +2538,7 @@
         },
         {
             "id": 84,
-            "address": " ",
+            "address": "Kirkjubæjarbraut 20",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2566,7 +2566,7 @@
         },
         {
             "id": 85,
-            "address": " ",
+            "address": "Kirkjubæjarbraut 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2594,7 +2594,7 @@
         },
         {
             "id": 86,
-            "address": " ",
+            "address": "Hagi",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2622,7 +2622,7 @@
         },
         {
             "id": 87,
-            "address": " ",
+            "address": "Merkisteinn",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2650,7 +2650,7 @@
         },
         {
             "id": 88,
-            "address": " ",
+            "address": "Bólstaður",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2678,7 +2678,7 @@
         },
         {
             "id": 89,
-            "address": " ",
+            "address": "Gilsbakki",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2714,7 +2714,7 @@
         },
         {
             "id": 90,
-            "address": " ",
+            "address": "Batavía",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2742,7 +2742,7 @@
         },
         {
             "id": 91,
-            "address": " ",
+            "address": "Hvoll (við Heimagötu)",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -2770,7 +2770,7 @@
         },
         {
             "id": 92,
-            "address": " ",
+            "address": "Blátindur (Heimagötu)",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -3542,7 +3542,7 @@
         },
         {
             "id": 109,
-            "address": " ",
+            "address": "Bakkastígur 4",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -3642,7 +3642,7 @@
         },
         {
             "id": 111,
-            "address": " ",
+            "address": "Landagata 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -3686,7 +3686,7 @@
         },
         {
             "id": 112,
-            "address": " ",
+            "address": "Landagata 3a",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -3826,7 +3826,7 @@
         },
         {
             "id": 115,
-            "address": " ",
+            "address": "Nýjahús",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4454,7 +4454,7 @@
         },
         {
             "id": 134,
-            "address": " ",
+            "address": "Bólstaðarhlíð",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4490,7 +4490,7 @@
         },
         {
             "id": 135,
-            "address": " ",
+            "address": "Miðey",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4518,7 +4518,7 @@
         },
         {
             "id": 136,
-            "address": " ",
+            "address": "Grænahlíð 2",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4618,7 +4618,7 @@
         },
         {
             "id": 139,
-            "address": " ",
+            "address": "Austurvegur 22",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4646,7 +4646,7 @@
         },
         {
             "id": 140,
-            "address": " ",
+            "address": "Austurvegur 24",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4674,7 +4674,7 @@
         },
         {
             "id": 141,
-            "address": " ",
+            "address": "Austurvegur 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4710,7 +4710,7 @@
         },
         {
             "id": 142,
-            "address": " ",
+            "address": "Austurvegur 7",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4738,7 +4738,7 @@
         },
         {
             "id": 143,
-            "address": " ",
+            "address": "Austurvegur 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4782,7 +4782,7 @@
         },
         {
             "id": 144,
-            "address": " ",
+            "address": "Austurvegur 4",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4842,7 +4842,7 @@
         },
         {
             "id": 145,
-            "address": " ",
+            "address": "Austurvegur 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -4870,7 +4870,7 @@
         },
         {
             "id": 146,
-            "address": " ",
+            "address": "Austurvegur 29",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5234,7 +5234,7 @@
         },
         {
             "id": 156,
-            "address": " ",
+            "address": "Suðurvegur 19",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5270,7 +5270,7 @@
         },
         {
             "id": 157,
-            "address": " ",
+            "address": "Búastaðabraut 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5298,7 +5298,7 @@
         },
         {
             "id": 158,
-            "address": " ",
+            "address": "Búastaðabraut 14",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5358,7 +5358,7 @@
         },
         {
             "id": 159,
-            "address": " ",
+            "address": "Suðurvegur 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5386,7 +5386,7 @@
         },
         {
             "id": 160,
-            "address": " ",
+            "address": "Suðurvegur 14",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5414,7 +5414,7 @@
         },
         {
             "id": 161,
-            "address": " ",
+            "address": "Suðurvegur 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5494,7 +5494,7 @@
         },
         {
             "id": 163,
-            "address": " ",
+            "address": "Grænahlíð 1",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5522,7 +5522,7 @@
         },
         {
             "id": 164,
-            "address": " ",
+            "address": "Grænahlíð 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5558,7 +5558,7 @@
         },
         {
             "id": 165,
-            "address": " ",
+            "address": "Grænahlíð 7",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5594,7 +5594,7 @@
         },
         {
             "id": 166,
-            "address": " ",
+            "address": "Grænahlíð 9",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5622,7 +5622,7 @@
         },
         {
             "id": 167,
-            "address": " ",
+            "address": "Grænahlíð 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5650,7 +5650,7 @@
         },
         {
             "id": 168,
-            "address": " ",
+            "address": "Grænahlíð 4",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5686,7 +5686,7 @@
         },
         {
             "id": 169,
-            "address": " ",
+            "address": "Grænahlíð 6",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5714,7 +5714,7 @@
         },
         {
             "id": 170,
-            "address": " ",
+            "address": "Grænahlíð 8",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5742,7 +5742,7 @@
         },
         {
             "id": 171,
-            "address": " ",
+            "address": "Grænahlíð 13",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5778,7 +5778,7 @@
         },
         {
             "id": 172,
-            "address": " ",
+            "address": "Grænahlíð 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5818,7 +5818,7 @@
         },
         {
             "id": 173,
-            "address": " ",
+            "address": "Grænahlíð 20",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5846,7 +5846,7 @@
         },
         {
             "id": 174,
-            "address": " ",
+            "address": "Grænahlíð 23",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5874,7 +5874,7 @@
         },
         {
             "id": 175,
-            "address": " ",
+            "address": "Urðarvegur 46",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5902,7 +5902,7 @@
         },
         {
             "id": 176,
-            "address": " ",
+            "address": "Urðarvegur 50",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5930,7 +5930,7 @@
         },
         {
             "id": 177,
-            "address": " ",
+            "address": "Urðarvegur 52",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5958,7 +5958,7 @@
         },
         {
             "id": 178,
-            "address": " ",
+            "address": "Godthaab",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -5994,7 +5994,7 @@
         },
         {
             "id": 179,
-            "address": " ",
+            "address": "Rafstöðin",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6066,7 +6066,7 @@
         },
         {
             "id": 181,
-            "address": " ",
+            "address": "Urðarvegur 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6094,7 +6094,7 @@
         },
         {
             "id": 182,
-            "address": " ",
+            "address": "Urðarvegur 17b",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6130,7 +6130,7 @@
         },
         {
             "id": 183,
-            "address": " ",
+            "address": "Urðarvegur 8",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6158,7 +6158,7 @@
         },
         {
             "id": 184,
-            "address": " ",
+            "address": "Urðarvegur 20",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6186,7 +6186,7 @@
         },
         {
             "id": 185,
-            "address": " ",
+            "address": "Urðarvegur 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6242,7 +6242,7 @@
         },
         {
             "id": 187,
-            "address": " ",
+            "address": "Urðarvegur 24",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6270,7 +6270,7 @@
         },
         {
             "id": 188,
-            "address": " ",
+            "address": "Bakkastígur 3",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6298,7 +6298,7 @@
         },
         {
             "id": 189,
-            "address": " ",
+            "address": "Bakkastígur 9",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6326,7 +6326,7 @@
         },
         {
             "id": 190,
-            "address": " ",
+            "address": "Bakkastígur 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6362,7 +6362,7 @@
         },
         {
             "id": 191,
-            "address": " ",
+            "address": "Bakkstígur 6",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6390,7 +6390,7 @@
         },
         {
             "id": 192,
-            "address": " ",
+            "address": "Bakkastígur 7",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6434,7 +6434,7 @@
         },
         {
             "id": 193,
-            "address": " ",
+            "address": "Urðarvegur 35",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6478,7 +6478,7 @@
         },
         {
             "id": 194,
-            "address": " ",
+            "address": "Urðarvegur 39",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6514,7 +6514,7 @@
         },
         {
             "id": 195,
-            "address": " ",
+            "address": "Bakkastígur 27",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6542,7 +6542,7 @@
         },
         {
             "id": 196,
-            "address": " ",
+            "address": "Bakkastígur 29",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6614,7 +6614,7 @@
         },
         {
             "id": 198,
-            "address": " ",
+            "address": "Austurhlíð 3",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6650,7 +6650,7 @@
         },
         {
             "id": 199,
-            "address": " ",
+            "address": "Grænahlíð 22",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6686,7 +6686,7 @@
         },
         {
             "id": 200,
-            "address": " ",
+            "address": "Grænahlíð 24",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6722,7 +6722,7 @@
         },
         {
             "id": 201,
-            "address": " ",
+            "address": "Landagata 21",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6750,7 +6750,7 @@
         },
         {
             "id": 202,
-            "address": " ",
+            "address": "Landagata 25",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6786,7 +6786,7 @@
         },
         {
             "id": 203,
-            "address": " ",
+            "address": "Landagata 15b",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6814,7 +6814,7 @@
         },
         {
             "id": 204,
-            "address": " ",
+            "address": "Urðarvegur 38",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6842,7 +6842,7 @@
         },
         {
             "id": 205,
-            "address": " ",
+            "address": "Urðarvegur 41",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6870,7 +6870,7 @@
         },
         {
             "id": 206,
-            "address": " ",
+            "address": "Bakkastígur 21",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6906,7 +6906,7 @@
         },
         {
             "id": 207,
-            "address": " ",
+            "address": "Bakkastígur 17",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6934,7 +6934,7 @@
         },
         {
             "id": 208,
-            "address": " ",
+            "address": "Landagata 14",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -6970,7 +6970,7 @@
         },
         {
             "id": 209,
-            "address": " ",
+            "address": "Landagata 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7022,7 +7022,7 @@
         },
         {
             "id": 210,
-            "address": " ",
+            "address": "Bræðratunga",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7150,7 +7150,7 @@
         },
         {
             "id": 214,
-            "address": " ",
+            "address": "Urðarvegur 6",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7402,7 +7402,7 @@
         },
         {
             "id": 221,
-            "address": " ",
+            "address": "Strandvegur 13",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7434,7 +7434,7 @@
         },
         {
             "id": 222,
-            "address": " ",
+            "address": "Reykhúsið",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7470,7 +7470,7 @@
         },
         {
             "id": 223,
-            "address": " ",
+            "address": "Urðarvegur 5",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7526,7 +7526,7 @@
         },
         {
             "id": 225,
-            "address": " ",
+            "address": "Þingholt",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7554,7 +7554,7 @@
         },
         {
             "id": 226,
-            "address": " ",
+            "address": "Heimagata 15",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7582,7 +7582,7 @@
         },
         {
             "id": 227,
-            "address": " ",
+            "address": "Landagata 1",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7610,7 +7610,7 @@
         },
         {
             "id": 228,
-            "address": " ",
+            "address": "Urðarvegur 34",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7674,7 +7674,7 @@
         },
         {
             "id": 229,
-            "address": " ",
+            "address": "Urðarvegur 36",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7718,7 +7718,7 @@
         },
         {
             "id": 230,
-            "address": " ",
+            "address": "Landagata 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7770,7 +7770,7 @@
         },
         {
             "id": 231,
-            "address": " ",
+            "address": "Urðarvegur 28a",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7822,7 +7822,7 @@
         },
         {
             "id": 232,
-            "address": " ",
+            "address": "Landagata 15",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7866,7 +7866,7 @@
         },
         {
             "id": 233,
-            "address": " ",
+            "address": "Landagata 17",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7926,7 +7926,7 @@
         },
         {
             "id": 234,
-            "address": " ",
+            "address": "Landagata 23",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7954,7 +7954,7 @@
         },
         {
             "id": 235,
-            "address": " ",
+            "address": "Bakkastígur 2",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -7982,7 +7982,7 @@
         },
         {
             "id": 236,
-            "address": " ",
+            "address": "Bakkastígur 8",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8026,7 +8026,7 @@
         },
         {
             "id": 237,
-            "address": " ",
+            "address": "Landagata 4",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8070,7 +8070,7 @@
         },
         {
             "id": 238,
-            "address": " ",
+            "address": "Landagata 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8106,7 +8106,7 @@
         },
         {
             "id": 239,
-            "address": " ",
+            "address": "Landagata 20",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8142,7 +8142,7 @@
         },
         {
             "id": 240,
-            "address": " ",
+            "address": "Landagata 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8170,7 +8170,7 @@
         },
         {
             "id": 241,
-            "address": " ",
+            "address": "Austurhlíð 1",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8214,7 +8214,7 @@
         },
         {
             "id": 242,
-            "address": " ",
+            "address": "Grænahlíð 14",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8242,7 +8242,7 @@
         },
         {
             "id": 243,
-            "address": " ",
+            "address": "Grænahlíð 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8270,7 +8270,7 @@
         },
         {
             "id": 244,
-            "address": " ",
+            "address": "Austurvegur 30",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8330,7 +8330,7 @@
         },
         {
             "id": 245,
-            "address": " ",
+            "address": "Búastaðabraut 12",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8438,7 +8438,7 @@
         },
         {
             "id": 248,
-            "address": " ",
+            "address": "Jakobshús",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8486,7 +8486,7 @@
         },
         {
             "id": 249,
-            "address": " ",
+            "address": "Herjólfsbær",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8514,7 +8514,7 @@
         },
         {
             "id": 250,
-            "address": " ",
+            "address": "Tunga",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8682,7 +8682,7 @@
         },
         {
             "id": 254,
-            "address": " ",
+            "address": "Austurvegur 33",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -8930,7 +8930,7 @@
         },
         {
             "id": 261,
-            "address": " ",
+            "address": "Austurbúðin",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9030,7 +9030,7 @@
         },
         {
             "id": 264,
-            "address": " ",
+            "address": "Edinborg",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9058,7 +9058,7 @@
         },
         {
             "id": 265,
-            "address": " ",
+            "address": "Garðshorn",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9094,7 +9094,7 @@
         },
         {
             "id": 266,
-            "address": " ",
+            "address": "Vallarnes",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9146,7 +9146,7 @@
         },
         {
             "id": 267,
-            "address": " ",
+            "address": "Bjarnleifshús",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9174,7 +9174,7 @@
         },
         {
             "id": 268,
-            "address": " ",
+            "address": "Suðurvegur 16",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9210,7 +9210,7 @@
         },
         {
             "id": 269,
-            "address": " ",
+            "address": "Suðurvegur 18",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9246,7 +9246,7 @@
         },
         {
             "id": 270,
-            "address": " ",
+            "address": "Víðivellir",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9298,7 +9298,7 @@
         },
         {
             "id": 271,
-            "address": " ",
+            "address": "Suðurvegur 25",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9334,7 +9334,7 @@
         },
         {
             "id": 272,
-            "address": " ",
+            "address": "Gerðisbraut 10",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9378,7 +9378,7 @@
         },
         {
             "id": 273,
-            "address": " ",
+            "address": "Gerðisbraut 8",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9422,7 +9422,7 @@
         },
         {
             "id": 274,
-            "address": " ",
+            "address": "Bakkastígur 1",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9458,7 +9458,7 @@
         },
         {
             "id": 275,
-            "address": " ",
+            "address": "Urðarvegur 37",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9486,7 +9486,7 @@
         },
         {
             "id": 276,
-            "address": " ",
+            "address": "Búastaðabraut 11",
             "text": " ",
             "image": " ",
             "coordinates": [
@@ -9514,7 +9514,7 @@
         },
         {
             "id": 277,
-            "address": " ",
+            "address": "Kirkjubæjarbraut 19",
             "text": " ",
             "image": " ",
             "coordinates": [
