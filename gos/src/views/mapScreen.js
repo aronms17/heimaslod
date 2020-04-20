@@ -1,6 +1,8 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
+import Constants from 'expo-constants';
+import * as Location from 'expo-location';
 // import data from './src/houses.json';
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
