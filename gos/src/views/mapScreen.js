@@ -1,12 +1,14 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
-import Constants from 'expo-constants';
 import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
 // import data from './src/houses.json';
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
+import { Feather, MaterialIcons  } from '@expo/vector-icons';
+
 
 import PreviewModal from '../components/PreviewModal';
 
@@ -19,6 +21,8 @@ export default class App extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     display: false,
     houseId: 0,
+    location: null,
+    errorMessage:""
   };
 }
 
@@ -41,12 +45,34 @@ static navigationOptions = {
   poly3 = prufupoly.hus[7].coordinates;
   
 componentDidMount() {
+  this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
     display: false,
     houseId: 0,
   })
+}
+
+getLocationAsync = async () => {
+  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    this.setState({
+      errorMessage: 'Permission to access location was denied',
+    });
+  }
+
+  let location = await Location.getCurrentPositionAsync();
+  const { latitude , longitude } = location.coords
+  this.getGeocodeAsync({latitude, longitude})
+  this.setState({ location: {latitude, longitude}});
+
+};
+
+// GeoCode, þurfum ekki endilega
+getGeocodeAsync= async (location) => {
+  let geocode = await Location.reverseGeocodeAsync(location)
+  this.setState({ geocode})
 }
 
 previewHouse(id) {
@@ -62,11 +88,22 @@ navigateHouse(houseid) {
 }
 
 makeVibration() {
-  Vibration.vibrate(7);
+  Vibration.vibrate(13);
 }
 
   render() {
-    const {goturColor, husColor, display, houseId} = this.state;
+    const {goturColor, husColor, display, houseId, location, errorMessage} = this.state;
+    let textLocation = 'Waiting..';
+    if (this.state.errorMessage) {
+      textLocation = errorMessage;
+    } else if (this.state.location) {
+      textLocation = JSON.stringify(location);
+      //console.log("Location object: ", location);
+      var lat = location.latitude;
+      var lon = location.longitude;
+      //console.log("latitude: ", lat);
+      //console.log("longitude: ", lon);
+}
 
     return (
       <View style={styles.component}>
@@ -75,7 +112,7 @@ makeVibration() {
         
           style={styles.mapStyle}
           provider={"google"}
-          //customMapStyle={mapjson}
+          customMapStyle={mapjson}
           initialRegion={{
           latitude: 63.4347866,
           longitude: -20.2844343,
@@ -103,6 +140,13 @@ makeVibration() {
                 />
             ))
             }
+            
+            <Marker
+              coordinate={{latitude: 63.4349244,
+              longitude: -20.2613676}}>
+              <Text style={{color: "green"}}>Test</Text>
+              <Feather name="phone" style={styles.phoneLogoBig}/>
+           </Marker>
 
             </MapView>
 
@@ -115,6 +159,15 @@ makeVibration() {
             />
             
         </View>
+        
+        {/* Location test */}
+        <View style={styles.modalView}>
+          <Text>Þín staðsetning:</Text>
+          <Text>Latitude: {lat}</Text>
+          <Text>Longitude: {lon}</Text>
+        </View>
+
+
         <View style={styles.search}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <TextInput
@@ -180,7 +233,7 @@ const styles = StyleSheet.create({
     marginTop: 22
   },
   modalView: {
-    margin: 20,
+    margin: 10,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
