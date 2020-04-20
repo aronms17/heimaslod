@@ -4,12 +4,12 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import mapScreen from '../views/mapScreen';
 import houseDetailScreen from '../views/houseDetailScreen';
-import housePreview from '../modals/housePreview';
+import testing from '../modals/testing';
 
 const StackNavigator = createStackNavigator({
     mapScreen,
     houseDetailScreen,
-    housePreview,
+    testing,
 });
 
 

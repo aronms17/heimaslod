@@ -1,21 +1,24 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 // import data from './src/houses.json';
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
 
+import PreviewModal from '../components/PreviewModal';
+
 export default class App extends React.Component {
-constructor(props) {
+
+  constructor(props) {
   super(props);
   this.state = {
-    modalVisible: false,
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+    display: false,
+    houseId: 0,
   };
 }
-
 
 static navigationOptions = {
     title: '',
@@ -34,87 +37,52 @@ static navigationOptions = {
 }
 
   poly3 = prufupoly.hus[7].coordinates;
-
-setModalVisible = (visible) => {
-  this.setState({ modalVisible: visible });
-}
   
 componentDidMount() {
   this.setState({
     husColor: '#EC4D37',
-    goturColor: '#262630' //'#1D1B1B'
+    goturColor: '#262630', //'#1D1B1B'
+    display: false,
+    houseId: 0,
   })
 }
 
-
-previewHouse(houseid) {
-  this.setModalVisible(true);
-  console.log('Previewing house with id,', houseid);
+previewHouse(id) {
+  console.log('Previewing house with id,', id);
+  this.setState({display: true, houseId: id});
+  this.makeVibration();
 }
 
 navigateHouse(houseid) {
   this.props.navigation.navigate('houseDetailScreen', houseid);
+  this.setState({display: false});
   console.log(houseid);
 }
 
+makeVibration() {
+  Vibration.vibrate(7);
+}
+
   render() {
-    const {goturColor, husColor, modalVisible} = this.state;
+    const {goturColor, husColor, display, houseId} = this.state;
 
     return (
       <View style={styles.component}>
       <View style={styles.container}>
-
-<View style={styles.centeredView}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-          }}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-            <Text style={styles.modalText}>You clicked a house</Text>
-
-              <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                onPress={() => {
-                  this.setModalVisible(!modalVisible);
-                }}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </Modal>
-
-        <TouchableHighlight
-          style={styles.openButton}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
-        >
-          <Text style={styles.textStyle}>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-
-
-
         <MapView
         
-        style={styles.mapStyle}
-        provider={"google"}
-        customMapStyle={mapjson}
-        initialRegion={{
-        latitude: 63.4347866,
-        longitude: -20.2844343,
-        latitudeDelta: 0.095,
-        longitudeDelta: 0.0921}}>
+          style={styles.mapStyle}
+          provider={"google"}
+          //customMapStyle={mapjson}
+          initialRegion={{
+          latitude: 63.4347866,
+          longitude: -20.2844343,
+          latitudeDelta: 0.095,
+          longitudeDelta: 0.0921}}>
 
             {/* þarf að refresha til að litirnir komi */}
 
-        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
+        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
             <CustomPolygon
               key = {hus.id}
               coordinates={hus.coordinates}
@@ -133,7 +101,16 @@ navigateHouse(houseid) {
                 />
             ))
             }
+
             </MapView>
+
+            
+            <PreviewModal
+              data={houseId}
+              display={this.state.display}
+              closeDisplay={() => this.setState({display: false})}
+              goToHouse={() => this.navigateHouse(houseId)}
+            />
             
         </View>
         <View style={styles.search}>
