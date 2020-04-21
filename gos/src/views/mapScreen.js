@@ -33,7 +33,7 @@ static navigationOptions = {
     title: '',
     headerTransparent: true,
     headerStyle: {
-      backgroundColor: 'transparent',
+      // backgroundColor: 'transparent',
       elevation: 0,
       shadowOpacity: 0,
       borderBottomWidth: 0,
