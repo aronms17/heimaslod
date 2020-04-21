@@ -10,7 +10,7 @@ import CustomPolygon from '../components/CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import SideMenu from 'react-native-side-menu';
 
-
+import Splash from '../components/Splash';
 import PreviewModal from '../components/PreviewModal';
 
 export default class App extends React.Component {
@@ -22,6 +22,8 @@ export default class App extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     display: false,
     houseId: 0,
+    houseName: '',
+    houseDescription: '',
     location: null,
     errorMessage:""
   };
@@ -43,7 +45,7 @@ static navigationOptions = {
     },
 }
 
-  poly3 = prufupoly.hus[7].coordinates;
+  //poly3 = prufupoly.hus[7].coordinates;
   
 componentDidMount() {
   this.getLocationAsync();
@@ -52,6 +54,8 @@ componentDidMount() {
     goturColor: '#262630', //'#1D1B1B'
     display: false,
     houseId: 0,
+    houseName: '',
+    houseDescription: ''
   })
 }
 
@@ -76,16 +80,17 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id) {
-  console.log('Previewing house with id,', id);
-  this.setState({display: true, houseId: id});
+previewHouse(id, address, text) {
+  console.log('Previewing house with id,', id, ' and name: ', address);
+  this.setState({display: true, houseId: id, houseName: address, houseDescription: text});
   this.makeVibration();
 }
 
-navigateHouse(houseid) {
-  this.props.navigation.navigate('houseDetailScreen', houseid);
+navigateHouse(houseid, houseName, houseDescription) {
+  this.props.navigation.navigate('houseDetailScreen', {
+    houseid, houseName, houseDescription
+  });
   this.setState({display: false});
-  console.log(houseid);
 }
 
 makeVibration() {
@@ -93,7 +98,7 @@ makeVibration() {
 }
 
   render() {
-    const {goturColor, husColor, display, houseId, location, errorMessage} = this.state;
+    const {goturColor, husColor, display, houseId, houseName, houseDescription, location, errorMessage} = this.state;
     let textLocation = 'Waiting..';
     if (this.state.errorMessage) {
       textLocation = errorMessage;
@@ -119,7 +124,7 @@ makeVibration() {
           latitudeDelta: 0.095,
           longitudeDelta: 0.0921}}>
 
-            {/* þarf að refresha til að litirnir komi */}
+          {/* þarf að refresha til að litirnir komi */}
 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
               <CustomPolygon
@@ -127,7 +132,7 @@ makeVibration() {
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id)}
+                onPress={() => this.previewHouse(hus.id, hus.address, hus.text)}
               />
             ))
           }
@@ -153,19 +158,22 @@ makeVibration() {
 
             
         <PreviewModal
-          data={houseId}
+          id={houseId}
+          address={houseName}
+          description={houseDescription}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId)}
+          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription)}
         />
             
         </View>
         
         {/* Location test */}
         <View style={styles.modalView}>
-          <Text>Þín staðsetning:</Text>
-          <Text>Latitude: {lat}</Text>
-          <Text>Longitude: {lon}</Text>
+          <Text style={styles.textStyle}>Þín staðsetning:</Text>
+          <Text style={styles.textStyle}>Latitude: {lat}</Text>
+          <Text style={styles.textStyle}>Longitude: {lon}</Text>
+          <Text style={styles.textStyle}>{textLocation}</Text>
         </View>
 
 
@@ -235,18 +243,11 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 10,
-    backgroundColor: "white",
+    color: 'white',
+    backgroundColor: "#1D1B1B",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
   },
   openButton: {
     backgroundColor: "#F194FF",

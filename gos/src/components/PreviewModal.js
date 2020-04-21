@@ -8,11 +8,11 @@ const PreviewModal = (props) => (
       transparent={true}
       onRequestClose={ () => props.closeDisplay() }>
       <View style={styles.modalView}>
-          <Text style= {styles.modalText}>
-            This is house number
-          </Text>          
-          <Text style= {styles.modalText}>
-              { props.data }
+          <Text style= {styles.textStyle}>
+            This is house with id {props.id}
+          </Text>
+          <Text style={styles.textStyle}>
+            House address: {props.address}
           </Text>
 
           
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#1D1B1B",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",

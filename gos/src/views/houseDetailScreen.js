@@ -2,13 +2,13 @@ import React from 'react';
 import { Text, View, Button, StyleSheet, Dimensions } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-
-
 export default class screen2 extends React.Component {
     constructor() {
         super();
         this.state = {
           houseid: 0,
+          houseName: '',
+          houseDescription: ''
         };
     }
 
@@ -27,27 +27,21 @@ export default class screen2 extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        var houseid = navigation.state.params;
-        this.setState({houseid: houseid});
+        const { houseid } = navigation.state.params;
+        const { houseName } = navigation.state.params;
+        const { houseDescription } = navigation.state.params;
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription});
     }
 
     render() {
         return(
-            <View style={[
-                styles.container,
-                { backgroundColor: '#1D1B1B' }
-            ]}
-            >
+            <View style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <Text style={styles.tempText}>{'hús id ' + this.state.houseid}</Text>
+                    <Text style={styles.name}>{this.state.houseName}</Text>
                 </View>
-                <Button
-                onPress={() => console.log('haha' + this.state.houseid)}
-                title='press'
-                color='blue'
-                axxessibilityLabel='haha'
-                />
-
+                <View style={styles.headerContainer}>
+                    <Text style={styles.desc}>{this.state.houseDescription}</Text>
+                </View>
             </View>
         );
     }
@@ -55,15 +49,20 @@ export default class screen2 extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+        flex: 1,
+        backgroundColor: '#1D1B1B'
 	},
 	headerContainer: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	tempText: {
-		fontSize: 48,
+	name: {
+		fontSize: 40,
+		color: '#fff'
+    },
+    desc: {
+		fontSize: 22,
 		color: '#fff'
 	},
 	bodyContainer: {
