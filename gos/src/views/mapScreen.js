@@ -8,6 +8,7 @@ import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import SideMenu from 'react-native-side-menu';
 
 
 import PreviewModal from '../components/PreviewModal';
@@ -88,7 +89,7 @@ navigateHouse(houseid) {
 }
 
 makeVibration() {
-  Vibration.vibrate(13);
+  Vibration.vibrate(7);
 }
 
   render() {
@@ -109,7 +110,6 @@ makeVibration() {
       <View style={styles.component}>
       <View style={styles.container}>
         <MapView
-        
           style={styles.mapStyle}
           provider={"google"}
           customMapStyle={mapjson}
@@ -121,42 +121,43 @@ makeVibration() {
 
             {/* þarf að refresha til að litirnir komi */}
 
-        {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
-            <CustomPolygon
-              key = {hus.id}
-              coordinates={hus.coordinates}
-              fillColor={husColor}
-              tappable={true}
-              onPress={() => this.previewHouse(hus.id)}
-            />
-        ))
-        }
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
+              <CustomPolygon
+                key = {hus.id}
+                coordinates={hus.coordinates}
+                fillColor={husColor}
+                tappable={true}
+                onPress={() => this.previewHouse(hus.id)}
+              />
+            ))
+          }
 
-            {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index) => (
-                <CustomPolygon
+          {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index) => (
+              <CustomPolygon
                 key = {gata.id}
                 coordinates={gata.coordinates}
                 fillColor={goturColor}
-                />
+              />
             ))
-            }
+          }
             
-            <Marker
-              coordinate={{latitude: 63.4349244,
-              longitude: -20.2613676}}>
-              <Text style={{color: "green"}}>Test</Text>
-              <Feather name="phone" style={styles.phoneLogoBig}/>
-           </Marker>
+            {/* Test marker með icon */}
+              <Marker
+                coordinate={{latitude: 63.4349244,
+                longitude: -20.2613676}}>
+                <Text style={{color: "green"}}>Test</Text>
+                <Feather name="phone" style={styles.phoneLogoBig}/>
+              </Marker>
 
-            </MapView>
+        </MapView>
 
             
-            <PreviewModal
-              data={houseId}
-              display={this.state.display}
-              closeDisplay={() => this.setState({display: false})}
-              goToHouse={() => this.navigateHouse(houseId)}
-            />
+        <PreviewModal
+          data={houseId}
+          display={this.state.display}
+          closeDisplay={() => this.setState({display: false})}
+          goToHouse={() => this.navigateHouse(houseId)}
+        />
             
         </View>
         

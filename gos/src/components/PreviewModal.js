@@ -1,5 +1,3 @@
-// DisplayModal.js
-
 import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight } from 'react-native';
 

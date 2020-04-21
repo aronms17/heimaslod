@@ -14,7 +14,7 @@ export default class screen2 extends React.Component {
 
     static navigationOptions = {
         headerStyle: {
-          backgroundColor: 'blue',
+          backgroundColor: '#1D1B1B',
           elevation: 0,
           shadowOpacity: 0,
           borderBottomWidth: 0,
@@ -33,8 +33,14 @@ export default class screen2 extends React.Component {
 
     render() {
         return(
-            <View>
-                <Text>{'hús id ' + this.state.houseid}</Text>
+            <View style={[
+                styles.container,
+                { backgroundColor: '#1D1B1B' }
+            ]}
+            >
+                <View style={styles.headerContainer}>
+                    <Text style={styles.tempText}>{'hús id ' + this.state.houseid}</Text>
+                </View>
                 <Button
                 onPress={() => console.log('haha' + this.state.houseid)}
                 title='press'
@@ -46,3 +52,33 @@ export default class screen2 extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1
+	},
+	headerContainer: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	tempText: {
+		fontSize: 48,
+		color: '#fff'
+	},
+	bodyContainer: {
+		flex: 2,
+		alignItems: 'flex-start',
+		justifyContent: 'flex-end',
+		paddingLeft: 25,
+		marginBottom: 40
+	},
+	title: {
+		fontSize: 48,
+		color: '#fff'
+	},
+	subtitle: {
+		fontSize: 24,
+		color: '#fff'
+	}
+});
