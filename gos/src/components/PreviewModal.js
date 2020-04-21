@@ -1,5 +1,3 @@
-// DisplayModal.js
-
 import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight } from 'react-native';
 
@@ -8,7 +6,7 @@ const PreviewModal = (props) => (
       visible={props.display}
       animationType="fade" 
       transparent={true}
-      onRequestClose={ () => console.log('closed') }>
+      onRequestClose={ () => props.closeDisplay() }>
       <View style={styles.modalView}>
           <Text style= {styles.modalText}>
             This is house number
