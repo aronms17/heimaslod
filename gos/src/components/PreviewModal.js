@@ -6,6 +6,7 @@ const PreviewModal = (props) => (
       visible={props.display}
       animationType="fade" 
       transparent={true}
+      onBackdropPress={() => props.closeDisplay() }
       onRequestClose={ () => props.closeDisplay() }>
       <View style={styles.modalView}>
           <Text style={styles.textStyle}>
