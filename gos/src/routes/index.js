@@ -6,8 +6,18 @@ import mapScreen from '../views/mapScreen';
 import houseDetailScreen from '../views/houseDetailScreen';
 
 const StackNavigator = createStackNavigator({
-    mapScreen,
-    houseDetailScreen,
+    mapScreen: {
+        screen: mapScreen,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    houseDetailScreen: {
+        screen: houseDetailScreen,
+        navigationOptions: {
+            headerShown: false
+        }
+    }
 });
 
 

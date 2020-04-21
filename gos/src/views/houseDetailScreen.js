@@ -14,16 +14,7 @@ export default class screen2 extends React.Component {
     }
 
     static navigationOptions = {
-        headerStyle: {
-          backgroundColor: '#1D1B1B',
-          elevation: 0,
-          shadowOpacity: 0,
-          borderBottomWidth: 0,
-        },
-        headerTintColor: '#fff',
-          headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
     }
 
     componentDidMount() {
@@ -47,9 +38,9 @@ export default class screen2 extends React.Component {
                         pageMargin={10}
                         images={[
                           { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } },
+                          { source: { uri: 'http://heimaslod.is/images/d/d1/Graenahlid4.jpg' } },
                           { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } },
-                          { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } },
-                          { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } }
+                          { source: { uri: 'http://heimaslod.is/images/d/d1/Graenahlid4.jpg' } }
                         ]}
                     />
                 
@@ -84,7 +75,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	name: {
-		fontSize: 40,
+        fontSize: 38,
+        fontWeight: 'bold',
 		color: '#fff'
     },
     desc: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 // import data from './src/houses.json';
@@ -29,21 +29,22 @@ export default class App extends React.Component {
   };
 }
 
-static navigationOptions = {
-    title: '',
-    headerTransparent: true,
-    headerStyle: {
-      // backgroundColor: 'transparent',
-      elevation: 0,
-      shadowOpacity: 0,
-      borderBottomWidth: 0,
-    //   height: 40,
-    },
-    headerTintColor: 'red',
-      headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-}
+
+//static navigationOptions = {
+//    title: '',
+//    headerTransparent: true,
+//    headerStyle: {
+//      // backgroundColor: 'transparent',
+//      elevation: 0,
+//      shadowOpacity: 0,
+//      borderBottomWidth: 0,
+//    //   height: 40,
+//    },
+//    headerTintColor: 'red',
+//      headerTitleStyle: {
+//      fontWeight: 'bold',
+//    },
+//}
 
   //poly3 = prufupoly.hus[7].coordinates;
   
@@ -98,6 +99,8 @@ makeVibration() {
 }
 
   render() {
+    
+    var _mapView: MapView;
     const {goturColor, husColor, display, houseId, houseName, houseDescription, location, errorMessage} = this.state;
     let textLocation = 'Waiting..';
     if (this.state.errorMessage) {
@@ -105,8 +108,8 @@ makeVibration() {
     } else if (this.state.location) {
       textLocation = JSON.stringify(location);
       //console.log("Location object: ", location);
-      var lat = location.latitude;
-      var lon = location.longitude;
+      var lat = Number(location.latitude);
+      var lon = Number(location.longitude);
       //console.log("latitude: ", lat);
       //console.log("longitude: ", lon);
 }
@@ -115,6 +118,9 @@ makeVibration() {
       <View style={styles.component}>
       <View style={styles.container}>
         <MapView
+          showsUserLocation={true}
+          minZoomLevel={12}
+          loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
           customMapStyle={mapjson}
@@ -188,7 +194,6 @@ makeVibration() {
             onChangeText={value => console.log(value)}
             />
           </TouchableWithoutFeedback>
-
 
         </View>
       </View>

@@ -12,16 +12,17 @@ const PreviewModal = (props) => (
           <Text style={styles.textStyle}>
             {props.address}
           </Text>
-          
-          <Button 
-              title="Go to house"
+        <View style={{}}>
+          <Button
+              title="Sjá meira"
               color="green"
               onPress = { () => props.goToHouse() }/>
 
           <Button 
-              title="close" 
+              title="Loka"
               onPress = { () => props.closeDisplay() }
               color="red"/>
+        </View>
       </View>
     </Modal>
     
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
   },
   openButton: {
     backgroundColor: "#F194FF",
