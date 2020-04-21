@@ -169,12 +169,14 @@ makeVibration() {
         </View>
         
         {/* Location test */}
+        {/* 
         <View style={styles.modalView}>
           <Text style={styles.textStyle}>Þín staðsetning:</Text>
           <Text style={styles.textStyle}>Latitude: {lat}</Text>
           <Text style={styles.textStyle}>Longitude: {lon}</Text>
           <Text style={styles.textStyle}>{textLocation}</Text>
         </View>
+        */}
 
 
         <View style={styles.search}>

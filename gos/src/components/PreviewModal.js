@@ -8,13 +8,9 @@ const PreviewModal = (props) => (
       transparent={true}
       onRequestClose={ () => props.closeDisplay() }>
       <View style={styles.modalView}>
-          <Text style= {styles.textStyle}>
-            This is house with id {props.id}
-          </Text>
           <Text style={styles.textStyle}>
-            House address: {props.address}
+            {props.address}
           </Text>
-
           
           <Button 
               title="Go to house"
@@ -42,7 +38,7 @@ const styles = StyleSheet.create({
     marginTop: 22
   },
   modalView: {
-    margin: 20,
+    margin: 80,
     backgroundColor: "#1D1B1B",
     borderRadius: 20,
     padding: 35,
@@ -65,7 +61,8 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 24,
   },
   modalText: {
     marginBottom: 15,
