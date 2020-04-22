@@ -9,7 +9,8 @@ export default class screen2 extends React.Component {
         this.state = {
           houseid: 0,
           houseName: '',
-          houseDescription: ''
+          houseDescription: '',
+          houseImages: '',
         };
     }
 
@@ -22,41 +23,44 @@ export default class screen2 extends React.Component {
         const { houseid } = navigation.state.params;
         const { houseName } = navigation.state.params;
         const { houseDescription } = navigation.state.params;
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription});
+        const { houseImages } = navigation.state.params;
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages});
     }
 
     render() {
+        const{houseName, houseDescription, houseImages} = this.state;
+        const arrHouse = Array.from(houseImages);
+
         return(
-            
             <View style={styles.container}>
-                
                 <View style={styles.headerContainer}>
-                    <Text style={styles.name}>{this.state.houseName}</Text>
+                    <Text style={styles.name}>{houseName}</Text>
                 </View>
+
+                {arrHouse.map((element) => (
+                <Gallery
+                    style={{ flex: 1, backgroundColor: '#1D1B1B' }}
+                    pageMargin={10}
+                    images={[
+                        { source: { uri: element } }
+                      ]}
+                />
+                    ))
+                }
+
+                {/* 
+                {arrHouse.map((element) => (
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
-                        images={[
-                          { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } },
-                          { source: { uri: 'http://heimaslod.is/images/d/d1/Graenahlid4.jpg' } },
-                          { source: { uri: 'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg' } },
-                          { source: { uri: 'http://heimaslod.is/images/d/d1/Graenahlid4.jpg' } }
-                        ]}
+                        images={arrHouse[element]}
                     />
-                
-                {/* 
-                <View style={styles.subtitle}>
-                    <Image
-                            source={{
-                              uri:
-                                'http://heimaslod.is/images/6/6f/L%C3%ADfeyrissj%C3%B3%C3%B0ur.jpg',
-                            }}
-                            style={{ width: 350, height: 200, margin: 16 }}
-                    />
-                </View>
+                    ))
+                }
                 */}
+
                 <View style={styles.bodyContainer}>
-                    <Text style={styles.desc}>{this.state.houseDescription}</Text>
+                    <Text style={styles.desc}>{houseDescription}</Text>
                 </View>
 
             </View>
@@ -82,6 +86,10 @@ const styles = StyleSheet.create({
     desc: {
 		fontSize: 18,
 		color: '#fff'
+    },
+    desc2: {
+		fontSize: 12,
+		color: 'blue',
 	},
 	bodyContainer: {
 		flex: 2,

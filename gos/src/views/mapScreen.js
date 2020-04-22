@@ -24,6 +24,7 @@ export default class App extends React.Component {
     houseId: 0,
     houseName: '',
     houseDescription: '',
+    houseImages: '',
     location: null,
     errorMessage:""
   };
@@ -56,7 +57,8 @@ componentDidMount() {
     display: false,
     houseId: 0,
     houseName: '',
-    houseDescription: ''
+    houseDescription: '',
+    houseImages: '',
   })
 }
 
@@ -81,15 +83,15 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id, address, text) {
-  console.log('Previewing house with id,', id, ' and name: ', address);
-  this.setState({display: true, houseId: id, houseName: address, houseDescription: text});
+previewHouse(id, address, text, images) {
+  //console.log('Previewing house with id,', id, ' and name: ', address);
+  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
   this.makeVibration();
 }
 
-navigateHouse(houseid, houseName, houseDescription) {
+navigateHouse(houseid, houseName, houseDescription, houseImages) {
   this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription
+    houseid, houseName, houseDescription, houseImages
   });
   this.setState({display: false});
 }
@@ -101,7 +103,7 @@ makeVibration() {
   render() {
     
     var _mapView: MapView;
-    const {goturColor, husColor, display, houseId, houseName, houseDescription, location, errorMessage} = this.state;
+    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, location, errorMessage} = this.state;
     let textLocation = 'Waiting..';
     if (this.state.errorMessage) {
       textLocation = errorMessage;
@@ -132,13 +134,13 @@ makeVibration() {
 
           {/* þarf að refresha til að litirnir komi */}
 
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
               <CustomPolygon
                 key = {hus.id}
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id, hus.address, hus.text)}
+                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images)}
               />
             ))
           }
@@ -167,9 +169,10 @@ makeVibration() {
           id={houseId}
           address={houseName}
           description={houseDescription}
+          images={houseImages}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription)}
+          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages)}
         />
             
         </View>
