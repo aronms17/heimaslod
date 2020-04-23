@@ -136,7 +136,8 @@ makeVibration() {
               <Marker
                 coordinate={{latitude: 63.4352606, 
                 longitude: -20.2615806}}
-              >
+
+                >
                   <Text style={{color: 'black'}}>Gerðisbraut</Text>
               </Marker>
 
@@ -158,7 +159,7 @@ makeVibration() {
         {/* mappið er með sér view style sem setur það á bakvið componentana  */}
         {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
         box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
-        <View style={styles.components}>
+        <View pointerEvents="box-none" style={styles.components}>
 
           {/* Location test
           <View style={styles.modalView}>
