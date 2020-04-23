@@ -182,16 +182,14 @@ makeVibration() {
         {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
         box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
         <View pointerEvents="box-none" style={styles.components}>
-
-          {/* Location test
+          Location test
           <View style={styles.modalView}>
             <Text>Þín staðsetning:</Text>
             <Text>Latitude: {lat}</Text>
             <Text>Longitude: {lon}</Text>
-          </View> */}
+          </View>
 
           <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
-
         </View>
 
       </>
