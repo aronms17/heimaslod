@@ -9,6 +9,7 @@ import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import SideMenu from 'react-native-side-menu';
+import SearchBar from '../components/SearchBar';
 
 
 import PreviewModal from '../components/PreviewModal';
@@ -107,8 +108,8 @@ makeVibration() {
 }
 
     return (
-      <View style={styles.component}>
-      <View style={styles.container}>
+      <>
+      <View style={styles.map}>
         <MapView
           style={styles.mapStyle}
           provider={"google"}
@@ -118,8 +119,6 @@ makeVibration() {
           longitude: -20.2844343,
           latitudeDelta: 0.095,
           longitudeDelta: 0.0921}}>
-
-            {/* þarf að refresha til að litirnir komi */}
 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
               <CustomPolygon
@@ -150,80 +149,77 @@ makeVibration() {
               </Marker>
 
         </MapView>
-
-            
+        
         <PreviewModal
           data={houseId}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
           goToHouse={() => this.navigateHouse(houseId)}
         />
+
+        </View>
             
-        </View>
-        
-        {/* Location test */}
-        <View style={styles.modalView}>
-          <Text>Þín staðsetning:</Text>
-          <Text>Latitude: {lat}</Text>
-          <Text>Longitude: {lon}</Text>
-        </View>
+        {/* componentar á main síðunni fá sér style með flex */}
+        <View pointerEvents="box-none" style={styles.components}>
 
 
-        <View style={styles.search}>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-            <TextInput
-            placeholder="Search"
-            placeholderTextColor="#dddddd"
-            style={ styles.searchInput }
-            onChangeText={value => console.log(value)}
-            />
-          </TouchableWithoutFeedback>
+          {/* Location test */}
+          <View style={styles.modalView}>
+            <Text>Þín staðsetning:</Text>
+            <Text>Latitude: {lat}</Text>
+            <Text>Longitude: {lon}</Text>
+          </View>
+
+
+          <SearchBar preview={houseId => this.previewHouse(houseId)}/>
 
 
         </View>
-      </View>
+
+      </>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  map: {
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
-  search: {
-      flex: 1,
-      height: 90, 
-      width: Dimensions.get('window').width, 
-      backgroundColor: 'rgba(38, 38, 48, 0.5)', 
-      position: 'absolute',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      borderRadius:10,
-  },
-  searchInput: {
-    backgroundColor: 'white',
-    height: 35,
-    width: Dimensions.get('window').width - 30,
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 15,
-    fontSize: 28,
-    padding: 10,
-    color: 'black',
-    borderRadius: 10,
-    fontSize: 15,
-    // borderBottomWidth: 2,
-    // borderBottomColor: 'blue'
-  },
-  component: {
-      flex:1,
-      flexDirection: 'column-reverse',
+  // search: {
+  //     flex: 1,
+  //     height: 90, 
+  //     width: Dimensions.get('window').width, 
+  //     backgroundColor: 'rgba(38, 38, 48, 0.5)', 
+  //     position: 'absolute',
+  //     flexDirection: 'row',
+  //     justifyContent: 'center',
+  //     borderRadius:10,
+  // },
+  // searchInput: {
+  //   backgroundColor: 'white',
+  //   height: 35,
+  //   width: Dimensions.get('window').width - 30,
+  //   marginLeft: 15,
+  //   marginRight: 15,
+  //   marginTop: 15,
+  //   fontSize: 28,
+  //   padding: 10,
+  //   color: 'black',
+  //   borderRadius: 10,
+  //   fontSize: 15,
+  //   // borderBottomWidth: 2,
+  //   // borderBottomColor: 'blue'
+  // },
+  components: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    flexDirection: 'column',
+    justifyContent: "space-between",
 
   },
   mapStyle: {
+    position: 'absolute',
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
