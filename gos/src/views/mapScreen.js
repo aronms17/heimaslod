@@ -8,9 +8,7 @@ import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
-import SideMenu from 'react-native-side-menu';
 
-import Splash from '../components/Splash';
 import PreviewModal from '../components/PreviewModal';
 
 export default class App extends React.Component {
@@ -101,9 +99,10 @@ makeVibration() {
 }
 
   render() {
-    
-    var _mapView: MapView;
+  
     const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, location, errorMessage} = this.state;
+    
+    {/* Location brask */}
     let textLocation = 'Waiting..';
     if (this.state.errorMessage) {
       textLocation = errorMessage;
@@ -120,8 +119,8 @@ makeVibration() {
       <View style={styles.component}>
       <View style={styles.container}>
         <MapView
-          showsUserLocation={true}
-          minZoomLevel={12}
+          showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
+          minZoomLevel={12} 
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
@@ -133,7 +132,7 @@ makeVibration() {
           longitudeDelta: 0.0921}}>
 
           {/* þarf að refresha til að litirnir komi */}
-
+          {/* Polygonarnir */}
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
               <CustomPolygon
                 key = {hus.id}
