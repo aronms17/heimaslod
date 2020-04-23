@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, Button, StyleSheet, Dimensions, Image } from 'react-native';
-import { withNavigation, SafeAreaView } from 'react-navigation';
+import { Text, View, Button, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 export default class screen2 extends React.Component {
@@ -30,37 +29,33 @@ export default class screen2 extends React.Component {
     render() {
         const{houseName, houseDescription, houseImages} = this.state;
         const arrHouse = Array.from(houseImages);
+        console.log("Fjöldi stafa: ", houseDescription.length)
 
         return(
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
                     <Text style={styles.name}>{houseName}</Text>
                 </View>
+                {/*  */}
 
-                {arrHouse.map((element) => (
-                <Gallery
-                    style={{ flex: 1, backgroundColor: '#1D1B1B' }}
-                    pageMargin={10}
-                    images={[
-                        { source: { uri: element } }
-                      ]}
-                />
-                    ))
-                }
-
-                {/* 
-                {arrHouse.map((element) => (
+                <View style={styles.container}>
+                    {/* Rétt map aðferð á propsið núna */}
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
-                        images={arrHouse[element]}
+                        images={
+                            arrHouse.map((element) => (
+                                { source: { uri: element } }
+                            ))
+                        }
                     />
-                    ))
-                }
-                */}
 
-                <View style={styles.bodyContainer}>
+                </View>
+                
+                <View style={styles.container}>
+                <ScrollView>
                     <Text style={styles.desc}>{houseDescription}</Text>
+                </ScrollView>
                 </View>
 
             </View>
@@ -71,7 +66,8 @@ export default class screen2 extends React.Component {
 const styles = StyleSheet.create({
 	container: {
         flex: 1,
-        backgroundColor: '#1D1B1B'
+        backgroundColor: '#1D1B1B',
+        
 	},
 	headerContainer: {
 		flex: 1,
@@ -84,17 +80,19 @@ const styles = StyleSheet.create({
 		color: '#fff'
     },
     desc: {
-		fontSize: 18,
-		color: '#fff'
+		fontSize: 16,
+        color: '#fff',
+        flex:1,
+        flexWrap: 'wrap'
     },
     desc2: {
 		fontSize: 12,
 		color: 'blue',
 	},
 	bodyContainer: {
-		flex: 2,
+		flex: 4,
 		alignItems: 'center',
-		justifyContent: 'center',
+        justifyContent: 'center',
 		paddingLeft: 15,
         marginBottom: 40,
 	},
