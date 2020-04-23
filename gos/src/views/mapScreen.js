@@ -125,7 +125,7 @@ makeVibration() {
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
-          customMapStyle={mapjson}
+          //customMapStyle={mapjson}
           initialRegion={{
           latitude: 63.4347866,
           longitude: -20.2844343,
@@ -156,10 +156,11 @@ makeVibration() {
             
             {/* Test marker með icon */}
               <Marker
-                coordinate={{latitude: 63.4349244,
-                longitude: -20.2613676}}>
-                <Text style={{color: "green"}}>Test</Text>
-                <Feather name="phone" style={styles.phoneLogoBig}/>
+                coordinate={{latitude: 63.4352606, 
+                longitude: -20.2615806}}
+                rezi
+                >
+                  <Text style={{color: 'black'}}>Gerðisbraut</Text>
               </Marker>
 
         </MapView>
