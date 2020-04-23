@@ -96,14 +96,14 @@ makeVibration() {
 
     return (
       <>
-      <View style={styles.map}>
+      <View>
         <MapView
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           minZoomLevel={12} 
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
-          //customMapStyle={mapjson}
+          customMapStyle={mapjson}
           initialRegion={{
           latitude: 63.4347866,
           longitude: -20.2844343,
@@ -153,13 +153,15 @@ makeVibration() {
           goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages)}
         />
 
+        
+
         </View>
             
         {/* componentar á main síðunni fá sér view style með flex */}
         {/* mappið er með sér view style sem setur það á bakvið componentana  */}
         {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
         box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
-        <View pointerEvents="box-none" style={styles.components}>
+        
           
           {/* Location test */}
           {/* 
@@ -169,8 +171,11 @@ makeVibration() {
             <Text>Longitude: {lon}</Text>
           </View>
           */}
+
+        <View pointerEvents="box-none" style={styles.components}>
           <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
         </View>
+          
 
       </>
     );
@@ -179,8 +184,7 @@ makeVibration() {
 
 const styles = StyleSheet.create({
   map: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#fff'
   },
   // search: {
   //     flex: 1,
