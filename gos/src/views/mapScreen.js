@@ -29,25 +29,6 @@ export default class App extends React.Component {
   };
 }
 
-
-//static navigationOptions = {
-//    title: '',
-//    headerTransparent: true,
-//    headerStyle: {
-//      // backgroundColor: 'transparent',
-//      elevation: 0,
-//      shadowOpacity: 0,
-//      borderBottomWidth: 0,
-//    //   height: 40,
-//    },
-//    headerTintColor: 'red',
-//      headerTitleStyle: {
-//      fontWeight: 'bold',
-//    },
-//}
-
-  //poly3 = prufupoly.hus[7].coordinates;
-  
 componentDidMount() {
   this.getLocationAsync();
   this.setState({
@@ -109,11 +90,8 @@ makeVibration() {
       textLocation = errorMessage;
     } else if (this.state.location) {
       textLocation = JSON.stringify(location);
-      //console.log("Location object: ", location);
       var lat = Number(location.latitude);
       var lon = Number(location.longitude);
-      //console.log("latitude: ", lat);
-      //console.log("longitude: ", lon);
 }
 
     return (
@@ -158,8 +136,7 @@ makeVibration() {
               <Marker
                 coordinate={{latitude: 63.4352606, 
                 longitude: -20.2615806}}
-                rezi
-                >
+              >
                   <Text style={{color: 'black'}}>Gerðisbraut</Text>
               </Marker>
 
@@ -182,7 +159,8 @@ makeVibration() {
         {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
         box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
         <View pointerEvents="box-none" style={styles.components}>
-          Location test
+          
+          {/* Location test */}
           <View style={styles.modalView}>
             <Text>Þín staðsetning:</Text>
             <Text>Latitude: {lat}</Text>
