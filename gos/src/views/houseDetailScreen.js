@@ -1,52 +1,62 @@
 import React from 'react';
-import { Text, View, Button, StyleSheet, Dimensions } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { Text, View, Button, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-
-
+import Gallery from 'react-native-image-gallery';
 export default class screen2 extends React.Component {
     constructor() {
         super();
         this.state = {
           houseid: 0,
+          houseName: '',
+          houseDescription: '',
+          houseImages: '',
         };
     }
 
     static navigationOptions = {
-        headerStyle: {
-          backgroundColor: '#1D1B1B',
-          elevation: 0,
-          shadowOpacity: 0,
-          borderBottomWidth: 0,
-        },
-        headerTintColor: '#fff',
-          headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
     }
 
     componentDidMount() {
         const { navigation } = this.props;
-        var houseid = navigation.state.params;
-        this.setState({houseid: houseid});
+        const { houseid } = navigation.state.params;
+        const { houseName } = navigation.state.params;
+        const { houseDescription } = navigation.state.params;
+        const { houseImages } = navigation.state.params;
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages});
     }
 
     render() {
+        const{houseName, houseDescription, houseImages} = this.state;
+        const arrHouse = Array.from(houseImages);
+        console.log("Fjöldi stafa: ", houseDescription.length)
+
         return(
-            <View style={[
-                styles.container,
-                { backgroundColor: '#1D1B1B' }
-            ]}
-            >
+            <View style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <Text style={styles.tempText}>{'hús id ' + this.state.houseid}</Text>
+                    <Text style={styles.name}>{houseName}</Text>
                 </View>
-                <Button
-                onPress={() => console.log('haha' + this.state.houseid)}
-                title='press'
-                color='blue'
-                axxessibilityLabel='haha'
-                />
+                {/*  */}
+
+                <View style={styles.container}>
+                    {/* Rétt map aðferð á propsið núna */}
+                    <Gallery
+                        style={{ flex: 1, backgroundColor: '#1D1B1B' }}
+                        pageMargin={10}
+                        images={
+                            arrHouse.map((element) => (
+                                { source: { uri: element } }
+                            ))
+                        }
+                    />
+
+                </View>
+                
+                <View style={styles.container}>
+                <ScrollView>
+                    <Text style={styles.desc}>{houseDescription}</Text>
+                </ScrollView>
+                </View>
 
             </View>
         );
@@ -55,30 +65,39 @@ export default class screen2 extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1
+        flex: 1,
+        backgroundColor: '#1D1B1B',
+        
 	},
 	headerContainer: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	tempText: {
-		fontSize: 48,
+	name: {
+        fontSize: 38,
+        fontWeight: 'bold',
 		color: '#fff'
+    },
+    desc: {
+		fontSize: 16,
+        color: '#fff',
+        flex:1,
+        flexWrap: 'wrap'
+    },
+    desc2: {
+		fontSize: 12,
+		color: 'blue',
 	},
 	bodyContainer: {
-		flex: 2,
-		alignItems: 'flex-start',
-		justifyContent: 'flex-end',
-		paddingLeft: 25,
-		marginBottom: 40
+		flex: 4,
+		alignItems: 'center',
+        justifyContent: 'center',
+		paddingLeft: 15,
+        marginBottom: 40,
 	},
 	title: {
 		fontSize: 48,
 		color: '#fff'
 	},
-	subtitle: {
-		fontSize: 24,
-		color: '#fff'
-	}
 });

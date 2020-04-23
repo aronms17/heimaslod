@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableHighlight, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
+import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 // import data from './src/houses.json';
@@ -8,11 +8,9 @@ import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
-import SideMenu from 'react-native-side-menu';
-import SearchBar from '../components/SearchBar';
-
 
 import PreviewModal from '../components/PreviewModal';
+import SearchBar from './../components/SearchBar';
 
 export default class App extends React.Component {
 
@@ -23,28 +21,32 @@ export default class App extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     display: false,
     houseId: 0,
+    houseName: '',
+    houseDescription: '',
+    houseImages: '',
     location: null,
     errorMessage:""
   };
 }
 
-static navigationOptions = {
-    title: '',
-    headerTransparent: true,
-    headerStyle: {
-      // backgroundColor: 'transparent',
-      elevation: 0,
-      shadowOpacity: 0,
-      borderBottomWidth: 0,
-    //   height: 40,
-    },
-    headerTintColor: 'red',
-      headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-}
 
-  poly3 = prufupoly.hus[7].coordinates;
+//static navigationOptions = {
+//    title: '',
+//    headerTransparent: true,
+//    headerStyle: {
+//      // backgroundColor: 'transparent',
+//      elevation: 0,
+//      shadowOpacity: 0,
+//      borderBottomWidth: 0,
+//    //   height: 40,
+//    },
+//    headerTintColor: 'red',
+//      headerTitleStyle: {
+//      fontWeight: 'bold',
+//    },
+//}
+
+  //poly3 = prufupoly.hus[7].coordinates;
   
 componentDidMount() {
   this.getLocationAsync();
@@ -53,6 +55,9 @@ componentDidMount() {
     goturColor: '#262630', //'#1D1B1B'
     display: false,
     houseId: 0,
+    houseName: '',
+    houseDescription: '',
+    houseImages: '',
   })
 }
 
@@ -77,16 +82,17 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id) {
-  console.log('Previewing house with id,', id);
-  this.setState({display: true, houseId: id});
+previewHouse(id, address, text, images) {
+  //console.log('Previewing house with id,', id, ' and name: ', address);
+  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
   this.makeVibration();
 }
 
-navigateHouse(houseid) {
-  this.props.navigation.navigate('houseDetailScreen', houseid);
+navigateHouse(houseid, houseName, houseDescription, houseImages) {
+  this.props.navigation.navigate('houseDetailScreen', {
+    houseid, houseName, houseDescription, houseImages
+  });
   this.setState({display: false});
-  console.log(houseid);
 }
 
 makeVibration() {
@@ -94,15 +100,18 @@ makeVibration() {
 }
 
   render() {
-    const {goturColor, husColor, display, houseId, location, errorMessage} = this.state;
+  
+    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, location, errorMessage} = this.state;
+    
+    {/* Location brask */}
     let textLocation = 'Waiting..';
     if (this.state.errorMessage) {
       textLocation = errorMessage;
     } else if (this.state.location) {
       textLocation = JSON.stringify(location);
       //console.log("Location object: ", location);
-      var lat = location.latitude;
-      var lon = location.longitude;
+      var lat = Number(location.latitude);
+      var lon = Number(location.longitude);
       //console.log("latitude: ", lat);
       //console.log("longitude: ", lon);
 }
@@ -111,6 +120,9 @@ makeVibration() {
       <>
       <View style={styles.map}>
         <MapView
+          showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
+          minZoomLevel={12} 
+          loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
           customMapStyle={mapjson}
@@ -120,13 +132,15 @@ makeVibration() {
           latitudeDelta: 0.095,
           longitudeDelta: 0.0921}}>
 
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index, houseid) => (
+          {/* þarf að refresha til að litirnir komi */}
+          {/* Polygonarnir */}
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
               <CustomPolygon
                 key = {hus.id}
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id)}
+                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images)}
               />
             ))
           }
@@ -151,28 +165,31 @@ makeVibration() {
         </MapView>
         
         <PreviewModal
-          data={houseId}
+          id={houseId}
+          address={houseName}
+          description={houseDescription}
+          images={houseImages}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId)}
+          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages)}
         />
 
         </View>
             
-        {/* componentar á main síðunni fá sér style með flex */}
+        {/* componentar á main síðunni fá sér view style með flex */}
+        {/* mappið er með sér view style sem setur það á bakvið componentana  */}
+        {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
+        box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
         <View pointerEvents="box-none" style={styles.components}>
 
-
-          {/* Location test */}
+          {/* Location test
           <View style={styles.modalView}>
             <Text>Þín staðsetning:</Text>
             <Text>Latitude: {lat}</Text>
             <Text>Longitude: {lon}</Text>
-          </View>
+          </View> */}
 
-
-          <SearchBar preview={houseId => this.previewHouse(houseId)}/>
-
+          <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
 
         </View>
 
@@ -215,7 +232,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
     flexDirection: 'column',
-    justifyContent: "space-between",
+    justifyContent: 'flex-end',
 
   },
   mapStyle: {
@@ -231,18 +248,11 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 10,
-    backgroundColor: "white",
+    color: 'white',
+    backgroundColor: "#1D1B1B",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
   },
   openButton: {
     backgroundColor: "#F194FF",
