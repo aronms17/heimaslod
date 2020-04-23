@@ -162,12 +162,13 @@ makeVibration() {
         <View pointerEvents="box-none" style={styles.components}>
           
           {/* Location test */}
+          {/* 
           <View style={styles.modalView}>
             <Text>Þín staðsetning:</Text>
             <Text>Latitude: {lat}</Text>
             <Text>Longitude: {lon}</Text>
           </View>
-
+          */}
           <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
         </View>
 
