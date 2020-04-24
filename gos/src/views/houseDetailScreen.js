@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Button, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
+import CustomPolygon from '../components/CustomPolygon';
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -10,6 +11,7 @@ export default class screen2 extends React.Component {
           houseName: '',
           houseDescription: '',
           houseImages: '',
+          houseCoordinates: [],
         };
     }
 
@@ -23,11 +25,12 @@ export default class screen2 extends React.Component {
         const { houseName } = navigation.state.params;
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages});
+        const { houseCoordinates } = navigation.state.params;
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates});
     }
 
     render() {
-        const{houseName, houseDescription, houseImages} = this.state;
+        const{houseName, houseDescription, houseImages, houseCoordinates} = this.state;
         const arrHouse = Array.from(houseImages);
         console.log("Fjöldi stafa: ", houseDescription.length)
 
@@ -68,6 +71,11 @@ export default class screen2 extends React.Component {
                           longitude: -20.2844343,
                           latitudeDelta: 0.095,
                           longitudeDelta: 0.0921}}>
+
+                        <CustomPolygon
+                            coordinates={houseCoordinates}
+                            fillColor="#262630"
+                        />
                         
                     </MapView>
                     </View>

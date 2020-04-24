@@ -23,6 +23,7 @@ export default class App extends React.Component {
     houseName: '',
     houseDescription: '',
     houseImages: '',
+    houseCoordinates: [],
     location: null,
     errorMessage:""
   };
@@ -62,20 +63,20 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id, address, text, images) {
+previewHouse(id, address, text, images, coordinates) {
   if(address === " ") {
     console.log('No name on this house!');
     this.makeVibration();
   }
   else {
-  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
+  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images, houseCoordinates: coordinates });
   this.makeVibration();
   }
 } 
 
-navigateHouse(houseid, houseName, houseDescription, houseImages) {
+navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates) {
   this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription, houseImages
+    houseid, houseName, houseDescription, houseImages, houseCoordinates
   });
   this.setState({display: false});
 }
@@ -86,7 +87,7 @@ makeVibration() {
 
   render() {
   
-    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, location, errorMessage} = this.state;
+    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -123,7 +124,7 @@ makeVibration() {
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images)}
+                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images, hus.coordinates)}
               />
             ))
           }
@@ -155,7 +156,7 @@ makeVibration() {
           images={houseImages}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages)}
+          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
         />
 
         
