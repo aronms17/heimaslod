@@ -65,6 +65,9 @@ getGeocodeAsync= async (location) => {
 
 previewHouse(id, address, text, images) {
   //console.log('Previewing house with id,', id, ' and name: ', address);
+  if(address == '') {
+    console.log('Ekkert hér');
+  }
   this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
   this.makeVibration();
 }
@@ -112,6 +115,7 @@ makeVibration() {
 
           {/* þarf að refresha til að litirnir komi */}
           {/* Polygonarnir */}
+          
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
               <CustomPolygon
                 key = {hus.id}
