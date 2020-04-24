@@ -33,12 +33,13 @@ export default class screen2 extends React.Component {
 
         return(
             <View style={styles.container}>
+
                 <View style={styles.headerContainer}>
                     <Text style={styles.name}>{houseName}</Text>
                 </View>
                 {/*  */}
 
-                <View style={styles.container}>
+                <View style={styles.galleryContainer}>
                     {/* Rétt map aðferð á propsið núna */}
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
@@ -49,13 +50,32 @@ export default class screen2 extends React.Component {
                             ))
                         }
                     />
-
                 </View>
                 
-                <View style={styles.container}>
+                <View style={styles.descriptionContainer}>
                 <ScrollView>
                     <Text style={styles.desc}>{houseDescription}</Text>
                 </ScrollView>
+                </View>
+                
+                <View style={styles.bottomContainer}>
+                    <Text style={styles.desc}>Bottom screen test</Text>
+                    <View style={styles.onlyMap}>
+                    <MapView
+                        style={{...StyleSheet.absoluteFillObject}}
+                        initialRegion={{
+                          latitude: 63.4347866,
+                          longitude: -20.2844343,
+                          latitudeDelta: 0.095,
+                          longitudeDelta: 0.0921}}>
+                        
+                    </MapView>
+                    </View>
+                    
+                    <View style={styles.bottomItems}>
+                        <Text style={styles.desc}>hehe</Text>
+                    </View>
+
                 </View>
 
             </View>
@@ -67,37 +87,45 @@ const styles = StyleSheet.create({
 	container: {
         flex: 1,
         backgroundColor: '#1D1B1B',
+        justifyContent: 'center'
         
 	},
 	headerContainer: {
-		flex: 1,
+		flex: 2,
 		alignItems: 'center',
-		justifyContent: 'center'
-	},
+        justifyContent: 'center',
+    },
+    galleryContainer: {
+        flex: 3,
+    },
+    descriptionContainer: {
+        flex: 4,
+    },
+    bottomContainer: {
+        flex: 5,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    bottomItems: {
+        marginRight: 10
+    },
+    onlyMap: {
+        ...StyleSheet.absoluteFillObject,
+        width: 230,
+        height: 150,
+        marginTop: 15,
+        marginLeft: 15,
+        marginRight: 15,
+        position: 'relative'
+    },
 	name: {
-        fontSize: 38,
+        fontSize: 36,
         fontWeight: 'bold',
 		color: '#fff'
     },
     desc: {
 		fontSize: 16,
         color: '#fff',
-        flex:1,
-        flexWrap: 'wrap'
-    },
-    desc2: {
-		fontSize: 12,
-		color: 'blue',
-	},
-	bodyContainer: {
-		flex: 4,
-		alignItems: 'center',
-        justifyContent: 'center',
-		paddingLeft: 15,
-        marginBottom: 40,
-	},
-	title: {
-		fontSize: 48,
-		color: '#fff'
-	},
+    }
 });

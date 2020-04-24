@@ -5,23 +5,21 @@ const PreviewModal = (props) => (
     <Modal 
       visible={props.display}
       animationType="fade" 
-      transparent={true}
-      onBackdropPress={() => props.closeDisplay() }
-      onRequestClose={ () => props.closeDisplay() }>
+      transparent={true}>
       <View style={styles.modalView}>
           <Text style={styles.textStyle}>
             {props.address}
           </Text>
         <View style={{}}>
           <Button
-              title="Sjá meira"
-              color="green"
-              onPress = { () => props.goToHouse() }/>
+            title="Sjá meira"
+            color="green"
+            onPress = { () => props.goToHouse() }/>
 
           <Button 
-              title="Loka"
-              onPress = { () => props.closeDisplay() }
-              color="red"/>
+            title="Loka"
+            onPress = { () => props.closeDisplay() }
+            color="red"/>
         </View>
       </View>
     </Modal>

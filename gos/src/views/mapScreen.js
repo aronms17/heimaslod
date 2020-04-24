@@ -2,8 +2,7 @@ import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
-// import data from './src/houses.json';
+import * as Permissions from 'expo-permissions';;
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
@@ -64,13 +63,15 @@ getGeocodeAsync= async (location) => {
 }
 
 previewHouse(id, address, text, images) {
-  //console.log('Previewing house with id,', id, ' and name: ', address);
-  if(address == '') {
-    console.log('Ekkert hér');
+  if(address === " ") {
+    console.log('No name on this house!');
+    this.makeVibration();
   }
+  else {
   this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
   this.makeVibration();
-}
+  }
+} 
 
 navigateHouse(houseid, houseName, houseDescription, houseImages) {
   this.props.navigation.navigate('houseDetailScreen', {
