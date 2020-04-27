@@ -3,6 +3,7 @@ import { Text, View, Button, StyleSheet, Dimensions, Image, ScrollView } from 'r
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import CustomPolygon from '../components/CustomPolygon';
+import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -29,6 +30,14 @@ export default class screen2 extends React.Component {
         this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates});
     }
 
+    renderDrawer = () => {
+        return (
+          <View>
+            <Text style={styles.desc}>Tittlingur</Text>
+          </View>
+        );
+    }
+
     render() {
         const{houseName, houseDescription, houseImages, houseCoordinates} = this.state;
         const arrHouse = Array.from(houseImages);
@@ -36,6 +45,12 @@ export default class screen2 extends React.Component {
 
         return(
             <View style={styles.container}>
+                <DrawerLayout
+                    drawerWidth={200}
+                    drawerPosition={DrawerLayout.positions.Right}
+                    drawerType='front'
+                    drawerBackgroundColor='#1D1B1B'
+                    renderNavigationView={this.renderDrawer}>
 
                 <View style={styles.headerContainer}>
                     <Text style={styles.name}>{houseName}</Text>
@@ -66,6 +81,7 @@ export default class screen2 extends React.Component {
                     <View style={styles.onlyMap}>
                     <MapView
                         style={{...StyleSheet.absoluteFillObject}}
+                        provider={"google"}
                         initialRegion={{
                           latitude: 63.4347866,
                           longitude: -20.2844343,
@@ -74,7 +90,7 @@ export default class screen2 extends React.Component {
 
                         <CustomPolygon
                             coordinates={houseCoordinates}
-                            fillColor="#262630"
+                            fillColor="#f55d42"
                         />
                         
                     </MapView>
@@ -85,6 +101,8 @@ export default class screen2 extends React.Component {
                     </View>
 
                 </View>
+
+                </DrawerLayout>
 
             </View>
         );
