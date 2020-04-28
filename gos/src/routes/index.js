@@ -10,13 +10,13 @@ const StackNavigator = createStackNavigator({
     mapScreen: {
         screen: mapScreen,
         navigationOptions: {
-            headerShown: false
+            header: false
         }
     },
     houseDetailScreen: {
         screen: houseDetailScreen,
         navigationOptions: {
-            headerShown: false
+            header: false
         }
     }
 });

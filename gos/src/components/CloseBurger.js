@@ -4,20 +4,20 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import { View } from 'react-native';
 
 
-const Hamburger = ({
-    openDrawer
+const CloseBurger = ({
+    closeDrawer
 
 }) => (
     <TouchableOpacity
-    onPress={openDrawer}
+    onPress={closeDrawer}
     style={{
         width: 44,
         height: 44,
         marginLeft: 20
     }}
     >
-        <Feather name='menu' size={40} color='white'/>
+        <Feather name='x-circle' size={40} color='white'/>
     </TouchableOpacity>
 );
 
-export default Hamburger;
+export default CloseBurger;
