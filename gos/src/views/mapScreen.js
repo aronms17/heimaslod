@@ -96,7 +96,7 @@ makeVibration() {
 
     return (
       <>
-      <View style={styles.map}>
+      <View>
         <MapView
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           minZoomLevel={12} 
