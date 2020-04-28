@@ -2,8 +2,7 @@ import React from 'react';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
-// import data from './src/houses.json';
+import * as Permissions from 'expo-permissions';;
 import mapjson from '../json/mapstyle.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from '../components/CustomPolygon';
@@ -24,6 +23,7 @@ export default class App extends React.Component {
     houseName: '',
     houseDescription: '',
     houseImages: '',
+    houseCoordinates: [],
     location: null,
     errorMessage:""
   };
@@ -63,15 +63,20 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id, address, text, images) {
-  //console.log('Previewing house with id,', id, ' and name: ', address);
-  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images });
+previewHouse(id, address, text, images, coordinates) {
+  if(address === " ") {
+    console.log('No name on this house!');
+    this.makeVibration();
+  }
+  else {
+  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images, houseCoordinates: coordinates });
   this.makeVibration();
-}
+  }
+} 
 
-navigateHouse(houseid, houseName, houseDescription, houseImages) {
+navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates) {
   this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription, houseImages
+    houseid, houseName, houseDescription, houseImages, houseCoordinates
   });
   this.setState({display: false});
 }
@@ -82,7 +87,7 @@ makeVibration() {
 
   render() {
   
-    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, location, errorMessage} = this.state;
+    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -103,7 +108,7 @@ makeVibration() {
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
-          //customMapStyle={mapjson}
+          customMapStyle={mapjson}
           initialRegion={{
           latitude: 63.4347866,
           longitude: -20.2844343,
@@ -112,13 +117,14 @@ makeVibration() {
 
           {/* þarf að refresha til að litirnir komi */}
           {/* Polygonarnir */}
+          
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
               <CustomPolygon
                 key = {hus.id}
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images)}
+                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images, hus.coordinates)}
               />
             ))
           }
@@ -136,7 +142,8 @@ makeVibration() {
               <Marker
                 coordinate={{latitude: 63.4352606, 
                 longitude: -20.2615806}}
-              >
+
+                >
                   <Text style={{color: 'black'}}>Gerðisbraut</Text>
               </Marker>
 
@@ -149,8 +156,10 @@ makeVibration() {
           images={houseImages}
           display={this.state.display}
           closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages)}
+          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
         />
+
+        
 
         </View>
             
@@ -158,17 +167,21 @@ makeVibration() {
         {/* mappið er með sér view style sem setur það á bakvið componentana  */}
         {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
         box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
-        <View pointerEvents="box-none" style={styles.components}>
+        
           
           {/* Location test */}
+          {/* 
           <View style={styles.modalView}>
             <Text>Þín staðsetning:</Text>
             <Text>Latitude: {lat}</Text>
             <Text>Longitude: {lon}</Text>
           </View>
+          */}
 
+        <View pointerEvents="box-none" style={styles.components}>
           <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
         </View>
+          
 
       </>
     );
@@ -177,8 +190,7 @@ makeVibration() {
 
 const styles = StyleSheet.create({
   map: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#fff'
   },
   // search: {
   //     flex: 1,

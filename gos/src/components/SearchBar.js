@@ -37,7 +37,7 @@ export default class SearchBar extends React.Component {
 
     _moveUpAnimation = () => {
         Animated.spring(this.state.yValue, {
-            toValue: Dimensions.get('window').height - 100,
+            toValue: Dimensions.get('window').height - 30,
             friction: 9,
         }).start();
     };
