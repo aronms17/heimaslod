@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import CustomPolygon from '../components/CustomPolygon';
@@ -33,7 +33,10 @@ export default class screen2 extends React.Component {
     renderDrawer = () => {
         return (
           <View>
-            <Text style={styles.desc}>Tittlingur</Text>
+            <Text style={styles.desc}>Tittlingur 1</Text>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
+                <Text style={styles.desc}>Tittlingur 2</Text>
+            </TouchableHighlight>
           </View>
         );
     }
@@ -96,10 +99,6 @@ export default class screen2 extends React.Component {
                     </MapView>
                     </View>
                     
-                    <View style={styles.bottomItems}>
-                        <Text style={styles.desc}>hehe</Text>
-                    </View>
-
                 </View>
 
                 </DrawerLayout>

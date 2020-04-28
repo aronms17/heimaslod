@@ -50,10 +50,10 @@ export default class SearchBar extends React.Component {
         }).start();
     };
 
-    previewHouse(id, address, text, images) {
+    previewHouse(id, address, text, images, coordinates) {
         console.log(id);
         this._moveDownAnimation();
-        this.props.preview(id, address, text, images);
+        this.props.preview(id, address, text, images, coordinates);
         
     };
 
@@ -102,7 +102,7 @@ export default class SearchBar extends React.Component {
                             <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                             data={this.state.houses}
                             renderItem={({item}) => (
-                                <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item.id, item.address, item.text, item.images)}>
+                                <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item.id, item.address, item.text, item.images, item.coordinates)}>
                                     <Text style={{fontSize: 20}}>{item.address}</Text>
                                 </TouchableOpacity>
                             )}

@@ -1,6 +1,6 @@
 import React from 'react';
-import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
-import { Alert, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, setNativeProps, Modal, TextInput, Keyboard, TouchableWithoutFeedback, Vibration } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';;
 import mapjson from '../json/mapstyle.json';
@@ -179,7 +179,7 @@ makeVibration() {
           */}
 
         <View pointerEvents="box-none" style={styles.components}>
-          <SearchBar preview={(id, address, text, images) => this.previewHouse(id, address, text, images)}/>
+          <SearchBar preview={(id, address, text, images, coordinates) => this.previewHouse(id, address, text, images, coordinates)}/>
         </View>
           
 
