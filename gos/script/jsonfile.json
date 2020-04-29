@@ -160,7 +160,7 @@
         {
             "id": 6,
             "address": "Jómsborg",
-            "streetId": "",
+            "streetId": 2,
             "text": "Húsið Jómsborg, einnig Jómaborg, stóð við Víðisveg 9. Það hét áður Ottahús og Beykishús. Jómsborg var reist árið 1912 af Jóni Sighvatssyni og var hið myndarlegasta hús. Sérkennileg turnbygging setti mikinn svip á Jómsborg. Þorsteinn Johnson sonur hans  byggði við húsið og rak einnig verslun þar um skeið. Ólafur Gränz, trésmíðameistari, bjó þar með fjölskyldu sinni. Þegar gaus bjó þar Carl Ólafur Gränz sonur hans, ásamt konu sinni Kolbrúnu Ingólfsdóttur og þrjú börn þeirra. Nafnið Jómsborg kemur frá borg þar sem norrænir víkingar áttu sér vígi og telja flestir fræðimenn að Jómsborg hafi verið einhvers staðar á eyjunni Wolin, við norðvesturhorn Póllands. ",
             "images": [
                 "http://heimaslod.is/images/thumb/b/be/J%C3%B3msborg1.jpg/300px-J%C3%B3msborg1.jpg",
@@ -382,7 +382,7 @@
         {
             "id": 12,
             "address": "Dagsbrún",
-            "streetId": "",
+            "streetId": 14,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -589,7 +589,7 @@
         {
             "id": 18,
             "address": "Fagurlyst-gamla",
-            "streetId": "",
+            "streetId": 7,
             "text": "Húsið Fagurlyst stóð við Urðaveg 16. Húsið byggði Jóhann Þ. Jósefsson Alþingismaður og þýskur konsúll árið 1913. Kona hans var Magnea Dagmar Þórðardóttir. Þar bjó einnig Jónas Jónsson á Tanganum árið 1953. Í húsinu bjuggu hjónin Haraldur Hannesson og Elínborg Sigbjörnsdóttir þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [],
             "coordinates": [
@@ -1008,7 +1008,7 @@
         {
             "id": 31,
             "address": "Skálholt-yngra",
-            "streetId": "",
+            "streetId": 7,
             "text": "Húsið Skálholt - hið yngra - stóð við Urðaveg 43. Það var stórt steinhús, með stórum kjallara, tveimur hæðum og risi. Listar kringum glugga hússins voru skrautlega steyptir, en hús- og kvistgaflar voru bogadregnir.Húsið reisti Gísli Magnússon, útgerðarmaður, á árunum 1925-26 og kostaði það í kringum 280.000 kr, en það var himinhá upphæð á þeim tíma. Hann bjó í húsinu ásamt konu sinni Sigríði Einarsdóttur til ársins 1940 en þá missti hann eignina sökum heimskreppunnar miklu 1930-40.Í seinni heimsstyrjöldinni tók breski herinn húsið herskildi. Það var aðsetur yfirmanna hersins og dvaldi hluti setuliðins í húsinu.Eftir að herinn fór úr húsinu 1945 eignaðist Árni Sigfússon, útgerðarmaður og kaupmaður, húsið og bjó þar ásamt konu sinni Ólafíu Árnadóttur og börnum til ársins 1948.Bæjarsjóður Vestmannaeyja keypti þar á eftir húsið og gerði það að elliheimili bæjarins. Elliheimilið Skálholt var vígt 11. nóvember 1950. Gegndi húsið því hlutverki alveg fram að gosi og fór að lokum undir hraun. Fyrsta forstöðukona var Lilja Finnbogadóttir og síðast var Unnur Pálsdóttir. Komu upp hugmyndir um að byggja elliheimili á Breiðablikslóð eftir gos en úr varð að elliheimilið Hraunbúðir var byggt fyrir gjafir og tekið í notkun í september 1974.Þegar byrjaði að gjósa voru vistmenn á elliheimilinu, Alfreð Washington Þórðarson, Axel Vigfússon, Benedikt Jörgensson, Bjarghildur Pálsdóttir, Einar Vilhjálmsson, Hjörtur Einarsson, Jóhanna Jónsdóttir, Júlíana I Sigurðardóttir, Sigríður Sigmundsdóttir, Sigurgeir Gunnarsson, Sigurlaug Guðmundsdóttir, Soffía Jónasdóttir, Steinunn Sigmundsdóttir, og Þorfinna Finnsdóttir.",
             "images": [
                 "http://heimaslod.is/images/thumb/2/21/Skalholt_oskubill.jpg/250px-Skalholt_oskubill.jpg",
@@ -1171,7 +1171,7 @@
         {
             "id": 36,
             "address": "Verkamannabústaðir (við Urðaveg)",
-            "streetId": "",
+            "streetId": 7,
             "text": "Við Urðaveg 46-52 stóðu hús sem kölluð voru Verkamannabústaðir. Þetta voru fjögur tveggja hæða steinhús á kjallara í jarðhæð.Þau voru byggð á árunum 1957-1962.Húsin fóru undir hraun 21. mars í gosinu 1973. Hafði hraunið ýtt þeim hverju á annað og hrundu þau þannig niður. Þessir íbúar voru í Verkamannabústöðunum þegar gaus:Fyrri íbúar Gísli Geir Guðlaugsson og Guðlaug arnþrúður Gunnólfsdóttirog börn þeirra. Örn Aanes og Guðrún Halldórsdóttir og börn.Í húsinu sem stóð við Urðaveg 46 bjó Finnbogi Már Gústafsson, hjónin Óli Þór Alfreðsson og Hrönn Þórðardóttir og börn þeirra Njörður og Ylfa og hjónin Óli Þór Ólafsson og Ingunn Bjarnadóttir og sonur þeirra ÓlafurFyrri íbúðar Jón Stefánsson og Elísabet Kristjánsdóttir og börn ásamt föður Jóns Stefáni ÓlafssyniÍ húsinu sem stóð við Urðaveg 48 bjuggu hjónin Kolbeinn Ólafsson og María Jóhanna Njálsdóttir,börn þeirra Valgeir Ólafur, Njáll, Dóra og Kolbrún. Hjónin Óskar Árnason og Kristín Þorsteinsdóttir og dóttir þeirra Laufey.Fyrri íbúar Jón Ingi Steindórsson og Elínborg Bernódusdóttir, Halldóra Helgadóttir, Jósefína Sigurðardóttir, Lára Jónsdóttir var með snyrtistofu niðri. Anna Mathiesen og Ingibjörg MathisenÍ húsinu sem sóð við Urðaveg 50 bjó Anna Mathiesen, Hjónin Jón Steindórsson og Elínborg Bernódusdóttir, börn þeirra Lára, Hinrik og Ölver og hjónin Sverrir Gunnlaugsson og Kolbrún Þorsteinsdóttir ásamt syni þeirra Þorsteini.Fyrri íbúar Þormóður Stefánsson og Sigurbjörg Ásta JónsdóttirÍ húsinu sem stóð við Urðaveg 52 bjuggu hjónin Bernharð Ingimundarson og Fjóla Sigurðardóttir, börn þeirra Hávarður, Kristín og Ingimundur og hjónin Valur Oddsson og Kristín J Stefánsdóttir og dóttir þeirra Ingibjörg",
             "images": [
                 "http://heimaslod.is/images/thumb/6/61/Verkamannab%C3%BAsta%C3%B0ur.JPG/300px-Verkamannab%C3%BAsta%C3%B0ur.JPG",
@@ -1413,7 +1413,7 @@
         {
             "id": 43,
             "address": "Skálholt-eldra",
-            "streetId": "",
+            "streetId": 10,
             "text": "Húsið Skálholt sem byggt var árið 1913 stóð við Landagötu 22. Auðgreint sem hið eldra en nafnið var einnig á á Urðavegi 43. Húsið fór undir hraun.Í húsinu bjuggu m.a. hjónin Hjörleifur Sveinsson og Þóra Arnheiður Þorbjarnardóttir ásamt dóttur sinni Guðbjörgu Hjörleifsdóttur og barnabarni sínu Þóru Hjördísi Egilsdóttur. Þar hafa einnig búðið Gísli Magnússon og fjölskylda, Halldór Jónsson frá Garðstöðum, Sigfús Sveinsson og fjölskylda, Tómas Sveinsson.Árið 1953 bjuggur þar Sveinn Hjörleifsson og Aðalheiður Pétursdóttr ásamt dætrum sínum Þóru Sigríði Sveinsdóttur og Þóreyju SveinsdótturÞegar gaus bjuggu þar hjónin Einar Sveinbjörnsson og Þórey Sveinsdóttir og sonur þeirra Heiðar. Benedikt Sigmundsson bjó þar einnig og Hjörleifur Sveinsson.",
             "images": [
                 "http://heimaslod.is/images/thumb/0/0f/Skalholt_landagotu.jpg/250px-Skalholt_landagotu.jpg",
@@ -1608,7 +1608,7 @@
         {
             "id": 49,
             "address": "Ásgarður (við Heimagötu)",
-            "streetId": "",
+            "streetId": 12,
             "text": "Húsið Ásgarður stóð við Heimagötu 29 var byggt á árunum 1902-3 af Árna Filippussyni. Húsið fór undir hraun árið 1973. Þegar gaus bjuggu í húsinu Skúli Bjarnason, Guðrún Árnadóttir og Katrín Árnadóttir",
             "images": [],
             "coordinates": [
@@ -2984,7 +2984,7 @@
         {
             "id": 91,
             "address": "Hvoll (við Heimagötu)",
-            "streetId": "",
+            "streetId": 12,
             "text": "Húsið Hvoll var byggt árið 1908 af Magnúsi Ingimundarsyni, sjómanni,  og stóð við Heimagötu 12a. Þegar gaus árið 1973 bjuggu þar Björgvin Pálsson verkstjóri og kona hans, Gunnhildur Guðmundsdóttir, foreldrar Óskars ljósmyndara. Í kjallara bjuggu Magnús Gísli Magnússon og kona hans Lilja Albertsdóttir.",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f4/Batav%C3%ADa.jpg/300px-Batav%C3%ADa.jpg",
@@ -3016,7 +3016,7 @@
         {
             "id": 92,
             "address": "Blátindur (Heimagötu)",
-            "streetId": "",
+            "streetId": 12,
             "text": "Húsið Blátindur stóð við Heimagötu 12b. Húseignin fór undir hraun en hluti hússins er sjáanlegur ferðamönnum og öðrum. Þorsteinn Sigurðsson, framkvæmdastjóri, reisti húsið og gaf því nafn eftir Blátindi í Dalfjalli.Þegar byrjaði að gjósa bjuggu í húsinu Þorsteinn Sigurðsson, og Anna Ó. Jónsdóttir einnig Guðrún Sigurðardóttir uppeldissystir Önnu.",
             "images": [
                 "http://heimaslod.is/images/thumb/b/bf/Bl%C3%A1tindur.JPG/250px-Bl%C3%A1tindur.JPG",
@@ -3081,7 +3081,7 @@
         {
             "id": 94,
             "address": "Byggðarholt",
-            "streetId": "",
+            "streetId": 14,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3139,7 +3139,7 @@
         {
             "id": 96,
             "address": "Eiðar",
-            "streetId": "",
+            "streetId": 14,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3345,7 +3345,7 @@
         {
             "id": 102,
             "address": "Gamla rafstöðin",
-            "streetId": "",
+            "streetId": 14,
             "text": "Gamla rafstöðin stóð við Kirkjuveg 10. Þegar Rafstöðin við Heimatorg var reist, leysti hún þá gömlu af hólmi. Hýsti síðar úrsmíðavinnustofu Gísla Bryngeirssonar, kostningaskrifstofu Þjóðvarnarflokksins og upp úr 1950 mótorvélanámskeið. Vélskólinn hafði þó not af húsinu fyrir verklega kennslu  eftir 1950 enda voru gömlu vélarnar vel nothæfar. Húsið fór undir hraun í gosinu 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/c/c9/Rafst%C3%B6%C3%B0in.jpg/300px-Rafst%C3%B6%C3%B0in.jpg",
@@ -6330,7 +6330,7 @@
         {
             "id": 175,
             "address": "Verkamannabústaðir (við Urðaveg)",
-            "streetId": "",
+            "streetId": 7,
             "text": "Við Urðaveg 46-52 stóðu hús sem kölluð voru Verkamannabústaðir. Þetta voru fjögur tveggja hæða steinhús á kjallara í jarðhæð.Þau voru byggð á árunum 1957-1962.Húsin fóru undir hraun 21. mars í gosinu 1973. Hafði hraunið ýtt þeim hverju á annað og hrundu þau þannig niður. Þessir íbúar voru í Verkamannabústöðunum þegar gaus:Fyrri íbúar Gísli Geir Guðlaugsson og Guðlaug arnþrúður Gunnólfsdóttirog börn þeirra. Örn Aanes og Guðrún Halldórsdóttir og börn.Í húsinu sem stóð við Urðaveg 46 bjó Finnbogi Már Gústafsson, hjónin Óli Þór Alfreðsson og Hrönn Þórðardóttir og börn þeirra Njörður og Ylfa og hjónin Óli Þór Ólafsson og Ingunn Bjarnadóttir og sonur þeirra ÓlafurFyrri íbúðar Jón Stefánsson og Elísabet Kristjánsdóttir og börn ásamt föður Jóns Stefáni ÓlafssyniÍ húsinu sem stóð við Urðaveg 48 bjuggu hjónin Kolbeinn Ólafsson og María Jóhanna Njálsdóttir,börn þeirra Valgeir Ólafur, Njáll, Dóra og Kolbrún. Hjónin Óskar Árnason og Kristín Þorsteinsdóttir og dóttir þeirra Laufey.Fyrri íbúar Jón Ingi Steindórsson og Elínborg Bernódusdóttir, Halldóra Helgadóttir, Jósefína Sigurðardóttir, Lára Jónsdóttir var með snyrtistofu niðri. Anna Mathiesen og Ingibjörg MathisenÍ húsinu sem sóð við Urðaveg 50 bjó Anna Mathiesen, Hjónin Jón Steindórsson og Elínborg Bernódusdóttir, börn þeirra Lára, Hinrik og Ölver og hjónin Sverrir Gunnlaugsson og Kolbrún Þorsteinsdóttir ásamt syni þeirra Þorsteini.Fyrri íbúar Þormóður Stefánsson og Sigurbjörg Ásta JónsdóttirÍ húsinu sem stóð við Urðaveg 52 bjuggu hjónin Bernharð Ingimundarson og Fjóla Sigurðardóttir, börn þeirra Hávarður, Kristín og Ingimundur og hjónin Valur Oddsson og Kristín J Stefánsdóttir og dóttir þeirra Ingibjörg",
             "images": [
                 "http://heimaslod.is/images/thumb/6/61/Verkamannab%C3%BAsta%C3%B0ur.JPG/300px-Verkamannab%C3%BAsta%C3%B0ur.JPG",
@@ -6365,7 +6365,7 @@
         {
             "id": 176,
             "address": "Verkamannabústaðir (við Urðaveg)",
-            "streetId": "",
+            "streetId": 7,
             "text": "Við Urðaveg 46-52 stóðu hús sem kölluð voru Verkamannabústaðir. Þetta voru fjögur tveggja hæða steinhús á kjallara í jarðhæð.Þau voru byggð á árunum 1957-1962.Húsin fóru undir hraun 21. mars í gosinu 1973. Hafði hraunið ýtt þeim hverju á annað og hrundu þau þannig niður. Þessir íbúar voru í Verkamannabústöðunum þegar gaus:Fyrri íbúar Gísli Geir Guðlaugsson og Guðlaug arnþrúður Gunnólfsdóttirog börn þeirra. Örn Aanes og Guðrún Halldórsdóttir og börn.Í húsinu sem stóð við Urðaveg 46 bjó Finnbogi Már Gústafsson, hjónin Óli Þór Alfreðsson og Hrönn Þórðardóttir og börn þeirra Njörður og Ylfa og hjónin Óli Þór Ólafsson og Ingunn Bjarnadóttir og sonur þeirra ÓlafurFyrri íbúðar Jón Stefánsson og Elísabet Kristjánsdóttir og börn ásamt föður Jóns Stefáni ÓlafssyniÍ húsinu sem stóð við Urðaveg 48 bjuggu hjónin Kolbeinn Ólafsson og María Jóhanna Njálsdóttir,börn þeirra Valgeir Ólafur, Njáll, Dóra og Kolbrún. Hjónin Óskar Árnason og Kristín Þorsteinsdóttir og dóttir þeirra Laufey.Fyrri íbúar Jón Ingi Steindórsson og Elínborg Bernódusdóttir, Halldóra Helgadóttir, Jósefína Sigurðardóttir, Lára Jónsdóttir var með snyrtistofu niðri. Anna Mathiesen og Ingibjörg MathisenÍ húsinu sem sóð við Urðaveg 50 bjó Anna Mathiesen, Hjónin Jón Steindórsson og Elínborg Bernódusdóttir, börn þeirra Lára, Hinrik og Ölver og hjónin Sverrir Gunnlaugsson og Kolbrún Þorsteinsdóttir ásamt syni þeirra Þorsteini.Fyrri íbúar Þormóður Stefánsson og Sigurbjörg Ásta JónsdóttirÍ húsinu sem stóð við Urðaveg 52 bjuggu hjónin Bernharð Ingimundarson og Fjóla Sigurðardóttir, börn þeirra Hávarður, Kristín og Ingimundur og hjónin Valur Oddsson og Kristín J Stefánsdóttir og dóttir þeirra Ingibjörg",
             "images": [
                 "http://heimaslod.is/images/thumb/6/61/Verkamannab%C3%BAsta%C3%B0ur.JPG/300px-Verkamannab%C3%BAsta%C3%B0ur.JPG",
@@ -6400,7 +6400,7 @@
         {
             "id": 177,
             "address": "Verkamannabústaðir (við Urðaveg)",
-            "streetId": "",
+            "streetId": 7,
             "text": "Við Urðaveg 46-52 stóðu hús sem kölluð voru Verkamannabústaðir. Þetta voru fjögur tveggja hæða steinhús á kjallara í jarðhæð.Þau voru byggð á árunum 1957-1962.Húsin fóru undir hraun 21. mars í gosinu 1973. Hafði hraunið ýtt þeim hverju á annað og hrundu þau þannig niður. Þessir íbúar voru í Verkamannabústöðunum þegar gaus:Fyrri íbúar Gísli Geir Guðlaugsson og Guðlaug arnþrúður Gunnólfsdóttirog börn þeirra. Örn Aanes og Guðrún Halldórsdóttir og börn.Í húsinu sem stóð við Urðaveg 46 bjó Finnbogi Már Gústafsson, hjónin Óli Þór Alfreðsson og Hrönn Þórðardóttir og börn þeirra Njörður og Ylfa og hjónin Óli Þór Ólafsson og Ingunn Bjarnadóttir og sonur þeirra ÓlafurFyrri íbúðar Jón Stefánsson og Elísabet Kristjánsdóttir og börn ásamt föður Jóns Stefáni ÓlafssyniÍ húsinu sem stóð við Urðaveg 48 bjuggu hjónin Kolbeinn Ólafsson og María Jóhanna Njálsdóttir,börn þeirra Valgeir Ólafur, Njáll, Dóra og Kolbrún. Hjónin Óskar Árnason og Kristín Þorsteinsdóttir og dóttir þeirra Laufey.Fyrri íbúar Jón Ingi Steindórsson og Elínborg Bernódusdóttir, Halldóra Helgadóttir, Jósefína Sigurðardóttir, Lára Jónsdóttir var með snyrtistofu niðri. Anna Mathiesen og Ingibjörg MathisenÍ húsinu sem sóð við Urðaveg 50 bjó Anna Mathiesen, Hjónin Jón Steindórsson og Elínborg Bernódusdóttir, börn þeirra Lára, Hinrik og Ölver og hjónin Sverrir Gunnlaugsson og Kolbrún Þorsteinsdóttir ásamt syni þeirra Þorsteini.Fyrri íbúar Þormóður Stefánsson og Sigurbjörg Ásta JónsdóttirÍ húsinu sem stóð við Urðaveg 52 bjuggu hjónin Bernharð Ingimundarson og Fjóla Sigurðardóttir, börn þeirra Hávarður, Kristín og Ingimundur og hjónin Valur Oddsson og Kristín J Stefánsdóttir og dóttir þeirra Ingibjörg",
             "images": [
                 "http://heimaslod.is/images/thumb/6/61/Verkamannab%C3%BAsta%C3%B0ur.JPG/300px-Verkamannab%C3%BAsta%C3%B0ur.JPG",
@@ -6474,7 +6474,7 @@
         {
             "id": 179,
             "address": "Rafstöðin",
-            "streetId": "",
+            "streetId": 2,
             "text": "Rafstöðin stóð við Heimatorg og var torgið við gömlu rafstöðina oft nefnt Krossgötur.",
             "images": [
                 "http://heimaslod.is/images/thumb/9/92/Rafveitan.jpg/250px-Rafveitan.jpg",
@@ -6524,7 +6524,7 @@
         {
             "id": 180,
             "address": "Rafstöðin",
-            "streetId": "",
+            "streetId": 2,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -6584,7 +6584,7 @@
         {
             "id": 182,
             "address": "Hvoll (við Urðaveg)",
-            "streetId": "",
+            "streetId": 7,
             "text": "Húsið Hvoll stóð við Urðaveg 17a. Það var einnig nefnt Nýi-Hvoll. Húsið var byggt árið 1930.Í manntali 1953 búa í húsinu Guðjón Kristinnsson og Kristín Ólafsdóttir og börn þeirra. Gísli Ágústsson og Ingibjörg Pálsdóttir og dætur þeirra Ingveldur Gísladóttir og Vilborg Gísladóttir, Símon Waagfjörð og Elín Jóhannsdóttir og barn þeirra Símon Waagfjörð. Þar bjuggu einnig Kristinn Kristinsson f. 1933, og Matthías Guðjónsson f. 1938.Þegar gaus bjuggu á efri hæðinni á Hvoli Guðjón Kristinsson skipstjóri, frá Miðhúsum en oftast kenndur við Hvol, og kona hans Kristín Ólafsdóttir og börn þeirra Bryndís, Hrefna, Hörður og Ólafur , sem öll eru kennd við æskuheimili sitt. Á neðri hæðinni bjuggu Kolbeinn O. Sigurjónsson, einnig oft kenndur við Hvol, og kona hans Sigríður Sigurðardóttir frá Vatnsdal og börn þeirra Anna Ísfold, Guðrún Fjóla, Ingibjörg S, Elva S og Marý Ólöf.Húsið nr. 17b við Urðaveg, sem var bakhús, var nefnt Litli-Hvoll, og gekk einnig undir nafninu Hvoll. Það var byggt árið 1936.Íbúar árið 1953 Jóhannes Guðbjartsson og Fríða Jónsdóttir og börn þeirra Guðrún Jóhannesdóttir og Jón Jóhannesson, einnig Ottó Hannesson.Þegar gaus bjuggu þar Sigurður N Jóhansen og kona hans Bryndís Garðarsdóttir, börn þeirra Páll, Andrés Brynjar og Unnur Ósk.Einnig Sigríður Johannessen.Þessi hús fóru undir hraun í gosinu 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/5/5b/Hvoll-1.jpg/300px-Hvoll-1.jpg",
@@ -6747,7 +6747,7 @@
         {
             "id": 187,
             "address": "Bergstaðir",
-            "streetId": "",
+            "streetId": 7,
             "text": "Húsið Bergsstaðir stóð við Urðaveg 24. Það var reist af Elíasi Sæmundssyni á árunum 1902-03. Lengst af bjuggu á Bergsstöðum Guðmundur Tómasson, skipstjóri og kona hans, Elín Sigurðardóttir en Ólafur, sonur þeirra bjó þar einnig með sinni fjölskyldu og var jafnan kenndur við húsið. Þegar gaus bjuggu þar Elín og dóttursonur hennar, Guðmundur Arnar Alfreðsson.Aðrir íbúðar Jón Hafliðason og Sigríður Bjarnadóttirog sonur þeirra Borgþór H. Jónsson veðurfræðingur. Hjálmar Jónsson og Guðbjörg E Helgadóttir á efri hæð ásamt börnum.",
             "images": [
                 "http://heimaslod.is/images/thumb/0/05/Gos_43.jpg/300px-Gos_43.jpg"
@@ -8366,7 +8366,7 @@
         {
             "id": 230,
             "address": "Lönd-vestri",
-            "streetId": "",
+            "streetId": 10,
             "text": "Húsið Lönd-vestri stóð við Landagötu 11 var byggt árið 1909 af Friðriki Svipmundssyni. Einnig nefnt Stóru-Lönd. Friðrik, sem var mikill aflamaður og sjósóknari, var kvæntur Elínu Þorsteinsdóttur og voru bæði ættuð úr Mýrdalnum. Mikil reisn og myndarskapur þótti einkenna heimilið að Löndum. Húsið fór undir hraun 1973.Árið 1953 bjuggu í húsinu Guðmundur Steinsson og kona hans Sigríður Jónatansdóttir og dóttir þeirra Guðfinna Jónatans Guðmundsdóttir, einnig eru þar skráðar Jórunn Sigurðardóttir, Elín Þorsteinsdóttir og Guðfinna Þórðardóttir.Þegar gaus bjuggu þar hjónin Einar Indriðason og Fjóla Guðmannsdóttir og börn þeirra Stefán, Jón, Einar Fjölnir, Davíð Þór og Indriði Helgi. Þar bjó einnig ekkillinn Guðmundur S. Ágústsson og synir hans Geir, Guðmundur og Gústaf. Hjónin Rúnar Eiríkur Siggeirsson og Valgerður Sigurðardóttir bjuggu einnig í þessu stóra húsi með dóttur sín Unni.  ",
             "images": [
                 "http://heimaslod.is/images/thumb/4/46/St%C3%B3ru-L%C3%B6nd.JPG/250px-St%C3%B3ru-L%C3%B6nd.JPG",
@@ -9813,7 +9813,7 @@
         {
             "id": 265,
             "address": "Garðshorn við Heimagötu",
-            "streetId": "",
+            "streetId": 12,
             "text": "Húsið Garðshorn stóð við Heimagötu 40. Það kom skaddað en slapp við hraunið í Heimaeyjargosinu 1973. (sjá mynd). Húsið byggði Haraldur Jónasson og fjölskylda árið 1927, en húsið var stækkað um hæð á árunum 1940-1942. Þegar gaus bjuggu þar hjónin Ásta Haraldsdóttir og Bjarni Jónsson. Einnig bjó í húsinu Ágústa Friðsteinsdóttir.",
             "images": [],
             "coordinates": [
