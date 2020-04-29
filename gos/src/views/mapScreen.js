@@ -1,11 +1,9 @@
 import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';;
-import mapjson from '../json/mapstyle.json';
-import prufupoly from '../../script/jsonfile.json';
-import CustomPolygon from '../components/CustomPolygon';
+import * as Permissions from 'expo-permissions';
+import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
 import PreviewModal from '../components/PreviewModal';
@@ -88,6 +86,22 @@ makeVibration() {
   Vibration.vibrate(7);
 }
 
+renderDrawer = () => {
+  return (
+    <View>
+      <Text style={styles.desc}>Tittlingur 1</Text>
+      <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
+          <Text style={styles.desc}>lingur 2</Text>
+      </TouchableHighlight>
+       
+    </View>
+  );
+}
+
+closeButton() {
+  this.drawer.openDrawer();
+}
+
 
   render() {
   
@@ -104,10 +118,21 @@ makeVibration() {
 }
 
     return (
-      <>
+      <DrawerLayout
+      ref={drawer => {
+      this.drawer = drawer;
+      }}
+      drawerWidth={220}
+      drawerPosition={DrawerLayout.positions.Right}
+      drawerType='front'
+      drawerBackgroundColor='#1D1B1B'
+      renderNavigationView={this.renderDrawer}
+      >
+      
       <View>
+        
         <MapComponent preview={(house) => this.previewHouse(house)}/>
-
+        
         <PreviewModal
           id={houseId}
           address={houseName}
@@ -117,6 +142,8 @@ makeVibration() {
           closeDisplay={() => this.setState({display: false})}
           goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
         />
+
+
         </View>
 
         <View pointerEvents="box-none" style={styles.components}>
@@ -128,9 +155,18 @@ makeVibration() {
             <Text>Longitude: {lon}</Text>
           </View>
           */}
+          <TouchableHighlight
+          onPress={() => this.closeButton()}>
+            <Text>
+              snerta
+            </Text>
+
+          </TouchableHighlight>
           <SearchBar preview={(house) => this.previewHouse(house)}/>
+          
         </View>
-      </>
+
+        </DrawerLayout>
     );
   }
 }

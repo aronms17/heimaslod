@@ -10,7 +10,6 @@ export default class MapComponent extends React.Component {
 
   constructor(props) {
   super(props);
-  this.houseRefs = [];
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -48,7 +47,6 @@ componentDidMount() {
           
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
               <CustomPolygon
-                ref={ref => this.houseRefs[index] = ref}
                 key = {hus.id}
                 coordinates={hus.coordinates}
                 fillColor={husColor}
