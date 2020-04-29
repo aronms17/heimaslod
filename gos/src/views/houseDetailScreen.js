@@ -7,6 +7,7 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
 import SideMenu from '../components/SideMenu';
+import { Feather, MaterialIcons  } from '@expo/vector-icons'
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -49,8 +50,7 @@ export default class screen2 extends React.Component {
         console.log("Fjöldi stafa: ", houseDescription.length)
 
         return(
-            <View style={styles.container}>
-                
+            <View style={styles.container}>                
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -61,19 +61,16 @@ export default class screen2 extends React.Component {
                     drawerBackgroundColor='#1D1B1B'
                     renderNavigationView={this.renderDrawer}
                 >
+                <View style={styles.header}>
+                    <TouchableHighlight
+                      style={styles.burger}
+                      onPress={() => this.drawer.openDrawer()}>
+                        <Feather name='menu' size={40} color='white'/>
+                    </TouchableHighlight>
+                </View>
                 
                 <View style={styles.headerContainer}>
-
-
                     <Text style={styles.name}>{houseName}</Text>
-                    
-                    <View>
-                    <Hamburger
-                    openDrawer={() => this.drawer.openDrawer()}
-                    />
-                    </View>
-                    
-
                 </View>
                 {/*  */}
 
@@ -185,5 +182,14 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         color: 'white'
+      },
+      header: {
+        width: Dimensions.get('screen').width, 
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+      },
+      burger: {
+        marginTop: 40,
+        marginRight: 17
       }
 });

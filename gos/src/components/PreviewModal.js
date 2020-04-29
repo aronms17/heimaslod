@@ -4,12 +4,13 @@ import NativeModal from 'react-native-modal';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const PreviewModal = (props) => (
-    <Modal 
-      visible={props.display}
-      animationType="fade" 
-      transparent={true}
-      onRequestClose={() => props.closeDisplay()}
+    <NativeModal
+      isVisible={props.isVisible}
+      // Hægt að style-a til
+      animationIn={'slideInUp'}
+      animationOut={'slideOutDown'}
       onDismiss={() => props.closeDisplay()}
+      onBackdropPress={() => props.closeDisplay()}
       >
 
       <View style={styles.modalView}>
@@ -28,7 +29,7 @@ const PreviewModal = (props) => (
             color="red"/>
         </View>
       </View>
-    </Modal>
+    </NativeModal>
     
 )
 
