@@ -148,11 +148,11 @@ renderDrawer = () => {
               <Text>Longitude: {lon}</Text>
             </View>
             */}
-            <View style={{width: Dimensions.get('screen').width, backgroundColor: 'red', flexdirection: 'row'}}>
+            <View style={styles.header}>
               <TouchableHighlight
-              onPress={() => this.closeButton()}
-              style={{height: 50, width: 50, backgroundColor: 'blue'}}>
-                <Text>snerta</Text>
+                style={styles.burger}
+                onPress={() => this.drawer.openDrawer()}>
+                  <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
 
@@ -196,5 +196,14 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: 'white'
+  },
+  header: {
+    width: Dimensions.get('screen').width, 
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
+  burger: {
+    marginTop: 20,
+    marginRight: 15
   }
 });
