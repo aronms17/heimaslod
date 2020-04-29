@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import mapScreen from '../views/mapScreen';
 import houseDetailScreen from '../views/houseDetailScreen';
+import StreetScreen from '../views/StreetScreen';
 import Hamburger from '../components/Hamburger';
 
 const StackNavigator = createStackNavigator({
@@ -15,6 +16,12 @@ const StackNavigator = createStackNavigator({
     },
     houseDetailScreen: {
         screen: houseDetailScreen,
+        navigationOptions: {
+            header: false
+        }
+    },
+    StreetScreen: {
+        screen: StreetScreen,
         navigationOptions: {
             header: false
         }
