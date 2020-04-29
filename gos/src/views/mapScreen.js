@@ -10,6 +10,7 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
+import SideMenu from '../components/SideMenu';
 
 export default class App extends React.Component {
 
@@ -179,6 +180,7 @@ makeVibration() {
           */}
 
         <View pointerEvents="box-none" style={styles.components}>
+          
           <SearchBar preview={(id, address, text, images, coordinates) => this.previewHouse(id, address, text, images, coordinates)}/>
         </View>
           
