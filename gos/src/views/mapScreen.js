@@ -1,5 +1,5 @@
 import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';;
@@ -11,11 +11,13 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
+import MapComponent from './../components/MapComponent';
 
 export default class App extends React.Component {
 
   constructor(props) {
   super(props);
+  this.houseRefs = [];
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -26,7 +28,7 @@ export default class App extends React.Component {
     houseImages: '',
     houseCoordinates: [],
     location: null,
-    errorMessage:""
+    errorMessage:"",
   };
 }
 
@@ -64,13 +66,13 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id, address, text, images, coordinates) {
-  if(address === " ") {
+previewHouse(house) {
+  if(house.address === " ") {
     console.log('No name on this house!');
     this.makeVibration();
   }
   else {
-  this.setState({display: true, houseId: id, houseName: address, houseDescription: text, houseImages: images, houseCoordinates: coordinates });
+  this.setState({display: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates });
   this.makeVibration();
   }
 } 
@@ -85,6 +87,7 @@ navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinate
 makeVibration() {
   Vibration.vibrate(7);
 }
+
 
   render() {
   
@@ -103,53 +106,8 @@ makeVibration() {
     return (
       <>
       <View>
-        <MapView
-          showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          minZoomLevel={12} 
-          loadingEnabled={true}
-          style={styles.mapStyle}
-          provider={"google"}
-          customMapStyle={mapjson}
-          initialRegion={{
-          latitude: 63.4347866,
-          longitude: -20.2844343,
-          latitudeDelta: 0.095,
-          longitudeDelta: 0.0921}}>
+        <MapComponent preview={(house) => this.previewHouse(house)}/>
 
-          {/* þarf að refresha til að litirnir komi */}
-          {/* Polygonarnir */}
-          
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
-              <CustomPolygon
-                key = {hus.id}
-                coordinates={hus.coordinates}
-                fillColor={husColor}
-                tappable={true}
-                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images, hus.coordinates)}
-              />
-            ))
-          }
-
-          {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index) => (
-              <CustomPolygon
-                key = {gata.id}
-                coordinates={gata.coordinates}
-                fillColor={goturColor}
-              />
-            ))
-          }
-            
-            {/* Test marker með icon */}
-              <Marker
-                coordinate={{latitude: 63.4352606, 
-                longitude: -20.2615806}}
-
-                >
-                  <Text style={{color: 'black'}}>Gerðisbraut</Text>
-              </Marker>
-
-        </MapView>
-        
         <PreviewModal
           id={houseId}
           address={houseName}
@@ -159,17 +117,9 @@ makeVibration() {
           closeDisplay={() => this.setState({display: false})}
           goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
         />
-
-        
-
         </View>
-            
-        {/* componentar á main síðunni fá sér view style með flex */}
-        {/* mappið er með sér view style sem setur það á bakvið componentana  */}
-        {/* box-none leyfir manni að ýta á kortið, því að component viewið er ofaná, 
-        box-none leyfir manni samt að ýta á alla subcomponenta í viewinu*/}
-        
-          
+
+        <View pointerEvents="box-none" style={styles.components}>
           {/* Location test */}
           {/* 
           <View style={styles.modalView}>
@@ -178,13 +128,8 @@ makeVibration() {
             <Text>Longitude: {lon}</Text>
           </View>
           */}
-
-        <View pointerEvents="box-none" style={styles.components}>
-          
-          <SearchBar preview={(id, address, text, images, coordinates) => this.previewHouse(id, address, text, images, coordinates)}/>
+          <SearchBar preview={(house) => this.previewHouse(house)}/>
         </View>
-          
-
       </>
     );
   }
@@ -194,42 +139,12 @@ const styles = StyleSheet.create({
   map: {
     backgroundColor: '#fff'
   },
-  // search: {
-  //     flex: 1,
-  //     height: 90, 
-  //     width: Dimensions.get('window').width, 
-  //     backgroundColor: 'rgba(38, 38, 48, 0.5)', 
-  //     position: 'absolute',
-  //     flexDirection: 'row',
-  //     justifyContent: 'center',
-  //     borderRadius:10,
-  // },
-  // searchInput: {
-  //   backgroundColor: 'white',
-  //   height: 35,
-  //   width: Dimensions.get('window').width - 30,
-  //   marginLeft: 15,
-  //   marginRight: 15,
-  //   marginTop: 15,
-  //   fontSize: 28,
-  //   padding: 10,
-  //   color: 'black',
-  //   borderRadius: 10,
-  //   fontSize: 15,
-  //   // borderBottomWidth: 2,
-  //   // borderBottomColor: 'blue'
-  // },
   components: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
     flexDirection: 'column',
     justifyContent: 'flex-end',
 
-  },
-  mapStyle: {
-    position: 'absolute',
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
   },
   centeredView: {
     flex: 1,
