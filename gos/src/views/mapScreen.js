@@ -67,11 +67,11 @@ getGeocodeAsync= async (location) => {
 previewHouse(house) {
   if(house.address === " ") {
     console.log('No name on this house!');
-    this.makeVibration();
+    // this.makeVibration();
   }
   else {
   this.setState({display: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates });
-  this.makeVibration();
+  // this.makeVibration();
   }
 } 
 

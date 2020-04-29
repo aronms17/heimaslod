@@ -51,7 +51,7 @@ componentDidMount() {
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.props.preview(hus)}
+                onPress={() => {this.props.preview(hus); Vibration.vibrate(8000)}}
               />
             ))
           }
