@@ -1,9 +1,23 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import Hamburger from '../components/Hamburger';
+import CloseBurger from '../components/CloseBurger';
+
+const Page = ({
+    kukurogpiss
+}) => (
+    <View>
+        <Button
+            title="Open drawer"
+            onPress={kukurogpiss}
+        />
+    </View>
+);
+
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -16,10 +30,6 @@ export default class screen2 extends React.Component {
         };
     }
 
-    static navigationOptions = {
-        headerShown: false,
-    }
-
     componentDidMount() {
         const { navigation } = this.props;
         const { houseid } = navigation.state.params;
@@ -27,6 +37,7 @@ export default class screen2 extends React.Component {
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
+        
         this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates});
     }
 
@@ -35,13 +46,17 @@ export default class screen2 extends React.Component {
           <View>
             <Text style={styles.desc}>Tittlingur 1</Text>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
-                <Text style={styles.desc}>Tittlingur 2</Text>
+                <Text style={styles.desc}>lingur 2</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
-                <Text style={styles.desc}>Tittlingur 3</Text>
-            </TouchableHighlight>
+            <CloseBurger
+                closeDrawer={() => this.drawer.closeDrawer()}
+            />
           </View>
         );
+    }
+
+    typpaskuffa() {
+        this.drawer.openDrawer();
     }
 
     render() {
@@ -51,15 +66,26 @@ export default class screen2 extends React.Component {
 
         return(
             <View style={styles.container}>
+                
                 <DrawerLayout
+                    ref={drawer => {
+                      this.drawer = drawer;
+                    }}
                     drawerWidth={200}
+                    drawerHeight={100}
                     drawerPosition={DrawerLayout.positions.Right}
                     drawerType='front'
                     drawerBackgroundColor='#1D1B1B'
-                    renderNavigationView={this.renderDrawer}>
+                    renderNavigationView={this.renderDrawer}
+                    >
 
                 <View style={styles.headerContainer}>
+
                     <Text style={styles.name}>{houseName}</Text>
+                    <Hamburger
+                    openDrawer={() => this.typpaskuffa()}
+                    />
+
                 </View>
                 {/*  */}
 
@@ -105,6 +131,7 @@ export default class screen2 extends React.Component {
                 </View>
 
                 </DrawerLayout>
+                
 
             </View>
         );
@@ -119,7 +146,8 @@ const styles = StyleSheet.create({
         
 	},
 	headerContainer: {
-		flex: 2,
+        flex: 2,
+        flexDirection: 'row',
 		alignItems: 'center',
         justifyContent: 'center',
     },
