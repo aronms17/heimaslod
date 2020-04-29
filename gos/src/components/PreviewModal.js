@@ -1,11 +1,17 @@
 import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight } from 'react-native';
+import NativeModal from 'react-native-modal';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const PreviewModal = (props) => (
     <Modal 
       visible={props.display}
       animationType="fade" 
-      transparent={true}>
+      transparent={true}
+      onRequestClose={() => props.closeDisplay()}
+      onDismiss={() => props.closeDisplay()}
+      >
+
       <View style={styles.modalView}>
           <Text style={styles.textStyle}>
             {props.address}

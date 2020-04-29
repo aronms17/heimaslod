@@ -1,6 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
@@ -118,6 +118,7 @@ closeButton() {
 }
 
     return (
+
       <DrawerLayout
       ref={drawer => {
       this.drawer = drawer;
@@ -128,44 +129,39 @@ closeButton() {
       drawerBackgroundColor='#1D1B1B'
       renderNavigationView={this.renderDrawer}
       >
-      
-      <View>
-        
-        <MapComponent preview={(house) => this.previewHouse(house)}/>
-        
-        <PreviewModal
-          id={houseId}
-          address={houseName}
-          description={houseDescription}
-          images={houseImages}
-          display={this.state.display}
-          closeDisplay={() => this.setState({display: false})}
-          goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
-        />
+        <View>
+          <MapComponent preview={(house) => this.previewHouse(house)}/>
 
-
+          <PreviewModal
+            id={houseId}
+            address={houseName}
+            description={houseDescription}
+            images={houseImages}
+            display={this.state.display}
+            closeDisplay={() => this.setState({display: false})}
+            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
+          />
         </View>
 
-        <View pointerEvents="box-none" style={styles.components}>
-          {/* Location test */}
-          {/* 
-          <View style={styles.modalView}>
-            <Text>Þín staðsetning:</Text>
-            <Text>Latitude: {lat}</Text>
-            <Text>Longitude: {lon}</Text>
+          <View pointerEvents="box-none" style={styles.components}>
+            {/* Location test */}
+            {/* 
+            <View style={styles.modalView}>
+              <Text>Þín staðsetning:</Text>
+              <Text>Latitude: {lat}</Text>
+              <Text>Longitude: {lon}</Text>
+            </View>
+            */}
+            <View style={{width: Dimensions.get('screen').width, backgroundColor: 'red', flexdirection: 'row'}}>
+              <TouchableHighlight
+              onPress={() => this.closeButton()}
+              style={{height: 50, width: 50, backgroundColor: 'blue'}}>
+                <Text>snerta</Text>
+              </TouchableHighlight>
+            </View>
+
+            <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
-          */}
-          <TouchableHighlight
-          onPress={() => this.closeButton()}>
-            <Text>
-              snerta
-            </Text>
-
-          </TouchableHighlight>
-          <SearchBar preview={(house) => this.previewHouse(house)}/>
-          
-        </View>
-
         </DrawerLayout>
     );
   }
@@ -179,14 +175,8 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
 
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
   },
   modalView: {
     margin: 10,
@@ -195,12 +185,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
-  },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
   },
   textStyle: {
     color: "white",
