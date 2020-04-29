@@ -32,17 +32,13 @@ export default class screen2 extends React.Component {
 
     renderDrawer = () => {
         return (
-          <View>
-            <Text style={styles.desc}>Tittlingur 1</Text>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
-                <Text style={styles.desc}>lingur 2</Text>
+          <View style={styles.sideMenu}>
+            <Text style={styles.sideMenuText}>Allar Götur</Text>
+            <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
+                <Text style={styles.sideMenuText}>Hehe</Text>
             </TouchableHighlight>
+            <Text style={styles.sideMenuText}>Stillingar</Text>
              
-            <CloseBurger
-                closeDrawer={() => this.drawer.closeDrawer()}
-            />
-
-
           </View>
         );
     }
@@ -71,9 +67,11 @@ export default class screen2 extends React.Component {
 
                     <Text style={styles.name}>{houseName}</Text>
                     
+                    <View>
                     <Hamburger
                     openDrawer={() => this.drawer.openDrawer()}
                     />
+                    </View>
                     
 
                 </View>
@@ -172,5 +170,20 @@ const styles = StyleSheet.create({
     desc: {
 		fontSize: 16,
         color: '#fff',
-    }
+    },
+    sideMenu: {
+        flex:1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        paddingTop: 50,
+        paddingBottom: 30,
+        paddingLeft: 25
+    
+      },
+      sideMenuText: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: 'white'
+      }
 });

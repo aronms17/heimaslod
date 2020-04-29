@@ -88,20 +88,16 @@ makeVibration() {
 
 renderDrawer = () => {
   return (
-    <View>
-      <Text style={styles.desc}>Tittlingur 1</Text>
+    <View style={styles.sideMenu}>
+      <Text style={styles.sideMenuText}>Allar Götur</Text>
       <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
-          <Text style={styles.desc}>lingur 2</Text>
+          <Text style={styles.sideMenuText}>Hehe</Text>
       </TouchableHighlight>
+      <Text style={styles.sideMenuText}>Stillingar</Text>
        
     </View>
   );
 }
-
-closeButton() {
-  this.drawer.openDrawer();
-}
-
 
   render() {
   
@@ -186,13 +182,19 @@ const styles = StyleSheet.create({
     padding: 35,
     alignItems: "center",
   },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+  sideMenu: {
+    flex:1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    paddingTop: 50,
+    paddingBottom: 30,
+    paddingLeft: 25
+
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
+  sideMenuText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: 'white'
   }
 });
