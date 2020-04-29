@@ -6,18 +6,7 @@ import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
-
-const Page = ({
-    kukurogpiss
-}) => (
-    <View>
-        <Button
-            title="Open drawer"
-            onPress={kukurogpiss}
-        />
-    </View>
-);
-
+import SideMenu from '../components/SideMenu';
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -48,15 +37,14 @@ export default class screen2 extends React.Component {
             <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
                 <Text style={styles.desc}>lingur 2</Text>
             </TouchableHighlight>
+             
             <CloseBurger
                 closeDrawer={() => this.drawer.closeDrawer()}
             />
+
+
           </View>
         );
-    }
-
-    typpaskuffa() {
-        this.drawer.openDrawer();
     }
 
     render() {
@@ -71,20 +59,22 @@ export default class screen2 extends React.Component {
                     ref={drawer => {
                       this.drawer = drawer;
                     }}
-                    drawerWidth={200}
-                    drawerHeight={100}
+                    drawerWidth={220}
                     drawerPosition={DrawerLayout.positions.Right}
                     drawerType='front'
                     drawerBackgroundColor='#1D1B1B'
                     renderNavigationView={this.renderDrawer}
-                    >
-
+                >
+                
                 <View style={styles.headerContainer}>
 
+
                     <Text style={styles.name}>{houseName}</Text>
+                    
                     <Hamburger
-                    openDrawer={() => this.typpaskuffa()}
+                    openDrawer={() => this.drawer.openDrawer()}
                     />
+                    
 
                 </View>
                 {/*  */}
@@ -129,9 +119,8 @@ export default class screen2 extends React.Component {
                     </View>
                     
                 </View>
-
-                </DrawerLayout>
                 
+                </DrawerLayout>
 
             </View>
         );
