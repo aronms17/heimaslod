@@ -20,19 +20,32 @@ export default class screen2 extends React.Component {
         this.setState({streets: streetdata, houses: housedata});
     }
 
+    navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates) {
+        this.props.navigation.navigate('houseDetailScreen', {
+          houseid, houseName, houseDescription, houseImages, houseCoordinates
+        });
+      }
+
     render() {
         return(
-            <View>
-                <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
+            <View style={{backgroundColor: '#1D1B1B'}}>
+                <FlatList
                     data={this.state.streets}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={{margin: 1}} onPress={() => console.log(item.name)}>
-                            <Text style={{fontSize: 30}}>{item.name}</Text>
-                            {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                <Text>{house.address}</Text>
-                                ))
-                            }
-                        </TouchableOpacity>
+                        <>
+                            <TouchableOpacity style={{margin: 1}} onPress={() => console.log(item.name)}>
+                                <Text style={{fontSize: 30, color: 'white'}}>{item.name}</Text>
+                            </TouchableOpacity>
+                            <View>
+                                {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
+                                    <TouchableOpacity onPress={() => this.navigateHouse(house.id, house.address, house.text, house.images, house.coordinates) }>
+                                        <Text style={{color: 'white'}}>{house.address}</Text>
+                                    </TouchableOpacity>
+                                    ))
+                                }
+                            </View>
+                        </>
+                        
                     )}
                 />
             </View>
