@@ -37,6 +37,9 @@ export default class screen2 extends React.Component {
             <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
                 <Text style={styles.desc}>Tittlingur 2</Text>
             </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('mapScreen')}>
+                <Text style={styles.desc}>Tittlingur 3</Text>
+            </TouchableHighlight>
           </View>
         );
     }

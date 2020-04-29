@@ -12,7 +12,7 @@ export default class Hamburger extends React.Component {
             height: 44,
             marginLeft: 20
         }}>
-            <Feather name='menu' size={40} color='white'/>
+            <Feather name='menu' size={40} color='black'/>
         </TouchableOpacity>
     )
     };

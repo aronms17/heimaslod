@@ -16,18 +16,6 @@ export default class SearchBar extends React.Component {
         };
     }
 
-    static navigationOptions = {
-        headerStyle: {
-            backgroundColor: '#1D1B1B',
-            elevation: 0,
-            shadowOpacity: 0,
-            borderBottomWidth: 0,
-        },
-        headerTintColor: '#fff',
-            headerTitleStyle: {
-            fontWeight: 'bold',
-        },
-    }
 
     componentDidMount() {
         let houseData = Houses.hus;
@@ -37,12 +25,14 @@ export default class SearchBar extends React.Component {
 
     _moveUpAnimation = () => {
         Animated.spring(this.state.yValue, {
-            toValue: Dimensions.get('window').height - 30,
+            toValue: Dimensions.get('window').height - 100,
             friction: 9,
         }).start();
     };
 
     _moveDownAnimation = () => {
+        _textInput.setNativeProps({text: ''});
+        this.search('');
         Keyboard.dismiss();
         Animated.spring(this.state.yValue, {
             toValue: 100,
@@ -84,6 +74,8 @@ export default class SearchBar extends React.Component {
                     <View style={styles.top}>
 
                         <TextInput
+                        ref={ component => _textInput = component}
+                        autoCorrect={false}
                         placeholder="Search"
                         placeholderTextColor="#dddddd"
                         style={ styles.searchInput }

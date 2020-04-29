@@ -1,5 +1,5 @@
 import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';;
@@ -15,6 +15,7 @@ export default class App extends React.Component {
 
   constructor(props) {
   super(props);
+  this.houseRefs = [];
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -25,7 +26,7 @@ export default class App extends React.Component {
     houseImages: '',
     houseCoordinates: [],
     location: null,
-    errorMessage:""
+    errorMessage:"",
   };
 }
 
@@ -63,7 +64,9 @@ getGeocodeAsync= async (location) => {
   this.setState({ geocode})
 }
 
-previewHouse(id, address, text, images, coordinates) {
+previewHouse(index, id, address, text, images, coordinates) {
+  console.log(this.houseRefs[1]);
+  console.log('id: ' + id + ' address: ' +  address);
   if(address === " ") {
     console.log('No name on this house!');
     this.makeVibration();
@@ -84,6 +87,7 @@ navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinate
 makeVibration() {
   Vibration.vibrate(7);
 }
+
 
   render() {
   
@@ -118,22 +122,25 @@ makeVibration() {
           {/* þarf að refresha til að litirnir komi */}
           {/* Polygonarnir */}
           
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus) => (
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
               <CustomPolygon
+                ref={ref => this.houseRefs[index] = ref}
                 key = {hus.id}
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.previewHouse(hus.id, hus.address, hus.text, hus.images, hus.coordinates)}
+                onPress={() => this.previewHouse(index, hus.id, hus.address, hus.text, hus.images, hus.coordinates)}
               />
             ))
           }
 
-          {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index) => (
+          {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
               <CustomPolygon
                 key = {gata.id}
                 coordinates={gata.coordinates}
                 fillColor={goturColor}
+                tappable={true}
+                onPress={() => console.log(gata.id)}
               />
             ))
           }
@@ -142,7 +149,6 @@ makeVibration() {
               <Marker
                 coordinate={{latitude: 63.4352606, 
                 longitude: -20.2615806}}
-
                 >
                   <Text style={{color: 'black'}}>Gerðisbraut</Text>
               </Marker>
