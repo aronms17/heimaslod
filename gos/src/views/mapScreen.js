@@ -19,7 +19,7 @@ export default class App extends React.Component {
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
-    display: false,
+    isModalVisible: false,
     houseId: 0,
     houseName: '',
     houseDescription: '',
@@ -35,7 +35,7 @@ componentDidMount() {
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
-    display: false,
+    isModalVisible: false,
     houseId: 0,
     houseName: '',
     houseDescription: '',
@@ -65,13 +65,13 @@ getGeocodeAsync= async (location) => {
 }
 
 previewHouse(house) {
+  console.log('House Address: ', house.address)
   if(house.address === " ") {
     console.log('No name on this house!');
     // this.makeVibration();
   }
   else {
-  this.setState({display: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates });
-  // this.makeVibration();
+  this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates });
   }
 } 
 
@@ -79,7 +79,7 @@ navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinate
   this.props.navigation.navigate('houseDetailScreen', {
     houseid, houseName, houseDescription, houseImages, houseCoordinates
   });
-  this.setState({display: false});
+  this.setState({isModalVisible: false});
 }
 
 makeVibration() {
@@ -107,7 +107,7 @@ onClick = () => {
 
   render() {
   
-    const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
+    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -135,12 +135,12 @@ onClick = () => {
           <MapComponent preview={(house) => this.previewHouse(house)}/>
 
           <PreviewModal
+            isVisible={this.state.isModalVisible}
             id={houseId}
             address={houseName}
             description={houseDescription}
             images={houseImages}
-            display={this.state.display}
-            closeDisplay={() => this.setState({display: false})}
+            closeDisplay={() => this.setState({isModalVisible: false})}
             goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
           />
         </View>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   burger: {
-    marginTop: 20,
-    marginRight: 15
+    marginTop: 40,
+    marginRight: 17
   }
 });

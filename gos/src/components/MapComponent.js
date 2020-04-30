@@ -51,7 +51,8 @@ componentDidMount() {
                 coordinates={hus.coordinates}
                 fillColor={husColor}
                 tappable={true}
-                onPress={() => this.props.preview(hus)}
+                onPress={() => {this.props.preview(hus); Vibration.vibrate(7)}}
+                // onPress={() => console.log(hus.address)}
               />
             ))
           }
@@ -61,7 +62,7 @@ componentDidMount() {
                 key = {gata.id}
                 coordinates={gata.coordinates}
                 fillColor={goturColor}
-                tappable={true}
+                tappable={false}
                 onPress={() => console.log('gata id: ' + gata.id)}
               />
             ))
