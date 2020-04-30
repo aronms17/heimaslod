@@ -7,11 +7,18 @@ import prufupoly from '../../script/jsonfile.json';
 // import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
+const initialRegion = {
+  latitude: 63.4347866,
+  longitude: -20.2844343,
+  latitudeDelta: 0.095,
+  longitudeDelta: 0.0921
+}
+
 export default class MapComponent extends React.Component {
 
   constructor(props) {
   super(props);
-  this.flottRef = React.createRef();
+  this.mapViewRef = React.createRef();
   this.myRef = []; 
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
@@ -20,6 +27,13 @@ export default class MapComponent extends React.Component {
     theme: null,
     lightTheme: false,
     selectedId: null,
+    region: {
+      latitude: 63.4347866,
+      longitude: -20.2844343,
+      latitudeDelta: 0.095,
+      longitudeDelta: 0.0921,
+    },
+    
   };
 }
 
@@ -44,8 +58,17 @@ themeChange() {
   }
 }
 
-houseSelect(id) {
-  this.setState({selectedId: id});
+houseSelect(house) {
+  this.setState({selectedId: house.id});
+  let houseRegion = {
+    latitude: house.coordinates[0].latitude,
+    longitude: house.coordinates[0].longitude,
+    latitudeDelta: 0.0035,
+    longitudeDelta: 0.0035,
+  }
+  if(this.mapViewRef.current) {
+    this.mapViewRef.current.animateToRegion(houseRegion, 1000);
+  }
 }
 
 houseDeselect() {
@@ -59,17 +82,15 @@ houseDeselect() {
     return (
 
         <MapView
+          ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          minZoomLevel={12} 
+          // minZoomLevel={12} 
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
           customMapStyle={this.state.theme}
-          initialRegion={{
-          latitude: 63.4347866,
-          longitude: -20.2844343,
-          latitudeDelta: 0.095,
-          longitudeDelta: 0.0921}}>
+          initialRegion={this.state.region}
+          >
 
           {/* þarf að refresha til að litirnir komi */}
           {/* Polygonarnir */}
@@ -80,7 +101,7 @@ houseDeselect() {
                 coordinates={hus.coordinates}
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
-                onPress={() => {this.props.preview(hus); Vibration.vibrate(7); this.houseSelect(hus.id);}}
+                onPress={() => {this.props.preview(hus); Vibration.vibrate(7); this.houseSelect(hus);}}
                 // onPress={() => console.log(hus.address)}
               />
             ))
