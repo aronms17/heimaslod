@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 // import Streets from './../components/Streets';
-import Data from './../../script/jsonfile.json';
+import Data from '../../script/jsonfile.json';
 
-export default class screen2 extends React.Component {
+export default class allStreetScreen extends React.Component {
     constructor() {
         super();
         this.state = {

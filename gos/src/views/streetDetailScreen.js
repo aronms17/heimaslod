@@ -4,20 +4,13 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import Hamburger from '../components/Hamburger';
-import CloseBurger from '../components/CloseBurger';
-import SideMenu from '../components/SideMenu';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
-export default class houseDetailScreen extends React.Component {
+
+export default class streetDetailScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-          houseid: 0,
-          houseName: '',
-          houseDescription: '',
-          houseImages: '',
-          houseCoordinates: [],
           streetId: null,
           streetName: ''
         };
@@ -26,19 +19,10 @@ export default class houseDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        const { houseid } = navigation.state.params;
-        const { houseName } = navigation.state.params;
-        const { houseDescription } = navigation.state.params;
-        const { houseImages } = navigation.state.params;
-        const { houseCoordinates } = navigation.state.params;
         const { streetId } = navigation.state.params;
-
-        const allarGotur = Array.from(Data.gotur);
-        const allStreets = allarGotur.find(({ id }) => id === streetId);
-        const streetName= allStreets.name;
+        const { streetName } = navigation.state.params;
         
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
-            houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
+        this.setState({ streetId: streetId, 
             streetId: streetId, streetName: streetName
         });
     }
@@ -59,8 +43,7 @@ export default class houseDetailScreen extends React.Component {
       }
 
     render() {
-        const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
-        const arrHouse = Array.from(houseImages);
+        const { streetId, streetName } = this.state;
         return(
             <View style={styles.container}>                
                 <DrawerLayout
@@ -82,12 +65,13 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.headerContainer}>
-                    <Text style={styles.name}>{houseName}</Text>
+                    <Text style={styles.name}>{streetName}</Text>
                 </View>
                 {/*  */}
 
                 <View style={styles.galleryContainer}>
                     {/* Rétt map aðferð á propsið núna */}
+                    {/* 
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
@@ -97,24 +81,19 @@ export default class houseDetailScreen extends React.Component {
                             ))
                         }
                     />
+                    */}
                 </View>
                 
                 <View style={styles.descriptionContainer}>
                 <ScrollView>
-                    <Text style={styles.desc}>{houseDescription}</Text>
+                    <Text style={styles.desc}>götu texti hér</Text>
                 </ScrollView>
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Button 
-                        title={streetName} 
-                        color="tomato"
-                        onPress={() => this.props.navigation.navigate('streetDetailScreen', {
-                            streetId, streetName
-                        })}
-                    />
+                    <Button title={streetName} color="tomato"/>
                     <View style={styles.onlyMap}>
-                    <MapView
+                    {/* <MapView
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
                         initialRegion={{
@@ -128,7 +107,7 @@ export default class houseDetailScreen extends React.Component {
                             fillColor="#f55d42"
                         />
                         
-                    </MapView>
+                    </MapView> */}
                     </View>
                     
                 </View>
@@ -158,12 +137,14 @@ const styles = StyleSheet.create({
     },
     descriptionContainer: {
         flex: 4,
+        paddingLeft: 20
     },
     bottomContainer: {
         flex: 5,
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'row',
+        paddingLeft: 20,
     },
     bottomItems: {
         marginRight: 10
