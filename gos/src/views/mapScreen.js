@@ -25,6 +25,7 @@ export default class App extends React.Component {
     houseDescription: '',
     houseImages: '',
     houseCoordinates: [],
+    streetId: 0,
     location: null,
     errorMessage:"",
   };
@@ -40,6 +41,7 @@ componentDidMount() {
     houseName: '',
     houseDescription: '',
     houseImages: '',
+    streetId: 0
   })
 }
 
@@ -71,15 +73,15 @@ previewHouse(house) {
     // this.makeVibration();
   }
   else {
-  this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates });
+  this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
 } 
 
-navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates) {
-  this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription, houseImages, houseCoordinates
-  });
+navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
   this.setState({isModalVisible: false});
+  this.props.navigation.navigate('houseDetailScreen', {
+    houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId
+  });
 }
 
 makeVibration() {
@@ -107,7 +109,7 @@ onClick = () => {
 
   render() {
   
-    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
+    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -140,8 +142,9 @@ onClick = () => {
             address={houseName}
             description={houseDescription}
             images={houseImages}
+            streetId={streetId}
             closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
+            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
           />
         </View>
 
