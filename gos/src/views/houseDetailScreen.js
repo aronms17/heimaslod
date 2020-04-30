@@ -18,8 +18,10 @@ export default class screen2 extends React.Component {
           houseDescription: '',
           houseImages: '',
           houseCoordinates: [],
-          streetId: 0
+          streetId: null,
+          streetName: ''
         };
+        console.disableYellowBox = true;
     }
 
     componentDidMount() {
@@ -30,8 +32,15 @@ export default class screen2 extends React.Component {
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
         const { streetId } = navigation.state.params;
+
+        const allarGotur = Array.from(Data.gotur);
+        const allStreets = allarGotur.find(({ id }) => id === streetId);
+        const streetName= allStreets.name;
         
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId});
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
+            houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
+            streetId: streetId, streetName: streetName
+        });
     }
 
     renderDrawer = () => {
@@ -50,10 +59,8 @@ export default class screen2 extends React.Component {
       }
 
     render() {
-        const{houseName, houseDescription, houseImages, houseCoordinates, streetId} = this.state;
+        const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
         const arrHouse = Array.from(houseImages);
-        console.log("Fjöldi stafa: ", houseDescription.length)
-
         return(
             <View style={styles.container}>                
                 <DrawerLayout
@@ -99,7 +106,7 @@ export default class screen2 extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>Götu id: {streetId}</Text>
+                    <Button title={streetName} color="tomato"/>
                     <View style={styles.onlyMap}>
                     <MapView
                         style={{...StyleSheet.absoluteFillObject}}
