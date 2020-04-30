@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
   constructor(props) {
   super(props);
-  this.houseRefs = [];
+  this.child = React.createRef();
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -101,6 +101,10 @@ renderDrawer = () => {
   );
 }
 
+onClick = () => {
+  this.child.current.flottAlert();
+}
+
   render() {
   
     const {goturColor, husColor, display, houseId, houseName, houseDescription, houseImages, houseCoordinates, location, errorMessage} = this.state;
@@ -157,8 +161,8 @@ renderDrawer = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
-
-            <SearchBar preview={(house) => this.previewHouse(house)}/>
+            <TouchableHighlight onPress={this.onClick} style={{backgroundColor: 'green'}}><Text>child ref</Text></TouchableHighlight>
+            <SearchBar ref={this.child} preview={(house) => this.previewHouse(house)}/>
           </View>
         </DrawerLayout>
     );
