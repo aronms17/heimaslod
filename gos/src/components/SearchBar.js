@@ -16,6 +16,10 @@ export default class SearchBar extends React.Component {
         };
     }
 
+    flottAlert() {
+        alert('haha');
+    }
+
 
     componentDidMount() {
         let houseData = Houses.hus;

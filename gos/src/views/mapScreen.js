@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
   constructor(props) {
   super(props);
-  this.houseRefs = [];
+  this.child = React.createRef();
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -94,13 +94,17 @@ renderDrawer = () => {
       <TouchableHighlight onPress={() => this.props.navigation.navigate('StreetScreen')}>
         <Text style={styles.sideMenuText}>Allar Götur</Text>
       </TouchableHighlight>
-      <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
-          <Text style={styles.sideMenuText}>Hehe</Text>
+      <TouchableHighlight onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
+          <Text style={styles.sideMenuText}>Theme</Text>
       </TouchableHighlight>
       <Text style={styles.sideMenuText}>Stillingar</Text>
        
     </View>
   );
+}
+
+onClick = () => {
+  this.child.current.themeChange();
 }
 
   render() {
@@ -130,7 +134,7 @@ renderDrawer = () => {
       renderNavigationView={this.renderDrawer}
       >
         <View>
-          <MapComponent preview={(house) => this.previewHouse(house)}/>
+          <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
 
           <PreviewModal
             isVisible={this.state.isModalVisible}
@@ -160,7 +164,6 @@ renderDrawer = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
-
             <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
         </DrawerLayout>
