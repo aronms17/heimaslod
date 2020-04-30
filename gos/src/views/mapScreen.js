@@ -91,7 +91,7 @@ makeVibration() {
 renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
-      <TouchableHighlight onPress={() => this.props.navigation.navigate('StreetScreen')}>
+      <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
         <Text style={styles.sideMenuText}>Allar Götur</Text>
       </TouchableHighlight>
       <TouchableHighlight onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
