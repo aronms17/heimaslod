@@ -158,12 +158,16 @@ const styles = StyleSheet.create({
     },
     descriptionContainer: {
         flex: 4,
+        paddingRight: 20,
+        paddingLeft: 20
     },
     bottomContainer: {
         flex: 5,
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'row',
+        paddingRight: 20,
+        paddingLeft: 20
     },
     bottomItems: {
         marginRight: 10

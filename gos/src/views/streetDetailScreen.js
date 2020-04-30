@@ -33,8 +33,8 @@ export default class streetDetailScreen extends React.Component {
             <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
               <Text style={styles.sideMenuText}>Allar Götur</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
-                <Text style={styles.sideMenuText}>Hehe</Text>
+            <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
+                <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
             <Text style={styles.sideMenuText}>Stillingar</Text>
              
@@ -137,7 +137,8 @@ const styles = StyleSheet.create({
     },
     descriptionContainer: {
         flex: 4,
-        paddingLeft: 20
+        paddingLeft: 20,
+        paddingRight: 20
     },
     bottomContainer: {
         flex: 5,
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         paddingLeft: 20,
+        paddingRight: 20
     },
     bottomItems: {
         marginRight: 10
