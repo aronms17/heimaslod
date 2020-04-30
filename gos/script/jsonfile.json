@@ -101,9 +101,9 @@
         },
         {
             "id": 4,
-            "address": "Víðisvegur 7c",
+            "address": "Víðisvegur 7C",
             "streetId": 2,
-            "text": " ",
+            "text": "Húsið var byggt á árunum 1930-1954. Þegar byrjaði að gjósa bjuggu í húsinu hjónin Sveinn Sverrir Sveinsson og Sigríður Ragna Júlíusdóttir ásamt tveimur sonum.",
             "images": [],
             "coordinates": [
                 {
@@ -206,7 +206,7 @@
             "id": 7,
             "address": "Laugarbraut 1",
             "streetId": "",
-            "text": " ",
+            "text": "Byrjað var að byggja húsið við Laugarbraut 1 í september árið 1939 og var flutt í húsið í janúar 1940, þar bjuggu hjónin Martin Tómasson og Bertha Gísladóttir ásamt börnum sínum Rósu Martinsdóttur,Eyjólfi Martinssyni og Emilíu Martinsdóttur. Þegar byrjaði að gjósa 23. janúar 1973 bjuggu Martin og Bertha í húsinu.",
             "images": [],
             "coordinates": [
                 {
@@ -383,7 +383,7 @@
             "id": 12,
             "address": "Dagsbrún",
             "streetId": 14,
-            "text": " ",
+            "text": "Húsið Dagsbrún sem byggt var árið 1911 stóð við Kirkjuveg 8b. Það fór undir hraun í gosinu 1973.Íbúðar- og verslunarhús. Íbúar Jóhann Antonsson Bjarnasen verslunarstjóri, Haraldur Guðnason, Jósef Thorlacius, Árni J. Johnsen rak um nokkurra ára skeið á jarðhæðinni Blómaverslunina Happó, ásamt Ingibjörgu, dóttur sinni sem síðan tók alfarið við rekstri verslunarinnar og var hún eftir það kennd við hana. Leifur Sigfússon rak þar lækningastofu. Á sjötta áratug síðustu aldar var húsið notað sem verbúð og fékk þá viðurnefnið  Kórea en á þeim árum mun oft hafa verið þar róstusamt og þótti einhverjum minna á Kóreustríðið sem þá stóð sem hæst.Íbúar einnig Guðrún Einarsdóttir, f.1903, Anton Óskarsson f.1935,  Steingerður Jóhannsdóttir f. 1919, Erna Fannbergsdóttir og Stefán Einarsson ásamt Valdísi og Fannberg",
             "images": [],
             "coordinates": [
                 {
@@ -692,7 +692,7 @@
         {
             "id": 21,
             "address": "Einbúi",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Einbúi var byggt árið 1928 og stóð við Bakkastíg 5 og fór undir hraun í gosinu árið 1973.Gerorg Gíslason kaupmaður og Guðfinna Kristjánsdóttir byggja húsið, aðrir íbúar Helgi Benediktsson og fjölskylda, Kristinn og Jóna Jóhanna Jónsdótti, Alexander Gíslason, Ásdís SveinsdóttirHjónin Guðni Grímsson og Ester Valdimarsdóttir ásamt sonum sínum Valdimari, Grím , Guðna Ingvari og  Berg bjuggu í húsinu þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f8/Bakkastigur_1_3_5.jpg/400px-Bakkastigur_1_3_5.jpg"
@@ -723,7 +723,7 @@
         {
             "id": 22,
             "address": "Brimnes",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Brimnes stóð við Bakkastíg 19, það var byggt árið 1918 og fór undir hraun árið 1973. Árið 1922 bjuggu í húsinu Jóhann Einarsson og Þuríður Auðunsdóttir.Árið 1926 Sigurhans Ólafsson og Dóróthea SveinsdóttirÁrið 1953 systkinin Óskar Sigurhansson, Þorbjörg Sigurhansdóttir og Karl SigurhanssonKarl Sigurhansson og Óskar Sigurhansson bjuggu í húsinu þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/4/41/1973%2C17.jpg/250px-1973%2C17.jpg",
@@ -763,7 +763,7 @@
         {
             "id": 23,
             "address": "Sætún",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Sætún stóð við Bakkastíg 10 það var byggt árið 1916. Húsið fór undir hraun árið 1973 í eldgosinu á Heimaey.Jón Hjálmarsson byggir húsið. Árið 1953 búa Ólafur Ingibergsson og  Hulda Marinósdóttir börn þeirra Ingi Ólafsson og Birna Ólafsdóttir, Sigurður Höskuldsson og Elísabet Sigurðardóttir, Kjartan Ólafs Tómasson, Málfríður Sigurðardóttir, Guðmundur Pálsson og Margrét Jónsdóttir, Guðný Fríða Einarsdóttir, Kristján Georgsson og Helga Björnsdóttir og börn þeirra Georg Þór Kristjánsson, Björn Kristjánsson og Guðfinna S Kristjánsdóttir.Alþingismaðurinn Þórarinn Sigurjónsson, sem var á þingi á áttunda og níunta áratugnum, fæddist í Sætúni. Hjónin Guðmundur Pálsson og Margrét Jónsdóttir, Guðmundur Gunnar Erlingsson og hjónin Kristinn Þ. Sigurðsson og Ásta Úlfarsdóttir og dóttir þeirra Ragnheiður bjuggu í húsinu þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/b/b3/S%C3%A6t%C3%BAn.jpg/300px-S%C3%A6t%C3%BAn.jpg"
@@ -977,7 +977,7 @@
         {
             "id": 30,
             "address": "Gjábakki-eystri",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Gjábakki-Eystri stóð við Bakkastíg 25. Það fór undir hraun 1973.Gjábakkajarðirnar voru tvær, Eystri og Vestri Gjábakki. Jarðirnar voru einn völlur, fjögur kýrfóður, og talin með elstu býlum í Eyjum. Hvor jörð hafði 15 sauða beit í Elliðaey. Býlin stóðu vestan undir hólnum sem Leiðarvarðan stóð á. Gömlu bæirnir að Eystri og Vestri Gjábakka, sem báðir voru byggðir fyrir aldamótin 1900, stóðu fram að eldgosinu 1973.Þorkell Jónsson fékk byggingu fyrir jörðinni Eystri-Gjábakka í desember 1894 og 1895 byggði hann húsið sem stóð fram að gosi. Þorkell fluttist til Ameríku skömmu eftir aldamótin og fékk þá Magnús Jónsson sýslumaður byggingu fyrir jörðinni. Eftir Magnús tók við jörðinni Karl Einarsson sýslumaður. Hvorugur þeirra mun hafa búið í húsinu, Karl bjó að Hofi, en Gjábakki eystri var á þessum tíma oft leigður fólki sem var að flytja til Eyja og beið eftir varanlegu húsnæði. Gísli Magnússon, útgerðarmaður, fékk ábúð fyrir jörðinni 1925 en Gísli bjó skammt frá í húsi sínu Skálholti.Fyrir eldgosið bjuggu í gamla bænum á Eystri-Gjábakka mæðginin Anna Halldórsdóttir og Bergsteinn Þórarinsson, oftast nefndur Kúti á Gjábakka eða Kúti einhenti.",
             "images": [
                 "http://heimaslod.is/images/thumb/8/82/Gj%C3%A1bakki.jpg/250px-Gj%C3%A1bakki.jpg"
@@ -1043,7 +1043,7 @@
         {
             "id": 32,
             "address": "Urðavegur 31",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu sem stóð við Urðaveg 31 sem byggt var árið 1966 bjuggu hjónin Ársæll Lárusson og Rósa Martinsdóttir og börn þeirra Lárus og Bertha María þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/1/16/Urdavegur_31_35.jpg/300px-Urdavegur_31_35.jpg",
@@ -1076,7 +1076,7 @@
         {
             "id": 33,
             "address": "Urðavegur 33",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu sem stóð við Urðaveg 33 sem byggt var árið 1966. Þegar byrjaði að gjósa bjuggu hjónin Markús Jónsson og Anna Friðbjarnardóttir ásamt uppkomnum sonum Önnu, Atla, Gísla og Kjartani",
             "images": [
                 "http://heimaslod.is/images/thumb/7/75/Urdavegur_33_hulda.jpg/300px-Urdavegur_33_hulda.jpg",
@@ -1109,7 +1109,7 @@
         {
             "id": 34,
             "address": "Urðavegur 42",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu sem stóð við Urðaveg 42 sem byggt var árið 1935 af Kristni Friðrikssyni frá Látrum.Þegar byrjaði að gjósa bjuggu hjónin Þórður H. Gíslason og Jónína Guðjónsdóttir.",
             "images": [
                 "http://heimaslod.is/images/thumb/5/5d/1973.20.jpg/300px-1973.20.jpg"
@@ -1140,7 +1140,7 @@
         {
             "id": 35,
             "address": "Urðavegur 44",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Urðavegur 44 var hús Sigurðar Sigurðssonar og bjó hann í húsinu þegar byrjaði að gjósa 23. janúar 1973. Húsið var byggt á árunum 1934-1944.",
             "images": [
                 "http://heimaslod.is/images/thumb/8/88/Hus-1.jpg/300px-Hus-1.jpg"
@@ -2024,7 +2024,7 @@
         {
             "id": 62,
             "address": "Hlaðbær (Austurvegur)",
-            "streetId": 15,
+            "streetId": 18,
             "text": "Húsið Hlaðbær stóð við Austurveg 28 og fór undir hraun árið 1973. Húsið var byggt árið 1909. Bjarni Einarsson byggir húsið. Aðrir íbúar árið 1953 Angantýr Elíasson og Sigríður Björnsdóttir og börn þeirra Elías Angantýsson og Edda Angantýsdóttir einnig bjó þar Jóhanna Jensdóttir. Hjónin Hörður Sigurgeirsson ljósmyndari og píanókennari og kona hans Guðrún Loftsdóttir og börn þeirra Loftur, Friðrik og Ágústa.Bjuggu í húsinu auk Jóels Jónssonar þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [],
             "coordinates": [
@@ -2082,7 +2082,7 @@
         {
             "id": 64,
             "address": "Austurvegur 31",
-            "streetId": 15,
+            "streetId": 18,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3082,7 +3082,7 @@
             "id": 94,
             "address": "Byggðarholt",
             "streetId": 14,
-            "text": " ",
+            "text": "Húsið Byggðarholt stóð við Kirkjuveg 9b og var byggt árið 1907.Antoníus Baldvinsson og Ólöf Jónsdóttir byggðu húsið og bjuggu þar ásamt fimm börnum sínum. Antoníus lést árið 1938 en Ólöf bjó þar áfram til ársins 1956 ásamt syni sínum Guðjóni Svavari Antoníussyni og konu hans Kristínu Halldórsdóttur og sjö börnum þeirra.Halldór Jónsson. keypti húsið 1956.Húsið fór undir hraun árið 1973.",
             "images": [],
             "coordinates": [
                 {
@@ -3140,7 +3140,7 @@
             "id": 96,
             "address": "Eiðar",
             "streetId": 14,
-            "text": " ",
+            "text": "Húsið Eiðar stóð við Kirkjuveg 9c. Húsið var íbúðarhús.",
             "images": [],
             "coordinates": [
                 {
@@ -3230,7 +3230,7 @@
             "id": 98,
             "address": "Borgarhóll",
             "streetId": 14,
-            "text": " ",
+            "text": "Húsið Borgarhóll var við Kirkjuveg 11, byggt 1916, íbúðarhús sem fór undir hraun í gosinu 1973. ",
             "images": [],
             "coordinates": [
                 {
@@ -5016,7 +5016,7 @@
         {
             "id": 141,
             "address": "Austurvegur 11",
-            "streetId": 15,
+            "streetId": 18,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5201,7 +5201,7 @@
         {
             "id": 145,
             "address": "Austurvegur 12",
-            "streetId": 15,
+            "streetId": 18,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5230,7 +5230,7 @@
         {
             "id": 146,
             "address": "Austurvegur 29",
-            "streetId": 15,
+            "streetId": 18,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5799,7 +5799,7 @@
         {
             "id": 161,
             "address": "Suðurvegur 11",
-            "streetId": 24,
+            "streetId": 31,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -6525,7 +6525,7 @@
             "id": 180,
             "address": "Rafstöðin",
             "streetId": 2,
-            "text": " ",
+            "text": "Rafstöðin stóð við Heimatorg og var torgið við gömlu rafstöðina oft nefnt Krossgötur.",
             "images": [],
             "coordinates": [
                 {
@@ -6778,7 +6778,7 @@
         {
             "id": 188,
             "address": "Fúsahús",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Fúsahús var byggt árið 1926 og stóð við Bakkastíg 3. Húsið er nefnt eftir eiganda þess, það var heimili Vigfúsar Sigurðssonar og Jónu Vilhjálmsdóttur. Húsið fór undir hraun árið 1973.Þegar byrjaði að gjósa 23. janúar 1973. bjó Jóna Vilhjálmsdóttir í húsinu ásamt Lilju Ingvarsdóttur, Valgeiri Stefánssyni og Þórunni Jónsdóttur",
             "images": [
                 "http://heimaslod.is/images/thumb/1/17/Vigfus1.jpg/250px-Vigfus1.jpg",
@@ -6964,7 +6964,7 @@
         {
             "id": 193,
             "address": "Urðavegur 35",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu sem stóð við Urðaveg 35 sem byggt var árið 1959 af Sverri Bjarnasyni og Inger Bjarnason.Þegar byrjaði að gjósa bjuggu hjónin Jens Jensson og María Anna Sigurðardóttir og börn þeirra, Jónsteinn og Ásdís.",
             "images": [
                 "http://heimaslod.is/images/thumb/1/16/Urdavegur_31_35.jpg/300px-Urdavegur_31_35.jpg",
@@ -7013,7 +7013,7 @@
         {
             "id": 194,
             "address": "Urðavegur 39",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu sem stóð við Urðaveg 39 sem byggt var á árunum 1956-1958 bjó Guðrún Welding ekkja Ingólfs Eiríkssonar ásamt börnum sínum Ernu, Rósönnu og Reyni og syni Ernu.Einnig bjuggu í húsinu Jón Pálsson, Ólafur Þorkell Pálsson og Sigurður Reimarsson þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/3/33/Urdavegur_37_39_birna.jpg/250px-Urdavegur_37_39_birna.jpg",
@@ -7395,7 +7395,7 @@
         {
             "id": 204,
             "address": "Urðavegur 38",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Í húsinu við Urðaveg 38 sem byggt var á árunum 1945-1948 bjuggu hjónin Kristinn Sigurðsson slökkviliðsstjóri og Guðrún Bjarný Guðjónsdóttir og dætur þeirra Jóna Björg og Eygló einnig barnabarn þeirra Guðrún Bjarný Ragnarsdóttir þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/d/d3/Ur%C3%B0av.38.jpg/300px-Ur%C3%B0av.38.jpg"
@@ -7503,7 +7503,7 @@
         {
             "id": 207,
             "address": "Gjábakki-vestri",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Gjábakki-vestri stóð við Bakkastíg 17, vestur af Brimnesi. Það fór undir hraun 1973. Á ofanverðri 19. öld bjuggu á Gjábakka-vestri Ingimundur Jónsson og Margrét Jónsdóttir, foreldrar Kristjáns í Klöpp, Jóns í Mandal og Þórönnu ljósmóður í Nýborg. Ingimundur sat jörðina í rúmlega hálfa öld og byggði það hús árið 1901 sem fór undir hraun. Þarna bjó lengi Gunnlaugur Sigurðsson formaður ásamt konu sinni Elísabetu Arnoddsdóttur og stórum barnahópi þeirra en níu þeirra komust til fullorðinsára. Mikill ættbogi er frá þeim Gunnlaugi og Elísabetu.Þegar gaus, 23 janúar 1973, bjuggu á Gjábakka-vestri systkinin Sigurbjörg og Jón Gunnlaugsbörn.",
             "images": [
                 "http://heimaslod.is/images/thumb/a/ad/Bakkastigur17-gjabakki-1963.jpg/300px-Bakkastigur17-gjabakki-1963.jpg",
@@ -7842,7 +7842,7 @@
             "id": 216,
             "address": "Stíghús",
             "streetId": 30,
-            "text": " ",
+            "text": "Húsið Stíghús stóð við Njarðarstíg 5.Árið 1929 bjuggu þar Guðbjörg Sighvatsdóttir og Jóhann Pétur Pálmason. Sonur Jóhanns Péturs var Ingi R Jóhannsson. Þar bjó Óli Kristjánsson.Árið 1953 Gústaf Finnbogason og Helga Júlíusdóttir, sonur þeirra  Finnbogi Mar einnig bróðir Helgu Garðar Júlíusson.",
             "images": [],
             "coordinates": [
                 {
@@ -7916,7 +7916,7 @@
             "id": 218,
             "address": "Bræðraborg",
             "streetId": 30,
-            "text": " ",
+            "text": "Húsið Bræðraborg stóð við Njarðarstíg 3 sem byggt var árið 1908. Húsið fór undir hraun.Árið 1910 bjuggu í húsinu Guðjón Jónsson og Sigríður Nikulásdóttir ásamt dóttur sinni Jóhönnu Nikólínu, einnig Finnbogi Finnbogason frá Vallartúni, Árni Finnbogason frá Norðurgarði.Árið 1953 bjuggu þar Magnús Magnússon og Þórða Eva Valdimarsdóttir og dóttir þeirra Ágústa.Þegar byrjaði að gjósa bjuggu hjónin Valdimar Ástgeirsson og Þórodda Vigdís Loftsdóttir í húsinu.",
             "images": [],
             "coordinates": [
                 {
@@ -7961,7 +7961,7 @@
             "id": 219,
             "address": "Pálsborg",
             "streetId": 30,
-            "text": " ",
+            "text": "Húsið Pálsborg stóð við Njarðarstíg. Húsnúmer var á reiki og ýmist skráð númer 4b eða 10.Árið 1929 bjuggu þar Hjörleifur Sigurjónsson og Stefanía Hannesdóttir, Már Frímannsson, seinna Angantýr Einarsson og Kornelía Jóhannsdóttir og fjölskylda,  Jón Kjartansson og fjölskylda",
             "images": [],
             "coordinates": [
                 {
@@ -8657,7 +8657,7 @@
         {
             "id": 236,
             "address": "Stóri Gjábakki",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Stóri Gjábakki stóð við Bakkastíg 8 sem byggt var árið 1909.  Gjábakkajarðirnar voru tvær, Gjábakki-eystri og Gjábakki-vestri.  Árið 1909 fékk Jón Einarsson kaupmaður byggingu fyrir jörðinni að Gjábakka-vestri. Hann byggði myndarlegt timburhús við Bakkastíginn, nokkru vestar og var það hús nr. 8. Þetta hús var í daglegu tali oftast nefnt Stóri Gjábakki og gamla húsið, Gjábakki-vestri, kallað Litli Gjábakki til aðgreiningar.Á Stóra Gjábakka bjuggu lengi Ásmundur Guðjónsson, umboðsmaður Olís í Eyjum, oftast kallaður Ásmundur greifi, og kona hans, Anna Friðbjarnardóttir, þekktari sem Bíbí. Einn sona þeirra, Atli, sem einnig gekk undir „greifanafninu“, er ræðismaður Íslands í Kanada. Þar bjuggu einnig Bjarni Guðjónsson og Sigríður Þorláksdóttir , Svavar Stefánsson og Stefanía BjörnsdóttirStóri Gjábakki fór undir hraun í gosinu 23. janúar 1973. En þá bjuggu þar Björgvin Ólafsson og kona hans, Ásdís Erna Guðmundsdóttir, ásamt dóttur þeirra Ólöfu Sigrúnu og Sigurði, fóstra Ásdísar. Ennfremur bjuggu þar Sveinn Þorsteinsson frá Gunnarshólma, Guðrún Eyland, Elísabet Sigurðardóttir og hjónin Sigurður Stefánsson og Ásta Traustadóttir.",
             "images": [
                 "http://heimaslod.is/images/thumb/0/01/Gj%C3%A1bakki.JPG/300px-Gj%C3%A1bakki.JPG"
@@ -10206,7 +10206,7 @@
         {
             "id": 274,
             "address": "Höfn",
-            "streetId": 6,
+            "streetId": 5,
             "text": "Húsið Höfn stóð við Bakkastíg 1  það var byggt árið 1927, en varð hrauninu að bráð árið 1973.Íbúar Tómas M. Guðjónsson og Sigríður Magnúsdóttir seinni kona hans, þar bjó einnig Jón Þórðarson (snari) f. 1883 d. 1967Þegar byrjaði að gjósa 23. janúar 1973 bjuggu Björgvin Helgason og Gerður Erla Tómasdóttir dóttir þeirra Erla í húsinu. Auk þeirra bjuggu Tómas Örn Stefánsson, Bragi Tómasson og Brynjólfur Stefánsson í húsinu.",
             "images": [
                 "http://heimaslod.is/images/thumb/3/3a/Fa-lausar_%2814%29.jpg/250px-Fa-lausar_%2814%29.jpg",
@@ -10247,7 +10247,7 @@
         {
             "id": 275,
             "address": "Urðavegur 37",
-            "streetId": 7,
+            "streetId": 8,
             "text": "Húsið við Urðaveg 37 var byggt á árunum 1959-1963 þar bjuggu hjónin Friðþjófur Másson og Jórunn Einarsdóttir og börn þeirra, Einar, Anna, Már og Svanhvít þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/7/71/Urdarvegur_37.jpg/300px-Urdarvegur_37.jpg",
@@ -10427,8 +10427,10 @@
         {
             "id": 1,
             "name": "Strandvegur",
-            "text": " ",
-            "images": [],
+            "text": "Strandvegur er gata sem liggur þvert á milli Kirkjuvegar og Hlíðarvegarog nefndist áður Strandstígur. Íbúar í götunni voru 13 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.Strandvegur var fyrsta gatan sem bæjarsjóður lét steypa og var vestanverð gatan steypt. Það var árið 1943.",
+            "images": [
+                "http://heimaslod.is/images/thumb/6/69/Strandvegur.jpg/250px-Strandvegur.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.26632500692298,
@@ -10519,7 +10521,7 @@
         {
             "id": 2,
             "name": "Víðisvegur",
-            "text": " ",
+            "text": "Víðisvegur er gata sem lá austur frá Heimatorgi og fór hún undir hraun í gosinu 1973.",
             "images": [],
             "coordinates": [
                 {
@@ -10602,7 +10604,7 @@
         },
         {
             "id": 3,
-            "name": "Heimatorg",
+            "name": " ",
             "text": " ",
             "images": [],
             "coordinates": [
@@ -10746,8 +10748,8 @@
         },
         {
             "id": 4,
-            "name": "Urðavegur",
-            "text": " ",
+            "name": "Víðisvegur",
+            "text": "Víðisvegur er gata sem lá austur frá Heimatorgi og fór hún undir hraun í gosinu 1973.",
             "images": [],
             "coordinates": [
                 {
@@ -10819,8 +10821,13 @@
         {
             "id": 5,
             "name": "Bakkastígur",
-            "text": " ",
-            "images": [],
+            "text": "Bakkastígur var gata sem lá norðan Urðavegar. Gatan  fór undir hraun í gosinu 1973.",
+            "images": [
+                "http://heimaslod.is/images/thumb/f/fc/Bakkastigur_austur_gotuna.jpg/250px-Bakkastigur_austur_gotuna.jpg",
+                "http://heimaslod.is/images/thumb/2/20/Bakkastigur_til_austurs_gos.jpg/250px-Bakkastigur_til_austurs_gos.jpg",
+                "http://heimaslod.is/images/thumb/a/a4/Bakkast%C3%ADgur...jpg/250px-Bakkast%C3%ADgur...jpg",
+                "http://heimaslod.is/images/thumb/0/09/Gjabakkatun.jpg/250px-Gjabakkatun.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.263301058964238,
@@ -10979,8 +10986,13 @@
         {
             "id": 6,
             "name": "Bakkastígur",
-            "text": " ",
-            "images": [],
+            "text": "Bakkastígur var gata sem lá norðan Urðavegar. Gatan  fór undir hraun í gosinu 1973.",
+            "images": [
+                "http://heimaslod.is/images/thumb/f/fc/Bakkastigur_austur_gotuna.jpg/250px-Bakkastigur_austur_gotuna.jpg",
+                "http://heimaslod.is/images/thumb/2/20/Bakkastigur_til_austurs_gos.jpg/250px-Bakkastigur_til_austurs_gos.jpg",
+                "http://heimaslod.is/images/thumb/a/a4/Bakkast%C3%ADgur...jpg/250px-Bakkast%C3%ADgur...jpg",
+                "http://heimaslod.is/images/thumb/0/09/Gjabakkatun.jpg/250px-Gjabakkatun.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.259287776932762,
@@ -11031,8 +11043,12 @@
         {
             "id": 7,
             "name": "Urðavegur",
-            "text": " ",
-            "images": [],
+            "text": "Urðavegur er gata sem lá skáhallt til suðausturs frá Heimatorgi og að Austurhlíð. Gatan fór undir hraun í gosinu 1973.Við Urðaveg bjuggu margir sjómenn og útgerðarmenn. Var það gjarnan að sjómenn hittust á Urðaveginum þegar þeir voru á leið til sjávar og var yfirleitt spjallað um sjávarlífið.",
+            "images": [
+                "http://heimaslod.is/images/thumb/0/0e/Urdavegur.jpg/300px-Urdavegur.jpg",
+                "http://heimaslod.is/images/thumb/2/2f/Gos_38.jpg/300px-Gos_38.jpg",
+                "http://heimaslod.is/images/thumb/2/2d/Urdavegur_bakatil.jpg/250px-Urdavegur_bakatil.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.262894113751567,
@@ -11143,8 +11159,12 @@
         {
             "id": 8,
             "name": "Urðavegur",
-            "text": " ",
-            "images": [],
+            "text": "Urðavegur er gata sem lá skáhallt til suðausturs frá Heimatorgi og að Austurhlíð. Gatan fór undir hraun í gosinu 1973.Við Urðaveg bjuggu margir sjómenn og útgerðarmenn. Var það gjarnan að sjómenn hittust á Urðaveginum þegar þeir voru á leið til sjávar og var yfirleitt spjallað um sjávarlífið.",
+            "images": [
+                "http://heimaslod.is/images/thumb/0/0e/Urdavegur.jpg/300px-Urdavegur.jpg",
+                "http://heimaslod.is/images/thumb/2/2f/Gos_38.jpg/300px-Gos_38.jpg",
+                "http://heimaslod.is/images/thumb/2/2d/Urdavegur_bakatil.jpg/250px-Urdavegur_bakatil.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.2594994085592,
@@ -11191,7 +11211,7 @@
         {
             "id": 9,
             "name": "Austurhlíð",
-            "text": " ",
+            "text": "Austurhlíð var gata sem lá þvert á milli Urðavegar og Grænuhlíðar og fór undir hraun í gosinu 1973.",
             "images": [],
             "coordinates": [
                 {
@@ -11255,8 +11275,10 @@
         {
             "id": 10,
             "name": "Landagata",
-            "text": " ",
-            "images": [],
+            "text": "Landagata, sem hét áður Hofsvegur, var gata sem lá á milli Urðavegar og Grænuhlíðar. Gatan fór undir hraun í gosinu 1973.",
+            "images": [
+                "http://heimaslod.is/images/thumb/2/2d/Landagata.jpg/250px-Landagata.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.258261783092518,
@@ -11335,8 +11357,10 @@
         {
             "id": 11,
             "name": "Grænahlíð",
-            "text": " ",
-            "images": [],
+            "text": "Grænahlíð var gata sem stóð á milli Austurvegar og Landagötu og fór undir hraun í gosinu 1973.Grænahlíðin lá austur úr Heimagötunni milli íbúðarhúsanna Ásgarðs og Miðeyjar. Ásgarður á vinstri hönd og Miðey  til hægri. Þetta var ekki sá Ásgarður sem er félagsheimili sjálfstæðisfólks, heldur sá sem fór undir hraun. Hún lá á milli Landagötu, sem var norðan við, og Austurvegar, sem var sunnan við hana. Rúmt var um hana því langt var í Landagötuna og Austurveginn. Þegar gengið var austur Grænuhlíðina á góðviðriskvöldum blasti Dyrhólaeyjarvitinn við með eitt leiftur á 10 sekúndum. Má segja að það hafi verið skemmtilegt einkennismerki hennar.Gatan var lögð yfir falleg, gróin tún, sem nytjuð voru alveg framundir að hún var rudd. Eflaust muna mörg okkar eftir því að harðbannað var að ganga yfir túnin á vorin og fram yfir slátt. Ef stytta átti sér leið yfir þau á fyrrnefndum tíma var alveg eins víst að kallað var úr einhverju húsanna í nágrenninu og hóað frá. Símon Egilsson í Miðey var á árum áður vel vakandi yfir grassprettunni. Einhverju sinni, þegar hann leit út um austurglugga á húsi sínu, sá hann hóp fólks koma austan að, vestur yfir túnin. Það var að stytta sér leið. Sagt er að þá hafi honum orðið að orði. „Kominn er hann enn Kirkjubæjarskríllinn.” Allir Vestmannaeyingar þekkja síðan þetta orðatiltæki sem enn lifir góðu lífi. Á öðrum timum var mikið leikið sér á túnunum án athugasemda. Eigendur þessara túna voru Nikólína Halldórsdóttir og Jóhann Scheving á Vilborgarstöðum, Guðný Magnúsdóttir og Högni Sigurðsson í Vatnsdal, Elínborg Gísladóttir og Þorsteinn Jónsson í Laufási, Bjarngerður Ólafsdóttir og Guðjón Jónsson á Heiði og Björn Bjarnason og Ingibjörg Ólafsdóttir í Bólstaðarhlíð.Upphaf að gerð þessarar götu var að Friðrik Ágúst Hjörleifsson í Skálholti langaði að byggja sér og fjölskyldu sinni íbúðarhús í túninu fyrir sunnan æskuheimili hans, Skálholt, sem stóð sunnan við Landagötuna. Um áramótin 1954 og 1955 gekk hann á fund Guðlaugs Gíslasonar bæjarstjóra og óskaði eftir leyfi til þess. Bæjarstjórinn sagði að það skyldi hann fá ef hann útvegaði 2 aðra með sér til að byggja þarna. Friðrik fékk þá Ágúst Ólafsson í Gíslholti og Gísla Grímsson á Haukabergi í lið með sér, og voru þeir tilbúnir í slaginn.Segja má að fljótt hafi gengið að skipuleggja svæðið og teikna fyrstu húsin. Í apríl 1955 ruddi jarðýta fyrir Grænuhlíðinni í fyrstu austur að Laufástúninu. Jarðvegurinn var mold og ofan á hana var sett rauðamöl. Á vordögum 1955 byrjuðu þau fyrstu að byggja. Í upphafi þurfti að gera lóðarleigusamninga við ríkið. Það var á meðan Eyjarnar voru í eigu þess. En eftir að Vestmannaeyjakaupstaður eignaðist svo til allar eyjarnar með lögum frá Alþingi 1960, voru þeir gerðir við Vestmannaeyjakaupstað. Bærinn keypti þær fyrir eina miljón króna. Fyrsti samningurinn sem var gerður við Vestmannaeyjakaupstað eftir að fyrrnefnd lög höfðu tekið gildi var samningurinn vegna Grænuhlíðar 18.Fjögur hús, nr. 6, 12, 16 og 19, voru seld einu sinni á byggingartíma þeirra. Og eitt, nr. 9, var tvisvar selt eftir að flutt var í það.Þegar gaus og íbúarnir þurftu að yfirgefa heimili sín voru þeir 107, 19 börn höfðu fæðst meðan foreldrarnir áttu heima í Grænuhlíðinni og tveir íbúar hennar dóu meðan hún var til.Jórunn Sigurðardóttir á nr. 18, 8. júlí 1965, 84 ára, og Sigurgeir Halldór Adólfsson á nr. 25 úr hvítblæði, aðeins tæplega 8 ára, 18. ágúst 1967. Hér verður sagt frá upphafi byggingar og íbúum hvers húss.Á þeim árum sem Grænahlíðin var byggð, þekktist það varla að verktakar tækju að sér byggingu íbúðarhúsa. Þegar teikningar voru tilbúnar, fengu væntanlegir húseigendur Óskar Kárason, byggingafulltrúa, til þess að mæla staðsetningu húsanna. Í framhaldi af því var grafinn sjötíu centimetra breiður og fimmtíu centimetra djúpur skurður fyrir sökklinum.  Þetta gerðu húsbyggjendur sjálfir með vinum og vandamönnum. Til verksins voru notaðar handskóflur og hakar, því sums staðar var nokkur móklöpp. Annars var þetta að mestu mold. Næst á dagskrá var að fá smið til þess að slá upp fyrir sökklinum. Sjálfsagt hafa einhverjir gert það sjálfir. Í framhaldi af því þurfti að sækja möl og sand inn í Botn. Bílar voru pantaðir á Bílastöðinni og aftur leitað til vina og kunningja til þess að moka á þá. Efninu var svo keyrt að viðkomandi byggingu. Einnig þurfti að ná í sement og tómar olíutunnur undir vatn. Bílastöðin sá um að fylla þær. Þá var leigð steypuhrærivél sem gekk fyrir bensínmótor. Enn og aftur var hóað í vina– og vandamannaliðið, nú til að steypa. Steypustyrktarjárni var komið fyrir í sökklinum og líka grjóti sem hafði verið sótt í gömlu grjótgarðana vestur í hrauni. Venjulega var neðsta platan steypt síðar með sama vinnuferli og áður var lýst nema ekkert grjót var sótt í hana. Síðan voru smiðir fengnir til að slá upp fyrir kjallara og  eða hæð og aftur hófst sama ferlið þegar kom að steypiríinu. Þetta var miklu meiri vinna en nú þegar hægt er að fá steypuna keypta, lagaða, heim að viðkomandi byggingu.Þegar slá mátti uppslættinum frá uppsteyptum veggjunum, hófst mikil vinna hjá eigendum viðkomandi bygginga. Naglhreinsa og skafa þurfti allt timbrið. Algengt var að hluti þess væri seldur næsta húsbyggjenda með einhverjum afslætti og hinn hluti þess notaður til þess að klæða sperrurnar áður en pappi og þakjárn kom þar yfir.Misjafnt var hvað fólk gat unnið mikið sjálft við húsin. Þeir laghentu og þeir, sem höfðu yfir bíl að ráða stóðu nokkuð vel að vígi. En þeir sem ekki kunnu að reka nagla voru verr settir. Allir reyndu þó að vinna sem mest sjálfir. Sumir gátu pússað og smíðað að einhverju leyti, aðrir ekki. Þeir færustu pússuðu allt úti og inni og smíðuðu bráðabirgðainnréttingar og jafnvel glugga sjálfir. Töluvert var um vinnuskipti. Klár múrari múraði hjá klárum rafvirkja sem aftur lagði rafmagnið hjá hinum. Þarna var oft um svokallaða gervimenn í báðum tilvikum að ræða. Margs konar önnur vinnuskipti fóru fram. Flestir gátu málað annað en eldhús og böð. Svona gekk það til. Talsvert var um að húsbyggjendur hjálpuðu hverjir öðrum og  seint á kvöldin í lok vinnu var oft rætt um gang mála og hvernig best væri að standa að framhaldinu. Gott var þá að leita ráða hjá þeim sem voru búnir að ganga í gegnum byggingarferilinn.Margir fluttu inn áður en húsin voru fullgerð, í eldhús, tvö svefnherbergi, klósett og bað. Jafnvel vantaði öll efni á steypt gólfin en að sjálfsögðu voru þau máluð. Annað beið betri tíma þegar meira fjármagn hafði safnast til framkvæmdanna. Allt var þetta á misjöfnum stigum, frá því sem sagt hefur verið, að fullbúnum húsum þegar flutt var inn.Lánamöguleikar voru litlir í samanburði við nútímann. Ekkert lán fékkst í upphafi. Þegar lokið var við að steypa neðstu plötu lánaði Sparisjóður Vestmannaeyja víxillán að upphæð  þrjátíu til þrjátíu og fimm þúsund kr. lengst af þeim tíma sem verið var að byggja í Grænuhlíð. Svokölluð plötulán. Þegar húsin voru fokheld fór ríkið að lána og þá að hámarki sjötíu og fimm til hundrað þúsund  kr. Þá þurfti að borga Sparisjóðslánið. Útvegsbankinn hérna lánaði ekki til húsbygginga á þessum árum. Úttekt fékkst hjá fyrirtækjum til skamms tíma eins og vertíðarloka. Á árunum sem Grænahlíðin var byggð, kostuðu fullbúin einbýlishús eins og þar voru fjögur hundruð - til sex hundruð þúsund kr. og er þá vinna eigendanna, ættingja og vina ekki talin með. Sumir fóru inn fyrir helming þessarar upphæðar, meðan húsin voru enn í byggingu. Unga fólkið, sem þarna byggði, þurfti að leggja mikið á sig við vinnu við húsin og úti á markaðinum til þess að afla fjár til framkvæmdanna. Góð og gjöful vetrarvertíð hjálpaði mörgum mikið, bæði sjómönnum og þeim sem í landi voru við verkun aflans. Þangað streymdu líka flestir þó þeir væru annars við önnur störf. Iðnaðarmenn fóru á sjó og margir, t.d. skrifstofumenn, kennarar o.fl. fóru í fiskvinnu eftir að venjubundnum störfum lauk og þá langt fram eftir kvöldi og fram á nótt. Með þessu hafðist þetta. Lánaerfiðleikar fylgdu því ekki í kjölfar bygginganna. Nema þá helst að lán fengust ekki. Engin verðtrygging var til en verðbólga hjálpaði til að gera lánabyrðina enn léttari.Ábyggilega minnast allir þessa tíma með ánægju. Það kom vel fram þegar íbúarnir hittust á götumóti árið 2002. Bæði tímans þegar verið var að byggja og líka tímans sem við áttum heima á þessum frábæra stað sem gatan okkar var.Þarna var gott að búa.Hún var aldrei malbikuð og engin gangstétt var við hana meðan hún var til. En það gerði ekkert til, kostir hennar voru svo miklir.",
+            "images": [
+                "http://heimaslod.is/images/thumb/a/ae/Graenahlid_bruarsmidi.jpg/250px-Graenahlid_bruarsmidi.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.258305673888533,
@@ -11415,8 +11439,15 @@
         {
             "id": 12,
             "name": "Heimagata",
-            "text": " ",
-            "images": [],
+            "text": "Heimagata er gata sem tekur við af Vestmannabraut. Íbúar í götunni voru 15 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003. Gatan fór að mestu undir hraun í gosinu 1973.",
+            "images": [
+                "http://heimaslod.is/images/thumb/f/fc/Mynd-Heimagata22.jpg/250px-Mynd-Heimagata22.jpg",
+                "http://heimaslod.is/images/thumb/0/02/Heimagata_teikning.jpg/250px-Heimagata_teikning.jpg",
+                "http://heimaslod.is/images/thumb/1/16/Hus_vid_heimagotu.jpg/250px-Hus_vid_heimagotu.jpg",
+                "http://heimaslod.is/images/thumb/3/3d/Mynd-JS%C3%9Emynd17960.jpg/250px-Mynd-JS%C3%9Emynd17960.jpg",
+                "http://heimaslod.is/images/thumb/3/36/Heimagata.jpg/250px-Heimagata.jpg",
+                "http://heimaslod.is/images/thumb/0/00/Heimagata1.jpeg/245px-Heimagata1.jpeg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.263272675719225,
@@ -11523,7 +11554,7 @@
         {
             "id": 13,
             "name": "Formannabraut",
-            "text": " ",
+            "text": "Formannabraut, sem hét áður Formannasund er gata sem liggur austan Sjómannasunds. Gatan fór að mestu leyti undir hraun í gosinu 1973.",
             "images": [],
             "coordinates": [
                 {
@@ -11671,8 +11702,12 @@
         {
             "id": 14,
             "name": "Kirkjuvegur",
-            "text": " ",
-            "images": [],
+            "text": "Kirkjuvegur, sem hét áður Ofanleitisvegur eða Ofanbyggjaravegur, er gata sem liggur frá austanverðum Strandvegi að miðri Illugagötu þar sem Hraunvegur tekur við. Íbúar í götunni voru 105 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
+            "images": [
+                "http://heimaslod.is/images/thumb/e/e1/Nordurkirkjuveg1940.jpg/250px-Nordurkirkjuveg1940.jpg",
+                "http://heimaslod.is/images/thumb/b/b6/Ar_1959.jpg/250px-Ar_1959.jpg",
+                "http://heimaslod.is/images/thumb/2/2f/Gos1973_3.jpg/250px-Gos1973_3.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.26590868276818,
@@ -11715,7 +11750,7 @@
         {
             "id": 15,
             "name": "Austurvegur",
-            "text": " ",
+            "text": "Austurvegur, sem hét áður Vilborgarstaðavegur, er gata sem liggur norðan Kirkjubæjarbrautar. Íbúar í götunni voru 2 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
             "images": [],
             "coordinates": [
                 {
@@ -11827,8 +11862,12 @@
         {
             "id": 16,
             "name": "Kirkjubæjarbraut",
-            "text": " ",
-            "images": [],
+            "text": "Kirkjubæjarbraut er gata sem liggur á milli Austurvegar og Ásavegar. Íbúar í götunni voru 78 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
+            "images": [
+                "http://heimaslod.is/images/thumb/d/d8/Gos_7.jpg/250px-Gos_7.jpg",
+                "http://heimaslod.is/images/thumb/d/d3/Kirkjubaejarbraut_gos.jpg/250px-Kirkjubaejarbraut_gos.jpg",
+                "http://heimaslod.is/images/thumb/3/33/Kirkjub%C3%A6jarbraut.jpg/250px-Kirkjub%C3%A6jarbraut.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.258796288154922,
@@ -11867,7 +11906,7 @@
         {
             "id": 17,
             "name": "Austurvegur",
-            "text": " ",
+            "text": "Austurvegur, sem hét áður Vilborgarstaðavegur, er gata sem liggur norðan Kirkjubæjarbrautar. Íbúar í götunni voru 2 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
             "images": [],
             "coordinates": [
                 {
@@ -11927,7 +11966,7 @@
         {
             "id": 18,
             "name": "Austurvegur",
-            "text": " ",
+            "text": "Austurvegur, sem hét áður Vilborgarstaðavegur, er gata sem liggur norðan Kirkjubæjarbrautar. Íbúar í götunni voru 2 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
             "images": [],
             "coordinates": [
                 {
@@ -12142,8 +12181,8 @@
         },
         {
             "id": 22,
-            "name": "Oddsstaðabraut",
-            "text": " ",
+            "name": "Oddstaðabraut",
+            "text": "Oddstaðabraut var gata sem lá frá Kirkjubæjarbraut og að Oddsstöðum en fór undir hraun á fyrstu dögum í gosinu 1973. Við Oddstaðabraut var meirihluti íbúanna fólk sem átti ættir að rekja í austurbæinn, eða „girðinguna“ eins og bæirnir austan til á Heimaey voru jafnan nefndir. Húsin við Oddstaðabraut voru öll byggð á árunum 1960 til 1972 og var byggingu sumra þeirra ekki lokið þegar gaus. Sumir íbúanna sneru aftur til Eyja en margir settust að uppi á landi.",
             "images": [],
             "coordinates": [
                 {
@@ -12243,7 +12282,7 @@
         {
             "id": 23,
             "name": "Búastaðabraut",
-            "text": " ",
+            "text": "Búastaðabraut er gata sem liggur á milli Ásavegar og Nýjabæjarbrautar. Íbúar í götunni voru 40 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.Þorsteinn Gunnarsson byggði Búastaðabraut 1 og dó frá því fokheldu,Ekkjan Pálina Einarsdóttir Höjggard ásamt sambýlismanni sínum Kai Erik Nielsen kláruðu hæðina og fluttu í það ásamt börnunum Sigurlaugur Þorsteinsson og Unni Þorsteinsdóttur,þau eignuðust síðan Halldór og Elísu. Þau seldu Guðna húsið um 1963 og átti hann það fram að gosi.Heimild Sigurlaugur Þorsteinsson.",
             "images": [],
             "coordinates": [
                 {
@@ -12279,7 +12318,7 @@
         {
             "id": 24,
             "name": "Suðurvegur",
-            "text": " ",
+            "text": "Suðurvegur er gata sem lá frá enda Kirkjubæjarbrautar að Gerðisbraut og grófst undir vikur í gosinu 1973. Sumarið 2005 hófst uppgröftur á húsum á Suðurveginum, verkefni sem kallast Pompei Norðursins, en byrjað var á að grafa upp húsið sem stóð að Suðurvegi 25.",
             "images": [],
             "coordinates": [
                 {
@@ -12687,8 +12726,10 @@
         {
             "id": 29,
             "name": "Grænahlíð",
-            "text": " ",
-            "images": [],
+            "text": "Grænahlíð var gata sem stóð á milli Austurvegar og Landagötu og fór undir hraun í gosinu 1973.Grænahlíðin lá austur úr Heimagötunni milli íbúðarhúsanna Ásgarðs og Miðeyjar. Ásgarður á vinstri hönd og Miðey  til hægri. Þetta var ekki sá Ásgarður sem er félagsheimili sjálfstæðisfólks, heldur sá sem fór undir hraun. Hún lá á milli Landagötu, sem var norðan við, og Austurvegar, sem var sunnan við hana. Rúmt var um hana því langt var í Landagötuna og Austurveginn. Þegar gengið var austur Grænuhlíðina á góðviðriskvöldum blasti Dyrhólaeyjarvitinn við með eitt leiftur á 10 sekúndum. Má segja að það hafi verið skemmtilegt einkennismerki hennar.Gatan var lögð yfir falleg, gróin tún, sem nytjuð voru alveg framundir að hún var rudd. Eflaust muna mörg okkar eftir því að harðbannað var að ganga yfir túnin á vorin og fram yfir slátt. Ef stytta átti sér leið yfir þau á fyrrnefndum tíma var alveg eins víst að kallað var úr einhverju húsanna í nágrenninu og hóað frá. Símon Egilsson í Miðey var á árum áður vel vakandi yfir grassprettunni. Einhverju sinni, þegar hann leit út um austurglugga á húsi sínu, sá hann hóp fólks koma austan að, vestur yfir túnin. Það var að stytta sér leið. Sagt er að þá hafi honum orðið að orði. „Kominn er hann enn Kirkjubæjarskríllinn.” Allir Vestmannaeyingar þekkja síðan þetta orðatiltæki sem enn lifir góðu lífi. Á öðrum timum var mikið leikið sér á túnunum án athugasemda. Eigendur þessara túna voru Nikólína Halldórsdóttir og Jóhann Scheving á Vilborgarstöðum, Guðný Magnúsdóttir og Högni Sigurðsson í Vatnsdal, Elínborg Gísladóttir og Þorsteinn Jónsson í Laufási, Bjarngerður Ólafsdóttir og Guðjón Jónsson á Heiði og Björn Bjarnason og Ingibjörg Ólafsdóttir í Bólstaðarhlíð.Upphaf að gerð þessarar götu var að Friðrik Ágúst Hjörleifsson í Skálholti langaði að byggja sér og fjölskyldu sinni íbúðarhús í túninu fyrir sunnan æskuheimili hans, Skálholt, sem stóð sunnan við Landagötuna. Um áramótin 1954 og 1955 gekk hann á fund Guðlaugs Gíslasonar bæjarstjóra og óskaði eftir leyfi til þess. Bæjarstjórinn sagði að það skyldi hann fá ef hann útvegaði 2 aðra með sér til að byggja þarna. Friðrik fékk þá Ágúst Ólafsson í Gíslholti og Gísla Grímsson á Haukabergi í lið með sér, og voru þeir tilbúnir í slaginn.Segja má að fljótt hafi gengið að skipuleggja svæðið og teikna fyrstu húsin. Í apríl 1955 ruddi jarðýta fyrir Grænuhlíðinni í fyrstu austur að Laufástúninu. Jarðvegurinn var mold og ofan á hana var sett rauðamöl. Á vordögum 1955 byrjuðu þau fyrstu að byggja. Í upphafi þurfti að gera lóðarleigusamninga við ríkið. Það var á meðan Eyjarnar voru í eigu þess. En eftir að Vestmannaeyjakaupstaður eignaðist svo til allar eyjarnar með lögum frá Alþingi 1960, voru þeir gerðir við Vestmannaeyjakaupstað. Bærinn keypti þær fyrir eina miljón króna. Fyrsti samningurinn sem var gerður við Vestmannaeyjakaupstað eftir að fyrrnefnd lög höfðu tekið gildi var samningurinn vegna Grænuhlíðar 18.Fjögur hús, nr. 6, 12, 16 og 19, voru seld einu sinni á byggingartíma þeirra. Og eitt, nr. 9, var tvisvar selt eftir að flutt var í það.Þegar gaus og íbúarnir þurftu að yfirgefa heimili sín voru þeir 107, 19 börn höfðu fæðst meðan foreldrarnir áttu heima í Grænuhlíðinni og tveir íbúar hennar dóu meðan hún var til.Jórunn Sigurðardóttir á nr. 18, 8. júlí 1965, 84 ára, og Sigurgeir Halldór Adólfsson á nr. 25 úr hvítblæði, aðeins tæplega 8 ára, 18. ágúst 1967. Hér verður sagt frá upphafi byggingar og íbúum hvers húss.Á þeim árum sem Grænahlíðin var byggð, þekktist það varla að verktakar tækju að sér byggingu íbúðarhúsa. Þegar teikningar voru tilbúnar, fengu væntanlegir húseigendur Óskar Kárason, byggingafulltrúa, til þess að mæla staðsetningu húsanna. Í framhaldi af því var grafinn sjötíu centimetra breiður og fimmtíu centimetra djúpur skurður fyrir sökklinum.  Þetta gerðu húsbyggjendur sjálfir með vinum og vandamönnum. Til verksins voru notaðar handskóflur og hakar, því sums staðar var nokkur móklöpp. Annars var þetta að mestu mold. Næst á dagskrá var að fá smið til þess að slá upp fyrir sökklinum. Sjálfsagt hafa einhverjir gert það sjálfir. Í framhaldi af því þurfti að sækja möl og sand inn í Botn. Bílar voru pantaðir á Bílastöðinni og aftur leitað til vina og kunningja til þess að moka á þá. Efninu var svo keyrt að viðkomandi byggingu. Einnig þurfti að ná í sement og tómar olíutunnur undir vatn. Bílastöðin sá um að fylla þær. Þá var leigð steypuhrærivél sem gekk fyrir bensínmótor. Enn og aftur var hóað í vina– og vandamannaliðið, nú til að steypa. Steypustyrktarjárni var komið fyrir í sökklinum og líka grjóti sem hafði verið sótt í gömlu grjótgarðana vestur í hrauni. Venjulega var neðsta platan steypt síðar með sama vinnuferli og áður var lýst nema ekkert grjót var sótt í hana. Síðan voru smiðir fengnir til að slá upp fyrir kjallara og  eða hæð og aftur hófst sama ferlið þegar kom að steypiríinu. Þetta var miklu meiri vinna en nú þegar hægt er að fá steypuna keypta, lagaða, heim að viðkomandi byggingu.Þegar slá mátti uppslættinum frá uppsteyptum veggjunum, hófst mikil vinna hjá eigendum viðkomandi bygginga. Naglhreinsa og skafa þurfti allt timbrið. Algengt var að hluti þess væri seldur næsta húsbyggjenda með einhverjum afslætti og hinn hluti þess notaður til þess að klæða sperrurnar áður en pappi og þakjárn kom þar yfir.Misjafnt var hvað fólk gat unnið mikið sjálft við húsin. Þeir laghentu og þeir, sem höfðu yfir bíl að ráða stóðu nokkuð vel að vígi. En þeir sem ekki kunnu að reka nagla voru verr settir. Allir reyndu þó að vinna sem mest sjálfir. Sumir gátu pússað og smíðað að einhverju leyti, aðrir ekki. Þeir færustu pússuðu allt úti og inni og smíðuðu bráðabirgðainnréttingar og jafnvel glugga sjálfir. Töluvert var um vinnuskipti. Klár múrari múraði hjá klárum rafvirkja sem aftur lagði rafmagnið hjá hinum. Þarna var oft um svokallaða gervimenn í báðum tilvikum að ræða. Margs konar önnur vinnuskipti fóru fram. Flestir gátu málað annað en eldhús og böð. Svona gekk það til. Talsvert var um að húsbyggjendur hjálpuðu hverjir öðrum og  seint á kvöldin í lok vinnu var oft rætt um gang mála og hvernig best væri að standa að framhaldinu. Gott var þá að leita ráða hjá þeim sem voru búnir að ganga í gegnum byggingarferilinn.Margir fluttu inn áður en húsin voru fullgerð, í eldhús, tvö svefnherbergi, klósett og bað. Jafnvel vantaði öll efni á steypt gólfin en að sjálfsögðu voru þau máluð. Annað beið betri tíma þegar meira fjármagn hafði safnast til framkvæmdanna. Allt var þetta á misjöfnum stigum, frá því sem sagt hefur verið, að fullbúnum húsum þegar flutt var inn.Lánamöguleikar voru litlir í samanburði við nútímann. Ekkert lán fékkst í upphafi. Þegar lokið var við að steypa neðstu plötu lánaði Sparisjóður Vestmannaeyja víxillán að upphæð  þrjátíu til þrjátíu og fimm þúsund kr. lengst af þeim tíma sem verið var að byggja í Grænuhlíð. Svokölluð plötulán. Þegar húsin voru fokheld fór ríkið að lána og þá að hámarki sjötíu og fimm til hundrað þúsund  kr. Þá þurfti að borga Sparisjóðslánið. Útvegsbankinn hérna lánaði ekki til húsbygginga á þessum árum. Úttekt fékkst hjá fyrirtækjum til skamms tíma eins og vertíðarloka. Á árunum sem Grænahlíðin var byggð, kostuðu fullbúin einbýlishús eins og þar voru fjögur hundruð - til sex hundruð þúsund kr. og er þá vinna eigendanna, ættingja og vina ekki talin með. Sumir fóru inn fyrir helming þessarar upphæðar, meðan húsin voru enn í byggingu. Unga fólkið, sem þarna byggði, þurfti að leggja mikið á sig við vinnu við húsin og úti á markaðinum til þess að afla fjár til framkvæmdanna. Góð og gjöful vetrarvertíð hjálpaði mörgum mikið, bæði sjómönnum og þeim sem í landi voru við verkun aflans. Þangað streymdu líka flestir þó þeir væru annars við önnur störf. Iðnaðarmenn fóru á sjó og margir, t.d. skrifstofumenn, kennarar o.fl. fóru í fiskvinnu eftir að venjubundnum störfum lauk og þá langt fram eftir kvöldi og fram á nótt. Með þessu hafðist þetta. Lánaerfiðleikar fylgdu því ekki í kjölfar bygginganna. Nema þá helst að lán fengust ekki. Engin verðtrygging var til en verðbólga hjálpaði til að gera lánabyrðina enn léttari.Ábyggilega minnast allir þessa tíma með ánægju. Það kom vel fram þegar íbúarnir hittust á götumóti árið 2002. Bæði tímans þegar verið var að byggja og líka tímans sem við áttum heima á þessum frábæra stað sem gatan okkar var.Þarna var gott að búa.Hún var aldrei malbikuð og engin gangstétt var við hana meðan hún var til. En það gerði ekkert til, kostir hennar voru svo miklir.",
+            "images": [
+                "http://heimaslod.is/images/thumb/a/ae/Graenahlid_bruarsmidi.jpg/250px-Graenahlid_bruarsmidi.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.262377147474087,
@@ -12735,8 +12776,10 @@
         {
             "id": 30,
             "name": "Njarðarstígur",
-            "text": " ",
-            "images": [],
+            "text": "Njarðarstígur er gata sem lá á milli Strandvegar og Miðstrætis en fór undir hraun í gosinu 1973. Nú er Njarðarstígur í rauninni ekki gata heldur bara eitt hús. Íbúar í götunni voru 2 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003. Öll hús götunnar fóru undir hraun nema eitt.",
+            "images": [
+                "http://heimaslod.is/images/thumb/d/d1/Njardarstigur_nagrenni.jpg/300px-Njardarstigur_nagrenni.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.265979112491053,
@@ -12771,7 +12814,7 @@
         {
             "id": 31,
             "name": "Suðurvegur",
-            "text": " ",
+            "text": "Suðurvegur er gata sem lá frá enda Kirkjubæjarbrautar að Gerðisbraut og grófst undir vikur í gosinu 1973. Sumarið 2005 hófst uppgröftur á húsum á Suðurveginum, verkefni sem kallast Pompei Norðursins, en byrjað var á að grafa upp húsið sem stóð að Suðurvegi 25.",
             "images": [],
             "coordinates": [
                 {
@@ -12851,7 +12894,7 @@
         {
             "id": 32,
             "name": "Gerðisbraut",
-            "text": " ",
+            "text": "Gerðisbraut er gata sem liggur á milli Nýjabæjarbrautar og Austurgerðis. Íbúar í götunni voru 15 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
             "images": [],
             "coordinates": [
                 {
@@ -12895,7 +12938,7 @@
         {
             "id": 33,
             "name": "Nýjabæjarbraut",
-            "text": " ",
+            "text": "Nýjabæjarbraut er gata sem liggur á milli Búastaðabrautar og Gerðisbrautar. Íbúar í götunni voru 28 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
             "images": [],
             "coordinates": [
                 {
@@ -12979,8 +13022,12 @@
         {
             "id": 34,
             "name": "Kirkjuvegur",
-            "text": " ",
-            "images": [],
+            "text": "Kirkjuvegur, sem hét áður Ofanleitisvegur eða Ofanbyggjaravegur, er gata sem liggur frá austanverðum Strandvegi að miðri Illugagötu þar sem Hraunvegur tekur við. Íbúar í götunni voru 105 samkvæmt samantekt á vegum Vestmannaeyjabæjar frá árinu 2003.",
+            "images": [
+                "http://heimaslod.is/images/thumb/e/e1/Nordurkirkjuveg1940.jpg/250px-Nordurkirkjuveg1940.jpg",
+                "http://heimaslod.is/images/thumb/b/b6/Ar_1959.jpg/250px-Ar_1959.jpg",
+                "http://heimaslod.is/images/thumb/2/2f/Gos1973_3.jpg/250px-Gos1973_3.jpg"
+            ],
             "coordinates": [
                 {
                     "longitude": -20.26622467459502,
