@@ -8,6 +8,7 @@ import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
 import SideMenu from '../components/SideMenu';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
+import Data from './../../script/jsonfile.json';
 export default class screen2 extends React.Component {
     constructor() {
         super();
@@ -17,6 +18,7 @@ export default class screen2 extends React.Component {
           houseDescription: '',
           houseImages: '',
           houseCoordinates: [],
+          streetId: 0
         };
     }
 
@@ -27,14 +29,17 @@ export default class screen2 extends React.Component {
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
+        const { streetId } = navigation.state.params;
         
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates});
+        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId});
     }
 
     renderDrawer = () => {
         return (
           <View style={styles.sideMenu}>
-            <Text style={styles.sideMenuText}>Allar Götur</Text>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('StreetScreen')}>
+              <Text style={styles.sideMenuText}>Allar Götur</Text>
+            </TouchableHighlight>
             <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
                 <Text style={styles.sideMenuText}>Hehe</Text>
             </TouchableHighlight>
@@ -42,10 +47,10 @@ export default class screen2 extends React.Component {
              
           </View>
         );
-    }
+      }
 
     render() {
-        const{houseName, houseDescription, houseImages, houseCoordinates} = this.state;
+        const{houseName, houseDescription, houseImages, houseCoordinates, streetId} = this.state;
         const arrHouse = Array.from(houseImages);
         console.log("Fjöldi stafa: ", houseDescription.length)
 
@@ -94,7 +99,7 @@ export default class screen2 extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>Bottom screen test</Text>
+                    <Text style={styles.desc}>Götu id: {streetId}</Text>
                     <View style={styles.onlyMap}>
                     <MapView
                         style={{...StyleSheet.absoluteFillObject}}
