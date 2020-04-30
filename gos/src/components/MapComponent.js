@@ -2,6 +2,7 @@ import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
+import mapjson2 from '../json/mapstyle2.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
@@ -13,6 +14,8 @@ export default class MapComponent extends React.Component {
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+    theme: null,
+    lightTheme: false,
   };
 }
 
@@ -20,7 +23,20 @@ componentDidMount() {
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
-  })
+  });
+  this.themeChange();
+
+}
+
+themeChange() {
+  if(this.state.lightTheme) {
+    // console.log('haha');
+    this.setState({theme: mapjson2, lightTheme: false});
+  }
+  else {
+    // console.log('hehe');
+    this.setState({theme: mapjson, lightTheme: true});
+  }
 }
 
   render() {
@@ -35,7 +51,7 @@ componentDidMount() {
           loadingEnabled={true}
           style={styles.mapStyle}
           provider={"google"}
-          customMapStyle={mapjson}
+          customMapStyle={this.state.theme}
           initialRegion={{
           latitude: 63.4347866,
           longitude: -20.2844343,

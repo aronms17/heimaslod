@@ -92,8 +92,8 @@ renderDrawer = () => {
       <TouchableHighlight onPress={() => this.props.navigation.navigate('StreetScreen')}>
         <Text style={styles.sideMenuText}>Allar Götur</Text>
       </TouchableHighlight>
-      <TouchableHighlight onPress={() => this.drawer.closeDrawer()}>
-          <Text style={styles.sideMenuText}>Hehe</Text>
+      <TouchableHighlight onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
+          <Text style={styles.sideMenuText}>Theme</Text>
       </TouchableHighlight>
       <Text style={styles.sideMenuText}>Stillingar</Text>
        
@@ -102,7 +102,7 @@ renderDrawer = () => {
 }
 
 onClick = () => {
-  this.child.current.flottAlert();
+  this.child.current.themeChange();
 }
 
   render() {
@@ -132,7 +132,7 @@ onClick = () => {
       renderNavigationView={this.renderDrawer}
       >
         <View>
-          <MapComponent preview={(house) => this.previewHouse(house)}/>
+          <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
 
           <PreviewModal
             isVisible={this.state.isModalVisible}
@@ -161,8 +161,7 @@ onClick = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
-            <TouchableHighlight onPress={this.onClick} style={{backgroundColor: 'green'}}><Text>child ref</Text></TouchableHighlight>
-            <SearchBar ref={this.child} preview={(house) => this.previewHouse(house)}/>
+            <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
         </DrawerLayout>
     );

@@ -8,7 +8,7 @@ export default class screen2 extends React.Component {
         super();
         this.state = {
           streets: [],
-          houses: []
+          houses: [],
         };
     }
 
