@@ -47,20 +47,10 @@ export default class allStreetScreen extends React.Component {
     render() {
         return(
             <View style={{backgroundColor: '#1D1B1B'}}>
-                <DrawerLayout
-                    ref={drawer => {
-                      this.drawer = drawer;
-                    }}
-                    drawerWidth={220}
-                    drawerPosition={DrawerLayout.positions.Right}
-                    drawerType='front'
-                    drawerBackgroundColor='#1D1B1B'
-                    renderNavigationView={this.renderDrawer}
-                >
                 <View style={styles.header}>
                     <TouchableHighlight
                       style={styles.burger}
-                      onPress={() => this.drawer.openDrawer()}>
+                      onPress={() => console.log('h')}>
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
@@ -83,7 +73,6 @@ export default class allStreetScreen extends React.Component {
                         
                     )}
                 />
-                </DrawerLayout>
             </View>
         );
     }
@@ -103,15 +92,5 @@ const styles = StyleSheet.create({
     burger: {
         marginTop: 40,
         marginRight: 17
-    },
-    sideMenu: {
-        flex:1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        paddingTop: 50,
-        paddingBottom: 30,
-        paddingLeft: 25
-    
-      },
+    }
 });

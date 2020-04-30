@@ -12,7 +12,10 @@ export default class streetDetailScreen extends React.Component {
         super();
         this.state = {
           streetId: null,
-          streetName: ''
+          streetName: '',
+          streetDescription: '',
+          streetImages: '',
+
         };
         console.disableYellowBox = true;
     }
@@ -21,9 +24,15 @@ export default class streetDetailScreen extends React.Component {
         const { navigation } = this.props;
         const { streetId } = navigation.state.params;
         const { streetName } = navigation.state.params;
+
+        const allarGotur = Array.from(Data.gotur);
+        const allStreets = allarGotur.find(({ id }) => id === streetId);
+        const streetDescription = allStreets.text;
+        const streetImages = allStreets.images;
+        console.log('street images type: ', typeof(streetImages));
         
         this.setState({ streetId: streetId, 
-            streetId: streetId, streetName: streetName
+            streetId: streetId, streetName: streetName, streetDescription: streetDescription, streetImages: streetImages
         });
     }
 
@@ -43,7 +52,8 @@ export default class streetDetailScreen extends React.Component {
       }
 
     render() {
-        const { streetId, streetName } = this.state;
+        const { streetName, streetDescription, streetImages } = this.state;
+        const img = Array.from(streetImages);
         return(
             <View style={styles.container}>                
                 <DrawerLayout
@@ -71,27 +81,26 @@ export default class streetDetailScreen extends React.Component {
 
                 <View style={styles.galleryContainer}>
                     {/* Rétt map aðferð á propsið núna */}
-                    {/* 
-                    <Gallery
+                    
+                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
                         images={
-                            arrHouse.map((element) => (
+                            img.map((element) => (
                                 { source: { uri: element } }
                             ))
                         }
-                    />
-                    */}
+                    /> 
                 </View>
                 
                 <View style={styles.descriptionContainer}>
                 <ScrollView>
-                    <Text style={styles.desc}>götu texti hér</Text>
+                <Text style={styles.desc}>{streetDescription}</Text>
                 </ScrollView>
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Button title={streetName} color="tomato"/>
+                    <Text style={styles.desc}>vantar eitthvað hér</Text>
                     <View style={styles.onlyMap}>
                     {/* <MapView
                         style={{...StyleSheet.absoluteFillObject}}

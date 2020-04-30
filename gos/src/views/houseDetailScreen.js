@@ -35,7 +35,7 @@ export default class houseDetailScreen extends React.Component {
 
         const allarGotur = Array.from(Data.gotur);
         const allStreets = allarGotur.find(({ id }) => id === streetId);
-        const streetName= allStreets.name;
+        const streetName = allStreets.name;
         
         this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
             houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
