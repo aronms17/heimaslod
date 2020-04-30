@@ -4,18 +4,22 @@ import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
 import prufupoly from '../../script/jsonfile.json';
-import CustomPolygon from './CustomPolygon';
+// import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
 export default class MapComponent extends React.Component {
 
   constructor(props) {
   super(props);
+  this.flottRef = React.createRef();
+  this.myRef = []; 
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+    selectedColor: null,
     theme: null,
     lightTheme: false,
+    selectedId: null,
   };
 }
 
@@ -23,6 +27,7 @@ componentDidMount() {
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
+    selectedColor: '#33BDFF',
   });
   this.themeChange();
 
@@ -39,9 +44,17 @@ themeChange() {
   }
 }
 
+houseSelect(id) {
+  this.setState({selectedId: id});
+}
+
+houseDeselect() {
+  this.setState({selectedId: null});
+}
+
   render() {
   
-    const {goturColor, husColor} = this.state;
+    const {goturColor, husColor, selectedColor} = this.state;
 
     return (
 
@@ -62,19 +75,19 @@ themeChange() {
           {/* Polygonarnir */}
           
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
-              <CustomPolygon
+              <Polygon
                 key = {hus.id}
                 coordinates={hus.coordinates}
-                fillColor={husColor}
+                fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
-                onPress={() => {this.props.preview(hus); Vibration.vibrate(7)}}
+                onPress={() => {this.props.preview(hus); Vibration.vibrate(7); this.houseSelect(hus.id);}}
                 // onPress={() => console.log(hus.address)}
               />
             ))
           }
 
           {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
-              <CustomPolygon
+              <Polygon
                 key = {gata.id}
                 coordinates={gata.coordinates}
                 fillColor={goturColor}

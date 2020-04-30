@@ -140,7 +140,7 @@ onClick = () => {
             address={houseName}
             description={houseDescription}
             images={houseImages}
-            closeDisplay={() => this.setState({isModalVisible: false})}
+            closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
             goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates)}
           />
         </View>
