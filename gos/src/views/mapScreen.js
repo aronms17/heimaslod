@@ -73,9 +73,15 @@ previewHouse(house) {
     // this.makeVibration();
   }
   else {
+  this.child.current.houseSelect(house);
   this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
-} 
+}
+
+closePreview() {
+  this.setState({isModalVisible: false}); 
+  this.child.current.houseDeselect();
+}
 
 navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
   this.setState({isModalVisible: false});
@@ -124,14 +130,14 @@ onClick = () => {
     return (
 
       <DrawerLayout
-      ref={drawer => {
-      this.drawer = drawer;
-      }}
-      drawerWidth={220}
-      drawerPosition={DrawerLayout.positions.Right}
-      drawerType='front'
-      drawerBackgroundColor='#1D1B1B'
-      renderNavigationView={this.renderDrawer}
+        ref={drawer => {
+        this.drawer = drawer;
+        }}
+        drawerWidth={220}
+        drawerPosition={DrawerLayout.positions.Right}
+        drawerType='front'
+        drawerBackgroundColor='#1D1B1B'
+        renderNavigationView={this.renderDrawer}
       >
         <View>
           <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
@@ -143,7 +149,7 @@ onClick = () => {
             description={houseDescription}
             images={houseImages}
             streetId={streetId}
-            closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
+            closeDisplay={() => this.closePreview()}
             goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
           />
         </View>
@@ -164,6 +170,18 @@ onClick = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
+            <View style={styles.modalView}>
+            <PreviewModal
+              isVisible={this.state.isModalVisible}
+              id={houseId}
+              address={houseName}
+              description={houseDescription}
+              images={houseImages}
+              streetId={streetId}
+              closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
+              goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
+            />
+            </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
         </DrawerLayout>
@@ -183,12 +201,7 @@ const styles = StyleSheet.create({
 
   },
   modalView: {
-    margin: 10,
-    color: 'white',
-    backgroundColor: "#1D1B1B",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+    justifyContent: 'center'
   },
   sideMenu: {
     flex:1,

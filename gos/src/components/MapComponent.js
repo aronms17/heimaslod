@@ -101,7 +101,7 @@ houseDeselect() {
                 coordinates={hus.coordinates}
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
-                onPress={() => {this.props.preview(hus); Vibration.vibrate(7); this.houseSelect(hus);}}
+                onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
                 // onPress={() => console.log(hus.address)}
               />
             ))

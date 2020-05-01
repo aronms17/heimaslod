@@ -67,6 +67,9 @@ export default class allStreetScreen extends React.Component {
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
+                <View style={styles.desc}>
+                    <Text style={styles.desc}>Þær götur og kennileiti sem fóru að öllu leyti undir hraun:</Text>
+                </View>
                 <FlatList
                     data={this.state.streets}
                     renderItem={({item}) => (
@@ -96,7 +99,8 @@ const styles = StyleSheet.create({
 	container: {
         flex: 1,
         backgroundColor: '#1D1B1B',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingLeft: 15
         
 	},
 	headerContainer: {
@@ -139,8 +143,10 @@ const styles = StyleSheet.create({
 		color: '#fff'
     },
     desc: {
-		fontSize: 16,
+		fontSize: 20,
         color: '#fff',
+        paddingRight: 10,
+        paddingBottom: 10
     },
     sideMenu: {
         flex:1,

@@ -24,7 +24,7 @@ export default class SearchBar extends React.Component {
     componentDidMount() {
         let houseData = Houses.hus;
         houseData = houseData.filter(hus => hus.address.length > 1);
-        this.setState({houses: houseData, inMemoryHouses: houseData});
+        this.setState({inMemoryHouses: houseData});
     };
 
     _moveUpAnimation = () => {
@@ -58,7 +58,19 @@ export default class SearchBar extends React.Component {
 
             return houseLower.indexOf(inputLower) > -1;
         });
-        this.setState({houses: housesFiltered});
+        const textFiltered = this.state.inMemoryHouses.filter(house => {
+            let houseTextLower = house.text.toLowerCase();
+            let inputLower = input.toLowerCase();
+            return houseTextLower.indexOf(inputLower) > -1;
+        });
+        if(!input) {
+            console.log('tómt input')
+            this.setState({houses: []});
+        }
+        else {
+            this.setState({houses: housesFiltered});
+        }
+
     };
 
 
@@ -94,15 +106,19 @@ export default class SearchBar extends React.Component {
 
                     <View style={styles.bottom}>
 
-                        <View style={{width: 400, backgroundColor: 'blue', flex: 1}}>
-                            <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
+                        <View style={{flex: 1}}>
+                            <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always' extraData={this.state.houses}
                             data={this.state.houses}
                             renderItem={({item}) => (
-                                <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
+                                <TouchableOpacity style={{margin: 1, backgroundColor: item.color}} onPress={() => this.previewHouse(item)}>
                                     <Text style={{fontSize: 20}}>{item.address}</Text>
+                                    <Text numberOfLines={1} >{item.text}</Text>
                                 </TouchableOpacity>
                             )}
                             keyExtractor={item => item.id.toString()}
+                            ListEmptyComponent={
+                                <Text>hæ</Text>
+                            }
                             />
                         </View>
 
