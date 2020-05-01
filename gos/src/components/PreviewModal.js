@@ -1,10 +1,12 @@
 import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight } from 'react-native';
 import NativeModal from 'react-native-modal';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
 const PreviewModal = (props) => (
     <NativeModal
+      backdropOpacity={0}
+      style={{ justifyContent: 'flex-end' }}
       isVisible={props.isVisible}
       // Hægt að style-a til
       animationIn={'slideInUp'}
@@ -14,20 +16,23 @@ const PreviewModal = (props) => (
       >
 
       <View style={styles.modalView}>
+        <View style={styles.modalHeader}>
+          <TouchableHighlight
+            onPress = { () => props.closeDisplay()}>
+              <Feather name='x-circle' size={30} color='red'/>
+          </TouchableHighlight>
+        </View>
+        <View>
           <Text style={styles.textStyle}>
             {props.address}
           </Text>
-        <View style={{}}>
           <Button
+            style={styles.takkar}
             title="Sjá meira"
             color="green"
             onPress = { () => props.goToHouse() }/>
-
-          <Button 
-            title="Loka"
-            onPress = { () => props.closeDisplay() }
-            color="red"/>
         </View>
+        
       </View>
     </NativeModal>
     
@@ -38,26 +43,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 150
   },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
-  },
   modalView: {
-    margin: 80,
     backgroundColor: "#1D1B1B",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   openButton: {
     backgroundColor: "#F194FF",
@@ -74,6 +61,18 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  takkar: {
+    flexDirection: 'row',
+    marginRight: 5,
+    width: 20
+  },
+  modalHeader: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    padding: 10,
+    position: 'relative'
   }
 });
 
