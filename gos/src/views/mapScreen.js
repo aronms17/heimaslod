@@ -73,9 +73,15 @@ previewHouse(house) {
     // this.makeVibration();
   }
   else {
+  this.child.current.houseSelect(house);
   this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
-} 
+}
+
+closePreview() {
+  this.setState({isModalVisible: false}); 
+  this.child.current.houseDeselect();
+}
 
 navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
   this.setState({isModalVisible: false});
@@ -143,7 +149,7 @@ onClick = () => {
             description={houseDescription}
             images={houseImages}
             streetId={streetId}
-            closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
+            closeDisplay={() => this.closePreview()}
             goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
           />
         </View>
