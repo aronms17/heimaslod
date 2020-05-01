@@ -124,28 +124,17 @@ onClick = () => {
     return (
 
       <DrawerLayout
-      ref={drawer => {
-      this.drawer = drawer;
-      }}
-      drawerWidth={220}
-      drawerPosition={DrawerLayout.positions.Right}
-      drawerType='front'
-      drawerBackgroundColor='#1D1B1B'
-      renderNavigationView={this.renderDrawer}
+        ref={drawer => {
+        this.drawer = drawer;
+        }}
+        drawerWidth={220}
+        drawerPosition={DrawerLayout.positions.Right}
+        drawerType='front'
+        drawerBackgroundColor='#1D1B1B'
+        renderNavigationView={this.renderDrawer}
       >
         <View>
           <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
-
-          <PreviewModal
-            isVisible={this.state.isModalVisible}
-            id={houseId}
-            address={houseName}
-            description={houseDescription}
-            images={houseImages}
-            streetId={streetId}
-            closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
-          />
         </View>
 
           <View pointerEvents="box-none" style={styles.components}>
@@ -163,6 +152,18 @@ onClick = () => {
                 onPress={() => this.drawer.openDrawer()}>
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
+            </View>
+            <View style={styles.modalView}>
+            <PreviewModal
+              isVisible={this.state.isModalVisible}
+              id={houseId}
+              address={houseName}
+              description={houseDescription}
+              images={houseImages}
+              streetId={streetId}
+              closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
+              goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
+            />
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
@@ -183,12 +184,7 @@ const styles = StyleSheet.create({
 
   },
   modalView: {
-    margin: 10,
-    color: 'white',
-    backgroundColor: "#1D1B1B",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+    justifyContent: 'center'
   },
   sideMenu: {
     flex:1,
