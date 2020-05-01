@@ -3,7 +3,7 @@
         {
             "id": 1,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -131,7 +131,7 @@
         {
             "id": 5,
             "address": "Sæberg",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Sæberg, upprunalega Vanangur og síðar Péturshús, stóð við Urðaveg 9. Það var reist árið 1912.",
             "images": [
                 "http://heimaslod.is/images/thumb/8/8a/Ur%C3%B0av.9.jpg/300px-Ur%C3%B0av.9.jpg"
@@ -207,7 +207,7 @@
         {
             "id": 7,
             "address": "Laugarbraut 1",
-            "streetId": "",
+            "streetId": null,
             "text": "Byrjað var að byggja húsið við Laugarbraut 1 í september árið 1939 og var flutt í húsið í janúar 1940, þar bjuggu hjónin Martin Tómasson og Bertha Gísladóttir ásamt börnum sínum Rósu Martinsdóttur,Eyjólfi Martinssyni og Emilíu Martinsdóttur. Þegar byrjaði að gjósa 23. janúar 1973 bjuggu Martin og Bertha í húsinu.",
             "images": [
                 "http://heimaslod.is/images/thumb/1/1c/Urdavegur_nidur.jpg/300px-Urdavegur_nidur.jpg",
@@ -329,7 +329,7 @@
         {
             "id": 10,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -422,7 +422,7 @@
         {
             "id": 13,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -451,7 +451,7 @@
         {
             "id": 14,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -567,7 +567,7 @@
         {
             "id": 17,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -630,7 +630,7 @@
         {
             "id": 19,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -659,7 +659,7 @@
         {
             "id": 20,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -835,7 +835,7 @@
         {
             "id": 25,
             "address": "Bakkastígur 12",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -864,7 +864,7 @@
         {
             "id": 26,
             "address": "Bakkastígur 16",
-            "streetId": "",
+            "streetId": null,
             "text": "Í húsinu sem stóð við Bakkastíg 16 sem byggt var á árunum 1956-1959 bjuggu hjónin Þórður Magnússon og Hrönn Vilborg Hannesdóttir og dætur þeirra Jóhanna (Hanna) Margrét, Ósk, Guðbjörg og Elín þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/a/a6/Bakkast16.jpg/300px-Bakkast16.jpg"
@@ -1348,7 +1348,7 @@
         {
             "id": 41,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -1491,7 +1491,7 @@
         {
             "id": 45,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -1520,7 +1520,7 @@
         {
             "id": 46,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -1718,7 +1718,7 @@
         {
             "id": 52,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -1980,7 +1980,7 @@
         {
             "id": 60,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2078,7 +2078,7 @@
         {
             "id": 63,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2136,7 +2136,7 @@
         {
             "id": 65,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2165,7 +2165,7 @@
         {
             "id": 66,
             "address": "Oddsstaðabraut 23",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2194,7 +2194,7 @@
         {
             "id": 67,
             "address": "Oddsstaðabraut 21",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2231,7 +2231,7 @@
         {
             "id": 68,
             "address": "Oddsstaðabraut 26",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2260,7 +2260,7 @@
         {
             "id": 69,
             "address": "Oddsstaðabraut 24",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2305,7 +2305,7 @@
         {
             "id": 70,
             "address": "Oddsstaðabraut 10",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2334,7 +2334,7 @@
         {
             "id": 71,
             "address": "Kirkjubær",
-            "streetId": "",
+            "streetId": null,
             "text": "Kirkjubær var einn sögufrægasti staður Vestmannaeyja. Bæjarlandið samanstóð af átta bæjum í manntali sem tekið var árið 1892, en þeir stóðu nokkuð austan við byggðakjarna Heimaeyjar, en voru annað tveggja bæjarhverfa Vestmannaeyja ásamt Vilborgarstöðum. Bæirnir drógu nafn sitt af því að þar stóð kirkja, sem reist var 1269 og stóð til 1573. Þar var prestssetur fram til ársins 1837.Kirkjubær og öll aðliggjandi lönd fóru undir hraun í jarðeldunum 1973, en gosið hófst í landi Kirkjubæjar.Kirkjubær var að fornu talinn átta einbýlisjarðir:Að einhverju leyti eru þessi nöfn þó rugluð, þar sem bæirnir á Vilborgarstöðum báru sumir hverjir sömu nöfn, og voru líklega sömu bæirnir.Kirkjubæjarbændur áttu nytjalönd í Geldungi, þar sem þeir máttu veiða fýl og súlu; Brandi, til lundaveiði, fýlaveiði, súlnaveiði og eggjatöku, ásamt því sem þeir máttu hafa þar þrettán sauði á beit. Á haustin voru 26 lömb sett þangað í vetrarbeit, en mjög gott þótti að beita í Brandinum. Ennfremur höfðu Kirkjubæjarbændur rétt á 25 sauða beit til móts við Vilborgarstaðabændur í Suðurey, og allar nytjar í Flugum og í Ystakletti (lundaveiðar, eggjataka, beit).Kirkjan á Kirkjubæ var í eigu Skálholtskirkju fyrst um sinn, en Mikjálsklaustur í Björgvin í Noregi fékk Kirkjubæjarkirkju að gjöf frá Árna Þorlákssyni Skálholtsbiskupi árið 1280. Á þessum tíma voru í Vestmannaeyjum tvær kirkjur, en hin var Klemensarkirkja sem stóð á Hörgaeyri. Kirkjubæjarkirkja hét réttu nafni Péturskirkja, og var hún helguð Símoni Pétri, lærisveini Jesú, sem var fiskimaður og verndardýrlingur fiskimanna. Í seinni tíð hlaut kirkjan nafnið Ofanleitiskirkja.Fyrsta kirkjan að Löndum, nefnd Landakirkja, var byggð í lúterskum sið árið 1573. Þá urðu guðshúsin sem stóðu á Ofanleiti og á Kirkjubæ að bænhúsum, og Landakirkja var eina kirkjan í Vestmannaeyjum.Í manntalinu 1816 kom fram að 99 af þeim 212 íbúum Vestmannaeyja þá áttu heima á Kirkjubæ.Í Tyrkjaráninu er það frægt að séra Jón Þorsteinsson, prestur á Kirkjubæ, faldi sig í Rauðahelli í Urðum, ásamt skyldfólki sínu og fleirum. Jón var höggvinn, og fólk hans herleitt til Algeirsborgar.Aðfaranótt 23. janúar 1973 opnaðist 2,3 km löng sprunga á Heimaey, og gekk hún frá norðri til suðurs í gegnum land Kirkjubæjar. Sprungan opnaðist rétt austan við Kirkjubæ, og í upphafi gossins barst lögreglunni tilkynning frá bónda á Kirkjubæ um eldsvoða, sem síðar reyndist vera af völdum gossins. ",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f7/Kirkjub%C3%A6ir.jpg/250px-Kirkjub%C3%A6ir.jpg",
@@ -2386,7 +2386,7 @@
         {
             "id": 72,
             "address": "Oddsstaðabraut 12",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2415,7 +2415,7 @@
         {
             "id": 73,
             "address": "Oddsstaðir",
-            "streetId": "",
+            "streetId": null,
             "text": "Einnig er til hús við Ásaveg sem heitir Oddsstaðir. Sjá Oddsstaðir við ÁsavegVið Oddsstaði var tvíbýli, með tvær jarðir. Í Jarðabók Árna Magnússonar er sagt að hún sé fjögur kýrfóður. Upphaflegt heiti bæjarins var Oddastaðir, en um 1600 víkur það fyrir núverandi heiti.Oddsstaðir töldust til Elliðaeyjajarða og fylgdi þeim jörðum 30 sauða beit þar í ey, ásamt hinum ýmsu nytjum sem fyrir finnast í eynni. Til Oddsstaða heyrðu tveir hjallar í Skipasandi og fiskigarðar hjá Presthúsagörðum.Búskapur lagðist niður stuttu eftir 1950. Vanalega voru tvær til fjórar kýr á jörðinni. Garðræktin hélt ennþá sínum gangi og var ávallt mikil.Norðaustur í Oddsstaðatúni var strýtulaga grashóll, sem kallaðist Strýtuhóll eða Útburðarhóll. Margir héldu að nafnið Útburðarhóll sé dreginn af því að þar væri grafinn útburður og að sögðust menn heyra þar útburðavæl, en Guðjón Jónsson bóndi á Oddsstöðum sagði að nafnið væri dregið af því að þangað hafi aska verið borin frá Presthúsum. Suður af Vestri-Oddsstöðum var grashóll sem bar nafnið Stórihóll, en þar átti huldufólk að búa og vildi Guðjón bóndi að hann yrði algjörlega látinn í friði. Fyrir sunnan Stórahól er Stóralág, lítil flöt sem er talið hafa verið gamalt garðstæði eða akurgerði og voru börn þar oft að leik. Austan við Stórulág og Stórahól var Litlihóll en síðar var þar reistur útbúinn kartöflukofi. Þegar hann var fjarlægður kom í ljós að hann reyndist vera öskuhaugur. Í norðausturhorni túnsins, norðan við Eystri-Oddsstaði, var slægjublettur sem kallaðist Rófa.Á Oddsstöðum var ávallt líf og fjör, enda var það fjölmennt heimili. Á veturna var fólk inni og spilaði, en á sumrin og haustin var gjarnan farið í útileiki og var fullorðna fólkið ekki síðra við að taka þátt. Heimilisfólkið var einnig miklir og góðir söngmenn og var það oft að fólkið tók lagið í vinafagnaði uppi á bæjum.Guðjón Jónsson var síðasti ábúandi á jörðinni. Hann var tvíkvæntur, fyrri kona hans var Guðlaug Pétursdóttir en seinni kona hans var Guðrún Grímsdóttir. Frá þeim er mikill ættbogi, Oddsstaðaættin, og fjölmargir af þeirri ætt í Eyjum sem og á fastalandinu. Auk bústarfa stundaði Guðjón á Oddsstöðum sjó, var formaður en kunnastur er hann líklega fyrir smíðar sínar, aðallega líkkistusmíðar, en hann smíðaði um árabil líkkistur fyrir flesta þá sem létust í Eyjum. Hann var einnig orðheppinn og kunnur fyrir skjót og eftirminnileg tilsvör og margar sögur tilgreindar af slíku:",
             "images": [
                 "http://heimaslod.is/images/thumb/5/51/Oddsta%C3%B0ir.jpg/250px-Oddsta%C3%B0ir.jpg",
@@ -2455,7 +2455,7 @@
         {
             "id": 74,
             "address": "Oddsstaðir eystri",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Oddsstaðir eystri stóð á austanveðri Heimaey, vestur af Kirkjubæjum. Einar Vilhjálmsson trésmiður ættaður frá Þuríðarstöðum í Fljótsdal byggði húsið árið 1927 og bjó þar ásamt konu sinni Halldóru S. Sigurðardóttur frá Klömbru Austur-Eyjafjöllum, börn þeirra; Ingibjörg Þórstína, Sigurjón og Guðbjörg.Árið 1962, eignuðust húsið Jóel Guðmundsson frá Háagarði og Guðrún R. Pétursdóttir frá Kirkjubæ.Húsið varð eldi að bráð, þegar hraunbomba lenti á því á fjórða degi eldgossins 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/6/64/Oddssta%C3%B0ir_eystri.JPG/200px-Oddssta%C3%B0ir_eystri.JPG",
@@ -2494,7 +2494,7 @@
         {
             "id": 75,
             "address": "Tún (hús)",
-            "streetId": "",
+            "streetId": null,
             "text": "Bærinn Tún var fluttur úr bæjarþyrpingunni á Kirkjubæ í nyrsta tún jarðarinnar, stutt frá Oddsstöðum, um 1850. Ábúendur að Túni þegar byrjaði að gjósa voru Margrét Pálsdóttir og sonur hennar Bjarni Árnason í Túni þegar byrjaði að gjósa 23 janúar. 1973",
             "images": [
                 "http://heimaslod.is/images/thumb/9/9c/T%C3%BAn_h%C3%BAs.jpg/250px-T%C3%BAn_h%C3%BAs.jpg",
@@ -2543,7 +2543,7 @@
         {
             "id": 76,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2588,7 +2588,7 @@
         {
             "id": 77,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -2625,7 +2625,7 @@
         {
             "id": 78,
             "address": "Einland",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Einland stóð á austanverðri Heimaey, suður af Oddsstöðum og fór undir hraun 1973. Herjólfur Guðjónsson frá Oddsstöðum byggði húsið og bjó þar ásamt fjölskyldu sinni.",
             "images": [
                 "http://heimaslod.is/images/thumb/d/de/Einland.jpg/250px-Einland.jpg",
@@ -2760,7 +2760,7 @@
         {
             "id": 82,
             "address": "Ásavegur 41",
-            "streetId": "",
+            "streetId": null,
             "text": "Í húsinu við Ásaveg 41 sem byggt var á árunum 1965-1970 bjuggu hjónin Sigurgeir Þór Sigurðsson og Sigríður Guðlaugsdóttir og dætur þeirra Anna og Sigrún Inga þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [],
             "coordinates": [
@@ -3130,7 +3130,7 @@
         {
             "id": 93,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3188,7 +3188,7 @@
         {
             "id": 95,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3248,7 +3248,7 @@
         {
             "id": 97,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3338,7 +3338,7 @@
         {
             "id": 99,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3367,7 +3367,7 @@
         {
             "id": 100,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3396,7 +3396,7 @@
         {
             "id": 101,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3462,7 +3462,7 @@
         {
             "id": 103,
             "address": "Sjávarborg",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Sjávarborg stóð við Sjómannasund 8. Það stóð fyrir norðan Stíghús. Húsið brann",
             "images": [],
             "coordinates": [
@@ -3491,7 +3491,7 @@
         {
             "id": 104,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3528,7 +3528,7 @@
         {
             "id": 105,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3565,7 +3565,7 @@
         {
             "id": 106,
             "address": "Sjónarhóll",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Sjónarhóll stóð við Sjómannasund 10b. Það var byggt árið 1910.Íbúar: 1910-1926: Sigurður Ólafsson og Jónína Árnadóttir1953: Magnús Jóhannesson formaður  og Jónína Sveinsdóttir. Hjónin Stefán Jón Karlsson og Lovísa Björgvinsdóttir bjuggu í húsinu þegar byrjaði að gjósa 23. janúar 1973 ásamt Petru Júlíusdóttur.",
             "images": [
                 "http://heimaslod.is/images/thumb/7/78/Sj%C3%B3narh%C3%B3ll.jpg/300px-Sj%C3%B3narh%C3%B3ll.jpg"
@@ -3596,7 +3596,7 @@
         {
             "id": 107,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -3943,7 +3943,7 @@
         {
             "id": 110,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4008,7 +4008,7 @@
         {
             "id": 111,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4110,7 +4110,7 @@
         {
             "id": 113,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4155,7 +4155,7 @@
         {
             "id": 114,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4248,7 +4248,7 @@
         {
             "id": 116,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4277,7 +4277,7 @@
         {
             "id": 117,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4314,7 +4314,7 @@
         {
             "id": 118,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4359,7 +4359,7 @@
         {
             "id": 119,
             "address": "Miðhús",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Miðhús vestri stóð norðan Bakkastígs. Miðhús-eystri voru einnig til, tómthús sem stóð nokkuð austar, en Miðhús vestri voru þekktari og oftast einungis talað um Miðhús þegar átt var við Miðhús vestri.Í svokallaðri Niðurgirðingu voru þrjár jarðir, Kornhóll, Miðhús og Gjábakki. Miðhús var yngst þessara jarða, talin tvö kýrfóður og hafði 15 sauða beit í Elliðaey.Frægasti ábúandi á Miðhúsum var líklega Hannes Jónsson, oftast kallaður Hannes lóðs, hafnsögumaður og formaður. Hann fæddist árið 1852 og varð 17 ára gamall formaður á áraskipinu Gideon. Með Gideon var hann samfleytt í 37 vertíðir. Hafnsögumaður í Vestmannaeyjum var hann í yfir 40 ár, fram á elliár, en Hannes lést 1937. Hannes fékk byggingu fyrir hálfri Miðhúsajörðinni árið 1888 en kona hans var Margrét Brynjólfsdóttir frá Norðurgarði. Hannes byggði elsta hluta íbúðarhússins að Miðhúsum sem stóð allt fram að gosi. Þegar Jóhannes, sonur Hannesar hóf búskap að Miðhúsum, var byggt við húsið og það endurbætt árið 1910.Íbúðarhúsið að Miðhúsum stóð lengi vestast í ferhyrndum garði. Hlið var á garðinum að norðan og vestan. Norðurhliðið var notað til að sækja vatn í brunninn á Miðhúsum sem var nokkurs konar brunnhús og gengið tvær tröppur ofan í brunninn.Kristinn Ástgeirsson frá Litlabæ keypti Miðhús árið 1945. Kristinn var kunnur frístundamálari og málaði í svonefndum „naívistastíl“, bæði landslagsmyndir sem og atvinnulífsmyndir frá gamalli tíð. Kristinn seldi Miðhús árið 1971 sonarsyni sínum Matthíasi Guðjónssyni og bjó hann þar með fjölskyldu sinni þegar gaus árið 1973. Miðhús fóru þá undir hraun.",
             "images": [
                 "http://heimaslod.is/images/thumb/f/fe/Midhus_born.jpg/250px-Midhus_born.jpg",
@@ -4426,7 +4426,7 @@
         {
             "id": 120,
             "address": "Miðhús",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Miðhús vestri stóð norðan Bakkastígs. Miðhús-eystri voru einnig til, tómthús sem stóð nokkuð austar, en Miðhús vestri voru þekktari og oftast einungis talað um Miðhús þegar átt var við Miðhús vestri.Í svokallaðri Niðurgirðingu voru þrjár jarðir, Kornhóll, Miðhús og Gjábakki. Miðhús var yngst þessara jarða, talin tvö kýrfóður og hafði 15 sauða beit í Elliðaey.Frægasti ábúandi á Miðhúsum var líklega Hannes Jónsson, oftast kallaður Hannes lóðs, hafnsögumaður og formaður. Hann fæddist árið 1852 og varð 17 ára gamall formaður á áraskipinu Gideon. Með Gideon var hann samfleytt í 37 vertíðir. Hafnsögumaður í Vestmannaeyjum var hann í yfir 40 ár, fram á elliár, en Hannes lést 1937. Hannes fékk byggingu fyrir hálfri Miðhúsajörðinni árið 1888 en kona hans var Margrét Brynjólfsdóttir frá Norðurgarði. Hannes byggði elsta hluta íbúðarhússins að Miðhúsum sem stóð allt fram að gosi. Þegar Jóhannes, sonur Hannesar hóf búskap að Miðhúsum, var byggt við húsið og það endurbætt árið 1910.Íbúðarhúsið að Miðhúsum stóð lengi vestast í ferhyrndum garði. Hlið var á garðinum að norðan og vestan. Norðurhliðið var notað til að sækja vatn í brunninn á Miðhúsum sem var nokkurs konar brunnhús og gengið tvær tröppur ofan í brunninn.Kristinn Ástgeirsson frá Litlabæ keypti Miðhús árið 1945. Kristinn var kunnur frístundamálari og málaði í svonefndum „naívistastíl“, bæði landslagsmyndir sem og atvinnulífsmyndir frá gamalli tíð. Kristinn seldi Miðhús árið 1971 sonarsyni sínum Matthíasi Guðjónssyni og bjó hann þar með fjölskyldu sinni þegar gaus árið 1973. Miðhús fóru þá undir hraun.",
             "images": [
                 "http://heimaslod.is/images/thumb/f/fe/Midhus_born.jpg/250px-Midhus_born.jpg",
@@ -4461,7 +4461,7 @@
         {
             "id": 121,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4490,7 +4490,7 @@
         {
             "id": 122,
             "address": "Eiríkshús",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Eiríkshús stóð við Urðarveg 41. Það var reist árið 1926 og kostaði 24 þúsund krónur. Eiríkur Ásbjörnsson útgerðarmaður átti húsið en það fór undir hraun. Þar bjuggu þegar byrjaði að gjósa 23. janúar 1973. Eiríkur Ásbjörnsson og kona hans Ragnheiður Ólafsdóttir, Hinrik Jóhannsson og Steinunn Jónsdóttir",
             "images": [
                 "http://heimaslod.is/images/thumb/d/d0/Eir%C3%ADksh%C3%BAs-1.jpg/300px-Eir%C3%ADksh%C3%BAs-1.jpg",
@@ -4525,7 +4525,7 @@
         {
             "id": 123,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4554,7 +4554,7 @@
         {
             "id": 124,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4599,7 +4599,7 @@
         {
             "id": 125,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4628,7 +4628,7 @@
         {
             "id": 126,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4657,7 +4657,7 @@
         {
             "id": 127,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4686,7 +4686,7 @@
         {
             "id": 128,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4723,7 +4723,7 @@
         {
             "id": 129,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4752,7 +4752,7 @@
         {
             "id": 130,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4781,7 +4781,7 @@
         {
             "id": 131,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4810,7 +4810,7 @@
         {
             "id": 132,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -4839,7 +4839,7 @@
         {
             "id": 133,
             "address": "Sundlaug",
-            "streetId": "",
+            "streetId": null,
             "text": "Sigurður Sigurfinnsson hreppstjóri kom fyrstur manna fram með þá tillögu að sundkunnátta væri gerð að skilyrði fyrir burtfararprófi úr barnaskóla. Fyrsti sundkennari í Vestmannaeyjum var Friðrik Gíslason ljósmyndari, en hann var föðurbróðir Friðriks Jessonar, safnvarðar, sem lengst allra kenndi sund í Eyjum. Sundkennslan var fyrst um sinn á vegum Bjargráðafélags, sem þá starfaði í Vestmannaeyjum, en síðar sá Glímu- og sundfélag, sem sett var á laggirnar af Sigurði hreppstjóra, um kennsluna. Félagið lognaðist síðan út af árið 1897 og eftir það sá sýslunefnd um sundkennsluna.Friðrik Gíslason kenndi sund til og með ársins 1894, en aðrir kennarar til aldamóta voru Guðjón Jónsson frá Sjólyst, Hjalti Jónsson (sem nefndur var Eldeyjar-Hjalti), Sigurður Sigurfinnsson og Gísli J. Johnsen í þrjú sumur. Kennt var í köldum sjó og fór árangur kennslunnar því mjög eftir veðri.Einar Sigurðsson segir í bókinni Fagurt er í Eyjum að sjö ára gamall hafi hann verið látinn læra sund.Um byggingu Sundskálans á Eiðinu segir svo í gömlum gamanbrag sem enn er sunginn í Vestmannaeyjum:Þeim vex ekki allt í augum, ungmennunum hér,þau ætla að reisa sundskála sem Heimaklettur erog leigja þar út sólskinið og selja hreinan sjó,á sextíu aura pottinn hélt hann Steinn að væri nóg.Árangur af kennslu í köldum sjó var ekki sem skyldi og fyrir frumkvæði Arnbjargar Ólafsdóttur bar Kristinn Ólafsson, þáverandi bæjarstjóri, fram tillögu á bæjarstjórnarfundi þann 27. janúar árið 1925 þess efnis „[...] að bæjarstjórn skori á Alþingi að setja lög um sundskyldu barna og unglinga á aldrinum 12-16 ára.“ Tillagan var samþykkt einróma í bæjarstjórn. Jóhann Þ. Jósefsson bar svo málið fram á Alþingi árið 1925. Jóhann talaði fyrir því að bæjarstjórn Vestmannaeyja fengi heimild til að koma á sundskyldu barna og unglinga tvo mánuði á ári. Jóhann vildi færa aldurinn upp í 18 ár, en menntamálanefnd efri deildar þingsins kom með breytingartillögu um að skyldualdurinn yrði sem fyrr 12-16 ára. Jóhann talaði fyrir því að sund væri nytsöm íþrótt og þá sérstaklega í Vestmannaeyjum. Hann nefndi til sögunnar Árna J. Johnsen sem væri ágætlega sundfær maður, en þá hafði hann nýlega bjargað fjórum börnum frá drukknun í Eyjum. Fór svo að frumvarpið var samþykkt í efri deild með 11 atkvæðum gegn 3. Í neðri deild Alþingis mælti Ásgeir Ásgeirsson fyrir áliti menntamálanefndar. Nefndin var meðmælt frumvarpinu, en vildi stytta kennslutímann. Þá bæri Alþingi að veita styrki til sundlaugarbyggingar.Niðurstaðan varð síðan sú að í kaupstöðum eða sveitarfélögum skuli bæjar- og sveitarstjórnum heimilt með reglugerð að gera öllum heimilisföstum unglingum frá 12-16 ára innan síns umdæmis skylt að stunda sundnám í allt að fjóra mánuði samtals. Sundreglugerð fyrir Vestmannaeyjar var staðfest 9. ágúst árið 1926. Samkvæmt henni bar bænum að halda uppi almennri sundkennslu á hverju sumri, a.m.k. tvo mánuði á tímabilinu júní til ágúst. Í lok kennslunnar skyldi síðan haldið próf og bæjarstjórn send skýrsla um kostnað og árangur af kennslunni.Eftir að sjóveita kom til sögunnar árið 1931 komst hreyfing á sundlaugarmál í Vestmannaeyjum, enda löngu orðið tímabært að taka til hendinni og koma upp sundlaug. Með sjóveitu var hægur vandi að fá ferskan sjó úr sjógeyminum sem staðsettur var á Skansinum og veita honum í sundlaug. Voru menn á því að reisa skyldi stóra og rúmgóða sundlaug, ekki minni en 20 x 10 metra. Sundlaug sem þessi hlyti að kosta mikið fé, sér í lagi þar sem hita þyrfti laugina upp. Þá var kreppa ríkjandi í landinu á þessum árum sem hjálpaði ekki til. Menn gerðu ráð fyrir hitaveitu frá rafstöðinni sem hitaði sjóinn í 23 gráður. Veitan yrði 275 metra löng og myndi kosta 3300 krónur.Árið 1933 var hafist handa við að byggja sundlaugina sem Finnbogi R. Þorvaldsson, verkfræðingur (faðir Vigdísar forseta), teiknaði. Árið áður hafði Björgunarfélagið undirbúið framkvæmdirnar, en treysti sér ekki til að standa fyrir framkvæmdum eitt og sér. Þá lagði félagið 1300 krónur til framkvæmda. Sumarið 1933 lagði fjárhagsnefnd til að bæjarsjóður tæki að sér að sjá um framkvæmdir. Var það samþykkt. Ásamt Björgunarfélaginu studdu íþróttafélögin í Vestmannaeyjum framkvæmdir, en skorti fé til að láta af hendi rakna. Árið 1934 samþykkti ríkisstjóður að styðja við sundlaugarbygginguna með fjárframlagi sem næmi allt að helmingi, en þó ekki meira en 12 þúsund krónur. Fjárhagsáætlun hljóðaði hins vegar upp á 35 þúsund krónur. Kostnaður við laugina fór aftur á móti upp í 40 þúsund krónur árið 1939.Laugin var síðan opnuð 14. nóvember 1934 með sjómannanámskeiði. Almenningur gat hins vegar nýtt sér  sundlaugina sumarið á eftir.Miðhúsalaug var steinsteypt, 20 x 12 metrar að stærð. Dýpt laugarinnar var einn metri að norðan og tveir að sunnan. Finnbogi hafði lagt til að lengd laugarinnar yrði 25 metrar, en ekki var fallist á það vegna kostnaðar. Klefar við laugina voru fimm talsins. Sjórinn í lauginni var hitaður upp í 22-28 gráður, allt eftir veðurfari. Seinna fékk laugin heitt vatn frá Rafstöð Vestmannaeyja. Til að fylla laugina þurfti 330 tonn af sjó.Laugin var opin um tvo mánuði á sumrin auk þess sem sundnámskeið fóru fram á haustin. Aðgangseyrir í Miðhúsalaug var 25 aurar.",
             "images": [
                 "http://heimaslod.is/images/thumb/4/45/1945.5.jpg/250px-1945.5.jpg",
@@ -5001,7 +5001,7 @@
         {
             "id": 137,
             "address": "Grænahlíð 4",
-            "streetId": "",
+            "streetId": null,
             "text": "Hús Sigurðar Arnars Sighvatssonar í Ási og Soffíu Björnsdóttur frá Bólstaðarhlíð.Lóðarleigusamningur var undirritaður 18. maí 1956. Þau Arnar og Soffa byrjuðu að byggja í Bólstaðarhlíðartúninu og smáskika úr Laufástúninu í maí 1955.  Þau fluttu inn í október 1957 með soninn Sighvat fæddan 10. október 1954. Ingibjörg dóttir þeirra fæddist 13. febrúar 1971. Arnar og Soffía voru fyrst að flytja í Grænuhlíðina. Þau urðu að bíða með flutninginn í hálfan mánuð vegna þess að skolplögn var ekki komin í götuna. Ingibjörg í Bólstaðarhlíð móðir Soffíu fluttist til þeirra 1971.Húsið fór undir hraun í gosinu 1973",
             "images": [
                 "http://heimaslod.is/images/thumb/e/ec/Graenahlid_4_sudur.jpg/250px-Graenahlid_4_sudur.jpg",
@@ -5037,7 +5037,7 @@
         {
             "id": 138,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5373,7 +5373,7 @@
         {
             "id": 147,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5402,7 +5402,7 @@
         {
             "id": 148,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5439,7 +5439,7 @@
         {
             "id": 149,
             "address": "Kirkjubær",
-            "streetId": "",
+            "streetId": null,
             "text": "Kirkjubær var einn sögufrægasti staður Vestmannaeyja. Bæjarlandið samanstóð af átta bæjum í manntali sem tekið var árið 1892, en þeir stóðu nokkuð austan við byggðakjarna Heimaeyjar, en voru annað tveggja bæjarhverfa Vestmannaeyja ásamt Vilborgarstöðum. Bæirnir drógu nafn sitt af því að þar stóð kirkja, sem reist var 1269 og stóð til 1573. Þar var prestssetur fram til ársins 1837.Kirkjubær og öll aðliggjandi lönd fóru undir hraun í jarðeldunum 1973, en gosið hófst í landi Kirkjubæjar.Kirkjubær var að fornu talinn átta einbýlisjarðir:Að einhverju leyti eru þessi nöfn þó rugluð, þar sem bæirnir á Vilborgarstöðum báru sumir hverjir sömu nöfn, og voru líklega sömu bæirnir.Kirkjubæjarbændur áttu nytjalönd í Geldungi, þar sem þeir máttu veiða fýl og súlu; Brandi, til lundaveiði, fýlaveiði, súlnaveiði og eggjatöku, ásamt því sem þeir máttu hafa þar þrettán sauði á beit. Á haustin voru 26 lömb sett þangað í vetrarbeit, en mjög gott þótti að beita í Brandinum. Ennfremur höfðu Kirkjubæjarbændur rétt á 25 sauða beit til móts við Vilborgarstaðabændur í Suðurey, og allar nytjar í Flugum og í Ystakletti (lundaveiðar, eggjataka, beit).Kirkjan á Kirkjubæ var í eigu Skálholtskirkju fyrst um sinn, en Mikjálsklaustur í Björgvin í Noregi fékk Kirkjubæjarkirkju að gjöf frá Árna Þorlákssyni Skálholtsbiskupi árið 1280. Á þessum tíma voru í Vestmannaeyjum tvær kirkjur, en hin var Klemensarkirkja sem stóð á Hörgaeyri. Kirkjubæjarkirkja hét réttu nafni Péturskirkja, og var hún helguð Símoni Pétri, lærisveini Jesú, sem var fiskimaður og verndardýrlingur fiskimanna. Í seinni tíð hlaut kirkjan nafnið Ofanleitiskirkja.Fyrsta kirkjan að Löndum, nefnd Landakirkja, var byggð í lúterskum sið árið 1573. Þá urðu guðshúsin sem stóðu á Ofanleiti og á Kirkjubæ að bænhúsum, og Landakirkja var eina kirkjan í Vestmannaeyjum.Í manntalinu 1816 kom fram að 99 af þeim 212 íbúum Vestmannaeyja þá áttu heima á Kirkjubæ.Í Tyrkjaráninu er það frægt að séra Jón Þorsteinsson, prestur á Kirkjubæ, faldi sig í Rauðahelli í Urðum, ásamt skyldfólki sínu og fleirum. Jón var höggvinn, og fólk hans herleitt til Algeirsborgar.Aðfaranótt 23. janúar 1973 opnaðist 2,3 km löng sprunga á Heimaey, og gekk hún frá norðri til suðurs í gegnum land Kirkjubæjar. Sprungan opnaðist rétt austan við Kirkjubæ, og í upphafi gossins barst lögreglunni tilkynning frá bónda á Kirkjubæ um eldsvoða, sem síðar reyndist vera af völdum gossins. ",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f7/Kirkjub%C3%A6ir.jpg/250px-Kirkjub%C3%A6ir.jpg",
@@ -5511,7 +5511,7 @@
         {
             "id": 150,
             "address": "Kirkjubær",
-            "streetId": "",
+            "streetId": null,
             "text": "Kirkjubær var einn sögufrægasti staður Vestmannaeyja. Bæjarlandið samanstóð af átta bæjum í manntali sem tekið var árið 1892, en þeir stóðu nokkuð austan við byggðakjarna Heimaeyjar, en voru annað tveggja bæjarhverfa Vestmannaeyja ásamt Vilborgarstöðum. Bæirnir drógu nafn sitt af því að þar stóð kirkja, sem reist var 1269 og stóð til 1573. Þar var prestssetur fram til ársins 1837.Kirkjubær og öll aðliggjandi lönd fóru undir hraun í jarðeldunum 1973, en gosið hófst í landi Kirkjubæjar.Kirkjubær var að fornu talinn átta einbýlisjarðir:Að einhverju leyti eru þessi nöfn þó rugluð, þar sem bæirnir á Vilborgarstöðum báru sumir hverjir sömu nöfn, og voru líklega sömu bæirnir.Kirkjubæjarbændur áttu nytjalönd í Geldungi, þar sem þeir máttu veiða fýl og súlu; Brandi, til lundaveiði, fýlaveiði, súlnaveiði og eggjatöku, ásamt því sem þeir máttu hafa þar þrettán sauði á beit. Á haustin voru 26 lömb sett þangað í vetrarbeit, en mjög gott þótti að beita í Brandinum. Ennfremur höfðu Kirkjubæjarbændur rétt á 25 sauða beit til móts við Vilborgarstaðabændur í Suðurey, og allar nytjar í Flugum og í Ystakletti (lundaveiðar, eggjataka, beit).Kirkjan á Kirkjubæ var í eigu Skálholtskirkju fyrst um sinn, en Mikjálsklaustur í Björgvin í Noregi fékk Kirkjubæjarkirkju að gjöf frá Árna Þorlákssyni Skálholtsbiskupi árið 1280. Á þessum tíma voru í Vestmannaeyjum tvær kirkjur, en hin var Klemensarkirkja sem stóð á Hörgaeyri. Kirkjubæjarkirkja hét réttu nafni Péturskirkja, og var hún helguð Símoni Pétri, lærisveini Jesú, sem var fiskimaður og verndardýrlingur fiskimanna. Í seinni tíð hlaut kirkjan nafnið Ofanleitiskirkja.Fyrsta kirkjan að Löndum, nefnd Landakirkja, var byggð í lúterskum sið árið 1573. Þá urðu guðshúsin sem stóðu á Ofanleiti og á Kirkjubæ að bænhúsum, og Landakirkja var eina kirkjan í Vestmannaeyjum.Í manntalinu 1816 kom fram að 99 af þeim 212 íbúum Vestmannaeyja þá áttu heima á Kirkjubæ.Í Tyrkjaráninu er það frægt að séra Jón Þorsteinsson, prestur á Kirkjubæ, faldi sig í Rauðahelli í Urðum, ásamt skyldfólki sínu og fleirum. Jón var höggvinn, og fólk hans herleitt til Algeirsborgar.Aðfaranótt 23. janúar 1973 opnaðist 2,3 km löng sprunga á Heimaey, og gekk hún frá norðri til suðurs í gegnum land Kirkjubæjar. Sprungan opnaðist rétt austan við Kirkjubæ, og í upphafi gossins barst lögreglunni tilkynning frá bónda á Kirkjubæ um eldsvoða, sem síðar reyndist vera af völdum gossins. ",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f7/Kirkjub%C3%A6ir.jpg/250px-Kirkjub%C3%A6ir.jpg",
@@ -5587,7 +5587,7 @@
         {
             "id": 151,
             "address": "Oddsstaðir",
-            "streetId": "",
+            "streetId": null,
             "text": "Einnig er til hús við Ásaveg sem heitir Oddsstaðir. Við Oddsstaði var tvíbýli, með tvær jarðir. Í Jarðabók Árna Magnússonar er sagt að hún sé fjögur kýrfóður. Upphaflegt heiti bæjarins var Oddastaðir, en um 1600 víkur það fyrir núverandi heiti.Oddsstaðir töldust til Elliðaeyjajarða og fylgdi þeim jörðum 30 sauða beit þar í ey, ásamt hinum ýmsu nytjum sem fyrir finnast í eynni. Til Oddsstaða heyrðu tveir hjallar í Skipasandi og fiskigarðar hjá Presthúsagörðum.Búskapur lagðist niður stuttu eftir 1950. Vanalega voru tvær til fjórar kýr á jörðinni. Garðræktin hélt ennþá sínum gangi og var ávallt mikil.Norðaustur í Oddsstaðatúni var strýtulaga grashóll, sem kallaðist Strýtuhóll eða Útburðarhóll. Margir héldu að nafnið Útburðarhóll sé dreginn af því að þar væri grafinn útburður og að sögðust menn heyra þar útburðavæl, en Guðjón Jónsson bóndi á Oddsstöðum sagði að nafnið væri dregið af því að þangað hafi aska verið borin frá Presthúsum. Suður af Vestri-Oddsstöðum var grashóll sem bar nafnið Stórihóll, en þar átti huldufólk að búa og vildi Guðjón bóndi að hann yrði algjörlega látinn í friði. Fyrir sunnan Stórahól er Stóralág, lítil flöt sem er talið hafa verið gamalt garðstæði eða akurgerði og voru börn þar oft að leik. Austan við Stórulág og Stórahól var Litlihóll en síðar var þar reistur útbúinn kartöflukofi. Þegar hann var fjarlægður kom í ljós að hann reyndist vera öskuhaugur. Í norðausturhorni túnsins, norðan við Eystri-Oddsstaði, var slægjublettur sem kallaðist Rófa.Á Oddsstöðum var ávallt líf og fjör, enda var það fjölmennt heimili. Á veturna var fólk inni og spilaði, en á sumrin og haustin var gjarnan farið í útileiki og var fullorðna fólkið ekki síðra við að taka þátt. Heimilisfólkið var einnig miklir og góðir söngmenn og var það oft að fólkið tók lagið í vinafagnaði uppi á bæjum.Guðjón Jónsson var síðasti ábúandi á jörðinni. Hann var tvíkvæntur, fyrri kona hans var Guðlaug Pétursdóttir en seinni kona hans var Guðrún Grímsdóttir. Frá þeim er mikill ættbogi, Oddsstaðaættin, og fjölmargir af þeirri ætt í Eyjum sem og á fastalandinu. Auk bústarfa stundaði Guðjón á Oddsstöðum sjó, var formaður en kunnastur er hann líklega fyrir smíðar sínar, aðallega líkkistusmíðar, en hann smíðaði um árabil líkkistur fyrir flesta þá sem létust í Eyjum. Hann var einnig orðheppinn og kunnur fyrir skjót og eftirminnileg tilsvör og margar sögur tilgreindar af slíku:",
             "images": [
                 "http://heimaslod.is/images/thumb/5/51/Oddsta%C3%B0ir.jpg/250px-Oddsta%C3%B0ir.jpg",
@@ -5643,7 +5643,7 @@
         {
             "id": 152,
             "address": "Oddsstaðir",
-            "streetId": "",
+            "streetId": null,
             "text": "Einnig er til hús við Ásaveg sem heitir Oddsstaðir. Sjá Oddsstaðir við ÁsavegVið Oddsstaði var tvíbýli, með tvær jarðir. Í Jarðabók Árna Magnússonar er sagt að hún sé fjögur kýrfóður. Upphaflegt heiti bæjarins var Oddastaðir, en um 1600 víkur það fyrir núverandi heiti.Oddsstaðir töldust til Elliðaeyjajarða og fylgdi þeim jörðum 30 sauða beit þar í ey, ásamt hinum ýmsu nytjum sem fyrir finnast í eynni. Til Oddsstaða heyrðu tveir hjallar í Skipasandi og fiskigarðar hjá Presthúsagörðum.Búskapur lagðist niður stuttu eftir 1950. Vanalega voru tvær til fjórar kýr á jörðinni. Garðræktin hélt ennþá sínum gangi og var ávallt mikil.Norðaustur í Oddsstaðatúni var strýtulaga grashóll, sem kallaðist Strýtuhóll eða Útburðarhóll. Margir héldu að nafnið Útburðarhóll sé dreginn af því að þar væri grafinn útburður og að sögðust menn heyra þar útburðavæl, en Guðjón Jónsson bóndi á Oddsstöðum sagði að nafnið væri dregið af því að þangað hafi aska verið borin frá Presthúsum. Suður af Vestri-Oddsstöðum var grashóll sem bar nafnið Stórihóll, en þar átti huldufólk að búa og vildi Guðjón bóndi að hann yrði algjörlega látinn í friði. Fyrir sunnan Stórahól er Stóralág, lítil flöt sem er talið hafa verið gamalt garðstæði eða akurgerði og voru börn þar oft að leik. Austan við Stórulág og Stórahól var Litlihóll en síðar var þar reistur útbúinn kartöflukofi. Þegar hann var fjarlægður kom í ljós að hann reyndist vera öskuhaugur. Í norðausturhorni túnsins, norðan við Eystri-Oddsstaði, var slægjublettur sem kallaðist Rófa.Á Oddsstöðum var ávallt líf og fjör, enda var það fjölmennt heimili. Á veturna var fólk inni og spilaði, en á sumrin og haustin var gjarnan farið í útileiki og var fullorðna fólkið ekki síðra við að taka þátt. Heimilisfólkið var einnig miklir og góðir söngmenn og var það oft að fólkið tók lagið í vinafagnaði uppi á bæjum.Guðjón Jónsson var síðasti ábúandi á jörðinni. Hann var tvíkvæntur, fyrri kona hans var Guðlaug Pétursdóttir en seinni kona hans var Guðrún Grímsdóttir. Frá þeim er mikill ættbogi, Oddsstaðaættin, og fjölmargir af þeirri ætt í Eyjum sem og á fastalandinu. Auk bústarfa stundaði Guðjón á Oddsstöðum sjó, var formaður en kunnastur er hann líklega fyrir smíðar sínar, aðallega líkkistusmíðar, en hann smíðaði um árabil líkkistur fyrir flesta þá sem létust í Eyjum. Hann var einnig orðheppinn og kunnur fyrir skjót og eftirminnileg tilsvör og margar sögur tilgreindar af slíku:",
             "images": [
                 "http://heimaslod.is/images/thumb/5/51/Oddsta%C3%B0ir.jpg/250px-Oddsta%C3%B0ir.jpg",
@@ -5683,7 +5683,7 @@
         {
             "id": 153,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5712,7 +5712,7 @@
         {
             "id": 154,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -5749,7 +5749,7 @@
         {
             "id": 155,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -6010,7 +6010,7 @@
         {
             "id": 162,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -6905,7 +6905,7 @@
         {
             "id": 186,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -7309,7 +7309,7 @@
         {
             "id": 197,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -7856,7 +7856,7 @@
         {
             "id": 211,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -7885,7 +7885,7 @@
         {
             "id": 212,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -7983,7 +7983,7 @@
         {
             "id": 215,
             "address": "Sveinsstaðir",
-            "streetId": "",
+            "streetId": null,
             "text": "Sveinsstaði byggði Sveinn Jónsson trésmiður 1893. Sveinn var fæddur að Steinum undir Eyjafjöllum 19. april 1862. Kona Sveins var Guðrún Runólfsdóttir frá Grindavík, f. 26. nóv. 1862. Á myndinni f.v.: 1. Guðrún Runólfsdóttir húsfreyja, með (2) Ársæl Sveinsson (f. 31. des. 1893), son þeirra hjóna, í keltu sér. Ársæll er nú einn af kunnustu útgerðarmönnum hér í Eyjum og er nú forseti bœjarstjórnar Vestmannaeyja. 3. Sveinn Jónsson trésmiður. 4. Sveinn Magnús Sveinsson, kenndur við Völund í Reykjavik og var eigandi hans, f. 19. okt. 1891. 5. Júlíana Sveinsdóttir listmálari, f. 1. júli 1889. 6. Sigurveig Sveinsdóttir húsfreyja, f. 10. jan. 1887. Fimmta barn þeirra hjóna er Sigurður bifreiðarstjóri og kaupmaður hér í Eyjum. (Blik 1958).Árið 1953 bjuggu í húsinu Helga Sigurbjörnsdóttir f. 1883, Benedikt Ó Jónsson f. 1924.Árið 1960 bjuggu í húsinu Aðalbjörg Jónsdóttir og Ólafur Guðmundsson.Árið 1965 bjuggu í húsinu Magnús Pálsson og Ingunn Vilhjálmsdóttir.Þegar byrjaði að gjósa bjuggu Gunnar Jónas Jónsson, Ingimundur Axelsson og Steinunn Helga Axelsdóttir í húsinu.Húsið fór undir hraun í gosinu árið 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/8/8e/1978_b_203_BB.jpg/300px-1978_b_203_BB.jpg"
@@ -8075,7 +8075,7 @@
         {
             "id": 217,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -8178,7 +8178,7 @@
         {
             "id": 220,
             "address": "Sjávargata",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Sjávargata stóð við Sjómannasund 10a.Íbúar: Sigjón Halldórsson og Sigrún Runólfsdóttir og börn þeirra1926 Bergmundur Arnbjörnsson og Elín Helga Björnsdóttir.1953 Marinó Jóhannesson og Guðrún Hákonardóttir og dætur þeirra Steinunn Erla og Margrét GuðrúnEiríkur í Hruna",
             "images": [
                 "http://heimaslod.is/images/8/87/Sj%C3%A1vargata.jpg"
@@ -8217,7 +8217,7 @@
         {
             "id": 221,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -8316,7 +8316,7 @@
         {
             "id": 224,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9286,7 +9286,7 @@
         {
             "id": 246,
             "address": "Bessastaðir",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Bessastaðir stóð austan til á Heimaey. Eyjólfur Gíslason smíðaði húsið árið 1928 og bjó þar ásamt fjölskyldu fram að gosi. Bessastaðir voru eitt af fyrstu húsunum til að fara undir hraun en það gerðist annan gosdaginn.",
             "images": [
                 "http://heimaslod.is/images/thumb/9/90/Bessastadir.jpg/250px-Bessastadir.jpg",
@@ -9326,7 +9326,7 @@
         {
             "id": 247,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9485,7 +9485,7 @@
         {
             "id": 251,
             "address": "Gerði",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9514,7 +9514,7 @@
         {
             "id": 252,
             "address": "Norðurgerði",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9559,7 +9559,7 @@
         {
             "id": 253,
             "address": "Ólafshús",
-            "streetId": "",
+            "streetId": null,
             "text": "Í jarðabók Árna Magnússonar og Páls Vídalíns sem kennd er við 1703 kemur fram húsnafnið Ólafshús í Vestmannaeyjum. Þá er ábúandi Sigurður Pétursson og voru sex heimilismenn á þeim tíma.Jörðinni Ólafshúsum fylgir ma. sauðbeit í Álfsey, fimtán sem gamlir menn segjast heyrt hafa eins og þar stendur orðrétt. Að endingu er tekið fram að jörðinni fylgir hjallur í Skapasandi og fiskigarðar fyrir innan Skildingafjöru.Þetta sannar að jörðin  og húsnafnið Ólafshús er síðan fyrir 1703. Húsið Ólafshús stóð austur á Eyju og fór það undir hraun snemma í gosinu. Síðasti ábúandinn, Erlendur Jónsson (Elli í Ólafshúsum), færði nafnið yfir á það hús sem hann fluttist í eftir gos. Það hús er á Brimhólabraut 36.",
             "images": [
                 "http://heimaslod.is/images/thumb/3/34/Olafsh%C3%BAs.jpg/250px-Olafsh%C3%BAs.jpg",
@@ -9657,7 +9657,7 @@
         {
             "id": 255,
             "address": "Kirkjuból",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Kirkjuból var einnig kallað Vestasti-Hlaðbær. Húsið stóð á austanverði Heimaey og var talið til Vilborgarstaða.Guðjón Björnsson frá Norðurgarði byggði húsið árið 1910.Hjónin Kristján Kristófersson og Þóra Valdimarsdóttir ásamt barnabarni sínu Kristjáni Þór Valdimarssyni bjuggu í húsinu þegar byrjaði að gjósa 23. janúar 1973.Meðal frásagna í bók Guðjóns Ármanns Eyjólfssonar frá fyrstu gosnóttinni er frásögn Kristjáns Kristóferssonar og Þóru Valdimarsdóttur á Kirkjubóli. Þóra segir svo frá: „Ég var háttuð, en ekki sofnuð, seint um kvöldið. Ég vissi ekki hvað klukkan var. Þá verð ég allt í einu vör við ansi mikinn kipp, jarðskjálftakipp. Ég hentist fram úr rúminu og kveikti ljósið og lít á klukkuna. Þá er klukkan tíu mínútur gengin í tvö. Það var mitt fyrsta verk að fara niður í kjallara til að vita hvort þetta sé í „fýrnum“, af því alltaf er maður hræddur um miðstöðina. En þegar ég ætla að opna eldhúshurðina, sem liggur að stiganum niður í kjallara, þá finn ég strax, að eitthvað er að. Hurðin er orðin skekkt í og ég má taka fast í til að geta opnað. Þá bregður mér svolítið. Ég fór samt niður stigann og sé, að allt er í lagi með miðstöðina og fer upp. En mér líkar ekki þessi titringur á ofnunum. Það er þessi eilífi nötringur og einkennilegheit í „fýrnum“ og ég fer niður aftur.“ Kristján maður hennar segist þá vakna og fara niður og athuga með miðstöðina. „Ég heyrði nú eitthvað undarlegt hljóð sem ég kannaðist ekki við. Mér fannst hljóðið vera í ofnunum, eitthvert titringshljóð. Ég fer síðan norður í verkstæðisherbergi sem var við hliðina á miðstöðvarherberginu en heyri ekkert þar. Slekk ég síðan á „fýrnum“ og geng upp. Þetta heldur samt áfram og mér dettur nú í hug Katla. Geng að norðurglugganum og dreg frá honum, en þaðan er ekkert skyggni austur og norður til landsins, svo að ég fer aftur inn í kokkhúsið og dreg frá eldhúsglugganum að sunnan en þar er ekkert að sjá. Þá fer ég aftur inn í rúm. Þegar ég er rétt lagstur í rúmið heyrist mér fara þungavinnuvél eftir götunni, svo að ég fer enn fram úr til að athuga hvað sé á ferð eftir götunni. Það skiptir ekki mörgum mínútum; sem ég stend þarna við gluggann og þar til hljóðið er orðið líkast og í þotu; svo hækkar hljóðið all verulega og þá kemur fyrsti neistinn upp. Klukkan hefur þá verið svona um hálftvö. Ég kallaði í Þóru, en fyrstu sekúndurnar var þetta ekki svo mikið að sjá og við horfðum á þetta hjónin. Þetta var svona eins og þegar búið er að kveikja á góðum bletti í sinu, og stóð yfir augnablik.“",
             "images": [
                 "http://heimaslod.is/images/thumb/1/13/Kirkjubol.jpg/300px-Kirkjubol.jpg"
@@ -9704,7 +9704,7 @@
         {
             "id": 256,
             "address": "Kirkjubær",
-            "streetId": "",
+            "streetId": null,
             "text": "Kirkjubær var einn sögufrægasti staður Vestmannaeyja. Bæjarlandið samanstóð af átta bæjum í manntali sem tekið var árið 1892, en þeir stóðu nokkuð austan við byggðakjarna Heimaeyjar, en voru annað tveggja bæjarhverfa Vestmannaeyja ásamt Vilborgarstöðum. Bæirnir drógu nafn sitt af því að þar stóð kirkja, sem reist var 1269 og stóð til 1573. Þar var prestssetur fram til ársins 1837.Kirkjubær og öll aðliggjandi lönd fóru undir hraun í jarðeldunum 1973, en gosið hófst í landi Kirkjubæjar.Kirkjubær var að fornu talinn átta einbýlisjarðir:Að einhverju leyti eru þessi nöfn þó rugluð, þar sem bæirnir á Vilborgarstöðum báru sumir hverjir sömu nöfn, og voru líklega sömu bæirnir.Kirkjubæjarbændur áttu nytjalönd í Geldungi, þar sem þeir máttu veiða fýl og súlu; Brandi, til lundaveiði, fýlaveiði, súlnaveiði og eggjatöku, ásamt því sem þeir máttu hafa þar þrettán sauði á beit. Á haustin voru 26 lömb sett þangað í vetrarbeit, en mjög gott þótti að beita í Brandinum. Ennfremur höfðu Kirkjubæjarbændur rétt á 25 sauða beit til móts við Vilborgarstaðabændur í Suðurey, og allar nytjar í Flugum og í Ystakletti (lundaveiðar, eggjataka, beit).Kirkjan á Kirkjubæ var í eigu Skálholtskirkju fyrst um sinn, en Mikjálsklaustur í Björgvin í Noregi fékk Kirkjubæjarkirkju að gjöf frá Árna Þorlákssyni Skálholtsbiskupi árið 1280. Á þessum tíma voru í Vestmannaeyjum tvær kirkjur, en hin var Klemensarkirkja sem stóð á Hörgaeyri. Kirkjubæjarkirkja hét réttu nafni Péturskirkja, og var hún helguð Símoni Pétri, lærisveini Jesú, sem var fiskimaður og verndardýrlingur fiskimanna. Í seinni tíð hlaut kirkjan nafnið Ofanleitiskirkja.Fyrsta kirkjan að Löndum, nefnd Landakirkja, var byggð í lúterskum sið árið 1573. Þá urðu guðshúsin sem stóðu á Ofanleiti og á Kirkjubæ að bænhúsum, og Landakirkja var eina kirkjan í Vestmannaeyjum.Í manntalinu 1816 kom fram að 99 af þeim 212 íbúum Vestmannaeyja þá áttu heima á Kirkjubæ.Í Tyrkjaráninu er það frægt að séra Jón Þorsteinsson, prestur á Kirkjubæ, faldi sig í Rauðahelli í Urðum, ásamt skyldfólki sínu og fleirum. Jón var höggvinn, og fólk hans herleitt til Algeirsborgar.Aðfaranótt 23. janúar 1973 opnaðist 2,3 km löng sprunga á Heimaey, og gekk hún frá norðri til suðurs í gegnum land Kirkjubæjar. Sprungan opnaðist rétt austan við Kirkjubæ, og í upphafi gossins barst lögreglunni tilkynning frá bónda á Kirkjubæ um eldsvoða, sem síðar reyndist vera af völdum gossins. ",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f7/Kirkjub%C3%A6ir.jpg/250px-Kirkjub%C3%A6ir.jpg",
@@ -9776,7 +9776,7 @@
         {
             "id": 257,
             "address": "Kirkjubær",
-            "streetId": "",
+            "streetId": null,
             "text": "Kirkjubær var einn sögufrægasti staður Vestmannaeyja. Bæjarlandið samanstóð af átta bæjum í manntali sem tekið var árið 1892, en þeir stóðu nokkuð austan við byggðakjarna Heimaeyjar, en voru annað tveggja bæjarhverfa Vestmannaeyja ásamt Vilborgarstöðum. Bæirnir drógu nafn sitt af því að þar stóð kirkja, sem reist var 1269 og stóð til 1573. Þar var prestssetur fram til ársins 1837.Kirkjubær og öll aðliggjandi lönd fóru undir hraun í jarðeldunum 1973, en gosið hófst í landi Kirkjubæjar.Kirkjubær var að fornu talinn átta einbýlisjarðir:Að einhverju leyti eru þessi nöfn þó rugluð, þar sem bæirnir á Vilborgarstöðum báru sumir hverjir sömu nöfn, og voru líklega sömu bæirnir.Kirkjubæjarbændur áttu nytjalönd í Geldungi, þar sem þeir máttu veiða fýl og súlu; Brandi, til lundaveiði, fýlaveiði, súlnaveiði og eggjatöku, ásamt því sem þeir máttu hafa þar þrettán sauði á beit. Á haustin voru 26 lömb sett þangað í vetrarbeit, en mjög gott þótti að beita í Brandinum. Ennfremur höfðu Kirkjubæjarbændur rétt á 25 sauða beit til móts við Vilborgarstaðabændur í Suðurey, og allar nytjar í Flugum og í Ystakletti (lundaveiðar, eggjataka, beit).Kirkjan á Kirkjubæ var í eigu Skálholtskirkju fyrst um sinn, en Mikjálsklaustur í Björgvin í Noregi fékk Kirkjubæjarkirkju að gjöf frá Árna Þorlákssyni Skálholtsbiskupi árið 1280. Á þessum tíma voru í Vestmannaeyjum tvær kirkjur, en hin var Klemensarkirkja sem stóð á Hörgaeyri. Kirkjubæjarkirkja hét réttu nafni Péturskirkja, og var hún helguð Símoni Pétri, lærisveini Jesú, sem var fiskimaður og verndardýrlingur fiskimanna. Í seinni tíð hlaut kirkjan nafnið Ofanleitiskirkja.Fyrsta kirkjan að Löndum, nefnd Landakirkja, var byggð í lúterskum sið árið 1573. Þá urðu guðshúsin sem stóðu á Ofanleiti og á Kirkjubæ að bænhúsum, og Landakirkja var eina kirkjan í Vestmannaeyjum.Í manntalinu 1816 kom fram að 99 af þeim 212 íbúum Vestmannaeyja þá áttu heima á Kirkjubæ.Í Tyrkjaráninu er það frægt að séra Jón Þorsteinsson, prestur á Kirkjubæ, faldi sig í Rauðahelli í Urðum, ásamt skyldfólki sínu og fleirum. Jón var höggvinn, og fólk hans herleitt til Algeirsborgar.Aðfaranótt 23. janúar 1973 opnaðist 2,3 km löng sprunga á Heimaey, og gekk hún frá norðri til suðurs í gegnum land Kirkjubæjar. Sprungan opnaðist rétt austan við Kirkjubæ, og í upphafi gossins barst lögreglunni tilkynning frá bónda á Kirkjubæ um eldsvoða, sem síðar reyndist vera af völdum gossins. ",
             "images": [
                 "http://heimaslod.is/images/thumb/f/f7/Kirkjub%C3%A6ir.jpg/250px-Kirkjub%C3%A6ir.jpg",
@@ -9836,7 +9836,7 @@
         {
             "id": 258,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9865,7 +9865,7 @@
         {
             "id": 259,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9894,7 +9894,7 @@
         {
             "id": 260,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -9955,7 +9955,7 @@
         {
             "id": 262,
             "address": "Hvassafell",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Hvassafell stóð við Helgafellsbraut 33 sem var byggt á árunum 1923-1929.Sturla Indriðason og fjölskylda byggðu húsið.Óskar Sigurðsson og fjölskylda.Í húsinu bjuggu hjónin Gísli Bryngeirsson og Gréta Þorsteinsdóttir ásamt börnum sínum Konráði, Steinunni Ingibjörgu og Lovísu auk dóttur hennar Lovísu, Hrafnhildi þegar byrjaði að gjósa 23. janúar 1973.",
             "images": [
                 "http://heimaslod.is/images/thumb/a/ab/Ger%C3%B0i.jpg/250px-Ger%C3%B0i.jpg",
@@ -10003,7 +10003,7 @@
         {
             "id": 263,
             "address": " ",
-            "streetId": "",
+            "streetId": null,
             "text": " ",
             "images": [],
             "coordinates": [
@@ -10600,7 +10600,7 @@
         {
             "id": 278,
             "address": "Boston",
-            "streetId": "",
+            "streetId": null,
             "text": "Húsið Boston stóð við Njarðarstíg 2. Í húsinu var brauðbúð og símstöð árið 1911. Einar Sigurðsson ríki byrjaði að versla í þessu húsi, þar hafa einnig verið  Gísli Stefánsson Sigríðarstöðum og Páll Þorbjörnsson. Húseignin var áður skráð að Formannabraut 8.Einnig var hús sem stóð við Vestmannabraut 9 sem hét Boston en þar reis Dalbær árið 1905.",
             "images": [
                 "http://heimaslod.is/images/thumb/2/24/Verzlunin_Boston.jpg/300px-Verzlunin_Boston.jpg",
