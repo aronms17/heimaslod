@@ -69,21 +69,13 @@ getLocationAsync = async () => {
 
   TaskManager.defineTask(taskName, task => {
     if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      console.log("Þú ert nálægt eskinu");
+      console.log("Mættir á punkt");
       this.setState({inRegion: true});
     }
     if (task.data.eventType === Location.GeofencingEventType.Exit) {
-      console.log("Þú fórst frá HR");
+      console.log("Farnir úr punkti");
       this.setState({inRegion: false});
     }
-    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
-    //   console.log("Þú ert nálægt eskinu");
-    //   this.setState({geomessage: 'Þú ert nálægt',inRegion: true});
-    // }
-    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
-    //   console.log("Þú fórst úr svæði");
-    //   this.setState({geomessage: 'Þú fórst af svæði' ,inRegion: false});
-    // }
     return;
   });
 
@@ -225,7 +217,7 @@ onClick = () => {
               onBackdropPress={() => this.setState({inRegion: false})}
             >
               <View style={styles.modalView}>
-                <Text style={{fontWeight: 'bold'}}>Þú ert nálægt HR</Text>
+                <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
               </View>
             </NativeModal>
 
