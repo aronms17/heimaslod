@@ -58,13 +58,29 @@ getLocationAsync = async () => {
 
   const taskName = "eski";
   const hr = { latitude: 64.124182, longitude: -21.927272 };
+  const landspitali = { latitude: 64.123514, longitude: -21.884149 }; 
+  const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
+  const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
+  const wurth = { latitude: 64.102430, longitude: -21.778329 };
   const radius = 500;
 
   Location.startGeofencingAsync(taskName, [
     {
-      ...hr,
+      ...landspitali,
       radius
-    }
+    },
+    {
+      ...bildshofdi,
+      radius
+    },
+    {
+      ...reynisvegur,
+      radius
+    },
+    {
+      ...wurth,
+      radius
+    },
   ]);
 
   TaskManager.defineTask(taskName, task => {
@@ -214,7 +230,6 @@ onClick = () => {
             />
             <NativeModal
               isVisible={this.state.inRegion}
-              onBackdropPress={() => this.setState({inRegion: false})}
             >
               <View style={styles.modalView}>
                 <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
