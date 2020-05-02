@@ -1,16 +1,18 @@
 import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback, Alert } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
+import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
+
+import NativeModal from 'react-native-modal';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
-
 export default class App extends React.Component {
 
   constructor(props) {
@@ -28,6 +30,7 @@ export default class App extends React.Component {
     streetId: 0,
     location: null,
     errorMessage:"",
+    inRegion: false
   };
 }
 
@@ -53,11 +56,44 @@ getLocationAsync = async () => {
     });
   }
 
-  let location = await Location.getCurrentPositionAsync();
-  const { latitude , longitude } = location.coords
-  this.getGeocodeAsync({latitude, longitude})
-  this.setState({ location: {latitude, longitude}});
+  const taskName = "eski";
+  const hr = { latitude: 64.124182, longitude: -21.927272 };
+  const radius = 500;
 
+  Location.startGeofencingAsync(taskName, [
+    {
+      ...hr,
+      radius
+    }
+  ]);
+
+  TaskManager.defineTask(taskName, task => {
+    if (task.data.eventType === Location.GeofencingEventType.Enter) {
+      console.log("Þú ert nálægt eskinu");
+      this.setState({inRegion: true});
+    }
+    if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      console.log("Þú fórst frá HR");
+      this.setState({inRegion: false});
+    }
+    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
+    //   console.log("Þú ert nálægt eskinu");
+    //   this.setState({geomessage: 'Þú ert nálægt',inRegion: true});
+    // }
+    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
+    //   console.log("Þú fórst úr svæði");
+    //   this.setState({geomessage: 'Þú fórst af svæði' ,inRegion: false});
+    // }
+    return;
+  });
+
+
+
+  let location = await Location.getCurrentPositionAsync();
+  const { latitude , longitude } = location.coords;
+  this.getGeocodeAsync({latitude, longitude});
+  this.setState({ location: location });
+  //this.setState({ location: {latitude, longitude}});
 };
 
 // GeoCode, þurfum ekki endilega
@@ -115,7 +151,7 @@ onClick = () => {
 
   render() {
   
-    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage} = this.state;
+    const { isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -125,7 +161,7 @@ onClick = () => {
       textLocation = JSON.stringify(location);
       var lat = Number(location.latitude);
       var lon = Number(location.longitude);
-}
+    }
 
     return (
 
@@ -155,14 +191,7 @@ onClick = () => {
         </View>
 
           <View pointerEvents="box-none" style={styles.components}>
-            {/* Location test */}
-            {/* 
-            <View style={styles.modalView}>
-              <Text>Þín staðsetning:</Text>
-              <Text>Latitude: {lat}</Text>
-              <Text>Longitude: {lon}</Text>
-            </View>
-            */}
+            
             <View style={styles.header}>
               <TouchableHighlight
                 style={styles.burger}
@@ -170,7 +199,17 @@ onClick = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
-            <View style={styles.modalView}>
+            <View>
+
+            {/* Location test */}            
+            {/* <View style={styles.modalView}>
+              <Text>Þín staðsetning:</Text>
+              <Text>Latitude: {lat}</Text>
+              <Text>Longitude: {lon}</Text>
+              <Text>Location object-ið:</Text>
+              <Text>{textLocation}</Text>
+            </View> */}
+
             <PreviewModal
               isVisible={this.state.isModalVisible}
               id={houseId}
@@ -181,6 +220,15 @@ onClick = () => {
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
               goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
             />
+            <NativeModal
+              isVisible={this.state.inRegion}
+              onBackdropPress={() => this.setState({inRegion: false})}
+            >
+              <View style={styles.modalView}>
+                <Text style={{fontWeight: 'bold'}}>Þú ert nálægt HR</Text>
+              </View>
+            </NativeModal>
+
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
@@ -201,7 +249,19 @@ const styles = StyleSheet.create({
 
   },
   modalView: {
-    justifyContent: 'center'
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   sideMenu: {
     flex:1,

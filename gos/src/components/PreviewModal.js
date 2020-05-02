@@ -5,7 +5,6 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
 const PreviewModal = (props) => (
     <NativeModal
-      backdropOpacity={0}
       style={{ justifyContent: 'flex-end' }}
       isVisible={props.isVisible}
       // Hægt að style-a til
@@ -17,22 +16,23 @@ const PreviewModal = (props) => (
 
       <View style={styles.modalView}>
         <View style={styles.modalHeader}>
-          <TouchableHighlight
-            onPress = { () => props.closeDisplay()}>
-              <Feather name='x-circle' size={30} color='red'/>
-          </TouchableHighlight>
+          <View>
+            <TouchableHighlight
+              onPress = { () => props.closeDisplay()}>
+              <Feather name='x-circle' size={30} color='tomato'/>
+            </TouchableHighlight>  
+          </View>
         </View>
-        <View>
           <Text style={styles.textStyle}>
             {props.address}
           </Text>
+        <View style={styles.takkar}>
           <Button
             style={styles.takkar}
             title="Sjá meira"
             color="green"
             onPress = { () => props.goToHouse() }/>
         </View>
-        
       </View>
     </NativeModal>
     
@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
   },
   takkar: {
     flexDirection: 'row',
-    marginRight: 5,
-    width: 20
+    marginRight: 5
   },
   modalHeader: {
     flexDirection: 'column',
