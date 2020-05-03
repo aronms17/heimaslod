@@ -35,6 +35,7 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
+  this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
@@ -48,51 +49,52 @@ componentDidMount() {
 }
 
 getLocationAsync = async () => {
-  let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  if (status !== 'granted') {
-    this.setState({
-      errorMessage: 'Permission to access location was denied',
-    });
-  }
+  // let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  // if (status !== 'granted') {
+  //   this.setState({
+  //     errorMessage: 'Permission to access location was denied',
+  //   });
+  // }
 
-  const taskName = "eski";
-  const hr = { latitude: 64.124182, longitude: -21.927272 };
-  const landspitali = { latitude: 64.123514, longitude: -21.884149 }; 
-  const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
-  const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
-  const wurth = { latitude: 64.102430, longitude: -21.778329 };
-  const radius = 500;
+  // const taskName = "eski";
+  // const hr = { latitude: 64.124182, longitude: -21.927272 };
+  // const landspitali = { latitude: 64.123514, longitude: -21.884149 }; 
+  // const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
+  // const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
+  // const wurth = { latitude: 64.102430, longitude: -21.778329 };
+  // const radius = 5000;
 
-  Location.startGeofencingAsync(taskName, [
-    {
-      ...landspitali,
-      radius
-    },
-    {
-      ...bildshofdi,
-      radius
-    },
-    {
-      ...reynisvegur,
-      radius
-    },
-    {
-      ...wurth,
-      radius
-    },
-  ]);
+  // Location.startGeofencingAsync(taskName, [
+  //   {
+  //     ...landspitali,
+  //     radius
+  //   },
+  //   {
+  //     ...bildshofdi,
+  //     radius
+  //   },
+  //   {
+  //     ...reynisvegur,
+  //     radius
+  //   },
+  //   {
+  //     ...wurth,
+  //     radius
+  //   },
+  // ]);
 
-  TaskManager.defineTask(taskName, task => {
-    if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      console.log("Mættir á punkt");
-      this.setState({inRegion: true});
-    }
-    if (task.data.eventType === Location.GeofencingEventType.Exit) {
-      console.log("Farnir úr punkti");
-      this.setState({inRegion: false});
-    }
-    return;
-  });
+  // TaskManager.defineTask(taskName, task => {
+  //   if (task.data.eventType === Location.GeofencingEventType.Enter) {
+  //     console.log("Mættir á punkt");
+  //     console.log(task.data);
+  //     this.setState({inRegion: true});
+  //   }
+  //   if (task.data.eventType === Location.GeofencingEventType.Exit) {
+  //     console.log("Farnir úr punkti");
+  //     this.setState({inRegion: false});
+  //   }
+  //   return;
+  // });
 
 
 

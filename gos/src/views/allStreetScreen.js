@@ -67,6 +67,8 @@ export default class allStreetScreen extends React.Component {
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
+
+                
                 <View style={styles.desc}>
                     <Text style={styles.desc}>Þær götur og kennileiti sem fóru að öllu leyti undir hraun:</Text>
                 </View>
@@ -79,15 +81,15 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity onPress={() => this.navigateHouse(house.id, house.address, house.text, house.images, house.coordinates, house.streetId) }>
+                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id, house.address, house.text, house.images, house.coordinates, house.streetId) }>
                                         <Text style={{color: 'white'}}>{house.address}</Text>
                                     </TouchableOpacity>
                                     ))
                                 }
                             </View>
                         </>
-                        
                     )}
+                    keyExtractor={item => item.id.toString()}
                 />
                 </DrawerLayout>
             </View>
