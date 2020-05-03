@@ -6,6 +6,10 @@ import mapjson2 from '../json/mapstyle2.json';
 import prufupoly from '../../script/jsonfile.json';
 // import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import Geofence from 'react-native-expo-geofence';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
+
 
 const initialRegion = {
   latitude: 63.4347866,
@@ -33,7 +37,31 @@ export default class MapComponent extends React.Component {
       latitudeDelta: 0.095,
       longitudeDelta: 0.0921,
     },
-    
+      coordinates: [
+        {
+            longitude: -21.91939830780029,
+            latitude: 64.13533053097066
+        },
+        {
+            longitude: -21.92025661468506,
+            latitude: 64.13514331343482
+        },
+        {
+            longitude: -21.919677257537842,
+            latitude: 64.13460505599053
+        },
+        {
+            longitude: -21.9186794757843,
+            latitude: 64.13533053097066
+        },
+        {
+            longitude: -21.91939830780029,
+            latitude: 64.13533053097066
+        },
+      ],
+      point: {latitude: 64.1350631, longitude: -21.9192012},
+      errorMessage: 'error',
+      mapLoaded: false,
   };
 }
 
@@ -44,8 +72,28 @@ componentDidMount() {
     selectedColor: '#33BDFF',
   });
   this.themeChange();
-
+  // this.getLocationAsync();
 }
+
+// getLocationAsync = async () => {
+//   let { status } = await Permissions.askAsync(Permissions.LOCATION);
+//   if (status !== 'granted') {
+//     this.setState({
+//       errorMessage: 'Permission to access location was denied',
+//     });
+//   }
+
+//   let location = await Location.getCurrentPositionAsync();
+//   let { latitude , longitude } = location.coords
+//   // this.getGeocodeAsync({latitude, longitude})
+//   this.setState({ location: {latitude, longitude}});
+// };
+
+// // GeoCode, þurfum ekki endilega
+// getGeocodeAsync= async (location) => {
+//   let geocode = await Location.reverseGeocodeAsync(location)
+//   this.setState({ geocode})
+// }
 
 themeChange() {
   if(this.state.lightTheme) {
@@ -75,26 +123,30 @@ houseDeselect() {
   this.setState({selectedId: null});
 }
 
+// isInPoly() {
+//   var maxKm = 0.05;
+//   var result = Geofence.filterByProximity(this.state.point, this.state.coordinates, maxKm);
+//   console.log(result);
+// }
+
   render() {
   
     const {goturColor, husColor, selectedColor} = this.state;
 
     return (
-
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           // minZoomLevel={12} 
           loadingEnabled={true}
-          style={styles.mapStyle}
+          style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
           provider={"google"}
           customMapStyle={this.state.theme}
           initialRegion={this.state.region}
+          onMapReady={() => this.setState({mapLoaded: true})}
           >
 
-          {/* þarf að refresha til að litirnir komi */}
-          {/* Polygonarnir */}
-          
+          {/* Polygonarnir */} 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
               <Polygon
                 key = {hus.id}
@@ -102,7 +154,6 @@ houseDeselect() {
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
                 onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
-                // onPress={() => console.log(hus.address)}
               />
             ))
           }
@@ -117,15 +168,6 @@ houseDeselect() {
               />
             ))
           }
-            
-            {/* Test marker með icon */}
-              <Marker
-                coordinate={{latitude: 63.4352606, 
-                longitude: -20.2615806}}
-                >
-                  <Text style={{color: 'black'}}>Gerðisbraut</Text>
-              </Marker>
-
         </MapView>
     );
   }

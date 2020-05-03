@@ -1,8 +1,6 @@
 import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback } from 'react-native';
-import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
@@ -32,7 +30,6 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
-  this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
@@ -45,26 +42,7 @@ componentDidMount() {
   })
 }
 
-getLocationAsync = async () => {
-  let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  if (status !== 'granted') {
-    this.setState({
-      errorMessage: 'Permission to access location was denied',
-    });
-  }
 
-  let location = await Location.getCurrentPositionAsync();
-  const { latitude , longitude } = location.coords
-  this.getGeocodeAsync({latitude, longitude})
-  this.setState({ location: {latitude, longitude}});
-
-};
-
-// GeoCode, þurfum ekki endilega
-getGeocodeAsync= async (location) => {
-  let geocode = await Location.reverseGeocodeAsync(location)
-  this.setState({ geocode})
-}
 
 previewHouse(house) {
   console.log('House Address: ', house.address)
@@ -115,17 +93,17 @@ onClick = () => {
 
   render() {
   
-    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage} = this.state;
+    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, errorMessage} = this.state;
     
     {/* Location brask */}
-    let textLocation = 'Waiting..';
-    if (this.state.errorMessage) {
-      textLocation = errorMessage;
-    } else if (this.state.location) {
-      textLocation = JSON.stringify(location);
-      var lat = Number(location.latitude);
-      var lon = Number(location.longitude);
-}
+//     let textLocation = 'Waiting..';
+//     if (this.state.errorMessage) {
+//       textLocation = errorMessage;
+//     } else if (this.state.location) {
+//       textLocation = JSON.stringify(location);
+//       var lat = Number(location.latitude);
+//       var lon = Number(location.longitude);
+// }
 
     return (
 
@@ -156,13 +134,13 @@ onClick = () => {
 
           <View pointerEvents="box-none" style={styles.components}>
             {/* Location test */}
-            {/* 
-            <View style={styles.modalView}>
+            
+            {/* <View style={styles.modalView}>
               <Text>Þín staðsetning:</Text>
               <Text>Latitude: {lat}</Text>
               <Text>Longitude: {lon}</Text>
-            </View>
-            */}
+            </View> */}
+           
             <View style={styles.header}>
               <TouchableHighlight
                 style={styles.burger}
