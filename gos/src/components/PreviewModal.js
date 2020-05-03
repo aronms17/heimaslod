@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight } from 'react-native';
+import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, Dimensions } from 'react-native';
 import NativeModal from 'react-native-modal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
@@ -41,9 +41,11 @@ const PreviewModal = (props) => (
 const styles = StyleSheet.create({
   text: {
     fontSize: 20,
-    marginLeft: 150
+    // marginLeft: 150
   },
   modalView: {
+    height: 250,
+    width: Dimensions.get('screen').width,
     backgroundColor: "#1D1B1B",
   },
   openButton: {
