@@ -6,7 +6,7 @@ import mapjson2 from '../json/mapstyle2.json';
 import prufupoly from '../../script/jsonfile.json';
 // import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
-import Geofence from 'react-native-expo-geofence';
+// import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
@@ -115,7 +115,7 @@ houseSelect(house) {
     longitudeDelta: 0.0035,
   }
   if(this.mapViewRef.current) {
-    this.mapViewRef.current.animateToRegion(houseRegion, 500);
+    this.mapViewRef.current.animateToRegion(houseRegion, 1000);
   }
 }
 
