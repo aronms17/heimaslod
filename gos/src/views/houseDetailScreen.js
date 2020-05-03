@@ -33,9 +33,17 @@ export default class houseDetailScreen extends React.Component {
         const { houseCoordinates } = navigation.state.params;
         const { streetId } = navigation.state.params;
 
-        const allarGotur = Array.from(Data.gotur);
-        const allStreets = allarGotur.find(({ id }) => id === streetId);
-        const streetName = allStreets.name;
+        let allarGotur = Array.from(Data.gotur);
+        let allStreets = '';
+        let streetName = '';
+        if(streetId == null) {
+            allStreets = '';
+            streetName = 'ekkert';
+        }
+        else {
+            allStreets = allarGotur.find(({ id }) => id === streetId);
+            streetName = allStreets.name;
+        }
         
         this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
             houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 

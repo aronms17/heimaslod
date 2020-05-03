@@ -115,7 +115,7 @@ houseSelect(house) {
     longitudeDelta: 0.0035,
   }
   if(this.mapViewRef.current) {
-    this.mapViewRef.current.animateToRegion(houseRegion, 1000);
+    this.mapViewRef.current.animateToRegion(houseRegion, 500);
   }
 }
 

@@ -1,14 +1,18 @@
 import React from 'react';
 import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback, Alert } from 'react-native';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
+import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
+
+import NativeModal from 'react-native-modal';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
-
 export default class App extends React.Component {
 
   constructor(props) {
@@ -26,6 +30,7 @@ export default class App extends React.Component {
     streetId: 0,
     location: null,
     errorMessage:"",
+    inRegion: false
   };
 }
 
@@ -42,7 +47,67 @@ componentDidMount() {
   })
 }
 
+getLocationAsync = async () => {
+  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    this.setState({
+      errorMessage: 'Permission to access location was denied',
+    });
+  }
 
+  const taskName = "eski";
+  const hr = { latitude: 64.124182, longitude: -21.927272 };
+  const landspitali = { latitude: 64.123514, longitude: -21.884149 }; 
+  const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
+  const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
+  const wurth = { latitude: 64.102430, longitude: -21.778329 };
+  const radius = 500;
+
+  Location.startGeofencingAsync(taskName, [
+    {
+      ...landspitali,
+      radius
+    },
+    {
+      ...bildshofdi,
+      radius
+    },
+    {
+      ...reynisvegur,
+      radius
+    },
+    {
+      ...wurth,
+      radius
+    },
+  ]);
+
+  TaskManager.defineTask(taskName, task => {
+    if (task.data.eventType === Location.GeofencingEventType.Enter) {
+      console.log("Mættir á punkt");
+      this.setState({inRegion: true});
+    }
+    if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      console.log("Farnir úr punkti");
+      this.setState({inRegion: false});
+    }
+    return;
+  });
+
+
+
+  let location = await Location.getCurrentPositionAsync();
+  const { latitude , longitude } = location.coords;
+  this.getGeocodeAsync({latitude, longitude});
+  this.setState({ location: location });
+  //this.setState({ location: {latitude, longitude}});
+};
+
+// GeoCode, þurfum ekki endilega
+getGeocodeAsync= async (location) => {
+  let geocode = await Location.reverseGeocodeAsync(location)
+  this.setState({ geocode})
+}
 
 previewHouse(house) {
   console.log('House Address: ', house.address)
@@ -93,17 +158,17 @@ onClick = () => {
 
   render() {
   
-    const {goturColor, husColor, isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, errorMessage} = this.state;
+    const { isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
     
     {/* Location brask */}
-//     let textLocation = 'Waiting..';
-//     if (this.state.errorMessage) {
-//       textLocation = errorMessage;
-//     } else if (this.state.location) {
-//       textLocation = JSON.stringify(location);
-//       var lat = Number(location.latitude);
-//       var lon = Number(location.longitude);
-// }
+    let textLocation = 'Waiting..';
+    if (this.state.errorMessage) {
+      textLocation = errorMessage;
+    } else if (this.state.location) {
+      textLocation = JSON.stringify(location);
+      var lat = Number(location.latitude);
+      var lon = Number(location.longitude);
+    }
 
     return (
 
@@ -133,14 +198,7 @@ onClick = () => {
         </View>
 
           <View pointerEvents="box-none" style={styles.components}>
-            {/* Location test */}
             
-            {/* <View style={styles.modalView}>
-              <Text>Þín staðsetning:</Text>
-              <Text>Latitude: {lat}</Text>
-              <Text>Longitude: {lon}</Text>
-            </View> */}
-           
             <View style={styles.header}>
               <TouchableHighlight
                 style={styles.burger}
@@ -148,7 +206,17 @@ onClick = () => {
                   <Feather name='menu' size={40} color='black'/>
               </TouchableHighlight>
             </View>
-            <View style={styles.modalView}>
+            <View>
+
+            {/* Location test */}            
+            {/* <View style={styles.modalView}>
+              <Text>Þín staðsetning:</Text>
+              <Text>Latitude: {lat}</Text>
+              <Text>Longitude: {lon}</Text>
+              <Text>Location object-ið:</Text>
+              <Text>{textLocation}</Text>
+            </View> */}
+
             <PreviewModal
               isVisible={this.state.isModalVisible}
               id={houseId}
@@ -159,6 +227,14 @@ onClick = () => {
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
               goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
             />
+            <NativeModal
+              isVisible={this.state.inRegion}
+            >
+              <View style={styles.modalView}>
+                <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
+              </View>
+            </NativeModal>
+
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
           </View>
@@ -179,7 +255,19 @@ const styles = StyleSheet.create({
 
   },
   modalView: {
-    justifyContent: 'center'
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   sideMenu: {
     flex:1,
