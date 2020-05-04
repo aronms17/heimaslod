@@ -49,12 +49,12 @@ componentDidMount() {
 }
 
 getLocationAsync = async () => {
-  // let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  // if (status !== 'granted') {
-  //   this.setState({
-  //     errorMessage: 'Permission to access location was denied',
-  //   });
-  // }
+  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    this.setState({
+      errorMessage: 'Permission to access location was denied',
+    });
+  }
 
   const taskName = "eski";
   const hr = { latitude: 64.124182, longitude: -21.927272 };
@@ -64,37 +64,37 @@ getLocationAsync = async () => {
   const wurth = { latitude: 64.102430, longitude: -21.778329 };
   const radius = 500;
 
-  // Location.startGeofencingAsync(taskName, [
-  //   {
-  //     ...landspitali,
-  //     radius
-  //   },
-  //   {
-  //     ...bildshofdi,
-  //     radius
-  //   },
-  //   {
-  //     ...reynisvegur,
-  //     radius
-  //   },
-  //   {
-  //     ...wurth,
-  //     radius
-  //   },
-  // ]);
+  Location.startGeofencingAsync(taskName, [
+    {
+      ...landspitali,
+      radius
+    },
+    {
+      ...bildshofdi,
+      radius
+    },
+    {
+      ...reynisvegur,
+      radius
+    },
+    {
+      ...wurth,
+      radius
+    },
+  ]);
 
-  // TaskManager.defineTask(taskName, task => {
-  //   if (task.data.eventType === Location.GeofencingEventType.Enter) {
-  //     console.log("Mættir á punkt");
-  //     console.log(task.data);
-  //     this.setState({inRegion: true});
-  //   }
-  //   if (task.data.eventType === Location.GeofencingEventType.Exit) {
-  //     console.log("Farnir úr punkti");
-  //     this.setState({inRegion: false});
-  //   }
-  //   return;
-  // });
+  TaskManager.defineTask(taskName, task => {
+    if (task.data.eventType === Location.GeofencingEventType.Enter) {
+      console.log("Mættir á punkt");
+      console.log(task.data);
+      this.setState({inRegion: true});
+    }
+    if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      console.log("Farnir úr punkti");
+      this.setState({inRegion: false});
+    }
+    return;
+  });
 
 
 

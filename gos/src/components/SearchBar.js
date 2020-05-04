@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, Keyboard, TextInput, KeyboardAvoidingView, Animated, Easing, FlatList, ScrollView, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, Keyboard, TextInput, KeyboardAvoidingView, Animated, Easing, FlatList, ScrollView, TouchableOpacity, TouchableHighlight, SectionList } from 'react-native';
 import { withNavigation } from 'react-navigation';
 // import { TouchableHighlight } from 'react-native-gesture-handler';
 import Houses from './../../script/jsonfile.json';
@@ -12,6 +12,7 @@ export default class SearchBar extends React.Component {
             expanded: false,
             yValue: new Animated.Value(100),
             houses: [],
+            sectionHouses: [],
             inMemoryHouses: [],
         };
     }
@@ -63,13 +64,33 @@ export default class SearchBar extends React.Component {
             let inputLower = input.toLowerCase();
             return houseTextLower.indexOf(inputLower) > -1;
         });
-        if(!input) {
-            console.log('tómt input')
-            this.setState({houses: []});
-        }
-        else {
-            this.setState({houses: housesFiltered});
-        }
+
+        let haha = housesFiltered.map(house => {
+            return{...house, color: 'red'}
+        });
+        // console.log(haha[1]);
+        let sections = [
+            {
+                title: 'Heimilisföng',
+                data: housesFiltered.map(house => {
+                    return{...house, color: 'red'}
+                })
+            },
+            {
+                title: 'Textar',
+                data: textFiltered.map(house => {
+                    return{...house, color: 'blue'}
+                })
+            }
+        ];
+        this.setState({sectionHouses: sections})
+        // if(!input) {
+        //     console.log('tómt input')
+        //     this.setState({houses: []});
+        // }
+        // else {
+        //     this.setState({houses: housesFiltered});
+        // }
 
     };
 
@@ -107,7 +128,7 @@ export default class SearchBar extends React.Component {
                     <View style={styles.bottom}>
 
                         <View style={{flex: 1}}>
-                            <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always' extraData={this.state.houses}
+                            {/* <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always' extraData={this.state.houses}
                             data={this.state.houses}
                             renderItem={({item}) => (
                                 <TouchableOpacity style={{margin: 1, backgroundColor: item.color}} onPress={() => this.previewHouse(item)}>
@@ -115,11 +136,26 @@ export default class SearchBar extends React.Component {
                                     <Text numberOfLines={1} >{item.text}</Text>
                                 </TouchableOpacity>
                             )}
-                            keyExtractor={item => item.id.toString()}
+                            keyExtractor={item => item.id}
                             ListEmptyComponent={
                                 <Text>hæ</Text>
                             }
+                            /> */}
+                            <SectionList
+                                sections={this.state.sectionHouses}
+                                keyExtractor={(item, index) => item + index}
+                                renderItem={({item}) => 
+                                    <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
+                                        <View style={{height: 20, width: 20, backgroundColor: item.color}}></View>
+                                        <Text style={{fontSize: 20}}>{item.address}</Text>
+                                        <Text numberOfLines={1} >{item.text}</Text>
+                                    </TouchableOpacity>
+                                }
+                                renderSectionHeader={({ section }) => (
+                                    <Text style={{fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
+                                  )}
                             />
+
                         </View>
 
                     </View>
@@ -150,7 +186,7 @@ const styles = StyleSheet.create({
     search: {
         height: 100, 
         width: Dimensions.get('window').width, 
-        backgroundColor: 'rgba(242, 242, 242, 0.94)',
+        backgroundColor: 'rgb(242, 242, 242)',
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius:10,
