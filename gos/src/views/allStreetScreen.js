@@ -22,10 +22,17 @@ export default class allStreetScreen extends React.Component {
         this.setState({streets: streetdata, houses: housedata});
     }
 
-    navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
-        this.props.navigation.navigate('houseDetailScreen', {
-          houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId
-        });
+    navigateHouse(house) {
+        console.log('house in navigatehouse: ', house.address);
+        let houseId = house.id;
+        let houseAddress = house.address;
+        let houseStreetId = house.streetId;
+        let houseText = house.text;
+        let houseImages = house.images;
+        let houseCoordinates = house.coordinates;
+         this.props.navigation.navigate('houseDetailScreen', {
+            houseId, houseAddress, houseStreetId, houseText, houseImages, houseCoordinates
+         });
     }
 
     navigateStreet(streetId, streetName) {
@@ -81,7 +88,7 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id, house.address, house.text, house.images, house.coordinates, house.streetId) }>
+                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house) }>
                                         <Text style={{color: 'white'}}>{house.address}</Text>
                                     </TouchableOpacity>
                                     ))

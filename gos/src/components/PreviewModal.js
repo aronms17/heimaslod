@@ -11,17 +11,16 @@ const PreviewModal = (props) => (
       animationIn={'slideInUp'}
       animationOut={'slideOutDown'}
       onDismiss={() => props.closeDisplay()}
+      backdropOpacity={0}
       onBackdropPress={() => props.closeDisplay()}
       >
 
       <View style={styles.modalView}>
         <View style={styles.modalHeader}>
-          <View>
             <TouchableHighlight
               onPress = { () => props.closeDisplay()}>
               <Feather name='x-circle' size={30} color='tomato'/>
             </TouchableHighlight>  
-          </View>
         </View>
           <Text style={styles.textStyle}>
             {props.address}
@@ -44,9 +43,8 @@ const styles = StyleSheet.create({
     // marginLeft: 150
   },
   modalView: {
-    height: 250,
-    width: Dimensions.get('screen').width,
-    backgroundColor: "#1D1B1B",
+    height: 150,
+    backgroundColor: "#1D1B1B"
   },
   openButton: {
     backgroundColor: "#F194FF",
@@ -66,6 +64,7 @@ const styles = StyleSheet.create({
   },
   takkar: {
     flexDirection: 'row',
+    justifyContent: 'center',
     marginRight: 5
   },
   modalHeader: {

@@ -13,6 +13,7 @@ import Data from './../../script/jsonfile.json';
 export default class houseDetailScreen extends React.Component {
     constructor() {
         super();
+        this.mapViewRef = React.createRef();
         this.state = {
           houseid: 0,
           houseName: '',
@@ -36,22 +37,16 @@ export default class houseDetailScreen extends React.Component {
         const { streetId } = navigation.state.params;
 
         let allarGotur = Array.from(Data.gotur);
-        let allStreets = '';
-        let streetName = '';
-        if(streetId == null) {
-            allStreets = '';
-            streetName = 'ekkert';
-        }
-        else {
-            allStreets = allarGotur.find(({ id }) => id === streetId);
-            streetName = allStreets.name;
-        }
+        let allStreets = allarGotur.find(({ id }) => id === streetId);
+        let streetName = allStreets.name;
         
         this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
             houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
             streetId: streetId, streetName: streetName
         });
+
     }
+
 
     renderDrawer = () => {
         return (
@@ -67,6 +62,19 @@ export default class houseDetailScreen extends React.Component {
           </View>
         );
       }
+
+    zoomTohouse() {
+        let houseRegion = {
+            latitude: this.state.houseCoordinates[0].latitude,
+            longitude: this.state.houseCoordinates[0].longitude,
+            latitudeDelta: 0.0010,
+            longitudeDelta: 0.0010,
+          }
+          if(this.mapViewRef.current) {
+            setTimeout(() => {this.mapViewRef.current.animateToRegion(houseRegion, 4000)}, 2000)
+            
+          }
+    }
 
     render() {
         const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
@@ -134,6 +142,8 @@ export default class houseDetailScreen extends React.Component {
                     />
                     <View style={styles.onlyMap}>
                     <MapView
+                        onMapReady={() => this.zoomTohouse()}
+                        ref={this.mapViewRef}
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
                         initialRegion={{

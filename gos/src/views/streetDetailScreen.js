@@ -100,7 +100,7 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>vantar eitthvað hér</Text>
+                    <Text style={styles.desc}>-</Text>
                     <View style={styles.onlyMap}>
                     {/* <MapView
                         style={{...StyleSheet.absoluteFillObject}}
