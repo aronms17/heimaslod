@@ -60,10 +60,6 @@ export default class SearchBar extends React.Component {
             return houseTextLower.indexOf(inputLower) > -1;
         });
 
-        let haha = housesFiltered.map(house => {
-            return{...house, color: 'red'}
-        });
-        // console.log(haha[1]);
         let sections = [
             {
                 title: 'Heimilisföng',
@@ -78,14 +74,16 @@ export default class SearchBar extends React.Component {
                 })
             }
         ];
-        this.setState({sectionHouses: sections})
-        // if(!input) {
-        //     console.log('tómt input')
-        //     this.setState({houses: []});
-        // }
-        // else {
-        //     this.setState({houses: housesFiltered});
-        // }
+        // this.setState({sectionHouses: sections})
+        if(!input) {
+            console.log('tómt input')
+            // this.setState({houses: []});
+            this.setState({sectionHouses: []})
+        }
+        else {
+            // this.setState({houses: housesFiltered});
+            this.setState({sectionHouses: sections})
+        }
 
     };
 
