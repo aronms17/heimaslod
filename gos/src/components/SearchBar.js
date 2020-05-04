@@ -17,11 +17,6 @@ export default class SearchBar extends React.Component {
         };
     }
 
-    flottAlert() {
-        alert('haha');
-    }
-
-
     componentDidMount() {
         let houseData = Houses.hus;
         houseData = houseData.filter(hus => hus.address.length > 1);
@@ -138,7 +133,7 @@ export default class SearchBar extends React.Component {
                             )}
                             keyExtractor={item => item.id}
                             ListEmptyComponent={
-                                <Text>hæ</Text>
+                                <Text>Leitarsaga:</Text>
                             }
                             /> */}
                             <SectionList

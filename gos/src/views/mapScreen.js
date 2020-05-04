@@ -1,11 +1,11 @@
 import React from 'react';
-import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback, Alert } from 'react-native';
+// import MapView, { Marker, Polygon } from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import NativeModal from 'react-native-modal';
 
@@ -35,7 +35,7 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
-  this.getLocationAsync();
+  //this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
@@ -57,16 +57,16 @@ getLocationAsync = async () => {
   }
 
   const taskName = "eski";
-  const hr = { latitude: 64.124182, longitude: -21.927272 };
-  const landspitali = { identifier: "spitali", latitude: 64.123514, longitude: -21.884149 }; 
+  const hr = { identifier: "HR", latitude: 64.124182, longitude: -21.927272 };
+  const landspitali = { identifier: "10", latitude: 64.123514, longitude: -21.884149 }; 
   const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
   const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
   const wurth = { latitude: 64.102430, longitude: -21.778329 };
-  const radius = 500;
+  const radius = 5000;
 
   Location.startGeofencingAsync(taskName, [
     {
-      ...landspitali,
+      ...hr,
       radius
     },
     {
