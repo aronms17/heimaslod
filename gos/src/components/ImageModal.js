@@ -23,6 +23,8 @@ const ImageModal = (props) => (
             imageUrls={props.houseImages.map((element) => (
                 { url: element }
             ))}
+            enableSwipeDown={true}
+            onSwipeDown={() => props.closeDisplay()}
             />
             <Button
             title="Close modal"

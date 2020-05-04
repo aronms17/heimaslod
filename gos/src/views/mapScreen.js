@@ -184,20 +184,7 @@ onClick = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-        <View>
           <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
-
-          <PreviewModal
-            isVisible={this.state.isModalVisible}
-            id={houseId}
-            address={houseName}
-            description={houseDescription}
-            images={houseImages}
-            streetId={streetId}
-            closeDisplay={() => this.closePreview()}
-            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
-          />
-        </View>
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -205,7 +192,7 @@ onClick = () => {
               <TouchableHighlight
                 style={styles.burger}
                 onPress={() => this.drawer.openDrawer()}>
-                  <Feather name='menu' size={40} color='black'/>
+                  <Feather name='menu' size={40} color='white'/>
               </TouchableHighlight>
             </View>
             <View>
@@ -218,7 +205,7 @@ onClick = () => {
               <Text>Location object-ið:</Text>
               <Text>{textLocation}</Text>
             </View> */}
-
+            <View>
             <PreviewModal
               isVisible={this.state.isModalVisible}
               id={houseId}
@@ -229,13 +216,15 @@ onClick = () => {
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
               goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
             />
-            <NativeModal
+            </View>
+            {/* Geofencing modal */}
+            {/* <NativeModal
               isVisible={this.state.inRegion}
             >
               <View style={styles.modalView}>
                 <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
               </View>
-            </NativeModal>
+            </NativeModal> */}
 
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
@@ -289,10 +278,10 @@ const styles = StyleSheet.create({
   header: {
     width: Dimensions.get('screen').width, 
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   burger: {
     marginTop: 40,
-    marginRight: 17
+    marginRight: 17,
   }
 });
