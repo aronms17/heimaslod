@@ -3,7 +3,6 @@ import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollV
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import ImageViewer from 'react-native-image-zoom-viewer';
-import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
@@ -14,6 +13,7 @@ import Data from './../../script/jsonfile.json';
 export default class houseDetailScreen extends React.Component {
     constructor() {
         super();
+        this.mapViewRef = React.createRef();
         this.state = {
           houseid: 0,
           houseName: '',
@@ -44,7 +44,9 @@ export default class houseDetailScreen extends React.Component {
             houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
             streetId: streetId, streetName: streetName
         });
+
     }
+
 
     renderDrawer = () => {
         return (
@@ -60,6 +62,19 @@ export default class houseDetailScreen extends React.Component {
           </View>
         );
       }
+
+    zoomTohouse() {
+        let houseRegion = {
+            latitude: this.state.houseCoordinates[0].latitude,
+            longitude: this.state.houseCoordinates[0].longitude,
+            latitudeDelta: 0.0010,
+            longitudeDelta: 0.0010,
+          }
+          if(this.mapViewRef.current) {
+            setTimeout(() => {this.mapViewRef.current.animateToRegion(houseRegion, 4000)}, 2000)
+            
+          }
+    }
 
     render() {
         const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
@@ -127,6 +142,8 @@ export default class houseDetailScreen extends React.Component {
                     />
                     <View style={styles.onlyMap}>
                     <MapView
+                        onMapReady={() => this.zoomTohouse()}
+                        ref={this.mapViewRef}
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
                         initialRegion={{
@@ -135,7 +152,7 @@ export default class houseDetailScreen extends React.Component {
                           latitudeDelta: 0.095,
                           longitudeDelta: 0.0921}}>
 
-                        <CustomPolygon
+                        <Polygon
                             coordinates={houseCoordinates}
                             fillColor="#f55d42"
                         />
