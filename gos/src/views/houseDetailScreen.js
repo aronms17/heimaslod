@@ -3,7 +3,6 @@ import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollV
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import ImageViewer from 'react-native-image-zoom-viewer';
-import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
@@ -143,7 +142,7 @@ export default class houseDetailScreen extends React.Component {
                           latitudeDelta: 0.095,
                           longitudeDelta: 0.0921}}>
 
-                        <CustomPolygon
+                        <Polygon
                             coordinates={houseCoordinates}
                             fillColor="#f55d42"
                         />

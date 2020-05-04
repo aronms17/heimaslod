@@ -134,7 +134,7 @@ export default class SearchBar extends React.Component {
                                 <Text>Leitarsaga:</Text>
                             }
                             /> */}
-                            <SectionList
+                            <SectionList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                 sections={this.state.sectionHouses}
                                 keyExtractor={(item, index) => item + index}
                                 renderItem={({item}) => 
