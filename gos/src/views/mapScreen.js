@@ -49,12 +49,12 @@ componentDidMount() {
 }
 
 getLocationAsync = async () => {
-  let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  if (status !== 'granted') {
-    this.setState({
-      errorMessage: 'Permission to access location was denied',
-    });
-  }
+  // let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  // if (status !== 'granted') {
+  //   this.setState({
+  //     errorMessage: 'Permission to access location was denied',
+  //   });
+  // }
 
   const taskName = "eski";
   const hr = { identifier: "HR", latitude: 64.124182, longitude: -21.927272 };

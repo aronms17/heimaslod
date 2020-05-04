@@ -18,6 +18,9 @@ const initialRegion = {
   longitudeDelta: 0.0921
 }
 
+const hr = { latitude: 64.124182, 
+            longitude: -21.927272 };
+
 export default class MapComponent extends React.Component {
 
   constructor(props) {
@@ -138,6 +141,7 @@ houseDeselect() {
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           // minZoomLevel={12} 
+          mapType={'satellite'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
           provider={"google"}
@@ -145,6 +149,8 @@ houseDeselect() {
           initialRegion={this.state.region}
           onMapReady={() => this.setState({mapLoaded: true})}
           >
+
+          <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker>
 
           {/* Polygonarnir */} 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
