@@ -100,11 +100,9 @@ componentDidMount() {
 
 themeChange() {
   if(this.state.lightTheme) {
-    // console.log('haha');
     this.setState({theme: mapjson2, lightTheme: false});
   }
   else {
-    // console.log('hehe');
     this.setState({theme: mapjson, lightTheme: true});
   }
 }

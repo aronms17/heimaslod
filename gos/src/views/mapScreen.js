@@ -35,7 +35,7 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
-  this.getLocationAsync();
+  //this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'

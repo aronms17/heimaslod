@@ -2,11 +2,13 @@ import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
 import SideMenu from '../components/SideMenu';
+import ImageModal from '../components/ImageModal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 export default class houseDetailScreen extends React.Component {
@@ -19,7 +21,8 @@ export default class houseDetailScreen extends React.Component {
           houseImages: '',
           houseCoordinates: [],
           streetId: null,
-          streetName: ''
+          streetName: '',
+          isModalVisible: false
         };
         console.disableYellowBox = true;
     }
@@ -70,7 +73,13 @@ export default class houseDetailScreen extends React.Component {
         const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
         const arrHouse = Array.from(houseImages);
         return(
-            <View style={styles.container}>                
+            <View style={styles.container}>    
+                <ImageModal
+                    isVisible={this.state.isModalVisible}
+                    closeDisplay={() => this.setState({isModalVisible: false})}
+                    houseImages={arrHouse}
+                />
+
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -94,17 +103,20 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 {/*  */}
 
-                <View style={styles.galleryContainer}>
+                <View style={styles.galleryContainer}
+                >
                     {/* Rétt map aðferð á propsið núna */}
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
+                        onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
                             arrHouse.map((element) => (
                                 { source: { uri: element } }
                             ))
                         }
                     />
+                    
                 </View>
                 
                 <View style={styles.descriptionContainer}>
