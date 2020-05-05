@@ -3,6 +3,7 @@ import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
+import mapjson3 from '../json/mapstyle3.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
@@ -100,10 +101,10 @@ componentDidMount() {
 
 themeChange() {
   if(this.state.lightTheme) {
-    this.setState({theme: mapjson2, lightTheme: false});
+    this.setState({theme: mapjson3, lightTheme: false});
   }
   else {
-    this.setState({theme: mapjson, lightTheme: true});
+    this.setState({theme: mapjson2, lightTheme: true});
   }
 }
 
@@ -138,8 +139,8 @@ houseDeselect() {
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          // minZoomLevel={12} 
-          mapType={'satellite'}
+          minZoomLevel={12} 
+          // mapType={'satellite'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
           provider={"google"}
@@ -148,7 +149,7 @@ houseDeselect() {
           onMapReady={() => this.setState({mapLoaded: true})}
           >
 
-          <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker>
+          {/* <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker> */}
 
           {/* Polygonarnir */} 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
