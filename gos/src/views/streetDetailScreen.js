@@ -33,10 +33,8 @@ export default class streetDetailScreen extends React.Component {
           streetDescription: '',
           streetImages: '',
           isModalVisible: false,
-          activeSections: [],
-
+          activeSections: []
         };
-        console.disableYellowBox = true;
     }
 
     componentDidMount() {
@@ -56,7 +54,7 @@ export default class streetDetailScreen extends React.Component {
 
     _renderSectionTitle = section => {
         return (
-          <View style={styles.content}>
+          <View>
             <Text>{section.content}</Text>
           </View>
         );
@@ -64,7 +62,7 @@ export default class streetDetailScreen extends React.Component {
     
     _renderHeader = section => {
       return (
-        <View style={styles.header}>
+        <View>
           <Text style={styles.headerText}>{section.title}</Text>
         </View>
       );
@@ -72,7 +70,7 @@ export default class streetDetailScreen extends React.Component {
     
     _renderContent = section => {
       return (
-        <View style={styles.content}>
+        <View>
           <Text>{section.content}</Text>
         </View>
       );

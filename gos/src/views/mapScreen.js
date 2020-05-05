@@ -141,10 +141,10 @@ closePreview() {
   this.child.current.houseDeselect();
 }
 
-navigateHouse(houseId, houseAddress, streetId, houseDescription, houseImages, houseCoordinates) {
+navigateHouse(houseId) {
   this.setState({isModalVisible: false});
   this.props.navigation.navigate('houseDetailScreen', {
-    houseId, houseAddress, houseDescription, houseImages, houseCoordinates, streetId
+    houseId
   });
 }
 
@@ -225,7 +225,7 @@ onClick = () => {
               images={houseImages}
               streetId={streetId}
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-              goToHouse={() => this.navigateHouse(houseId, houseAddress, streetId, houseDescription, houseImages, houseCoordinates)}
+              goToHouse={() => this.navigateHouse(houseId)}
             />
             </View>
             {/* Geofencing modal */}
