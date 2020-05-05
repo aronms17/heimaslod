@@ -42,7 +42,6 @@ export default class SearchBar extends React.Component {
     };
 
     previewHouse(house) {
-        console.log(house.id);
         this._moveDownAnimation();
         this.props.preview(house);
         
@@ -77,7 +76,6 @@ export default class SearchBar extends React.Component {
         ];
         // this.setState({sectionHouses: sections})
         if(!input) {
-            console.log('tómt input')
             // this.setState({houses: []});
             this.setState({sectionHouses: []})
         }

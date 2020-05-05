@@ -40,7 +40,7 @@ export default class App extends React.Component {
     houseDescription: '',
     houseImages: '',
     houseCoordinates: [],
-    houseStreetId: 0,
+    streetId: 0,
     location: null,
     errorMessage:"",
     inRegion: false
@@ -57,7 +57,7 @@ componentDidMount() {
     houseAddress: '',
     houseDescription: '',
     houseImages: '',
-    houseStreetId: 0
+    streetId: 0
   })
 }
 
@@ -132,7 +132,7 @@ previewHouse(house) {
   }
   else {
   this.child.current.houseSelect(house);
-  this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, houseStreetId: house.streetId });
+  this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
 }
 
@@ -141,10 +141,10 @@ closePreview() {
   this.child.current.houseDeselect();
 }
 
-navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId) {
+navigateHouse(houseId, houseAddress, streetId, houseDescription, houseImages, houseCoordinates) {
   this.setState({isModalVisible: false});
   this.props.navigation.navigate('houseDetailScreen', {
-    houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId
+    houseId, houseAddress, houseDescription, houseImages, houseCoordinates, streetId
   });
 }
 
@@ -171,7 +171,7 @@ onClick = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId, location, errorMessage, inRegion} = this.state;
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -223,9 +223,9 @@ onClick = () => {
               address={houseAddress}
               description={houseDescription}
               images={houseImages}
-              streetId={houseStreetId}
+              streetId={streetId}
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-              goToHouse={() => this.navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId)}
+              goToHouse={() => this.navigateHouse(houseId, houseAddress, streetId, houseDescription, houseImages, houseCoordinates)}
             />
             </View>
             {/* Geofencing modal */}

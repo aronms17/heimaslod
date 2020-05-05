@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
+import { Text, View, TouchableHighlight, TouchableOpacity, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
@@ -9,6 +9,21 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 
+const SECTIONS = [
+    {
+      title: 'First',
+      content: 'hehe',
+    },
+    {
+      title: 'Second',
+      content: 'hehe',
+    },
+    {
+      title: 'Third',
+      content: 'hehe',
+    }
+  ];
+
 export default class streetDetailScreen extends React.Component {
     constructor() {
         super();
@@ -17,7 +32,8 @@ export default class streetDetailScreen extends React.Component {
           streetName: '',
           streetDescription: '',
           streetImages: '',
-          isModalVisible: false
+          isModalVisible: false,
+          activeSections: [],
 
         };
         console.disableYellowBox = true;
@@ -25,18 +41,46 @@ export default class streetDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
+        console.log('navigation params: ', navigation.state.params);
         const { streetId } = navigation.state.params;
-        const { streetName } = navigation.state.params;
-
         const allarGotur = Array.from(Data.gotur);
-        const allStreets = allarGotur.find(({ id }) => id === streetId);
-        const streetDescription = allStreets.text;
-        const streetImages = allStreets.images;
+        const theStreet = allarGotur.find(({ id }) => id === streetId);
+        const streetName = theStreet.name;
+        const streetDescription = theStreet.text;
+        const streetImages = theStreet.images;
         
         this.setState({ streetId: streetId, 
-            streetId: streetId, streetName: streetName, streetDescription: streetDescription, streetImages: streetImages
+            streetName: streetName, streetDescription: streetDescription, streetImages: streetImages
         });
     }
+
+    _renderSectionTitle = section => {
+        return (
+          <View style={styles.content}>
+            <Text>{section.content}</Text>
+          </View>
+        );
+    };
+    
+    _renderHeader = section => {
+      return (
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{section.title}</Text>
+        </View>
+      );
+    };
+    
+    _renderContent = section => {
+      return (
+        <View style={styles.content}>
+          <Text>{section.content}</Text>
+        </View>
+      );
+    };
+    
+    _updateSections = activeSections => {
+      this.setState({ activeSections });
+    };
 
     renderDrawer = () => {
         return (
@@ -49,10 +93,10 @@ export default class streetDetailScreen extends React.Component {
             </TouchableHighlight>
           </View>
         );
-      }
+    }
 
     render() {
-        const { streetName, streetDescription, streetImages } = this.state;
+        const { streetName, streetDescription, streetImages, activeSections } = this.state;
         const img = Array.from(streetImages);
         return(
             <View style={styles.container}>
@@ -106,27 +150,16 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    
-
-
-
-                    <View style={styles.onlyMap}>
-                    {/* <MapView
-                        style={{...StyleSheet.absoluteFillObject}}
-                        provider={"google"}
-                        initialRegion={{
-                          latitude: 63.4347866,
-                          longitude: -20.2844343,
-                          latitudeDelta: 0.095,
-                          longitudeDelta: 0.0921}}>
-
-                        <CustomPolygon
-                            coordinates={houseCoordinates}
-                            fillColor="#f55d42"
-                        />
+                    <Text style={styles.desc}>Accordion test</Text>
+                    <Accordion
+                        sections={SECTIONS}
+                        activeSections={this.state.activeSections}
+                        renderSectionTitle={this._renderSectionTitle}
+                        renderHeader={this._renderHeader}
+                        renderContent={this._renderContent}
+                        onChange={this._updateSections}
+                    />
                         
-                    </MapView> */}
-                    </View>
                     
                 </View>
                 
