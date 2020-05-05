@@ -28,7 +28,7 @@ export default class App extends React.Component {
 
   constructor(props) {
   super(props);
-  this.child = React.createRef();
+  this.mapComponentRef = React.createRef();
   this.state = {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
@@ -130,14 +130,14 @@ previewHouse(house) {
     // this.makeVibration();
   }
   else {
-  this.child.current.houseSelect(house);
+  this.mapComponentRef.current.houseSelect(house);
   this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
 }
 
 closePreview() {
   this.setState({isModalVisible: false}); 
-  this.child.current.houseDeselect();
+  this.mapComponentRef.current.houseDeselect();
 }
 
 navigateHouse(houseId) {
@@ -198,8 +198,8 @@ renderDrawer = () => {
   );
 }
 
-onClick = () => {
-  this.child.current.themeChange();
+changeTheme = (theme) => {
+  this.mapComponentRef.current.themeChange(theme);
 }
 
   render() {
@@ -228,7 +228,7 @@ onClick = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-          <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
+          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)}/>
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -257,7 +257,7 @@ onClick = () => {
               description={houseDescription}
               images={houseImages}
               streetId={streetId}
-              closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
+              closeDisplay={() => {this.setState({isModalVisible: false}); this.mapComponentRef.current.houseDeselect();  }}
               goToHouse={() => this.navigateHouse(houseId)}
             />
             </View>
