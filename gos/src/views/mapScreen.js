@@ -1,6 +1,6 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
 import styles from '../styles/styles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -22,11 +22,7 @@ const SECTIONS = [
   {
     title: 'First',
     content: 'Lorem ipsum...',
-  },
-  {
-    title: 'Second',
-    content: 'Lorem ipsum...',
-  },
+  }
 ];
 export default class App extends React.Component {
 
@@ -45,7 +41,8 @@ export default class App extends React.Component {
     streetId: 0,
     location: null,
     errorMessage:"",
-    inRegion: false
+    inRegion: false,
+    activeSections: [],
   };
 }
 
@@ -148,31 +145,72 @@ navigateHouse(houseId) {
   this.props.navigation.navigate('houseDetailScreen', {
     houseId
   });
+  this.drawer.closeDrawer();
 }
 
 makeVibration() {
   Vibration.vibrate(7);
 }
 
+_renderHeader = () => {
+  return (
+    <Text style={styles.sideMenuText}>Kortaútlit</Text>
+  );
+};
+
+_renderContent = section => {
+  return (
+    <>
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Dark")}>
+        <Text style={styles.accordionText}>Dark</Text>
+    </TouchableHighlight>
+
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Satellite")}>
+        <Text style={styles.accordionText}>Satellite</Text>
+    </TouchableHighlight>
+
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Light")}>
+        <Text style={styles.accordionText}>Light</Text>
+    </TouchableHighlight>
+    </>
+
+  );
+};
+
+_updateSections = activeSections => {
+  this.setState({ activeSections });
+};
+
 renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
       <TouchableHighlight 
         style={styles.sideMenuItem}
-        onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+        onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
-      <TouchableHighlight 
-        style={styles.sideMenuItem}
-        onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Kortaútlit</Text>
-      </TouchableHighlight>
+  
+      <Accordion
+        sections={SECTIONS}
+        activeSections={this.state.activeSections}
+        renderHeader={this._renderHeader}
+        renderContent={this._renderContent}
+        onChange={this._updateSections}
+      />
+
     </View>
   );
 }
 
 changeTheme = (theme) => {
   this.mapComponentRef.current.themeChange(theme);
+  this.drawer.closeDrawer();
 }
 
   render() {
