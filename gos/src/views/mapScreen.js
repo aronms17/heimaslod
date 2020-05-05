@@ -1,6 +1,7 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
+import styles from '../styles/styles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
@@ -8,6 +9,7 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather } from '@expo/vector-icons';
+
 
 import NativeModal from 'react-native-modal';
 
@@ -155,17 +157,15 @@ makeVibration() {
 renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
-      <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+      <TouchableHighlight 
+        style={styles.sideMenuItem}
+        onPress={() => this.props.navigation.navigate('allStreetScreen')}>
         <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
-      <TouchableHighlight onPress={() => {this.changeTheme('Dark'); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Kortaútlit dark</Text>
-      </TouchableHighlight>
-      <TouchableHighlight onPress={() => {this.changeTheme('Light'); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Kortaútlit light</Text>
-      </TouchableHighlight>
-      <TouchableHighlight onPress={() => {this.changeTheme('Satellite'); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Kortaútlit satellite</Text>
+      <TouchableHighlight 
+        style={styles.sideMenuItem}
+        onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
+          <Text style={styles.sideMenuText}>Kortaútlit</Text>
       </TouchableHighlight>
     </View>
   );
@@ -250,55 +250,3 @@ changeTheme = (theme) => {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  map: {
-    backgroundColor: '#fff'
-  },
-  components: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  sideMenu: {
-    flex:1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    paddingTop: 50,
-    paddingBottom: 30,
-    paddingLeft: 25
-
-  },
-  sideMenuText: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: 'white'
-  },
-  header: {
-    width: Dimensions.get('screen').width, 
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-  burger: {
-    marginTop: 40,
-    marginRight: 17,
-  }
-});

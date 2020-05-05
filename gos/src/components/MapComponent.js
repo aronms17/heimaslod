@@ -3,6 +3,7 @@ import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
+import mapjson3 from '../json/mapstyle3.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
@@ -151,7 +152,7 @@ houseDeselect() {
           onMapReady={() => this.setState({mapLoaded: true})}
           >
 
-          <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker>
+          {/* <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker> */}
 
           {/* Polygonarnir */} 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
