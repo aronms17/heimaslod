@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, Keyboard, TextInput, KeyboardAvoidingView, Animated, Easing, FlatList, ScrollView, TouchableOpacity, TouchableHighlight, SectionList } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { Feather, FontAwesome5 } from '@expo/vector-icons';
 // import { TouchableHighlight } from 'react-native-gesture-handler';
 import Houses from './../../script/jsonfile.json';
 
@@ -134,12 +135,13 @@ export default class SearchBar extends React.Component {
                                 <Text>Leitarsaga:</Text>
                             }
                             /> */}
-                            <SectionList
+                            <SectionList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                 sections={this.state.sectionHouses}
                                 keyExtractor={(item, index) => item + index}
                                 renderItem={({item}) => 
                                     <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
-                                        <View style={{height: 20, width: 20, backgroundColor: item.color}}></View>
+                                        {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
+                                        {(item.color === 'red') ? <FontAwesome5 name='house-damage' size={30} color='lightblue'/> : <Feather name='align-justify' size={30} color='tomato'/>}
                                         <Text style={{fontSize: 20}}>{item.address}</Text>
                                         <Text numberOfLines={1} >{item.text}</Text>
                                     </TouchableOpacity>
