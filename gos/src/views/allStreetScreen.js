@@ -6,8 +6,8 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Data from '../../script/jsonfile.json';
 
 export default class allStreetScreen extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           streets: [],
           houses: [],
@@ -22,17 +22,11 @@ export default class allStreetScreen extends React.Component {
         this.setState({streets: streetdata, houses: housedata});
     }
 
-    navigateHouse(house) {
-        console.log('house in navigatehouse: ', house.address);
-        let houseId = house.id;
-        let houseAddress = house.address;
-        let houseStreetId = house.streetId;
-        let houseText = house.text;
-        let houseImages = house.images;
-        let houseCoordinates = house.coordinates;
-         this.props.navigation.navigate('houseDetailScreen', {
-            houseId, houseAddress, houseStreetId, houseText, houseImages, houseCoordinates
-         });
+    navigateHouse(houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates) {
+        console.log('navigating from allStreetScreen, id: ', houseId);
+        this.props.navigation.navigate('houseDetailScreen', {
+            houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates
+        });
     }
 
     navigateStreet(streetId, streetName) {
@@ -88,7 +82,7 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house) }>
+                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id, house.address, house.streetId, house.text, house.images, house.coordinates) }>
                                         <Text style={{color: 'white'}}>{house.address}</Text>
                                     </TouchableOpacity>
                                     ))

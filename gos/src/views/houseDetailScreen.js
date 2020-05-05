@@ -15,8 +15,9 @@ export default class houseDetailScreen extends React.Component {
         super();
         this.mapViewRef = React.createRef();
         this.state = {
-          houseid: 0,
-          houseName: '',
+          houseId: 0,
+          houseAddress: '',
+          houseStreetId: null,
           houseDescription: '',
           houseImages: '',
           houseCoordinates: [],
@@ -29,24 +30,26 @@ export default class houseDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        const { houseid } = navigation.state.params;
-        const { houseName } = navigation.state.params;
+        const { houseId } = navigation.state.params;
+        const { houseAddress } = navigation.state.params;
+        const { houseStreetId } = navigation.state.params;
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
-        const { streetId } = navigation.state.params;
 
-        let allarGotur = Array.from(Data.gotur);
-        let allStreets = allarGotur.find(({ id }) => id === streetId);
-        let streetName = allStreets.name;
+        console.log('houseStreetID: ', houseStreetId);
         
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
-            houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
-            streetId: streetId, streetName: streetName
+        let allarGotur = Array.from(Data.gotur);
+        let gatan = allarGotur.find(({ id }) => id === houseStreetId);
+        let streetName = gatan.name;
+        
+        
+        this.setState({houseId: houseId, houseAddress: houseAddress, houseStreetId: houseStreetId,
+            houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates,
+            streetName: streetName
         });
 
     }
-
 
     renderDrawer = () => {
         return (
@@ -77,7 +80,7 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
+        const { houseAddress, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
         const arrHouse = Array.from(houseImages);
         return(
             <View style={styles.container}>    
@@ -106,7 +109,7 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.headerContainer}>
-                    <Text style={styles.name}>{houseName}</Text>
+                    <Text style={styles.name}>{houseAddress}</Text>
                 </View>
                 {/*  */}
 
@@ -137,9 +140,9 @@ export default class houseDetailScreen extends React.Component {
                         title={streetName} 
                         color="tomato"
                         onPress={() => this.props.navigation.navigate('streetDetailScreen', {
-                            streetId, streetName
+                            streetId
                         })}
-                    />
+                    /> 
                     <View style={styles.onlyMap}>
                     <MapView
                         onMapReady={() => this.zoomTohouse()}

@@ -23,11 +23,11 @@ export default class App extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     isModalVisible: false,
     houseId: 0,
-    houseName: '',
+    houseAddress: '',
     houseDescription: '',
     houseImages: '',
     houseCoordinates: [],
-    streetId: 0,
+    houseStreetId: 0,
     location: null,
     errorMessage:"",
     inRegion: false
@@ -41,10 +41,10 @@ componentDidMount() {
     goturColor: '#262630', //'#1D1B1B'
     isModalVisible: false,
     houseId: 0,
-    houseName: '',
+    houseAddress: '',
     houseDescription: '',
     houseImages: '',
-    streetId: 0
+    houseStreetId: 0
   })
 }
 
@@ -119,7 +119,7 @@ previewHouse(house) {
   }
   else {
   this.child.current.houseSelect(house);
-  this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
+  this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, houseStreetId: house.streetId });
   }
 }
 
@@ -128,10 +128,10 @@ closePreview() {
   this.child.current.houseDeselect();
 }
 
-navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
+navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId) {
   this.setState({isModalVisible: false});
   this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId
+    houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId
   });
 }
 
@@ -160,7 +160,7 @@ onClick = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId, location, errorMessage, inRegion} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -209,12 +209,12 @@ onClick = () => {
             <PreviewModal
               isVisible={this.state.isModalVisible}
               id={houseId}
-              address={houseName}
+              address={houseAddress}
               description={houseDescription}
               images={houseImages}
-              streetId={streetId}
+              streetId={houseStreetId}
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-              goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
+              goToHouse={() => this.navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId)}
             />
             </View>
             {/* Geofencing modal */}
