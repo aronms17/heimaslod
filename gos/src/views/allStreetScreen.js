@@ -4,6 +4,7 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 // import Streets from './../components/Streets';
 import Data from '../../script/jsonfile.json';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default class allStreetScreen extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ export default class allStreetScreen extends React.Component {
         this.state = {
           streets: [],
           houses: [],
+          inMemoryStreets: [],
+          inMemoryHouses: []
         };
     }
 
@@ -20,7 +23,7 @@ export default class allStreetScreen extends React.Component {
         streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
         housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
         // this.state.contacts.sort((a,b) => (a.firstName > b.firstName) ? 1 : -1)
-        this.setState({streets: streetdata, houses: housedata});
+        this.setState({streets: streetdata, houses: housedata, inMemoryStreets: streetdata, inMemoryHouses: housedata});
     }
 
     navigateHouse(houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates) {
@@ -34,6 +37,31 @@ export default class allStreetScreen extends React.Component {
         this.props.navigation.navigate('streetDetailScreen', {
             streetId, streetName
           });
+    }
+
+    search = input => {
+        console.log(input);
+        const housesFiltered = this.state.inMemoryHouses.filter(house => {
+            let houseLower = house.address.toLowerCase();
+            let inputLower = input.toLowerCase();
+
+            return houseLower.indexOf(inputLower) > -1;
+        });
+        // const streetsFilteredByName = this.state.inMemoryStreets.filter(street => {
+        //     let streetLower = street.name.toLowerCase();
+        //     let inputLower = input.toLowerCase();
+
+        //     return streetLower.indexOf(inputLower) > -1;
+        // });
+
+        const streetsFilteredByHouse = this.state.inMemoryStreets.filter(street => {
+            if(housesFiltered.some(house => house.streetId === street.id)) {
+                return street;
+            }
+            // ef street matchar við input þá return street
+        });
+
+        this.setState({houses: housesFiltered, streets: streetsFilteredByHouse});
     }
 
     renderDrawer = () => {
@@ -71,7 +99,13 @@ export default class allStreetScreen extends React.Component {
 
                 
                 <View style={styles.desc}>
-                    <Text style={styles.desc}>Þær götur og kennileiti sem fóru að öllu leyti undir hraun:</Text>
+                    <TextInput
+                        style={{height: 40, fontSize: 20, color: 'white'}}
+                        autoCorrect={false}
+                        placeholder="Search"
+                        placeholderTextColor="white"
+                        onChangeText={value => this.search(value)}
+                        />
                 </View>
                 <FlatList
                     data={this.state.streets}
