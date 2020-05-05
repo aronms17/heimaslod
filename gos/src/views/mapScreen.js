@@ -143,13 +143,11 @@ renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
       <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-        <Text style={styles.sideMenuText}>Allar Götur</Text>
+        <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
       <TouchableHighlight onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Theme</Text>
+          <Text style={styles.sideMenuText}>Kortaútlit</Text>
       </TouchableHighlight>
-      <Text style={styles.sideMenuText}>Stillingar</Text>
-       
     </View>
   );
 }

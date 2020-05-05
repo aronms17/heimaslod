@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
-import ImageViewer from 'react-native-image-zoom-viewer';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
@@ -36,8 +35,6 @@ export default class houseDetailScreen extends React.Component {
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
-
-        console.log('houseStreetID: ', houseStreetId);
         
         let allarGotur = Array.from(Data.gotur);
         let gatan = allarGotur.find(({ id }) => id === houseStreetId);
@@ -55,13 +52,11 @@ export default class houseDetailScreen extends React.Component {
         return (
           <View style={styles.sideMenu}>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-              <Text style={styles.sideMenuText}>Allar Götur</Text>
+              <Text style={styles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
-            <Text style={styles.sideMenuText}>Stillingar</Text>
-             
           </View>
         );
       }
