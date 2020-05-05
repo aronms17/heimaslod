@@ -6,6 +6,12 @@ import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import Houses from './../../script/jsonfile.json';
 
 
+const ListItem = ({House}) => (
+    <View>
+      <Text>{House.address}</Text>
+    </View>
+  );
+
 export default class SearchBar extends React.Component {
     constructor() {
         super();
@@ -15,6 +21,7 @@ export default class SearchBar extends React.Component {
             houses: [],
             sectionHouses: [],
             inMemoryHouses: [],
+            searchHistory: [],
         };
     }
 
@@ -43,6 +50,9 @@ export default class SearchBar extends React.Component {
 
     previewHouse(house) {
         this._moveDownAnimation();
+        if(!this.state.searchHistory.some(arrayHouse => arrayHouse.id === house.id)) {
+            this.setState({searchHistory: [house, ...this.state.searchHistory.slice(0, 4)]});
+        }
         this.props.preview(house);
         
     };
@@ -136,7 +146,7 @@ export default class SearchBar extends React.Component {
                             /> */}
                             <SectionList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                 sections={this.state.sectionHouses}
-                                keyExtractor={(item, index) => item + index}
+                                keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={({item}) => 
                                     <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
                                         {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
@@ -148,6 +158,21 @@ export default class SearchBar extends React.Component {
                                 renderSectionHeader={({ section }) => (
                                     <Text style={{fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
                                   )}
+                                ListEmptyComponent={
+                                    <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
+                                        data={this.state.searchHistory}
+                                        ListHeaderComponent={this.state.searchHistory.length > 0 ? <Text style={{color: 'grey'}}>Leitarsaga:</Text> : <></>}
+                                        renderItem={({item}) => (
+                                            <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
+                                                {(item.color === 'red') ? <FontAwesome5 name='house-damage' size={30} color='lightblue'/> : <Feather name='align-justify' size={30} color='tomato'/>}
+                                                <Text style={{fontSize: 20}}>{item.address}</Text>
+                                                <Text numberOfLines={1} >{item.text}</Text>
+                                            </TouchableOpacity>
+                                        )}
+                                        keyExtractor={(item) => item.id.toString()}
+                                        ListEmptyComponent={<View style={{width: Dimensions.get('screen').width, height: 200, justifyContent: 'center', alignItems: 'center'}}><Text style={{color: 'grey'}}>Engin leitarsaga tiltæk</Text></View>}
+                                    />
+                                }
                             />
 
                         </View>
