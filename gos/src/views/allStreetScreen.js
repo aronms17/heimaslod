@@ -54,6 +54,7 @@ export default class allStreetScreen extends React.Component {
         //     return streetLower.indexOf(inputLower) > -1;
         // });
 
+        //filterað hverja götu - ef gata hefur eitthvað house.streetId sama og id á götunni return götunni
         const streetsFilteredByHouse = this.state.inMemoryStreets.filter(street => {
             if(housesFiltered.some(house => house.streetId === street.id)) {
                 return street;

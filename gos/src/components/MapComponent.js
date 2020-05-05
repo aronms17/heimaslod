@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
 import prufupoly from '../../script/jsonfile.json';
-// import CustomPolygon from './CustomPolygon';
+import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
@@ -161,8 +161,7 @@ houseDeselect() {
               />
             ))
           }
-
-          {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
+          {/* {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
               <Polygon
                 key = {gata.id}
                 coordinates={gata.coordinates}
@@ -171,7 +170,22 @@ houseDeselect() {
                 onPress={() => console.log('gata id: ' + gata.id)}
               />
             ))
+          } */}
+            {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
+              gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (
+                  <Polygon
+                    key = {index1 + ' ' + index2}
+                    fillColor={goturColor}
+                    coordinates={coordingates}
+                    // tappable={true}
+                    // onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
+                  />
+                ))
+            ))
           }
+
+
+            
         </MapView>
     );
   }
