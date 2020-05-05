@@ -32,7 +32,7 @@ export default class MapComponent extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
     theme: null,
-    lightTheme: false,
+    satellite: false,
     selectedId: null,
     region: {
       latitude: 63.4347866,
@@ -98,12 +98,15 @@ componentDidMount() {
 //   this.setState({ geocode})
 // }
 
-themeChange() {
-  if(this.state.lightTheme) {
-    this.setState({theme: mapjson2, lightTheme: false});
+themeChange(theme) {
+  if(theme === 'Dark') {
+    this.setState({theme: mapjson2, satellite: false});
+  } 
+  else if(theme === 'Satellite') {
+    this.setState({satellite: true});
   }
   else {
-    this.setState({theme: mapjson, lightTheme: true});
+    this.setState({theme: mapjson, satellite: false});
   }
 }
 
@@ -139,7 +142,7 @@ houseDeselect() {
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           // minZoomLevel={12} 
-          mapType={'satellite'}
+          mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
           provider={"google"}
