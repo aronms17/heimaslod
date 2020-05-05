@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
+import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
-import CustomPolygon from '../components/CustomPolygon';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
@@ -15,6 +17,7 @@ export default class streetDetailScreen extends React.Component {
           streetName: '',
           streetDescription: '',
           streetImages: '',
+          isModalVisible: false
 
         };
         console.disableYellowBox = true;
@@ -29,7 +32,6 @@ export default class streetDetailScreen extends React.Component {
         const allStreets = allarGotur.find(({ id }) => id === streetId);
         const streetDescription = allStreets.text;
         const streetImages = allStreets.images;
-        console.log('street images type: ', typeof(streetImages));
         
         this.setState({ streetId: streetId, 
             streetId: streetId, streetName: streetName, streetDescription: streetDescription, streetImages: streetImages
@@ -40,13 +42,11 @@ export default class streetDetailScreen extends React.Component {
         return (
           <View style={styles.sideMenu}>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-              <Text style={styles.sideMenuText}>Allar Götur</Text>
+              <Text style={styles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
-            <Text style={styles.sideMenuText}>Stillingar</Text>
-             
           </View>
         );
       }
@@ -55,7 +55,12 @@ export default class streetDetailScreen extends React.Component {
         const { streetName, streetDescription, streetImages } = this.state;
         const img = Array.from(streetImages);
         return(
-            <View style={styles.container}>                
+            <View style={styles.container}>
+                <ImageModal
+                    isVisible={this.state.isModalVisible}
+                    closeDisplay={() => this.setState({isModalVisible: false})}
+                    houseImages={img}
+                />           
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -85,6 +90,7 @@ export default class streetDetailScreen extends React.Component {
                      <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
+                        onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
                             img.map((element) => (
                                 { source: { uri: element } }
@@ -100,7 +106,10 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>vantar eitthvað hér</Text>
+                    
+
+
+
                     <View style={styles.onlyMap}>
                     {/* <MapView
                         style={{...StyleSheet.absoluteFillObject}}

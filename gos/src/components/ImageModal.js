@@ -1,40 +1,38 @@
 import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, Dimensions } from 'react-native';
 import NativeModal from 'react-native-modal';
+import Gallery from 'react-native-image-gallery';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 
-const PreviewModal = (props) => (
+const ImageModal = (props) => (
     <NativeModal
-      style={{ justifyContent: 'flex-end' }}
       isVisible={props.isVisible}
       // Hægt að style-a til
       animationIn={'slideInUp'}
       animationOut={'slideOutDown'}
-      onDismiss={() => props.closeDisplay()}
       backdropOpacity={0}
-      onBackdropPress={() => props.closeDisplay()}
       >
 
-      <View style={styles.modalView}>
-        <View style={styles.modalHeader}>
-            <TouchableHighlight
-              onPress = { () => props.closeDisplay()}>
-              <Feather name='x-circle' size={30} color='tomato'/>
-            </TouchableHighlight>  
-        </View>
-          <Text style={styles.textStyle}>
-            {props.address}
-          </Text>
-        <View style={styles.takkar}>
-          <Button
-            style={styles.takkar}
-            title="Sjá meira"
-            color="green"
-            onPress = { () => props.goToHouse() }/>
-        </View>
-      </View>
+      <NativeModal
+        visible={true}
+        backdropOpacity={0}
+        backgroundColor={"black"}
+      >
+            <ImageViewer 
+            imageUrls={props.houseImages.map((element) => (
+                { url: element }
+            ))}
+            enableSwipeDown={true}
+            onSwipeDown={() => props.closeDisplay()}
+            />
+            <Button
+            title="Loka"
+            color={"tomato"}
+            onPress = {() => props.closeDisplay()}
+            />
+      </NativeModal>
     </NativeModal>
-    
 )
 
 const styles = StyleSheet.create({
@@ -43,8 +41,9 @@ const styles = StyleSheet.create({
     // marginLeft: 150
   },
   modalView: {
-    height: 150,
-    backgroundColor: "#1D1B1B"
+    height: 250,
+    width: Dimensions.get('screen').width,
+    backgroundColor: "#1D1B1B",
   },
   openButton: {
     backgroundColor: "#F194FF",
@@ -64,7 +63,6 @@ const styles = StyleSheet.create({
   },
   takkar: {
     flexDirection: 'row',
-    justifyContent: 'center',
     marginRight: 5
   },
   modalHeader: {
@@ -76,4 +74,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PreviewModal;
+export default ImageModal;

@@ -1,11 +1,13 @@
 import React from 'react';
-import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, TouchableWithoutFeedback, Alert } from 'react-native';
+// import MapView, { Marker, Polygon } from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
+import { Feather } from '@expo/vector-icons';
 
 import NativeModal from 'react-native-modal';
 
@@ -13,6 +15,17 @@ import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
+
+const SECTIONS = [
+  {
+    title: 'First',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Second',
+    content: 'Lorem ipsum...',
+  },
+];
 export default class App extends React.Component {
 
   constructor(props) {
@@ -23,11 +36,11 @@ export default class App extends React.Component {
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     isModalVisible: false,
     houseId: 0,
-    houseName: '',
+    houseAddress: '',
     houseDescription: '',
     houseImages: '',
     houseCoordinates: [],
-    streetId: 0,
+    houseStreetId: 0,
     location: null,
     errorMessage:"",
     inRegion: false
@@ -35,16 +48,16 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
-  this.getLocationAsync();
+  //this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
     isModalVisible: false,
     houseId: 0,
-    houseName: '',
+    houseAddress: '',
     houseDescription: '',
     houseImages: '',
-    streetId: 0
+    houseStreetId: 0
   })
 }
 
@@ -57,16 +70,16 @@ getLocationAsync = async () => {
   }
 
   const taskName = "eski";
-  const hr = { latitude: 64.124182, longitude: -21.927272 };
-  const landspitali = { latitude: 64.123514, longitude: -21.884149 }; 
+  const hr = { identifier: "HR", latitude: 64.124182, longitude: -21.927272 };
+  const landspitali = { identifier: "10", latitude: 64.123514, longitude: -21.884149 }; 
   const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
   const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
   const wurth = { latitude: 64.102430, longitude: -21.778329 };
-  const radius = 500;
+  const radius = 5000;
 
   Location.startGeofencingAsync(taskName, [
     {
-      ...landspitali,
+      ...hr,
       radius
     },
     {
@@ -86,6 +99,7 @@ getLocationAsync = async () => {
   TaskManager.defineTask(taskName, task => {
     if (task.data.eventType === Location.GeofencingEventType.Enter) {
       console.log("Mættir á punkt");
+      console.log(task.data);
       this.setState({inRegion: true});
     }
     if (task.data.eventType === Location.GeofencingEventType.Exit) {
@@ -118,7 +132,7 @@ previewHouse(house) {
   }
   else {
   this.child.current.houseSelect(house);
-  this.setState({isModalVisible: true, houseId: house.id, houseName: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
+  this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, houseStreetId: house.streetId });
   }
 }
 
@@ -127,10 +141,10 @@ closePreview() {
   this.child.current.houseDeselect();
 }
 
-navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
+navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId) {
   this.setState({isModalVisible: false});
   this.props.navigation.navigate('houseDetailScreen', {
-    houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId
+    houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId
   });
 }
 
@@ -142,13 +156,11 @@ renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
       <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-        <Text style={styles.sideMenuText}>Allar Götur</Text>
+        <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
       <TouchableHighlight onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Theme</Text>
+          <Text style={styles.sideMenuText}>Kortaútlit</Text>
       </TouchableHighlight>
-      <Text style={styles.sideMenuText}>Stillingar</Text>
-       
     </View>
   );
 }
@@ -159,7 +171,7 @@ onClick = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId, location, errorMessage, inRegion} = this.state;
     
     {/* Location brask */}
     let textLocation = 'Waiting..';
@@ -183,20 +195,7 @@ onClick = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-        <View>
           <MapComponent ref={this.child} preview={(house) => this.previewHouse(house)}/>
-
-          <PreviewModal
-            isVisible={this.state.isModalVisible}
-            id={houseId}
-            address={houseName}
-            description={houseDescription}
-            images={houseImages}
-            streetId={streetId}
-            closeDisplay={() => this.closePreview()}
-            goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
-          />
-        </View>
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -204,7 +203,7 @@ onClick = () => {
               <TouchableHighlight
                 style={styles.burger}
                 onPress={() => this.drawer.openDrawer()}>
-                  <Feather name='menu' size={40} color='black'/>
+                  <Feather name='menu' size={40} color='white'/>
               </TouchableHighlight>
             </View>
             <View>
@@ -217,24 +216,26 @@ onClick = () => {
               <Text>Location object-ið:</Text>
               <Text>{textLocation}</Text>
             </View> */}
-
+            <View>
             <PreviewModal
               isVisible={this.state.isModalVisible}
               id={houseId}
-              address={houseName}
+              address={houseAddress}
               description={houseDescription}
               images={houseImages}
-              streetId={streetId}
+              streetId={houseStreetId}
               closeDisplay={() => {this.setState({isModalVisible: false}); this.child.current.houseDeselect();  }}
-              goToHouse={() => this.navigateHouse(houseId, houseName, houseDescription, houseImages, houseCoordinates, streetId)}
+              goToHouse={() => this.navigateHouse(houseId, houseAddress, houseDescription, houseImages, houseCoordinates, houseStreetId)}
             />
-            <NativeModal
+            </View>
+            {/* Geofencing modal */}
+            {/* <NativeModal
               isVisible={this.state.inRegion}
             >
               <View style={styles.modalView}>
                 <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
               </View>
-            </NativeModal>
+            </NativeModal> */}
 
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
@@ -288,10 +289,10 @@ const styles = StyleSheet.create({
   header: {
     width: Dimensions.get('screen').width, 
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   burger: {
     marginTop: 40,
-    marginRight: 17
+    marginRight: 17,
   }
 });

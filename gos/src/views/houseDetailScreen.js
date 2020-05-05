@@ -2,75 +2,89 @@ import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
-import CustomPolygon from '../components/CustomPolygon';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Hamburger from '../components/Hamburger';
 import CloseBurger from '../components/CloseBurger';
 import SideMenu from '../components/SideMenu';
+import ImageModal from '../components/ImageModal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 export default class houseDetailScreen extends React.Component {
     constructor() {
         super();
+        this.mapViewRef = React.createRef();
         this.state = {
-          houseid: 0,
-          houseName: '',
+          houseId: 0,
+          houseAddress: '',
+          houseStreetId: null,
           houseDescription: '',
           houseImages: '',
           houseCoordinates: [],
           streetId: null,
-          streetName: ''
+          streetName: '',
+          isModalVisible: false
         };
         console.disableYellowBox = true;
     }
 
     componentDidMount() {
         const { navigation } = this.props;
-        const { houseid } = navigation.state.params;
-        const { houseName } = navigation.state.params;
+        const { houseId } = navigation.state.params;
+        const { houseAddress } = navigation.state.params;
+        const { houseStreetId } = navigation.state.params;
         const { houseDescription } = navigation.state.params;
         const { houseImages } = navigation.state.params;
         const { houseCoordinates } = navigation.state.params;
-        const { streetId } = navigation.state.params;
-
-        let allarGotur = Array.from(Data.gotur);
-        let allStreets = '';
-        let streetName = '';
-        if(streetId == null) {
-            allStreets = '';
-            streetName = 'ekkert';
-        }
-        else {
-            allStreets = allarGotur.find(({ id }) => id === streetId);
-            streetName = allStreets.name;
-        }
         
-        this.setState({houseid: houseid, houseName: houseName, houseDescription: houseDescription, 
-            houseImages: houseImages, houseCoordinates: houseCoordinates, streetId: streetId, 
-            streetId: streetId, streetName: streetName
+        let allarGotur = Array.from(Data.gotur);
+        let gatan = allarGotur.find(({ id }) => id === houseStreetId);
+        let streetName = gatan.name;
+        
+        
+        this.setState({houseId: houseId, houseAddress: houseAddress, houseStreetId: houseStreetId,
+            houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates,
+            streetName: streetName
         });
+
     }
 
     renderDrawer = () => {
         return (
           <View style={styles.sideMenu}>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-              <Text style={styles.sideMenuText}>Allar Götur</Text>
+              <Text style={styles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
-            <Text style={styles.sideMenuText}>Stillingar</Text>
-             
           </View>
         );
       }
 
+    zoomTohouse() {
+        let houseRegion = {
+            latitude: this.state.houseCoordinates[0].latitude,
+            longitude: this.state.houseCoordinates[0].longitude,
+            latitudeDelta: 0.0010,
+            longitudeDelta: 0.0010,
+          }
+          if(this.mapViewRef.current) {
+            this.mapViewRef.current.animateToRegion(houseRegion, 4000)
+            
+          }
+    }
+
     render() {
-        const { houseName, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
+        const { houseAddress, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
         const arrHouse = Array.from(houseImages);
         return(
-            <View style={styles.container}>                
+            <View style={styles.container}>    
+                <ImageModal
+                    isVisible={this.state.isModalVisible}
+                    closeDisplay={() => this.setState({isModalVisible: false})}
+                    houseImages={arrHouse}
+                />
+
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -90,21 +104,24 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.headerContainer}>
-                    <Text style={styles.name}>{houseName}</Text>
+                    <Text style={styles.name}>{houseAddress}</Text>
                 </View>
                 {/*  */}
 
-                <View style={styles.galleryContainer}>
+                <View style={styles.galleryContainer}
+                >
                     {/* Rétt map aðferð á propsið núna */}
                     <Gallery
                         style={{ flex: 1, backgroundColor: '#1D1B1B' }}
                         pageMargin={10}
+                        onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
                             arrHouse.map((element) => (
                                 { source: { uri: element } }
                             ))
                         }
                     />
+                    
                 </View>
                 
                 <View style={styles.descriptionContainer}>
@@ -118,11 +135,13 @@ export default class houseDetailScreen extends React.Component {
                         title={streetName} 
                         color="tomato"
                         onPress={() => this.props.navigation.navigate('streetDetailScreen', {
-                            streetId, streetName
+                            streetId
                         })}
-                    />
+                    /> 
                     <View style={styles.onlyMap}>
                     <MapView
+                        onMapReady={() => this.zoomTohouse()}
+                        ref={this.mapViewRef}
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
                         initialRegion={{
@@ -131,7 +150,7 @@ export default class houseDetailScreen extends React.Component {
                           latitudeDelta: 0.095,
                           longitudeDelta: 0.0921}}>
 
-                        <CustomPolygon
+                        <Polygon
                             coordinates={houseCoordinates}
                             fillColor="#f55d42"
                         />

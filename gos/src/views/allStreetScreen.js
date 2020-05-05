@@ -6,8 +6,8 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Data from '../../script/jsonfile.json';
 
 export default class allStreetScreen extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           streets: [],
           houses: [],
@@ -17,14 +17,16 @@ export default class allStreetScreen extends React.Component {
     componentDidMount() {
         let streetdata = Data.gotur;
         let housedata = Data.hus;
-        streetdata = streetdata.filter(gotur => gotur.name.length > 1);
-        housedata = housedata.filter(gotur => gotur.address.length > 1);
+        streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
+        housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
+        // this.state.contacts.sort((a,b) => (a.firstName > b.firstName) ? 1 : -1)
         this.setState({streets: streetdata, houses: housedata});
     }
 
-    navigateHouse(houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId) {
+    navigateHouse(houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates) {
+        console.log('navigating from allStreetScreen, id: ', houseId);
         this.props.navigation.navigate('houseDetailScreen', {
-          houseid, houseName, houseDescription, houseImages, houseCoordinates, streetId
+            houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates
         });
     }
 
@@ -40,7 +42,6 @@ export default class allStreetScreen extends React.Component {
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
-            <Text style={styles.sideMenuText}>Stillingar</Text>        
           </View>
         );
       }
@@ -67,6 +68,8 @@ export default class allStreetScreen extends React.Component {
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
+
+                
                 <View style={styles.desc}>
                     <Text style={styles.desc}>Þær götur og kennileiti sem fóru að öllu leyti undir hraun:</Text>
                 </View>
@@ -79,15 +82,15 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity onPress={() => this.navigateHouse(house.id, house.address, house.text, house.images, house.coordinates, house.streetId) }>
+                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id, house.address, house.streetId, house.text, house.images, house.coordinates) }>
                                         <Text style={{color: 'white'}}>{house.address}</Text>
                                     </TouchableOpacity>
                                     ))
                                 }
                             </View>
                         </>
-                        
                     )}
+                    keyExtractor={item => item.id.toString()}
                 />
                 </DrawerLayout>
             </View>
