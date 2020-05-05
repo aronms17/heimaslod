@@ -17,8 +17,9 @@ export default class allStreetScreen extends React.Component {
     componentDidMount() {
         let streetdata = Data.gotur;
         let housedata = Data.hus;
-        streetdata = streetdata.filter(gotur => gotur.name.length > 1);
-        housedata = housedata.filter(gotur => gotur.address.length > 1);
+        streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
+        housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
+        // this.state.contacts.sort((a,b) => (a.firstName > b.firstName) ? 1 : -1)
         this.setState({streets: streetdata, houses: housedata});
     }
 

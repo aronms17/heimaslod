@@ -74,7 +74,7 @@ export default class houseDetailScreen extends React.Component {
             longitudeDelta: 0.0010,
           }
           if(this.mapViewRef.current) {
-            setTimeout(() => {this.mapViewRef.current.animateToRegion(houseRegion, 4000)}, 2000)
+            this.mapViewRef.current.animateToRegion(houseRegion, 4000)
             
           }
     }
