@@ -107,7 +107,7 @@ export default class allStreetScreen extends React.Component {
                         onChangeText={value => this.search(value)}
                         />
                 </View>
-                <FlatList
+                <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                     data={this.state.streets}
                     renderItem={({item}) => (
                         <>
