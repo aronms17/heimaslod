@@ -42,6 +42,11 @@ export default StyleSheet.create({
       fontWeight: 'bold',
       color: 'white'
     },
+    accordionText: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: 'white'
+    },
     sideMenuItem: {
       marginBottom: 30
     },

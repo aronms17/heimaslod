@@ -145,6 +145,7 @@ navigateHouse(houseId) {
   this.props.navigation.navigate('houseDetailScreen', {
     houseId
   });
+  this.drawer.closeDrawer();
 }
 
 makeVibration() {
@@ -159,17 +160,26 @@ _renderHeader = () => {
 
 _renderContent = section => {
   return (
-    <View style={styles.heading2}>
-      <Button
-        title="1"
-      />
-      <Button
-        title="2"
-      />
-      <Button
-        title="3"
-      />
-    </View>
+    <>
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Dark")}>
+        <Text style={styles.accordionText}>Dark</Text>
+    </TouchableHighlight>
+
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Satellite")}>
+        <Text style={styles.accordionText}>Satellite</Text>
+    </TouchableHighlight>
+
+    <TouchableHighlight 
+      style={styles.sideMenuItem}
+      onPress={() => this.changeTheme("Light")}>
+        <Text style={styles.accordionText}>Light</Text>
+    </TouchableHighlight>
+    </>
+
   );
 };
 
@@ -182,7 +192,7 @@ renderDrawer = () => {
     <View style={styles.sideMenu}>
       <TouchableHighlight 
         style={styles.sideMenuItem}
-        onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+        onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
   
@@ -200,6 +210,7 @@ renderDrawer = () => {
 
 changeTheme = (theme) => {
   this.mapComponentRef.current.themeChange(theme);
+  this.drawer.closeDrawer();
 }
 
   render() {
