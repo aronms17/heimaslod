@@ -106,8 +106,9 @@ export default class SearchBar extends React.Component {
                         ref={ component => _textInput = component}
                         autoCorrect={false}
                         placeholder="Search"
-                        placeholderTextColor="#dddddd"
+                        placeholderTextColor='white'
                         style={ styles.searchInput }
+                        // style={{backgroundColor: 'grey', color: 'white'}}
                         onChangeText={value => this.search(value)}
                         onTouchStart={this._moveUpAnimation}
                         />
@@ -193,7 +194,8 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     searchInput: {
-        backgroundColor: 'rgba(38, 38, 48, 0.8)',
+        backgroundColor: 'grey',
+        color: 'white',
         height: 35,
         width: Dimensions.get('window').width - 100,
         marginLeft: 15,
