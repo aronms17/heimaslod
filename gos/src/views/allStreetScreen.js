@@ -26,16 +26,15 @@ export default class allStreetScreen extends React.Component {
         this.setState({streets: streetdata, houses: housedata, inMemoryStreets: streetdata, inMemoryHouses: housedata});
     }
 
-    navigateHouse(houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates) {
-        console.log('navigating from allStreetScreen, id: ', houseId);
+    navigateHouse(houseId) {
         this.props.navigation.navigate('houseDetailScreen', {
-            houseId, houseAddress, houseStreetId, houseDescription, houseImages, houseCoordinates
-        });
+            houseId
+          });
     }
 
-    navigateStreet(streetId, streetName) {
+    navigateStreet(streetId) {
         this.props.navigation.navigate('streetDetailScreen', {
-            streetId, streetName
+            streetId
           });
     }
 
@@ -112,12 +111,12 @@ export default class allStreetScreen extends React.Component {
                     data={this.state.streets}
                     renderItem={({item}) => (
                         <>
-                            <TouchableOpacity style={{margin: 1}} onPress={() => this.navigateStreet(item.id, item.name)}>
+                            <TouchableOpacity style={{margin: 1}} onPress={() => this.navigateStreet(item.id)}>
                                 <Text style={{fontSize: 30, color: 'white'}}>{item.name}</Text>
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id, house.address, house.streetId, house.text, house.images, house.coordinates) }>
+                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id) }>
                                         <Text style={{color: 'white'}}>{house.address}</Text>
                                     </TouchableOpacity>
                                     ))

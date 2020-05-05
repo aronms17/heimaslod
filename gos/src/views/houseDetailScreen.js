@@ -16,32 +16,33 @@ export default class houseDetailScreen extends React.Component {
         this.state = {
           houseId: 0,
           houseAddress: '',
-          houseStreetId: null,
+          streetId: null,
           houseDescription: '',
           houseImages: '',
           houseCoordinates: [],
-          streetId: null,
           streetName: '',
           isModalVisible: false
         };
-        console.disableYellowBox = true;
     }
 
     componentDidMount() {
-        const { navigation } = this.props;
+        let { navigation } = this.props;
         const { houseId } = navigation.state.params;
-        const { houseAddress } = navigation.state.params;
-        const { houseStreetId } = navigation.state.params;
-        const { houseDescription } = navigation.state.params;
-        const { houseImages } = navigation.state.params;
-        const { houseCoordinates } = navigation.state.params;
-        
+
+        let ollHus = Array.from(Data.hus);
+        let husid = ollHus.find(({ id }) => id === houseId);
+
+        let houseAddress = husid.address;
+        let streetId = husid.streetId;
+        let houseDescription = husid.text;
+        let houseImages = husid.images;
+        let houseCoordinates = husid.coordinates;
+
         let allarGotur = Array.from(Data.gotur);
-        let gatan = allarGotur.find(({ id }) => id === houseStreetId);
+        let gatan = allarGotur.find(({ id }) => id === streetId);
         let streetName = gatan.name;
         
-        
-        this.setState({houseId: houseId, houseAddress: houseAddress, houseStreetId: houseStreetId,
+        this.setState({houseId: houseId, houseAddress: houseAddress, streetId: streetId,
             houseDescription: houseDescription, houseImages: houseImages, houseCoordinates: houseCoordinates,
             streetName: streetName
         });
@@ -75,7 +76,7 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        const { houseAddress, houseDescription, houseImages, houseCoordinates, streetId, streetName } = this.state;
+        const { houseAddress, houseDescription, houseImages, houseCoordinates, streetName, streetId } = this.state;
         const arrHouse = Array.from(houseImages);
         return(
             <View style={styles.container}>    
