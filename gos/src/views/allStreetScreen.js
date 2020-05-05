@@ -41,7 +41,6 @@ export default class allStreetScreen extends React.Component {
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
-            <Text style={styles.sideMenuText}>Stillingar</Text>        
           </View>
         );
       }

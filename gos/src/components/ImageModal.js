@@ -27,12 +27,12 @@ const ImageModal = (props) => (
             onSwipeDown={() => props.closeDisplay()}
             />
             <Button
-            title="Close modal"
+            title="Loka"
+            color={"tomato"}
             onPress = {() => props.closeDisplay()}
             />
       </NativeModal>
     </NativeModal>
-    
 )
 
 const styles = StyleSheet.create({
