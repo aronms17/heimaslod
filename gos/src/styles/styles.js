@@ -27,29 +27,6 @@ export default StyleSheet.create({
       shadowRadius: 3.84,
       elevation: 5
     },
-    sideMenu: {
-      flex:1,
-      flexDirection: 'column',
-      justifyContent: 'flex-start',
-      alignItems: 'flex-start',
-      paddingTop: 50,
-      paddingBottom: 30,
-      paddingLeft: 25
-  
-    },
-    sideMenuText: {
-      fontSize: 28,
-      fontWeight: 'bold',
-      color: 'white'
-    },
-    accordionText: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: 'white'
-    },
-    sideMenuItem: {
-      marginBottom: 30
-    },
     header: {
       width: Dimensions.get('screen').width, 
       flexDirection: 'row',

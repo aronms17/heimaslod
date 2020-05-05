@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, TouchableOpacity, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
+import sideMenuStyles from '../styles/sideMenuStyles';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
@@ -82,12 +83,16 @@ export default class streetDetailScreen extends React.Component {
 
     renderDrawer = () => {
         return (
-          <View style={styles.sideMenu}>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-              <Text style={styles.sideMenuText}>Götur og hús</Text>
+          <View style={sideMenuStyles.sideMenu}>
+            <TouchableHighlight 
+              style={sideMenuStyles.sideMenuItem}
+              onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+              <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
-                <Text style={styles.sideMenuText}>Kort</Text>
+            <TouchableHighlight 
+              style={sideMenuStyles.sideMenuItem}
+              onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
+                <Text style={sideMenuStyles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
         );
@@ -148,17 +153,7 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>Accordion test</Text>
-                    <Accordion
-                        sections={SECTIONS}
-                        activeSections={this.state.activeSections}
-                        renderSectionTitle={this._renderSectionTitle}
-                        renderHeader={this._renderHeader}
-                        renderContent={this._renderContent}
-                        onChange={this._updateSections}
-                    />
-                        
-                    
+                  <Text>-</Text>
                 </View>
                 
                 </DrawerLayout>
