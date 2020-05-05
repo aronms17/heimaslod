@@ -41,9 +41,10 @@ export default class App extends React.Component {
     houseCoordinates: [],
     streetId: 0,
     location: null,
-    errorMessage:"",
+    errorMessage: '',
     inRegion: false,
     activeSections: [],
+    burgerColor: 'black'
   };
 }
 
@@ -221,6 +222,12 @@ renderDrawer = () => {
 }
 
 changeTheme = (theme) => {
+  if(theme === "Dark" || theme === "Satellite") {
+    this.setState({burgerColor: 'white'});
+  }
+  else {
+    this.setState({burgerColor: 'black'});
+  }
   this.mapComponentRef.current.themeChange(theme);
   this.drawer.closeDrawer();
 }
@@ -259,7 +266,7 @@ changeTheme = (theme) => {
               <TouchableHighlight
                 style={styles.burger}
                 onPress={() => this.drawer.openDrawer()}>
-                  <Feather name='menu' size={40} color='white'/>
+                  <Feather name='menu' size={40} color={this.state.burgerColor}/>
               </TouchableHighlight>
             </View>
             <View>
