@@ -1,11 +1,9 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
+import sideMenuStyle from '../styles/sideMenuStyles';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import Hamburger from '../components/Hamburger';
-import CloseBurger from '../components/CloseBurger';
-import SideMenu from '../components/SideMenu';
 import ImageModal from '../components/ImageModal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
@@ -51,12 +49,14 @@ export default class houseDetailScreen extends React.Component {
 
     renderDrawer = () => {
         return (
-          <View style={styles.sideMenu}>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('allStreetScreen')}>
-              <Text style={styles.sideMenuText}>Götur og hús</Text>
+          <View style={sideMenuStyle.sideMenu}>
+            <TouchableHighlight 
+                style={sideMenuStyle.sideMenuItem}
+                onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+              <Text style={sideMenuStyle.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
-                <Text style={styles.sideMenuText}>Kort</Text>
+                <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
         );
@@ -218,28 +218,13 @@ const styles = StyleSheet.create({
 		fontSize: 16,
         color: '#fff',
     },
-    sideMenu: {
-        flex:1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        paddingTop: 50,
-        paddingBottom: 30,
-        paddingLeft: 25
-    
-      },
-      sideMenuText: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: 'white'
-      },
-      header: {
-        width: Dimensions.get('screen').width, 
-        flexDirection: 'row',
-        justifyContent: 'flex-end'
-      },
-      burger: {
-        marginTop: 40,
-        marginRight: 17
-      }
+    header: {
+      width: Dimensions.get('screen').width, 
+      flexDirection: 'row',
+      justifyContent: 'flex-end'
+    },
+    burger: {
+      marginTop: 40,
+      marginRight: 17
+    }
 });

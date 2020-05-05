@@ -2,6 +2,7 @@ import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
 import styles from '../styles/styles';
+import sideMenuStyles from '../styles/sideMenuStyles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
@@ -154,30 +155,41 @@ makeVibration() {
 
 _renderHeader = () => {
   return (
-    <Text style={styles.sideMenuText}>Kortaútlit</Text>
+    <Text style={sideMenuStyles.sideMenuText}>Kortaútlit</Text>
   );
 };
 
 _renderContent = section => {
   return (
     <>
-    <TouchableHighlight 
-      style={styles.sideMenuItem}
-      onPress={() => this.changeTheme("Dark")}>
-        <Text style={styles.accordionText}>Dark</Text>
-    </TouchableHighlight>
+    
+    <View style={{flexDirection: 'row', marginTop: 15}}>
+      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='seagreen'/>
+      <TouchableHighlight 
+        style={sideMenuStyles.sideMenuItem}
+        onPress={() => this.changeTheme("Satellite")}>
+          <Text style={sideMenuStyles.accordionText}>Loftmynd</Text>
+      </TouchableHighlight>
+    </View>
 
-    <TouchableHighlight 
-      style={styles.sideMenuItem}
-      onPress={() => this.changeTheme("Satellite")}>
-        <Text style={styles.accordionText}>Satellite</Text>
-    </TouchableHighlight>
+    <View style={{flexDirection: 'row' }}>
+      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='darkblue'/>
+      <TouchableHighlight 
+        style={sideMenuStyles.sideMenuItem}
+        onPress={() => this.changeTheme("Dark")}>
+          <Text style={sideMenuStyles.accordionText}>Dökkt</Text>
+      </TouchableHighlight>
+    </View>
 
-    <TouchableHighlight 
-      style={styles.sideMenuItem}
-      onPress={() => this.changeTheme("Light")}>
-        <Text style={styles.accordionText}>Light</Text>
-    </TouchableHighlight>
+    <View style={{flexDirection: 'row'}}>
+      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='azure'/>
+      <TouchableHighlight 
+        style={sideMenuStyles.sideMenuItem}
+        onPress={() => this.changeTheme("Light")}>
+          <Text style={sideMenuStyles.accordionText}>Ljóst</Text>
+      </TouchableHighlight>
+    </View>
+
     </>
 
   );
@@ -189,11 +201,11 @@ _updateSections = activeSections => {
 
 renderDrawer = () => {
   return (
-    <View style={styles.sideMenu}>
+    <View style={sideMenuStyles.sideMenu}>
       <TouchableHighlight 
-        style={styles.sideMenuItem}
+        style={sideMenuStyles.sideMenuItem}
         onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
-        <Text style={styles.sideMenuText}>Götur og hús</Text>
+        <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
   
       <Accordion
