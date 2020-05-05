@@ -3,7 +3,8 @@ import { Text, View, TouchableHighlight, StyleSheet, Dimensions, Button, ScrollV
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
-import CustomPolygon from '../components/CustomPolygon';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
@@ -105,7 +106,10 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Text style={styles.desc}>-</Text>
+                    
+
+
+
                     <View style={styles.onlyMap}>
                     {/* <MapView
                         style={{...StyleSheet.absoluteFillObject}}

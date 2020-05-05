@@ -5,6 +5,8 @@ import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 import { Feather } from '@expo/vector-icons';
 
 import NativeModal from 'react-native-modal';
@@ -13,6 +15,17 @@ import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
+
+const SECTIONS = [
+  {
+    title: 'First',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Second',
+    content: 'Lorem ipsum...',
+  },
+];
 export default class App extends React.Component {
 
   constructor(props) {
