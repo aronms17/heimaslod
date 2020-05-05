@@ -1,6 +1,6 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
 import styles from '../styles/styles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -22,11 +22,7 @@ const SECTIONS = [
   {
     title: 'First',
     content: 'Lorem ipsum...',
-  },
-  {
-    title: 'Second',
-    content: 'Lorem ipsum...',
-  },
+  }
 ];
 export default class App extends React.Component {
 
@@ -45,7 +41,8 @@ export default class App extends React.Component {
     streetId: 0,
     location: null,
     errorMessage:"",
-    inRegion: false
+    inRegion: false,
+    activeSections: [],
   };
 }
 
@@ -154,6 +151,32 @@ makeVibration() {
   Vibration.vibrate(7);
 }
 
+_renderHeader = () => {
+  return (
+    <Text style={styles.sideMenuText}>Kortaútlit</Text>
+  );
+};
+
+_renderContent = section => {
+  return (
+    <View style={styles.heading2}>
+      <Button
+        title="1"
+      />
+      <Button
+        title="2"
+      />
+      <Button
+        title="3"
+      />
+    </View>
+  );
+};
+
+_updateSections = activeSections => {
+  this.setState({ activeSections });
+};
+
 renderDrawer = () => {
   return (
     <View style={styles.sideMenu}>
@@ -162,11 +185,15 @@ renderDrawer = () => {
         onPress={() => this.props.navigation.navigate('allStreetScreen')}>
         <Text style={styles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
-      <TouchableHighlight 
-        style={styles.sideMenuItem}
-        onPress={() => {this.onClick(); this.drawer.closeDrawer()}}>
-          <Text style={styles.sideMenuText}>Kortaútlit</Text>
-      </TouchableHighlight>
+  
+      <Accordion
+        sections={SECTIONS}
+        activeSections={this.state.activeSections}
+        renderHeader={this._renderHeader}
+        renderContent={this._renderContent}
+        onChange={this._updateSections}
+      />
+
     </View>
   );
 }
