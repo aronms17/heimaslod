@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
-import { Feather, MaterialIcons  } from '@expo/vector-icons'
+import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 // import Streets from './../components/Streets';
 import Data from '../../script/jsonfile.json';
@@ -90,6 +90,11 @@ export default class allStreetScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
+                    <TouchableHighlight 
+                    style={{marginLeft: 20}}
+                    onPress={() => this.props.navigation.goBack()}>
+                        <Ionicons name="ios-arrow-back" size={40} color="white" />
+                    </TouchableHighlight>
                     <TouchableHighlight
                       style={styles.burger}
                       onPress={() => this.drawer.openDrawer()}>
@@ -203,7 +208,8 @@ const styles = StyleSheet.create({
       header: {
         width: Dimensions.get('screen').width, 
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
       },
       burger: {
         marginTop: 40,
