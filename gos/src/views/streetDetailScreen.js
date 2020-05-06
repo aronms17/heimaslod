@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, TouchableOpacity, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
+import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import sideMenuStyles from '../styles/sideMenuStyles';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
@@ -11,20 +11,11 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 
 const SECTIONS = [
-    {
-      title: 'First',
-      content: 'hehe',
-    },
-    {
-      title: 'Second',
-      content: 'hehe',
-    },
-    {
-      title: 'Third',
-      content: 'hehe',
-    }
-  ];
-
+  {
+    title: 'First',
+    content: 'Lorem ipsum...',
+  }
+];
 export default class streetDetailScreen extends React.Component {
     constructor() {
         super();
@@ -34,7 +25,8 @@ export default class streetDetailScreen extends React.Component {
           streetDescription: '',
           streetImages: '',
           isModalVisible: false,
-          activeSections: []
+          activeSections: [],
+          husVidGotu: []
         };
     }
 
@@ -47,9 +39,13 @@ export default class streetDetailScreen extends React.Component {
         const streetName = theStreet.name;
         const streetDescription = theStreet.text;
         const streetImages = theStreet.images;
+
+        let ollHus = Array.from(Data.hus);
+        const husVidGotu = ollHus.filter(hus => hus.streetId == streetId).sort((a,b) => (a.address > b.address) ? 1 : -1);
         
         this.setState({ streetId: streetId, 
-            streetName: streetName, streetDescription: streetDescription, streetImages: streetImages
+            streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
+            husVidGotu: husVidGotu
         });
     }
 
@@ -63,8 +59,9 @@ export default class streetDetailScreen extends React.Component {
     
     _renderHeader = section => {
       return (
-        <View>
-          <Text style={styles.headerText}>{section.title}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={{fontWeight: 'bold', color: 'white', marginRight: 5}}>Sjá hús við götu</Text>
+          <Feather name='arrow-down-circle' size={18} color='white'/>
         </View>
       );
     };
@@ -72,7 +69,17 @@ export default class streetDetailScreen extends React.Component {
     _renderContent = section => {
       return (
         <View>
-          <Text>{section.content}</Text>
+          <FlatList
+            data={this.state.husVidGotu}
+            renderItem={({item}) => (
+            <TouchableHighlight
+              onPress={() => this.navigateHouse(item.id)}
+            >
+              <Text style={styles.desc}>{item.address}</Text>
+            </TouchableHighlight>
+            )}
+            keyExtractor={item => item.id}
+          />
         </View>
       );
     };
@@ -80,6 +87,14 @@ export default class streetDetailScreen extends React.Component {
     _updateSections = activeSections => {
       this.setState({ activeSections });
     };
+
+    navigateHouse(houseId) {
+      console.log('houseid:', houseId);
+      console.log('streetdetail navigate to housedetail');
+      //this.props.navigation.navigate('houseDetailScreen', {
+      //  houseId
+      //});
+    }
 
     renderDrawer = () => {
         return (
@@ -99,7 +114,7 @@ export default class streetDetailScreen extends React.Component {
     }
 
     render() {
-        const { streetName, streetDescription, streetImages, activeSections } = this.state;
+        const { streetName, streetDescription, streetImages } = this.state;
         const img = Array.from(streetImages);
         return(
             <View style={styles.container}>
@@ -147,14 +162,24 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.descriptionContainer}>
-                <ScrollView>
-                <Text style={styles.desc}>{streetDescription}</Text>
-                </ScrollView>
+                  <ScrollView>
+                    <Text style={styles.desc}>{streetDescription}</Text>
+                  </ScrollView>
+                  <View style={{marginBottom: 10}}>
+                    <Accordion
+                        sections={SECTIONS}
+                        activeSections={this.state.activeSections}
+                        renderHeader={this._renderHeader}
+                        renderContent={this._renderContent}
+                        onChange={this._updateSections}
+                    />
+                  </View>
+                </View>
+
+                <View style={styles.bottomContainer}>
+    
                 </View>
                 
-                <View style={styles.bottomContainer}>
-                  <Text>-</Text>
-                </View>
                 
                 </DrawerLayout>
 
