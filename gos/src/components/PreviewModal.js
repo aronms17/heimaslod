@@ -18,6 +18,8 @@ const PreviewModal = (props) => (
       <View style={styles.modalView}>
         <View style={styles.modalHeader}>
             <TouchableHighlight
+              underlayColor='transparent'
+              activeOpacity={0.5}
               onPress = { () => props.closeDisplay()}>
               <Feather name='x-circle' size={30} color='tomato'/>
             </TouchableHighlight>  

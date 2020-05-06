@@ -2,6 +2,7 @@ import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
 import styles from '../styles/styles';
+import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -167,6 +168,8 @@ _renderContent = section => {
     <View style={{flexDirection: 'row', marginTop: 15}}>
       <Foundation style={{marginRight: 10}} name="map" size={24} color="seagreen" />
       <TouchableHighlight 
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Satellite")}>
           <Text style={sideMenuStyles.accordionText}>Loftmynd</Text>
@@ -175,7 +178,9 @@ _renderContent = section => {
 
     <View style={{flexDirection: 'row' }}>
       <Foundation style={{marginRight: 10}} name='map' size={24} color='darkblue'/>
-      <TouchableHighlight 
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Dark")}>
           <Text style={sideMenuStyles.accordionText}>Dökkt</Text>
@@ -184,7 +189,9 @@ _renderContent = section => {
 
     <View style={{flexDirection: 'row'}}>
       <Foundation style={{marginRight: 10}} name='map' size={24} color='azure'/>
-      <TouchableHighlight 
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Light")}>
           <Text style={sideMenuStyles.accordionText}>Ljóst</Text>
@@ -203,13 +210,17 @@ _updateSections = activeSections => {
 renderDrawer = () => {
   return (
     <View style={sideMenuStyles.sideMenu}>
-      <TouchableHighlight 
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti} 
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
   
       <Accordion
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         sections={SECTIONS}
         activeSections={this.state.activeSections}
         renderHeader={this._renderHeader}
@@ -264,9 +275,11 @@ changeTheme = (theme) => {
             
             <View style={styles.header}>
               <TouchableHighlight
+                underlayColor='transparent'
+                activeOpacity={0.5}
                 style={styles.burger}
                 onPress={() => this.drawer.openDrawer()}>
-                  <Feather name='menu' size={40} color={this.state.burgerColor}/>
+                <Feather name='menu' size={40} color={this.state.burgerColor}/>
               </TouchableHighlight>
             </View>
             <View>

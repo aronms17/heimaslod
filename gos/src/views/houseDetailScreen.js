@@ -5,8 +5,9 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ImageModal from '../components/ImageModal';
-import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
+import { Feather, MaterialIcons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
+import colors from '../styles/colors';
 export default class houseDetailScreen extends React.Component {
     constructor() {
         super();
@@ -50,17 +51,22 @@ export default class houseDetailScreen extends React.Component {
     renderDrawer = () => {
         return (
           <View style={sideMenuStyle.sideMenu}>
-            <TouchableHighlight 
+            <TouchableHighlight
+                underlayColor={colors.okkarSvarti}
+                activeOpacity={0.5}
                 style={sideMenuStyle.sideMenuItem}
                 onPress={() => this.props.navigation.navigate('allStreetScreen')}>
               <Text style={sideMenuStyle.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
+            <TouchableHighlight 
+                underlayColor={colors.okkarSvarti}
+                activeOpacity={0.5}
+                onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();}}>
                 <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
         );
-      }
+    }
 
     zoomTohouse() {
         let houseRegion = {
@@ -97,14 +103,11 @@ export default class houseDetailScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
-                    <TouchableHighlight 
-                    style={{marginLeft: 20}}
-                    onPress={() => this.props.navigation.goBack()}>
-                        <Ionicons name="ios-arrow-back" size={40} color="white" />
-                    </TouchableHighlight>
                     <TouchableHighlight
-                      style={styles.burger}
-                      onPress={() => this.drawer.openDrawer()}>
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={styles.burger}
+                        onPress={() => this.drawer.openDrawer()}>
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
@@ -226,8 +229,7 @@ const styles = StyleSheet.create({
     header: {
       width: Dimensions.get('screen').width, 
       flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
+      justifyContent: 'flex-end'
     },
     burger: {
       marginTop: 40,

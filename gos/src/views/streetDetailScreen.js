@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import sideMenuStyles from '../styles/sideMenuStyles';
+import colors from '../styles/colors';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
@@ -79,6 +80,8 @@ export default class streetDetailScreen extends React.Component {
             data={this.state.husVidGotu}
             renderItem={({item}) => (
             <TouchableHighlight
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
               onPress={() => this.navigateHouse(item.id) }
             >
               <Text style={styles.desc}>{item.address}</Text>
@@ -97,12 +100,16 @@ export default class streetDetailScreen extends React.Component {
     renderDrawer = () => {
         return (
           <View style={sideMenuStyles.sideMenu}>
-            <TouchableHighlight 
+            <TouchableHighlight
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
               onPress={() => this.props.navigation.navigate('allStreetScreen')}>
               <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
-            <TouchableHighlight 
+            <TouchableHighlight
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
               onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
                 <Text style={sideMenuStyles.sideMenuText}>Kort</Text>
@@ -132,12 +139,16 @@ export default class streetDetailScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
-                      <TouchableHighlight 
-                      style={{marginLeft: 20}}
-                      onPress={() => this.props.navigation.goBack()}>
+                      <TouchableHighlight
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={{marginLeft: 20}}
+                        onPress={() => this.props.navigation.goBack()}>
                         <Ionicons name="ios-arrow-back" size={40} color="white" />
                     </TouchableHighlight>
                     <TouchableHighlight
+                      underlayColor={colors.okkarSvarti}
+                      activeOpacity={0.5}
                       style={styles.burger}
                       onPress={() => this.drawer.openDrawer()}>
                         <Feather name='menu' size={40} color='white'/>
@@ -170,6 +181,8 @@ export default class streetDetailScreen extends React.Component {
                   </ScrollView>
                   <View style={{marginBottom: 10}}>
                     <Accordion
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
                         sections={SECTIONS}
                         activeSections={this.state.activeSections}
                         renderHeader={this._renderHeader}
