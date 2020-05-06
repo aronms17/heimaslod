@@ -152,7 +152,7 @@ houseDeselect() {
           onMapReady={() => this.setState({mapLoaded: true})}
           >
 
-          {/* <Marker coordinate={hr}><Text>🎓🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️🧞‍♂️</Text></Marker> */}
+          {/* <Marker coordinate={hr}><Text>🎓</Text></Marker> */}
 
           {/* Polygonarnir */} 
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
