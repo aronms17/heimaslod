@@ -7,7 +7,7 @@ import Gallery from 'react-native-image-gallery';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import { Feather } from '@expo/vector-icons'
+import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 
 const SECTIONS = [
@@ -132,6 +132,11 @@ export default class streetDetailScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
+                      <TouchableHighlight 
+                      style={{marginLeft: 20}}
+                      onPress={() => this.props.navigation.goBack()}>
+                        <Ionicons name="ios-arrow-back" size={40} color="white" />
+                    </TouchableHighlight>
                     <TouchableHighlight
                       style={styles.burger}
                       onPress={() => this.drawer.openDrawer()}>
@@ -254,7 +259,8 @@ const styles = StyleSheet.create({
       header: {
         width: Dimensions.get('screen').width, 
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
       },
       burger: {
         marginTop: 40,
