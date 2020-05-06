@@ -7,7 +7,7 @@ import Gallery from 'react-native-image-gallery';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import { Feather, MaterialIcons  } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 
 const SECTIONS = [
@@ -49,6 +49,12 @@ export default class streetDetailScreen extends React.Component {
         });
     }
 
+    navigateHouse(houseId) {
+      this.props.navigation.navigate('houseDetailScreen', {
+          houseId
+        });
+    }
+
     _renderSectionTitle = section => {
         return (
           <View>
@@ -73,7 +79,7 @@ export default class streetDetailScreen extends React.Component {
             data={this.state.husVidGotu}
             renderItem={({item}) => (
             <TouchableHighlight
-              onPress={() => this.navigateHouse(item.id)}
+              onPress={() => this.navigateHouse(item.id) }
             >
               <Text style={styles.desc}>{item.address}</Text>
             </TouchableHighlight>
@@ -87,14 +93,6 @@ export default class streetDetailScreen extends React.Component {
     _updateSections = activeSections => {
       this.setState({ activeSections });
     };
-
-    navigateHouse(houseId) {
-      console.log('houseid:', houseId);
-      console.log('streetdetail navigate to housedetail');
-      //this.props.navigation.navigate('houseDetailScreen', {
-      //  houseId
-      //});
-    }
 
     renderDrawer = () => {
         return (

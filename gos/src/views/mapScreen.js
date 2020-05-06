@@ -9,7 +9,7 @@ import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather } from '@expo/vector-icons';
+import { Feather, Foundation } from '@expo/vector-icons';
 
 
 import NativeModal from 'react-native-modal';
@@ -165,7 +165,7 @@ _renderContent = section => {
     <>
     
     <View style={{flexDirection: 'row', marginTop: 15}}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='seagreen'/>
+      <Foundation style={{marginRight: 10}} name="map" size={24} color="seagreen" />
       <TouchableHighlight 
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Satellite")}>
@@ -174,7 +174,7 @@ _renderContent = section => {
     </View>
 
     <View style={{flexDirection: 'row' }}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='darkblue'/>
+      <Foundation style={{marginRight: 10}} name='map' size={24} color='darkblue'/>
       <TouchableHighlight 
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Dark")}>
@@ -183,7 +183,7 @@ _renderContent = section => {
     </View>
 
     <View style={{flexDirection: 'row'}}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='azure'/>
+      <Foundation style={{marginRight: 10}} name='map' size={24} color='azure'/>
       <TouchableHighlight 
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Light")}>
