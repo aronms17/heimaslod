@@ -102,7 +102,7 @@ export default class allStreetScreen extends React.Component {
                     <TextInput
                         style={{height: 40, fontSize: 20, color: 'white'}}
                         autoCorrect={false}
-                        placeholder="Search"
+                        placeholder="Leita"
                         placeholderTextColor="white"
                         onChangeText={value => this.search(value)}
                         />

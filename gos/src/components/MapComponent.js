@@ -134,6 +134,19 @@ houseDeselect() {
 //   console.log(result);
 // }
 
+zoomToHraun() {
+  let houseRegion = {
+      latitude: 63.440421,
+      longitude: -20.260245,
+      latitudeDelta: 0.0140,
+      longitudeDelta: 0.0140,
+    }
+    if(this.mapViewRef.current) {
+      this.mapViewRef.current.animateToRegion(houseRegion, 3000)
+      
+    }
+}
+
   render() {
   
     const {goturColor, husColor, selectedColor} = this.state;
@@ -149,7 +162,7 @@ houseDeselect() {
           provider={"google"}
           customMapStyle={this.state.theme}
           initialRegion={this.state.region}
-          onMapReady={() => this.setState({mapLoaded: true})}
+          onMapReady={() => {this.zoomToHraun(); this.setState({mapLoaded: true})}}
           >
 
           {/* <Marker coordinate={hr}><Text>🎓</Text></Marker> */}
