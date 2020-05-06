@@ -115,7 +115,7 @@ export default class SearchBar extends React.Component {
                         <TextInput
                         ref={ component => _textInput = component}
                         autoCorrect={false}
-                        placeholder="Search"
+                        placeholder="Leita"
                         placeholderTextColor='white'
                         style={ styles.searchInput }
                         // style={{backgroundColor: 'grey', color: 'white'}}
@@ -123,7 +123,7 @@ export default class SearchBar extends React.Component {
                         onTouchStart={this._moveUpAnimation}
                         />
                         <TouchableHighlight style={styles.cancel} onPress={this._moveDownAnimation}>
-                            <Text style={{fontSize: 20}}>Cancel</Text>
+                            <Text style={{fontSize: 20}}>Hætta</Text>
                         </TouchableHighlight>
 
                     </View>
@@ -148,11 +148,16 @@ export default class SearchBar extends React.Component {
                                 sections={this.state.sectionHouses}
                                 keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={({item}) => 
-                                    <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
-                                        {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                                        {(item.color === 'red') ? <FontAwesome5 name='house-damage' size={30} color='lightblue'/> : <Feather name='align-justify' size={30} color='tomato'/>}
-                                        <Text style={{fontSize: 20}}>{item.address}</Text>
-                                        <Text numberOfLines={1} >{item.text}</Text>
+                                    <TouchableOpacity style={{margin: 1, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
+                                        {(item.color === 'red') ? 
+                                        <FontAwesome5 style={{flex: 1}} name='house-damage' size={30} color='lightblue'/> 
+                                        : 
+                                        <Feather style={{flex: 1}} name='align-justify' size={30} color='tomato'/>}
+                                        <View style={{margin: 1, flex: 8}} onPress={() => this.previewHouse(item)}>
+                                            {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
+                                            <Text style={{fontSize: 20}}>{item.address}</Text>
+                                            <Text numberOfLines={1} >{item.text}</Text>
+                                        </View>
                                     </TouchableOpacity>
                                 }
                                 renderSectionHeader={({ section }) => (
@@ -163,10 +168,16 @@ export default class SearchBar extends React.Component {
                                         data={this.state.searchHistory}
                                         ListHeaderComponent={this.state.searchHistory.length > 0 ? <Text style={{color: 'grey'}}>Leitarsaga:</Text> : <></>}
                                         renderItem={({item}) => (
-                                            <TouchableOpacity style={{margin: 1}} onPress={() => this.previewHouse(item)}>
-                                                {(item.color === 'red') ? <FontAwesome5 name='house-damage' size={30} color='lightblue'/> : <Feather name='align-justify' size={30} color='tomato'/>}
-                                                <Text style={{fontSize: 20}}>{item.address}</Text>
-                                                <Text numberOfLines={1} >{item.text}</Text>
+                                            <TouchableOpacity style={{margin: 1, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
+                                                {(item.color === 'red') ? 
+                                                <FontAwesome5 style={{flex: 1}} name='house-damage' size={30} color='lightblue'/> 
+                                                : 
+                                                <Feather style={{flex: 1}} name='align-justify' size={30} color='tomato'/>}
+                                                <View style={{margin: 1, flex: 8}} onPress={() => this.previewHouse(item)}>
+                                                    {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
+                                                    <Text style={{fontSize: 20}}>{item.address}</Text>
+                                                    <Text numberOfLines={1} >{item.text}</Text>
+                                                </View>
                                             </TouchableOpacity>
                                         )}
                                         keyExtractor={(item) => item.id.toString()}
