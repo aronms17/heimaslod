@@ -87,31 +87,13 @@ componentDidMount() {
   });
   this.themeChange();
   // this.getLocationAsync();
+
+  // afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
   this.mapViewRef.current.setMapBoundaries(
     { latitude: 63.472856, longitude: -20.170407 },
     { latitude: 63.378312, longitude: -20.385005 }
   );
 }
-
-// getLocationAsync = async () => {
-//   let { status } = await Permissions.askAsync(Permissions.LOCATION);
-//   if (status !== 'granted') {
-//     this.setState({
-//       errorMessage: 'Permission to access location was denied',
-//     });
-//   }
-
-//   let location = await Location.getCurrentPositionAsync();
-//   let { latitude , longitude } = location.coords
-//   // this.getGeocodeAsync({latitude, longitude})
-//   this.setState({ location: {latitude, longitude}});
-// };
-
-// // GeoCode, þurfum ekki endilega
-// getGeocodeAsync= async (location) => {
-//   let geocode = await Location.reverseGeocodeAsync(location)
-//   this.setState({ geocode})
-// }
 
 themeChange(theme) {
   if(theme === 'Dark') {
@@ -156,12 +138,11 @@ zoomToHraun() {
       longitudeDelta: 0.0140,
     }
     if(this.mapViewRef.current) {
-      this.mapViewRef.current.animateToRegion(houseRegion, 3000)
-      
+      this.mapViewRef.current.animateToRegion(houseRegion, 3000) 
     }
 }
 
-  render() {
+render() {
   
   const {goturColor, husColor, selectedColor} = this.state;
 

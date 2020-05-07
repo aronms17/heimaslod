@@ -15,8 +15,10 @@ export default StyleSheet.create({
       sideMenuItem: {
         marginBottom: 30
       },
+      sideMenuMiddleItem: {
+        marginBottom: 300
+      },
       sideMenuBottomItem: {
-        marginTop: 400,
         flexDirection: 'row',
       },
       sideMenuText: {

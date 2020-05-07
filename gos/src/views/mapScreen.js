@@ -10,7 +10,7 @@ import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather, Foundation, AntDesign } from '@expo/vector-icons';
+import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
 
 
 import NativeModal from 'react-native-modal';
@@ -19,6 +19,11 @@ import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
+
+// Afmörkun:
+// northEast: 63.472856, -20.170407
+// southWest: 63.378312, -20.385005
+
 
 const SECTIONS = [
   {
@@ -202,16 +207,18 @@ renderDrawer = () => {
         onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
-  
-      <Accordion
-        underlayColor={colors.okkarSvarti}
-        activeOpacity={0.5}
-        sections={SECTIONS}
-        activeSections={this.state.activeSections}
-        renderHeader={this._renderHeader}
-        renderContent={this._renderContent}
-        onChange={this._updateSections}
-      />
+
+      <View style={sideMenuStyles.sideMenuMiddleItem}>
+        <Accordion
+          underlayColor={colors.okkarSvarti}
+          activeOpacity={0.5}
+          sections={SECTIONS}
+          activeSections={this.state.activeSections}
+          renderHeader={this._renderHeader}
+          renderContent={this._renderContent}
+          onChange={this._updateSections}
+        />
+      </View>
 
       <View style={sideMenuStyles.sideMenuBottomItem}>
         <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
@@ -264,6 +271,17 @@ changeTheme = (theme) => {
           <View pointerEvents="box-none" style={styles.components}>
             
             <View style={styles.header}>
+
+              <View>
+              <TouchableHighlight
+                underlayColor='transparent'
+                activeOpacity={0.5}
+                style={styles.leftBurger}
+                onPress={() => console.log('left burger')}>
+                <MaterialIcons name='my-location' size={35} color={this.state.burgerColor}/>
+              </TouchableHighlight>
+              </View>
+              
               <TouchableHighlight
                 underlayColor='transparent'
                 activeOpacity={0.5}

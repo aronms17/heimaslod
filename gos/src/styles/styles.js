@@ -35,5 +35,9 @@ export default StyleSheet.create({
     burger: {
       marginTop: 40,
       marginRight: 17,
+    },
+    leftBurger: {
+      marginTop: 43,
+      marginRight: 7
     }
   });
