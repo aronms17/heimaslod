@@ -2,6 +2,7 @@ import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
 import styles from '../styles/styles';
+import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -9,7 +10,7 @@ import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather } from '@expo/vector-icons';
+import { Feather, Foundation, AntDesign } from '@expo/vector-icons';
 
 
 import NativeModal from 'react-native-modal';
@@ -70,40 +71,25 @@ getLocationAsync = async () => {
     });
   }
 
-  const taskName = "eski";
-  const hr = { identifier: "HR", latitude: 64.124182, longitude: -21.927272 };
-  const landspitali = { identifier: "10", latitude: 64.123514, longitude: -21.884149 }; 
-  const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
-  const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
-  const wurth = { latitude: 64.102430, longitude: -21.778329 };
-  const radius = 5000;
+  const taskName = "fencing";
+  const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
+  const radius = 500;
 
   Location.startGeofencingAsync(taskName, [
     {
-      ...hr,
+      ...nyjaHraun,
       radius
-    },
-    {
-      ...bildshofdi,
-      radius
-    },
-    {
-      ...reynisvegur,
-      radius
-    },
-    {
-      ...wurth,
-      radius
-    },
+    }
   ]);
 
   TaskManager.defineTask(taskName, task => {
     if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      console.log("Mættir á punkt");
+      console.log("Nálægt hrauni");
       console.log(task.data);
       this.setState({inRegion: true});
     }
     if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      Location.stopGeofencingAsync(taskName)
       console.log("Farnir úr punkti");
       this.setState({inRegion: false});
     }
@@ -165,8 +151,10 @@ _renderContent = section => {
     <>
     
     <View style={{flexDirection: 'row', marginTop: 15}}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='seagreen'/>
+      <Foundation style={{marginRight: 10}} name="map" size={24} color="seagreen" />
       <TouchableHighlight 
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Satellite")}>
           <Text style={sideMenuStyles.accordionText}>Loftmynd</Text>
@@ -174,8 +162,10 @@ _renderContent = section => {
     </View>
 
     <View style={{flexDirection: 'row' }}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='darkblue'/>
-      <TouchableHighlight 
+      <Foundation style={{marginRight: 10}} name='map' size={24} color='darkblue'/>
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Dark")}>
           <Text style={sideMenuStyles.accordionText}>Dökkt</Text>
@@ -183,8 +173,10 @@ _renderContent = section => {
     </View>
 
     <View style={{flexDirection: 'row'}}>
-      <Feather style={{marginRight: 10}} name='map-pin' size={20} color='azure'/>
-      <TouchableHighlight 
+      <Foundation style={{marginRight: 10}} name='map' size={24} color='azure'/>
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Light")}>
           <Text style={sideMenuStyles.accordionText}>Ljóst</Text>
@@ -203,19 +195,28 @@ _updateSections = activeSections => {
 renderDrawer = () => {
   return (
     <View style={sideMenuStyles.sideMenu}>
-      <TouchableHighlight 
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti} 
+        activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
   
       <Accordion
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
         sections={SECTIONS}
         activeSections={this.state.activeSections}
         renderHeader={this._renderHeader}
         renderContent={this._renderContent}
         onChange={this._updateSections}
       />
+
+      <View style={sideMenuStyles.sideMenuBottomItem}>
+        <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
+        <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
+      </View>
 
     </View>
   );
@@ -264,9 +265,11 @@ changeTheme = (theme) => {
             
             <View style={styles.header}>
               <TouchableHighlight
+                underlayColor='transparent'
+                activeOpacity={0.5}
                 style={styles.burger}
                 onPress={() => this.drawer.openDrawer()}>
-                  <Feather name='menu' size={40} color={this.state.burgerColor}/>
+                <Feather name='menu' size={40} color={this.state.burgerColor}/>
               </TouchableHighlight>
             </View>
             <View>

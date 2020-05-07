@@ -12,17 +12,26 @@ export default StyleSheet.create({
         paddingLeft: 25
     
       },
+      sideMenuItem: {
+        marginBottom: 30
+      },
+      sideMenuBottomItem: {
+        marginTop: 400,
+        flexDirection: 'row',
+      },
       sideMenuText: {
         fontSize: 28,
         fontWeight: 'bold',
+        color: 'white',
+        marginRight: 3
+      },
+      sideMenuBottomText: {
+        fontSize: 20,
         color: 'white'
       },
       accordionText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white'
-      },
-      sideMenuItem: {
-        marginBottom: 30
-      },
+      }
 });

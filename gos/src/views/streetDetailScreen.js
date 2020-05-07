@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import sideMenuStyles from '../styles/sideMenuStyles';
+import colors from '../styles/colors';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import Gallery from 'react-native-image-gallery';
@@ -32,7 +33,6 @@ export default class streetDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        console.log('navigation params: ', navigation.state.params);
         const { streetId } = navigation.state.params;
         const allarGotur = Array.from(Data.gotur);
         const theStreet = allarGotur.find(({ id }) => id === streetId);
@@ -46,6 +46,12 @@ export default class streetDetailScreen extends React.Component {
         this.setState({ streetId: streetId, 
             streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
             husVidGotu: husVidGotu
+        });
+    }
+
+    navigateHouse(houseId) {
+      this.props.navigation.navigate('houseDetailScreen', {
+          houseId
         });
     }
 
@@ -73,7 +79,9 @@ export default class streetDetailScreen extends React.Component {
             data={this.state.husVidGotu}
             renderItem={({item}) => (
             <TouchableHighlight
-              onPress={() => this.navigateHouse(item.id)}
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
+              onPress={() => this.navigateHouse(item.id) }
             >
               <Text style={styles.desc}>{item.address}</Text>
             </TouchableHighlight>
@@ -88,23 +96,19 @@ export default class streetDetailScreen extends React.Component {
       this.setState({ activeSections });
     };
 
-    navigateHouse(houseId) {
-      console.log('houseid:', houseId);
-      console.log('streetdetail navigate to housedetail');
-      //this.props.navigation.navigate('houseDetailScreen', {
-      //  houseId
-      //});
-    }
-
     renderDrawer = () => {
         return (
           <View style={sideMenuStyles.sideMenu}>
-            <TouchableHighlight 
+            <TouchableHighlight
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
               onPress={() => this.props.navigation.navigate('allStreetScreen')}>
               <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
-            <TouchableHighlight 
+            <TouchableHighlight
+              underlayColor={colors.okkarSvarti}
+              activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
               onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
                 <Text style={sideMenuStyles.sideMenuText}>Kort</Text>
@@ -134,12 +138,16 @@ export default class streetDetailScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
-                      <TouchableHighlight 
-                      style={{marginLeft: 20}}
-                      onPress={() => this.props.navigation.goBack()}>
+                      <TouchableHighlight
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={{marginLeft: 20}}
+                        onPress={() => this.props.navigation.goBack()}>
                         <Ionicons name="ios-arrow-back" size={40} color="white" />
                     </TouchableHighlight>
                     <TouchableHighlight
+                      underlayColor={colors.okkarSvarti}
+                      activeOpacity={0.5}
                       style={styles.burger}
                       onPress={() => this.drawer.openDrawer()}>
                         <Feather name='menu' size={40} color='white'/>
@@ -172,6 +180,8 @@ export default class streetDetailScreen extends React.Component {
                   </ScrollView>
                   <View style={{marginBottom: 10}}>
                     <Accordion
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
                         sections={SECTIONS}
                         activeSections={this.state.activeSections}
                         renderHeader={this._renderHeader}
@@ -195,77 +205,62 @@ export default class streetDetailScreen extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-        flex: 1,
-        backgroundColor: '#1D1B1B',
-        justifyContent: 'center'
+    flex: 1,
+    backgroundColor: '#1D1B1B',
+    justifyContent: 'center'
         
 	},
 	headerContainer: {
-        flex: 2,
-        flexDirection: 'row',
+    flex: 2,
+    flexDirection: 'row',
 		alignItems: 'center',
-        justifyContent: 'center',
+    justifyContent: 'center',
     },
-    galleryContainer: {
-        flex: 3,
-    },
-    descriptionContainer: {
-        flex: 4,
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    bottomContainer: {
-        flex: 5,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    bottomItems: {
-        marginRight: 10
-    },
-    onlyMap: {
-        ...StyleSheet.absoluteFillObject,
-        width: 230,
-        height: 150,
-        marginTop: 15,
-        marginLeft: 15,
-        marginRight: 15,
-        position: 'relative'
-    },
+  galleryContainer: {
+    flex: 3,
+  },
+  descriptionContainer: {
+    flex: 4,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  bottomContainer: {
+    flex: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  bottomItems: {
+    marginRight: 10
+  },
+  onlyMap: {
+    ...StyleSheet.absoluteFillObject,
+    width: 230,
+    height: 150,
+    marginTop: 15,
+    marginLeft: 15,
+    marginRight: 15,
+    position: 'relative'
+  },
 	name: {
-        fontSize: 36,
-        fontWeight: 'bold',
+    fontSize: 36,
+    fontWeight: 'bold',
 		color: '#fff'
-    },
-    desc: {
-		fontSize: 16,
-        color: '#fff',
-    },
-    sideMenu: {
-        flex:1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        paddingTop: 50,
-        paddingBottom: 30,
-        paddingLeft: 25
-    
-      },
-      sideMenuText: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: 'white'
-      },
-      header: {
-        width: Dimensions.get('screen').width, 
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-      },
-      burger: {
-        marginTop: 40,
-        marginRight: 17
-      }
+  },
+  desc: {
+	  fontSize: 16,
+    color: '#fff',
+  },
+  header: {
+    width: Dimensions.get('screen').width, 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  burger: {
+    marginTop: 40,
+    marginRight: 17
+  }
 });

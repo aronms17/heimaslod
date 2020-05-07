@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import colors from '../styles/colors';
 // import Streets from './../components/Streets';
 import Data from '../../script/jsonfile.json';
 import { TextInput } from 'react-native-gesture-handler';
@@ -39,7 +40,6 @@ export default class allStreetScreen extends React.Component {
     }
 
     search = input => {
-        console.log(input);
         const housesFiltered = this.state.inMemoryHouses.filter(house => {
             let houseLower = house.address.toLowerCase();
             let inputLower = input.toLowerCase();
@@ -67,7 +67,10 @@ export default class allStreetScreen extends React.Component {
     renderDrawer = () => {
         return (
           <View style={styles.sideMenu}>
-            <TouchableHighlight onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
+            <TouchableHighlight
+                underlayColor={colors.okkarSvarti}
+                activeOpacity={0.5}
+                onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
@@ -90,14 +93,18 @@ export default class allStreetScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
-                    <TouchableHighlight 
-                    style={{marginLeft: 20}}
-                    onPress={() => this.props.navigation.goBack()}>
+                    <TouchableHighlight
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={{marginLeft: 20}}
+                        onPress={() => this.props.navigation.goBack()}>
                         <Ionicons name="ios-arrow-back" size={40} color="white" />
                     </TouchableHighlight>
                     <TouchableHighlight
-                      style={styles.burger}
-                      onPress={() => this.drawer.openDrawer()}>
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={styles.burger}
+                        onPress={() => this.drawer.openDrawer()}>
                         <Feather name='menu' size={40} color='white'/>
                     </TouchableHighlight>
                 </View>
