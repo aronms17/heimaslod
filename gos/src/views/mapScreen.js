@@ -71,40 +71,25 @@ getLocationAsync = async () => {
     });
   }
 
-  const taskName = "eski";
-  const hr = { identifier: "HR", latitude: 64.124182, longitude: -21.927272 };
-  const landspitali = { identifier: "10", latitude: 64.123514, longitude: -21.884149 }; 
-  const bildshofdi = { latitude: 64.123977, longitude: -21.829508 }; 
-  const reynisvegur = { latitude: 64.130037, longitude: -21.747398 };
-  const wurth = { latitude: 64.102430, longitude: -21.778329 };
-  const radius = 5000;
+  const taskName = "fencing";
+  const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
+  const radius = 500;
 
   Location.startGeofencingAsync(taskName, [
     {
-      ...hr,
+      ...nyjaHraun,
       radius
-    },
-    {
-      ...bildshofdi,
-      radius
-    },
-    {
-      ...reynisvegur,
-      radius
-    },
-    {
-      ...wurth,
-      radius
-    },
+    }
   ]);
 
   TaskManager.defineTask(taskName, task => {
     if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      console.log("Mættir á punkt");
+      console.log("Nálægt hrauni");
       console.log(task.data);
       this.setState({inRegion: true});
     }
     if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      Location.stopGeofencingAsync(taskName)
       console.log("Farnir úr punkti");
       this.setState({inRegion: false});
     }
@@ -227,6 +212,10 @@ renderDrawer = () => {
         renderContent={this._renderContent}
         onChange={this._updateSections}
       />
+
+      <View style={sideMenuStyles.sideMenuBottomItem}>
+        <Text style={sideMenuStyles.sideMenuText}>Gosar ehf</Text>
+      </View>
 
     </View>
   );

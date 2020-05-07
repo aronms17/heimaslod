@@ -33,7 +33,6 @@ export default class streetDetailScreen extends React.Component {
 
     componentDidMount() {
         const { navigation } = this.props;
-        console.log('navigation params: ', navigation.state.params);
         const { streetId } = navigation.state.params;
         const allarGotur = Array.from(Data.gotur);
         const theStreet = allarGotur.find(({ id }) => id === streetId);
@@ -206,77 +205,62 @@ export default class streetDetailScreen extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-        flex: 1,
-        backgroundColor: '#1D1B1B',
-        justifyContent: 'center'
+    flex: 1,
+    backgroundColor: '#1D1B1B',
+    justifyContent: 'center'
         
 	},
 	headerContainer: {
-        flex: 2,
-        flexDirection: 'row',
+    flex: 2,
+    flexDirection: 'row',
 		alignItems: 'center',
-        justifyContent: 'center',
+    justifyContent: 'center',
     },
-    galleryContainer: {
-        flex: 3,
-    },
-    descriptionContainer: {
-        flex: 4,
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    bottomContainer: {
-        flex: 5,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    bottomItems: {
-        marginRight: 10
-    },
-    onlyMap: {
-        ...StyleSheet.absoluteFillObject,
-        width: 230,
-        height: 150,
-        marginTop: 15,
-        marginLeft: 15,
-        marginRight: 15,
-        position: 'relative'
-    },
+  galleryContainer: {
+    flex: 3,
+  },
+  descriptionContainer: {
+    flex: 4,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  bottomContainer: {
+    flex: 5,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  bottomItems: {
+    marginRight: 10
+  },
+  onlyMap: {
+    ...StyleSheet.absoluteFillObject,
+    width: 230,
+    height: 150,
+    marginTop: 15,
+    marginLeft: 15,
+    marginRight: 15,
+    position: 'relative'
+  },
 	name: {
-        fontSize: 36,
-        fontWeight: 'bold',
+    fontSize: 36,
+    fontWeight: 'bold',
 		color: '#fff'
-    },
-    desc: {
-		fontSize: 16,
-        color: '#fff',
-    },
-    sideMenu: {
-        flex:1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        paddingTop: 50,
-        paddingBottom: 30,
-        paddingLeft: 25
-    
-      },
-      sideMenuText: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: 'white'
-      },
-      header: {
-        width: Dimensions.get('screen').width, 
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-      },
-      burger: {
-        marginTop: 40,
-        marginRight: 17
-      }
+  },
+  desc: {
+	  fontSize: 16,
+    color: '#fff',
+  },
+  header: {
+    width: Dimensions.get('screen').width, 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  burger: {
+    marginTop: 40,
+    marginRight: 17
+  }
 });
