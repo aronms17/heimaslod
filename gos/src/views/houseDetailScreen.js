@@ -46,6 +46,11 @@ export default class houseDetailScreen extends React.Component {
             streetName: streetName
         });
 
+          // afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
+        // this.mapViewRef.current.setMapBoundaries(
+            // { latitude: houseCoordinates[0].latitude, longitude: houseCoordinates[0].longitude },
+            // { latitude: houseCoordinates[0].latitude+0.001, longitude: houseCoordinates[0].longitude+0.001});
+
     }
 
     renderDrawer = () => {

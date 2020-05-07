@@ -16,10 +16,6 @@ import * as Permissions from 'expo-permissions';
 // northEast: 63.472856, -20.170407
 // southWest: 63.378312, -20.385005
 
-const boundaries = {
-  northEast: [63.472856, -20.170407],
-  southWest: [63.378312, -20.385005]
-}
 
 const initialRegion = {
   latitude: 63.4347866,
@@ -41,6 +37,7 @@ export default class MapComponent extends React.Component {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
+    location: null,
     theme: null,
     satellite: false,
     selectedId: null,
@@ -80,20 +77,64 @@ export default class MapComponent extends React.Component {
 }
 
 componentDidMount() {
+  this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
     selectedColor: '#33BDFF',
   });
   this.themeChange();
-  // this.getLocationAsync();
 
   // afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
-  this.mapViewRef.current.setMapBoundaries(
-    { latitude: 63.472856, longitude: -20.170407 },
-    { latitude: 63.378312, longitude: -20.385005 }
-  );
+  // this.mapViewRef.current.setMapBoundaries(
+    // { latitude: 63.472856, longitude: -20.170407 },
+    // { latitude: 63.378312, longitude: -20.385005 }
+  // );
 }
+
+getLocationAsync = async () => {
+  console.log('Getting location...');
+  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    this.setState({
+      errorMessage: 'Permission to access location was denied',
+    });
+  }
+  console.log('status of permission: ', status);
+
+  // Geofencið
+  // const taskName = "fencing";
+  // const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
+  // const radius = 500;
+// 
+  // Location.startGeofencingAsync(taskName, [
+    // {
+      // ...nyjaHraun,
+      // radius
+    // }
+  // ]);
+// 
+  // TaskManager.defineTask(taskName, task => {
+    // if (task.data.eventType === Location.GeofencingEventType.Enter) {
+      // console.log("Nálægt hrauni");
+      // console.log(task.data);
+      // this.setState({inRegion: true});
+    // }
+    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
+      // Location.stopGeofencingAsync(taskName)
+      // console.log("Farnir úr punkti");
+      // this.setState({inRegion: false});
+    // }
+    // return;
+  // });
+
+  let location = await Location.getCurrentPositionAsync();
+  const { latitude , longitude } = location.coords;
+  //this.getGeocodeAsync({latitude, longitude});
+  //this.setState({ location: location });
+  this.setState({ location: {latitude, longitude}});
+  console.log('Location komið');
+};
 
 themeChange(theme) {
   if(theme === 'Dark') {
@@ -142,16 +183,35 @@ zoomToHraun() {
     }
 }
 
+userCenter() {
+  if (this.state.location == null) {
+    console.log('no location provided, trying again');
+    this.getLocationAsync();
+  }
+  else {
+    let userRegion = {
+      latitude: this.state.location.latitude,
+      longitude: this.state.location.longitude,
+      latitudeDelta: 0.0035,
+      longitudeDelta: 0.0035,
+    }
+    if(this.mapViewRef.current) {
+      this.mapViewRef.current.animateToRegion(userRegion, 1000) 
+    }
+  }
+}
+
 render() {
   
-  const {goturColor, husColor, selectedColor} = this.state;
+  const {goturColor, husColor, selectedColor, location} = this.state;
+  console.log('location in render: ', location);
 
     return (
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           showsMyLocationButton={true}
-          minZoomLevel={12}
+          //minZoomLevel={12}
           mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}

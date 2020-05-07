@@ -4,16 +4,10 @@ import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Butt
 import styles from '../styles/styles';
 import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
-import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
-
-
-import NativeModal from 'react-native-modal';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
@@ -46,7 +40,6 @@ export default class App extends React.Component {
     houseImages: '',
     houseCoordinates: [],
     streetId: 0,
-    location: null,
     errorMessage: '',
     inRegion: false,
     activeSections: [],
@@ -55,7 +48,6 @@ export default class App extends React.Component {
 }
 
 componentDidMount() {
-  //this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
@@ -68,53 +60,11 @@ componentDidMount() {
   })
 }
 
-getLocationAsync = async () => {
-  let { status } = await Permissions.askAsync(Permissions.LOCATION);
-  if (status !== 'granted') {
-    this.setState({
-      errorMessage: 'Permission to access location was denied',
-    });
-  }
-
-  const taskName = "fencing";
-  const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
-  const radius = 500;
-
-  Location.startGeofencingAsync(taskName, [
-    {
-      ...nyjaHraun,
-      radius
-    }
-  ]);
-
-  TaskManager.defineTask(taskName, task => {
-    if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      console.log("Nálægt hrauni");
-      console.log(task.data);
-      this.setState({inRegion: true});
-    }
-    if (task.data.eventType === Location.GeofencingEventType.Exit) {
-      Location.stopGeofencingAsync(taskName)
-      console.log("Farnir úr punkti");
-      this.setState({inRegion: false});
-    }
-    return;
-  });
-
-
-
-  let location = await Location.getCurrentPositionAsync();
-  const { latitude , longitude } = location.coords;
-  this.getGeocodeAsync({latitude, longitude});
-  this.setState({ location: location });
-  //this.setState({ location: {latitude, longitude}});
-};
-
 // GeoCode, þurfum ekki endilega
-getGeocodeAsync= async (location) => {
-  let geocode = await Location.reverseGeocodeAsync(location)
-  this.setState({ geocode})
-}
+// getGeocodeAsync= async (location) => {
+  // let geocode = await Location.reverseGeocodeAsync(location)
+  // this.setState({ geocode})
+// }
 
 previewHouse(house) {
   console.log('House Address: ', house.address)
@@ -130,7 +80,7 @@ previewHouse(house) {
 
 closePreview() {
   this.setState({isModalVisible: false}); 
-  this.mapComponentRef.current.houseDeselect();
+  this.current.houseDeselect();
 }
 
 navigateHouse(houseId) {
@@ -225,6 +175,11 @@ renderDrawer = () => {
         <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
       </View>
 
+      <View style={sideMenuStyles.sideMenuBottomItem}>
+        <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
+        <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
+      </View>
+
     </View>
   );
 }
@@ -242,18 +197,8 @@ changeTheme = (theme) => {
 
   render() {
   
-    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, houseCoordinates, streetId, location, errorMessage, inRegion} = this.state;
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inRegion} = this.state;
     
-    {/* Location brask */}
-    let textLocation = 'Waiting..';
-    if (this.state.errorMessage) {
-      textLocation = errorMessage;
-    } else if (this.state.location) {
-      textLocation = JSON.stringify(location);
-      var lat = Number(location.latitude);
-      var lon = Number(location.longitude);
-    }
-
     return (
 
       <DrawerLayout
@@ -277,7 +222,8 @@ changeTheme = (theme) => {
                 underlayColor='transparent'
                 activeOpacity={0.5}
                 style={styles.leftBurger}
-                onPress={() => console.log('left burger')}>
+                onPress={() => this.mapComponentRef.current.userCenter() }
+                >
                 <MaterialIcons name='my-location' size={35} color={this.state.burgerColor}/>
               </TouchableHighlight>
               </View>
