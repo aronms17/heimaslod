@@ -24,7 +24,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses location for geofencing",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses location for geofencing",
+        "NSLocationAlwaysUsageDescription": "This app uses location for geofencing"
+      }
     }
   }
 }

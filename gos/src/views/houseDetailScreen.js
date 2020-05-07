@@ -148,6 +148,7 @@ export default class houseDetailScreen extends React.Component {
                     <MapView
                         onMapReady={() => this.zoomTohouse()}
                         ref={this.mapViewRef}
+                        mapType={'satellite'}
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
                         initialRegion={{
