@@ -6,12 +6,6 @@ import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import Houses from './../../script/jsonfile.json';
 
 
-const ListItem = ({House}) => (
-    <View>
-      <Text>{House.address}</Text>
-    </View>
-  );
-
 export default class SearchBar extends React.Component {
     constructor() {
         super();
@@ -96,6 +90,36 @@ export default class SearchBar extends React.Component {
 
     };
 
+    renderSeparatorView = () => {
+        return (
+          <View style={{
+              height: 1,
+              marginLeft: 10,
+              width: "100%",
+              backgroundColor: "#CEDCCE",
+            }}
+          />
+        );
+      };
+
+      renderItemView = ({item}) => (
+        <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
+            {(item.color === 'red') ? 
+            <View style={{backgroundColor: 'lightblue', height: 35, width: 35, borderRadius: '50%', justifyContent: 'center', alignItems:'center', margin: 5}}>
+                <FontAwesome5 name='house-damage' size={15} color='white'/> 
+            </View>
+            :
+            <View style={{backgroundColor: 'tomato', height: 35, width: 35, borderRadius: '50%', justifyContent: 'center', alignItems:'center', margin: 5}}>
+                <Feather name='file-text' size={15} color='white'/>
+            </View>}
+            <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
+                {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
+                <Text style={{fontSize: 20}}>{item.address}</Text>
+                <Text numberOfLines={1} >{item.text}</Text>
+            </View>
+        </TouchableOpacity>
+      );
+
 
     render() {
         return(
@@ -147,39 +171,16 @@ export default class SearchBar extends React.Component {
                             <SectionList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                 sections={this.state.sectionHouses}
                                 keyExtractor={(item, index) => (item + index).toString()}
-                                renderItem={({item}) => 
-                                    <TouchableOpacity style={{margin: 1, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
-                                        {(item.color === 'red') ? 
-                                        <FontAwesome5 style={{flex: 1}} name='house-damage' size={30} color='lightblue'/> 
-                                        : 
-                                        <Feather style={{flex: 1}} name='align-justify' size={30} color='tomato'/>}
-                                        <View style={{margin: 1, flex: 8}} onPress={() => this.previewHouse(item)}>
-                                            {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                                            <Text style={{fontSize: 20}}>{item.address}</Text>
-                                            <Text numberOfLines={1} >{item.text}</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                }
+                                renderItem={this.renderItemView}
                                 renderSectionHeader={({ section }) => (
                                     <Text style={{fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
                                   )}
+                                ItemSeparatorComponent={this.renderSeparatorView}
                                 ListEmptyComponent={
                                     <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                         data={this.state.searchHistory}
                                         ListHeaderComponent={this.state.searchHistory.length > 0 ? <Text style={{color: 'grey'}}>Leitarsaga:</Text> : <></>}
-                                        renderItem={({item}) => (
-                                            <TouchableOpacity style={{margin: 1, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
-                                                {(item.color === 'red') ? 
-                                                <FontAwesome5 style={{flex: 1}} name='house-damage' size={30} color='lightblue'/> 
-                                                : 
-                                                <Feather style={{flex: 1}} name='align-justify' size={30} color='tomato'/>}
-                                                <View style={{margin: 1, flex: 8}} onPress={() => this.previewHouse(item)}>
-                                                    {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                                                    <Text style={{fontSize: 20}}>{item.address}</Text>
-                                                    <Text numberOfLines={1} >{item.text}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                        )}
+                                        renderItem={this.renderItemView}
                                         keyExtractor={(item) => item.id.toString()}
                                         ListEmptyComponent={<View style={{width: Dimensions.get('screen').width, height: 200, justifyContent: 'center', alignItems: 'center'}}><Text style={{color: 'grey'}}>Engin leitarsaga tiltæk</Text></View>}
                                     />
