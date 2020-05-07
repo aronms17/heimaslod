@@ -10,7 +10,7 @@ import * as TaskManager from 'expo-task-manager'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather, Foundation } from '@expo/vector-icons';
+import { Feather, Foundation, AntDesign } from '@expo/vector-icons';
 
 
 import NativeModal from 'react-native-modal';
@@ -214,7 +214,8 @@ renderDrawer = () => {
       />
 
       <View style={sideMenuStyles.sideMenuBottomItem}>
-        <Text style={sideMenuStyles.sideMenuText}>Gosar ehf</Text>
+        <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
+        <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
       </View>
 
     </View>

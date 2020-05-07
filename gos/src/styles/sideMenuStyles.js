@@ -16,11 +16,17 @@ export default StyleSheet.create({
         marginBottom: 30
       },
       sideMenuBottomItem: {
-        marginTop: 400
+        marginTop: 400,
+        flexDirection: 'row',
       },
       sideMenuText: {
         fontSize: 28,
         fontWeight: 'bold',
+        color: 'white',
+        marginRight: 3
+      },
+      sideMenuBottomText: {
+        fontSize: 20,
         color: 'white'
       },
       accordionText: {
