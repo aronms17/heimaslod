@@ -153,6 +153,11 @@ export default class houseDetailScreen extends React.Component {
                         ref={this.mapViewRef}
                         style={{...StyleSheet.absoluteFillObject}}
                         provider={"google"}
+                        zoomEnabled={false}
+                        zoomTapEnabled={false}
+                        rotateEnabled={false}
+                        scrollEnabled={false}
+                        pitchEnabled={false}
                         initialRegion={{
                           latitude: 63.4347866,
                           longitude: -20.2844343,

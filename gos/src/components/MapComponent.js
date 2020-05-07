@@ -12,6 +12,15 @@ import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
 
+// Afmörkun:
+// northEast: 63.472856, -20.170407
+// southWest: 63.378312, -20.385005
+
+const boundaries = {
+  northEast: [63.472856, -20.170407],
+  southWest: [63.378312, -20.385005]
+}
+
 const initialRegion = {
   latitude: 63.4347866,
   longitude: -20.2844343,
@@ -41,6 +50,7 @@ export default class MapComponent extends React.Component {
       latitudeDelta: 0.095,
       longitudeDelta: 0.0921,
     },
+
       coordinates: [
         {
             longitude: -21.91939830780029,
@@ -77,6 +87,10 @@ componentDidMount() {
   });
   this.themeChange();
   // this.getLocationAsync();
+  this.mapViewRef.current.setMapBoundaries(
+    { latitude: 63.472856, longitude: -20.170407 },
+    { latitude: 63.378312, longitude: -20.385005 }
+  );
 }
 
 // getLocationAsync = async () => {
@@ -149,13 +163,14 @@ zoomToHraun() {
 
   render() {
   
-    const {goturColor, husColor, selectedColor} = this.state;
+  const {goturColor, husColor, selectedColor} = this.state;
 
     return (
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          // minZoomLevel={12} 
+          showsMyLocationButton={true}
+          minZoomLevel={12}
           mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
@@ -201,9 +216,10 @@ zoomToHraun() {
             ))
           }
 
-
+          
             
         </MapView>
+        
     );
   }
 }
