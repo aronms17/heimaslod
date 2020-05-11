@@ -242,12 +242,32 @@ userCenter() {
 
 distanceFunction() {
   let polygons = prufupoly.geoGirding;
+  let polyg = polygons[3];
 
   polygons.forEach(poly => {
-    if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates]))
-    console.log('kominn í', poly.name);
+    if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
+      this.props.polyIn(poly);
+      // console.log('polynafn í state:', this.props.polyName);
     }
-  );
+    else if(this.props.polyName === poly.name && !isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
+      this.props.polyOut();
+      // console.log('polynafn í state:', this.props.polyName);
+    }
+  })
+
+  
+
+  // polygons.forEach(poly => {
+  //   if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
+  //     console.log('er í:', poly.name)
+  //     this.props.polyIn(poly);
+  //     } 
+  //     else if (this.props.polyStateName === poly.name && !inPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
+  //       this.props.polyOut();
+  //     }
+
+  //   }
+  // );
   // console.log('Distance is: ', getDistance(
   //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
   //   { latitude: 63.9801554, longitude: -22.6047361 }

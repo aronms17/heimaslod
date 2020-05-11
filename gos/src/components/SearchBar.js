@@ -105,11 +105,11 @@ export default class SearchBar extends React.Component {
       renderItemView = ({item}) => (
         <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
             {(item.color === 'red') ? 
-            <View style={{backgroundColor: 'lightblue', height: 35, width: 35, justifyContent: 'center', alignItems:'center', margin: 5}}>
+            <View style={{backgroundColor: 'lightblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                 <FontAwesome5 name='house-damage' size={15} color='white'/> 
             </View>
             :
-            <View style={{backgroundColor: 'tomato', height: 35, width: 35, justifyContent: 'center', alignItems:'center', margin: 5}}>
+            <View style={{backgroundColor: 'tomato', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                 <Feather name='file-text' size={15} color='white'/>
             </View>}
             <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>

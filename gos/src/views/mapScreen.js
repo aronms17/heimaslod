@@ -42,7 +42,8 @@ export default class App extends React.Component {
     streetId: 0,
     errorMessage: '',
     inPoly: false,
-    display: false,
+    display: true,
+    polyName: '',
     activeSections: [],
     burgerColor: 'black'
   };
@@ -78,6 +79,16 @@ previewHouse(house) {
   this.mapComponentRef.current.houseSelect(house);
   this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
+}
+
+polyIn(poly) {
+  // console.log('kominn í poly:', poly.name);
+  this.setState({inPoly: true, polyName: poly.name});
+
+}
+polyOut() {
+  // console.log('farinn úr poly');
+  this.setState({inPoly: false, polyName: '', display: true});
 }
 
 closePreview() {
@@ -208,9 +219,9 @@ getDistance = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inPoly, display} = this.state;
-    display == inPoly;
-    
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inPoly} = this.state;
+    let display = inPoly;
+
     return (
 
       <DrawerLayout
@@ -223,7 +234,7 @@ getDistance = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)}/>
+          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)} polyIn={this.polyIn.bind(this)} polyOut={this.polyOut.bind(this)} polyName={this.state.polyName} />
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -272,11 +283,11 @@ getDistance = () => {
             </View>
             {/* Geofencing modal */}
             <NativeModal
-              isVisible={this.state.display}
-              onBackdropPress={() => this.setState({display: false})}
+              isVisible={this.state.inPoly && this.state.display}
+              onBackdropPress={() => this.setState({display: false,})}
             >
               <View style={styles.modalView}>
-                <Text style={{fontWeight: 'bold'}}>Þú ert í poly: </Text>
+          <Text style={{fontWeight: 'bold'}}>Þú ert í poly:  {this.state.polyName}</Text>
               </View>
             </NativeModal>
 
