@@ -189,8 +189,8 @@ themeChange(theme) {
 houseSelect(house) {
   this.setState({selectedId: house.id});
   let houseRegion = {
-    latitude: house.coordinates[0].latitude,
-    longitude: house.coordinates[0].longitude,
+    latitude: house.coordinates[0][0].latitude,
+    longitude: house.coordinates[0][0].longitude,
     latitudeDelta: 0.0035,
     longitudeDelta: 0.0035,
   }
@@ -306,14 +306,26 @@ render() {
           {/* <Marker coordinate={hr}><Text>🎓</Text></Marker> */}
 
           {/* Polygonarnir */} 
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
+          {/* {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
               <Polygon
                 key = {hus.id}
-                coordinates={hus.coordinates}
+                coordinates={hus.coordinates[0]}
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
                 onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
               />
+            ))
+          } */}
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index1) => (
+              hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
+                  <Polygon
+                    key = {index1 + ' ' + index2}
+                    coordinates={coordinates}
+                    fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
+                    tappable={true}
+                    onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
+                  />
+                ))
             ))
           }
           {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
