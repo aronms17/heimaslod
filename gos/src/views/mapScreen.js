@@ -175,7 +175,7 @@ renderDrawer = () => {
           underlayColor={colors.okkarSvarti} 
           activeOpacity={0.5}
           style={sideMenuStyles.sideMenuItem}
-          onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
+          onPress={() => {this.mapComponentRef.current.distanceFunction(); this.drawer.closeDrawer();}}>
           <Text style={sideMenuStyles.sideMenuBottomText}>distance test</Text>
         </TouchableHighlight>
       </View>
@@ -201,7 +201,7 @@ changeTheme = (theme) => {
 }
 
 getDistance = () => {
-
+  this.mapComponentRef.current.distanceFunction();
 }
 
   render() {

@@ -10,7 +10,7 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import { getDistance } from 'geolib';
+import { getDistance, isPointInPolygon } from 'geolib';
 
 
 // Afmörkun:
@@ -218,6 +218,25 @@ userCenter() {
       this.mapViewRef.current.animateToRegion(userRegion, 1000) 
     }
   }
+}
+
+distanceFunction() {
+  console.log('Distance is: ', getDistance(
+    { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
+    { latitude: 63.9801554, longitude: -22.6047361 }
+  ));
+
+  console.log('your lat: ', this.state.location.latitude);
+  console.log('your lon: ', this.state.location.longitude);
+
+  console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
+    { latitude: -21.84084177017212, longitude: 64.09159503487494 },
+    { latitude: -21.844189167022705, longitude: 64.0900480210151 },
+    { latitude: -21.838459968566895, longitude: 64.08870720611453 },
+    { latitude: -21.834404468536377, longitude: 64.09117313053171 },
+    { latitude: -21.84084177017212, longitude: 64.09159503487494 },
+  ]));
+
 }
 
 render() {
