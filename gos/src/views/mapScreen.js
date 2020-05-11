@@ -60,6 +60,7 @@ componentDidMount() {
   })
 }
 
+
 // GeoCode, þurfum ekki endilega
 // getGeocodeAsync= async (location) => {
   // let geocode = await Location.reverseGeocodeAsync(location)
