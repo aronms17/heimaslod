@@ -38,6 +38,7 @@ export default class MapComponent extends React.Component {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
+    greyColor: null,
     location: { latitude: 63.9801554, longitude: -22.6047361 },
     theme: null,
     satellite: false,
@@ -84,6 +85,7 @@ componentDidMount() {
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
     selectedColor: '#33BDFF',
+    greyColor: 'grey'
   });
   this.themeChange();
 
@@ -287,7 +289,7 @@ distanceFunction() {
 
 render() {
   
-  const {goturColor, husColor, selectedColor, location} = this.state;
+  const {goturColor, husColor, selectedColor, greyColor, location} = this.state;
     return (
         <MapView
           ref={this.mapViewRef}
@@ -321,7 +323,7 @@ render() {
                   <Polygon
                     key = {index1 + ' ' + index2}
                     coordinates={coordinates}
-                    fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
+                    fillColor={hus.address === ' ' ? greyColor : hus.id === this.state.selectedId ? selectedColor : husColor}
                     tappable={true}
                     onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
                   />
