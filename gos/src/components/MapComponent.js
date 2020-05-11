@@ -1,5 +1,5 @@
 import React from 'react';
-import MapView, { Marker, Polygon } from 'react-native-maps';
+import MapView, { Marker, Polygon, Overlay } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
@@ -89,6 +89,7 @@ componentDidMount() {
 
   interval = setInterval(() => {
     this.getLocationAsync();
+    this.distanceFunction();
     // console.log('live staðsetning: ', this.state.location);
   }, 1000);
 
@@ -240,12 +241,33 @@ userCenter() {
 }
 
 distanceFunction() {
-  let polygons = json.geogirding;
+  let polygons = prufupoly.geoGirding;
+  let polyg = polygons[3];
 
   polygons.forEach(poly => {
-    
-    
-  });
+    if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
+      this.props.polyIn(poly);
+      // console.log('polynafn í state:', this.props.polyName);
+    }
+    else if(this.props.polyName === poly.name && !isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
+      this.props.polyOut();
+      // console.log('polynafn í state:', this.props.polyName);
+    }
+  })
+
+  
+
+  // polygons.forEach(poly => {
+  //   if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
+  //     console.log('er í:', poly.name)
+  //     this.props.polyIn(poly);
+  //     } 
+  //     else if (this.props.polyStateName === poly.name && !inPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
+  //       this.props.polyOut();
+  //     }
+
+  //   }
+  // );
   // console.log('Distance is: ', getDistance(
   //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
   //   { latitude: 63.9801554, longitude: -22.6047361 }
@@ -254,12 +276,12 @@ distanceFunction() {
   // console.log('your lat: ', this.state.location.latitude);
   // console.log('your lon: ', this.state.location.longitude);
 
-  console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
-    { latitude: 64.09688236026405, longitude: -21.843223571777344 },
-    { latitude: 64.08630670483652, longitude: -21.843481063842773 },
-    { latitude: 64.08574405740477, longitude: -21.817216873168945 },
-    { latitude: 64.09744478257068, longitude: -21.818161010742188 },
-  ]));
+  // console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
+  //   { latitude: 64.09688236026405, longitude: -21.843223571777344 },
+  //   { latitude: 64.08630670483652, longitude: -21.843481063842773 },
+  //   { latitude: 64.08574405740477, longitude: -21.817216873168945 },
+  //   { latitude: 64.09744478257068, longitude: -21.818161010742188 },
+  // ]));
 
 }
 
@@ -294,6 +316,13 @@ render() {
               />
             ))
           }
+          {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
+              <Polygon
+                key = {poly.id}
+                coordinates={poly.coordinates}
+              />
+            ))
+          }
           {/* {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
               <Polygon
                 key = {gata.id}
@@ -306,6 +335,14 @@ render() {
           } */}
           <Marker
             coordinate={this.state.location}
+          />
+
+          <Overlay 
+             image="https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
+             bounds={[
+               [40.712216, -74.22655], 
+               [40.773941, -74.12544]
+             ]}
           />
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
