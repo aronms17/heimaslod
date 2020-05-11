@@ -240,13 +240,19 @@ userCenter() {
 }
 
 distanceFunction() {
-  console.log('Distance is: ', getDistance(
-    { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
-    { latitude: 63.9801554, longitude: -22.6047361 }
-  ));
+  let polygons = json.geogirding;
 
-  console.log('your lat: ', this.state.location.latitude);
-  console.log('your lon: ', this.state.location.longitude);
+  polygons.forEach(poly => {
+    
+    
+  });
+  // console.log('Distance is: ', getDistance(
+  //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
+  //   { latitude: 63.9801554, longitude: -22.6047361 }
+  // ));
+
+  // console.log('your lat: ', this.state.location.latitude);
+  // console.log('your lon: ', this.state.location.longitude);
 
   console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
     { latitude: 64.09688236026405, longitude: -21.843223571777344 },
