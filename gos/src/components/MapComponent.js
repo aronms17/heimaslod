@@ -315,6 +315,9 @@ render() {
             ))
           }
 
+          {/* <Marker
+            coordinate={{ latitude: 63.9801554, longitude: -22.6047361 }}
+          /> */}
           
             
         </MapView>
