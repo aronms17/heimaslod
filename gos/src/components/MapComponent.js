@@ -1,5 +1,5 @@
 import React from 'react';
-import MapView, { Marker, Polygon } from 'react-native-maps';
+import MapView, { Marker, Polygon, Overlay } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
@@ -335,6 +335,14 @@ render() {
           } */}
           <Marker
             coordinate={this.state.location}
+          />
+
+          <Overlay 
+             image="https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
+             bounds={[
+               [40.712216, -74.22655], 
+               [40.773941, -74.12544]
+             ]}
           />
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
