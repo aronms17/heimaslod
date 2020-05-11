@@ -20,7 +20,8 @@ export default class houseDetailScreen extends React.Component {
           houseImages: '',
           houseCoordinates: [],
           streetName: '',
-          isModalVisible: false
+          isModalVisible: false,
+          husColor: null
         };
     }
 
@@ -53,6 +54,10 @@ export default class houseDetailScreen extends React.Component {
 
     }
 
+    setHouseColor() {
+        this.setState({husColor: '#EC4D37'});
+    }
+
     renderDrawer = () => {
         return (
           <View style={sideMenuStyle.sideMenu}>
@@ -75,8 +80,8 @@ export default class houseDetailScreen extends React.Component {
 
     zoomTohouse() {
         let houseRegion = {
-            latitude: this.state.houseCoordinates[0].latitude,
-            longitude: this.state.houseCoordinates[0].longitude,
+            latitude: this.state.houseCoordinates[0][0].latitude,
+            longitude: this.state.houseCoordinates[0][0].longitude,
             latitudeDelta: 0.0010,
             longitudeDelta: 0.0010,
           }
@@ -87,7 +92,7 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        const { houseAddress, houseDescription, houseImages, houseCoordinates, streetName, streetId } = this.state;
+        const { houseAddress, houseDescription, houseImages, streetName, streetId, husColor } = this.state;
         const arrHouse = Array.from(houseImages);
         return(
             <View style={styles.container}>    
@@ -154,7 +159,7 @@ export default class houseDetailScreen extends React.Component {
                     /> 
                     <View style={styles.onlyMap}>
                     <MapView
-                        onMapReady={() => this.zoomTohouse()}
+                        onMapReady={() => {this.zoomTohouse(); this.setHouseColor()}}
                         ref={this.mapViewRef}
                         mapType={'satellite'}
                         style={{...StyleSheet.absoluteFillObject}}
@@ -170,10 +175,18 @@ export default class houseDetailScreen extends React.Component {
                           latitudeDelta: 0.095,
                           longitudeDelta: 0.0921}}>
 
-                        <Polygon
-                            coordinates={houseCoordinates}
+                        {/* <Polygon
+                            coordinates={polygonFirst}
                             fillColor="#f55d42"
-                        />
+                        /> */}
+
+                {this.state.houseCoordinates != null && this.state.houseCoordinates.map((coordinates, index) => (
+                  <Polygon
+                    key = {index}
+                    coordinates={coordinates}
+                    fillColor={husColor}
+                  />
+                ))}
                         
                     </MapView>
                     </View>

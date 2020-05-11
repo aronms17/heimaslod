@@ -38,6 +38,7 @@ export default class MapComponent extends React.Component {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
+    greyColor: null,
     location: { latitude: 63.9801554, longitude: -22.6047361 },
     theme: null,
     satellite: false,
@@ -84,6 +85,7 @@ componentDidMount() {
     husColor: '#EC4D37',
     goturColor: '#262630', //'#1D1B1B'
     selectedColor: '#33BDFF',
+    greyColor: 'grey'
   });
   this.themeChange();
 
@@ -189,8 +191,8 @@ themeChange(theme) {
 houseSelect(house) {
   this.setState({selectedId: house.id});
   let houseRegion = {
-    latitude: house.coordinates[0].latitude,
-    longitude: house.coordinates[0].longitude,
+    latitude: house.coordinates[0][0].latitude,
+    longitude: house.coordinates[0][0].longitude,
     latitudeDelta: 0.0035,
     longitudeDelta: 0.0035,
   }
@@ -287,12 +289,12 @@ distanceFunction() {
 
 render() {
   
-  const {goturColor, husColor, selectedColor, location} = this.state;
+  const {goturColor, husColor, selectedColor, greyColor, location} = this.state;
     return (
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          showsMyLocationButton={true}
+          showsMyLocationButton={false}
           // minZoomLevel={12}
           mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
@@ -306,14 +308,26 @@ render() {
           {/* <Marker coordinate={hr}><Text>🎓</Text></Marker> */}
 
           {/* Polygonarnir */} 
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
+          {/* {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
               <Polygon
                 key = {hus.id}
-                coordinates={hus.coordinates}
+                coordinates={hus.coordinates[0]}
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
                 onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
               />
+            ))
+          } */}
+          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index1) => (
+              hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
+                  <Polygon
+                    key = {index1 + ' ' + index2}
+                    coordinates={coordinates}
+                    fillColor={hus.address === ' ' ? greyColor : hus.id === this.state.selectedId ? selectedColor : husColor}
+                    tappable={true}
+                    onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
+                  />
+                ))
             ))
           }
           {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
@@ -362,11 +376,11 @@ render() {
           </Overlay>
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
-              gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (
+              gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
                   <Polygon
                     key = {index1 + ' ' + index2}
                     fillColor={goturColor}
-                    coordinates={coordingates}
+                    coordinates={coordinates}
                     // tappable={true}
                     // onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
                   />
