@@ -292,7 +292,7 @@ render() {
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
-          showsMyLocationButton={true}
+          showsMyLocationButton={false}
           // minZoomLevel={12}
           mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
@@ -338,11 +338,11 @@ render() {
           />
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
-              gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (
+              gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
                   <Polygon
                     key = {index1 + ' ' + index2}
                     fillColor={goturColor}
-                    coordinates={coordingates}
+                    coordinates={coordinates}
                     // tappable={true}
                     // onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
                   />
