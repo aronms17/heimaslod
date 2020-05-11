@@ -10,6 +10,7 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
+import { getDistance } from 'geolib';
 
 
 // Afmörkun:
@@ -128,25 +129,25 @@ getLocationAsync = async () => {
     // return;
   // });
 
-  //let location = await Location.getCurrentPositionAsync();
-  let location = await Location.watchPositionAsync(
-    {
-      enableHighAccuracy: true,
-      distanceInterval: 1,
-      timeInterval: 1000
-    },
-    newLocation => {
-      let coords = newLocation.coords;
+  let location = await Location.getCurrentPositionAsync();
+  // let location = await Location.watchPositionAsync(
+    // {
+      // enableHighAccuracy: true,
+      // distanceInterval: 1,
+      // timeInterval: 1000
+    // },
+    // newLocation => {
+      // let coords = newLocation.coords;
       // this.props.getMyLocation sets my reducer state my_location
-      this.props.getMyLocation({
-        latitude: parseFloat(coords.latitude),
-        longitude: parseFloat(coords.longitude)
-      });
-    },
-    error => console.log(error)
-  );
+      // this.props.getMyLocation({
+        // latitude: parseFloat(coords.latitude),
+        // longitude: parseFloat(coords.longitude)
+      // });
+    // },
+    // error => console.log(error)
+  // );
 
-  const { latitude , longitude } = newLocation.coords;
+  const { latitude , longitude } = location.coords;
   //this.getGeocodeAsync({latitude, longitude});
   //this.setState({ location: location });
   this.setState({ location: {latitude, longitude}});
@@ -206,6 +207,7 @@ userCenter() {
     this.getLocationAsync();
   }
   else {
+    // let newLocation = await Location.getCurrentPositionAsync();
     let userRegion = {
       latitude: this.state.location.latitude,
       longitude: this.state.location.longitude,
