@@ -38,7 +38,7 @@ export default class MapComponent extends React.Component {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
-    location: null,
+    location: { latitude: 63.9801554, longitude: -22.6047361 },
     theme: null,
     satellite: false,
     selectedId: null,
@@ -260,7 +260,6 @@ distanceFunction() {
 render() {
   
   const {goturColor, husColor, selectedColor, location} = this.state;
-
     return (
         <MapView
           ref={this.mapViewRef}
@@ -299,6 +298,10 @@ render() {
               />
             ))
           } */}
+          <Marker
+            coordinate={this.state.location}
+          />
+
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (
                   <Polygon
