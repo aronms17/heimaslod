@@ -230,11 +230,10 @@ distanceFunction() {
   console.log('your lon: ', this.state.location.longitude);
 
   console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
-    { latitude: -21.84084177017212, longitude: 64.09159503487494 },
-    { latitude: -21.844189167022705, longitude: 64.0900480210151 },
-    { latitude: -21.838459968566895, longitude: 64.08870720611453 },
-    { latitude: -21.834404468536377, longitude: 64.09117313053171 },
-    { latitude: -21.84084177017212, longitude: 64.09159503487494 },
+    { latitude: 64.09688236026405, longitude: -21.843223571777344 },
+    { latitude: 64.08630670483652, longitude: -21.843481063842773 },
+    { latitude: 64.08574405740477, longitude: -21.817216873168945 },
+    { latitude: 64.09744478257068, longitude: -21.818161010742188 },
   ]));
 
 }
