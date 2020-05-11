@@ -89,7 +89,7 @@ componentDidMount() {
 
   interval = setInterval(() => {
     this.getLocationAsync();
-    console.log('live staðsetning: ', this.state.location);
+    // console.log('live staðsetning: ', this.state.location);
   }, 1000);
 
   //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
@@ -169,7 +169,7 @@ getLocationAsync = async () => {
     //this.getGeocodeAsync({latitude, longitude});
     //this.setState({ location: location });
     this.setState({ location: {latitude, longitude}});
-    console.log('Location komið í state');
+    // console.log('Location komið í state');
   }
 };
 
