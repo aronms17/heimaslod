@@ -89,6 +89,7 @@ componentDidMount() {
 
   interval = setInterval(() => {
     this.getLocationAsync();
+    this.distanceFunction();
     // console.log('live staðsetning: ', this.state.location);
   }, 1000);
 
@@ -240,12 +241,13 @@ userCenter() {
 }
 
 distanceFunction() {
-  let polygons = json.geogirding;
+  let polygons = prufupoly.geoGirding;
 
   polygons.forEach(poly => {
-    
-    
-  });
+    if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates]))
+    console.log('kominn í', poly.name);
+    }
+  );
   // console.log('Distance is: ', getDistance(
   //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
   //   { latitude: 63.9801554, longitude: -22.6047361 }
@@ -254,12 +256,12 @@ distanceFunction() {
   // console.log('your lat: ', this.state.location.latitude);
   // console.log('your lon: ', this.state.location.longitude);
 
-  console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
-    { latitude: 64.09688236026405, longitude: -21.843223571777344 },
-    { latitude: 64.08630670483652, longitude: -21.843481063842773 },
-    { latitude: 64.08574405740477, longitude: -21.817216873168945 },
-    { latitude: 64.09744478257068, longitude: -21.818161010742188 },
-  ]));
+  // console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
+  //   { latitude: 64.09688236026405, longitude: -21.843223571777344 },
+  //   { latitude: 64.08630670483652, longitude: -21.843481063842773 },
+  //   { latitude: 64.08574405740477, longitude: -21.817216873168945 },
+  //   { latitude: 64.09744478257068, longitude: -21.818161010742188 },
+  // ]));
 
 }
 
@@ -291,6 +293,13 @@ render() {
                 fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
                 tappable={true}
                 onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
+              />
+            ))
+          }
+          {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
+              <Polygon
+                key = {poly.id}
+                coordinates={poly.coordinates}
               />
             ))
           }
