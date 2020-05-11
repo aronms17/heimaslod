@@ -10,6 +10,7 @@ import { Feather, MaterialIcons  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
+import { getDistance, isPointInPolygon } from 'geolib';
 
 
 // Afmörkun:
@@ -37,7 +38,7 @@ export default class MapComponent extends React.Component {
     husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
     goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
     selectedColor: null,
-    location: null,
+    location: { latitude: 63.9801554, longitude: -22.6047361 },
     theme: null,
     satellite: false,
     selectedId: null,
@@ -77,6 +78,7 @@ export default class MapComponent extends React.Component {
 }
 
 componentDidMount() {
+  this.getPermissionAsync();
   this.getLocationAsync();
   this.setState({
     husColor: '#EC4D37',
@@ -85,6 +87,11 @@ componentDidMount() {
   });
   this.themeChange();
 
+  interval = setInterval(() => {
+    this.getLocationAsync();
+    // console.log('live staðsetning: ', this.state.location);
+  }, 1000);
+
   //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
   //this.mapViewRef.current.setMapBoundaries(
   //  { latitude: 63.472856, longitude: -20.170407 },
@@ -92,8 +99,13 @@ componentDidMount() {
   //);
 }
 
-getLocationAsync = async () => {
-  console.log('Getting location...');
+componentWillUnmount() {
+
+  clearInterval(interval);
+}
+
+getPermissionAsync = async () => {
+  console.log('Asking permission...');
   let { status } = await Permissions.askAsync(Permissions.LOCATION);
   if (status !== 'granted') {
     this.setState({
@@ -102,55 +114,63 @@ getLocationAsync = async () => {
   }
   console.log('status of permission: ', status);
 
-  // Geofencið
-  // const taskName = "fencing";
-  // const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
-  // const radius = 500;
-// 
-  // Location.startGeofencingAsync(taskName, [
-    // {
-      // ...nyjaHraun,
-      // radius
-    // }
-  // ]);
-// 
-  // TaskManager.defineTask(taskName, task => {
-    // if (task.data.eventType === Location.GeofencingEventType.Enter) {
-      // console.log("Nálægt hrauni");
-      // console.log(task.data);
-      // this.setState({inRegion: true});
-    // }
-    // if (task.data.eventType === Location.GeofencingEventType.Exit) {
-      // Location.stopGeofencingAsync(taskName)
-      // console.log("Farnir úr punkti");
-      // this.setState({inRegion: false});
-    // }
-    // return;
-  // });
+}
 
-  //let location = await Location.getCurrentPositionAsync();
-  let location = await Location.watchPositionAsync(
-    {
-      enableHighAccuracy: true,
-      distanceInterval: 1,
-      timeInterval: 1000
-    },
-    newLocation => {
-      let coords = newLocation.coords;
-      // this.props.getMyLocation sets my reducer state my_location
-      this.props.getMyLocation({
-        latitude: parseFloat(coords.latitude),
-        longitude: parseFloat(coords.longitude)
-      });
-    },
-    error => console.log(error)
-  );
+getLocationAsync = async () => {
+  if (this.state.errorMessage !== 'error') {
+    console.log('location permission ekki gefið');
+  }
+  else {
+    // Geofencið
+    // const taskName = "fencing";
+    // const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
+    // const radius = 500;
+  // 
+    // Location.startGeofencingAsync(taskName, [
+      // {
+        // ...nyjaHraun,
+        // radius
+      // }
+    // ]);
+  // 
+    // TaskManager.defineTask(taskName, task => {
+      // if (task.data.eventType === Location.GeofencingEventType.Enter) {
+        // console.log("Nálægt hrauni");
+        // console.log(task.data);
+        // this.setState({inRegion: true});
+      // }
+      // if (task.data.eventType === Location.GeofencingEventType.Exit) {
+        // Location.stopGeofencingAsync(taskName)
+        // console.log("Farnir úr punkti");
+        // this.setState({inRegion: false});
+      // }
+      // return;
+    // });
 
-  const { latitude , longitude } = newLocation.coords;
-  //this.getGeocodeAsync({latitude, longitude});
-  //this.setState({ location: location });
-  this.setState({ location: {latitude, longitude}});
-  console.log('Location komið');
+    let location = await Location.getCurrentPositionAsync();
+    // let location = await Location.watchPositionAsync(
+      // {
+        // enableHighAccuracy: true,
+        // distanceInterval: 1,
+        // timeInterval: 1000
+      // },
+      // newLocation => {
+        // let coords = newLocation.coords;
+        // this.props.getMyLocation sets my reducer state my_location
+        // this.props.getMyLocation({
+          // latitude: parseFloat(coords.latitude),
+          // longitude: parseFloat(coords.longitude)
+        // });
+      // },
+      // error => console.log(error)
+    // );
+
+    const { latitude , longitude } = location.coords;
+    //this.getGeocodeAsync({latitude, longitude});
+    //this.setState({ location: location });
+    this.setState({ location: {latitude, longitude}});
+    // console.log('Location komið í state');
+  }
 };
 
 themeChange(theme) {
@@ -203,9 +223,10 @@ zoomToHraun() {
 userCenter() {
   if (this.state.location == null) {
     console.log('no location provided, trying again');
-    this.getLocationAsync();
+    this.getPermissionAsync();
   }
   else {
+    // let newLocation = await Location.getCurrentPositionAsync();
     let userRegion = {
       latitude: this.state.location.latitude,
       longitude: this.state.location.longitude,
@@ -218,10 +239,27 @@ userCenter() {
   }
 }
 
+distanceFunction() {
+  console.log('Distance is: ', getDistance(
+    { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
+    { latitude: 63.9801554, longitude: -22.6047361 }
+  ));
+
+  console.log('your lat: ', this.state.location.latitude);
+  console.log('your lon: ', this.state.location.longitude);
+
+  console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
+    { latitude: 64.09688236026405, longitude: -21.843223571777344 },
+    { latitude: 64.08630670483652, longitude: -21.843481063842773 },
+    { latitude: 64.08574405740477, longitude: -21.817216873168945 },
+    { latitude: 64.09744478257068, longitude: -21.818161010742188 },
+  ]));
+
+}
+
 render() {
   
   const {goturColor, husColor, selectedColor, location} = this.state;
-
     return (
         <MapView
           ref={this.mapViewRef}
@@ -260,6 +298,10 @@ render() {
               />
             ))
           } */}
+          <Marker
+            coordinate={this.state.location}
+          />
+
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (
                   <Polygon
@@ -273,6 +315,9 @@ render() {
             ))
           }
 
+          {/* <Marker
+            coordinate={{ latitude: 63.9801554, longitude: -22.6047361 }}
+          /> */}
           
             
         </MapView>

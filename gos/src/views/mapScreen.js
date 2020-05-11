@@ -60,6 +60,7 @@ componentDidMount() {
   })
 }
 
+
 // GeoCode, þurfum ekki endilega
 // getGeocodeAsync= async (location) => {
   // let geocode = await Location.reverseGeocodeAsync(location)
@@ -171,8 +172,13 @@ renderDrawer = () => {
       </View>
 
       <View style={sideMenuStyles.sideMenuBottomItem}>
-        <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
-        <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
+        <TouchableHighlight
+          underlayColor={colors.okkarSvarti} 
+          activeOpacity={0.5}
+          style={sideMenuStyles.sideMenuItem}
+          onPress={() => {this.mapComponentRef.current.distanceFunction(); this.drawer.closeDrawer();}}>
+          <Text style={sideMenuStyles.sideMenuBottomText}>distance test</Text>
+        </TouchableHighlight>
       </View>
 
       <View style={sideMenuStyles.sideMenuBottomItem}>
@@ -193,6 +199,10 @@ changeTheme = (theme) => {
   }
   this.mapComponentRef.current.themeChange(theme);
   this.drawer.closeDrawer();
+}
+
+getDistance = () => {
+  this.mapComponentRef.current.distanceFunction();
 }
 
   render() {
