@@ -85,11 +85,11 @@ componentDidMount() {
   });
   this.themeChange();
 
-  // afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
-  // this.mapViewRef.current.setMapBoundaries(
-    // { latitude: 63.472856, longitude: -20.170407 },
-    // { latitude: 63.378312, longitude: -20.385005 }
-  // );
+  //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
+  //this.mapViewRef.current.setMapBoundaries(
+  //  { latitude: 63.472856, longitude: -20.170407 },
+  //  { latitude: 63.378312, longitude: -20.385005 }
+  //);
 }
 
 getLocationAsync = async () => {
@@ -128,8 +128,25 @@ getLocationAsync = async () => {
     // return;
   // });
 
-  let location = await Location.getCurrentPositionAsync();
-  const { latitude , longitude } = location.coords;
+  //let location = await Location.getCurrentPositionAsync();
+  let location = await Location.watchPositionAsync(
+    {
+      enableHighAccuracy: true,
+      distanceInterval: 1,
+      timeInterval: 1000
+    },
+    newLocation => {
+      let coords = newLocation.coords;
+      // this.props.getMyLocation sets my reducer state my_location
+      this.props.getMyLocation({
+        latitude: parseFloat(coords.latitude),
+        longitude: parseFloat(coords.longitude)
+      });
+    },
+    error => console.log(error)
+  );
+
+  const { latitude , longitude } = newLocation.coords;
   //this.getGeocodeAsync({latitude, longitude});
   //this.setState({ location: location });
   this.setState({ location: {latitude, longitude}});
@@ -204,14 +221,13 @@ userCenter() {
 render() {
   
   const {goturColor, husColor, selectedColor, location} = this.state;
-  console.log('location in render: ', location);
 
     return (
         <MapView
           ref={this.mapViewRef}
           showsUserLocation={true} // deault location, þurfum að skoða betur ef á að gefa út á appstore
           showsMyLocationButton={true}
-          //minZoomLevel={12}
+          // minZoomLevel={12}
           mapType={(this.state.satellite) ? 'satellite' : 'standard'}
           loadingEnabled={true}
           style={[styles.mapStyle, {opacity: this.state.mapLoaded ? 1 : 0 }]}
