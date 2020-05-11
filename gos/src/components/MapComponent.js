@@ -333,17 +333,33 @@ render() {
               />
             ))
           } */}
+
+          {/* Marker sem uppfærist miðað við núverandi staðsetningu */}
+
           <Marker
             coordinate={this.state.location}
           />
 
-          <Overlay 
-             image="https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
+          <Marker
+            title="Búastaðarbraut"
+            coordinate={{latitude: 63.436949, longitude: -20.260769}}
+            rotation={0}
+            
+          >
+
+            <Text style={{color: 'black', width:'20%', height: 20}}>Búastaðarbraut</Text>
+          
+          </Marker>
+
+          <Overlay
+             image={require('../../assets/gerdisb.png')}
              bounds={[
-               [40.712216, -74.22655], 
-               [40.773941, -74.12544]
+               [64.125446, -21.931473],
+               [64.122840, -21.924817]
              ]}
-          />
+          >
+            <Text>gerðis</Text>
+          </Overlay>
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordingates, index2) => (

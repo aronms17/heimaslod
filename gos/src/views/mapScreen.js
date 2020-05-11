@@ -42,7 +42,7 @@ export default class App extends React.Component {
     streetId: 0,
     errorMessage: '',
     inPoly: false,
-    display: true,
+    display: false,
     polyName: '',
     activeSections: [],
     burgerColor: 'black'
@@ -79,16 +79,6 @@ previewHouse(house) {
   this.mapComponentRef.current.houseSelect(house);
   this.setState({isModalVisible: true, houseId: house.id, houseAddress: house.address, houseDescription: house.text, houseImages: house.images, houseCoordinates: house.coordinates, streetId: house.streetId });
   }
-}
-
-polyIn(poly) {
-  // console.log('kominn í poly:', poly.name);
-  this.setState({inPoly: true, polyName: poly.name});
-
-}
-polyOut() {
-  // console.log('farinn úr poly');
-  this.setState({inPoly: false, polyName: '', display: true});
 }
 
 closePreview() {
@@ -184,16 +174,6 @@ renderDrawer = () => {
       </View>
 
       <View style={sideMenuStyles.sideMenuBottomItem}>
-        <TouchableHighlight
-          underlayColor={colors.okkarSvarti} 
-          activeOpacity={0.5}
-          style={sideMenuStyles.sideMenuItem}
-          onPress={() => {this.mapComponentRef.current.distanceFunction(); this.drawer.closeDrawer();}}>
-          <Text style={sideMenuStyles.sideMenuBottomText}>distance test</Text>
-        </TouchableHighlight>
-      </View>
-
-      <View style={sideMenuStyles.sideMenuBottomItem}>
         <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
         <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
       </View>
@@ -219,9 +199,9 @@ getDistance = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inPoly} = this.state;
-    let display = inPoly;
-
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inPoly, display} = this.state;
+    display == inPoly;
+    
     return (
 
       <DrawerLayout
@@ -234,7 +214,7 @@ getDistance = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)} polyIn={this.polyIn.bind(this)} polyOut={this.polyOut.bind(this)} polyName={this.state.polyName} />
+          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)}/>
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -283,11 +263,11 @@ getDistance = () => {
             </View>
             {/* Geofencing modal */}
             <NativeModal
-              isVisible={this.state.inPoly && this.state.display}
-              onBackdropPress={() => this.setState({display: false,})}
+              isVisible={this.state.display}
+              onBackdropPress={() => this.setState({display: false})}
             >
               <View style={styles.modalView}>
-          <Text style={{fontWeight: 'bold'}}>Þú ert í poly:  {this.state.polyName}</Text>
+                <Text style={{fontWeight: 'bold'}}>Þú ert í poly: </Text>
               </View>
             </NativeModal>
 

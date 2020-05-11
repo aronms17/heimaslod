@@ -220,6 +220,6 @@ const styles = StyleSheet.create({
       },
       burger: {
         marginTop: 40,
-        marginRight: 17
+        marginRight: 20
       }
 });

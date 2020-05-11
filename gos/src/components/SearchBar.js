@@ -173,7 +173,7 @@ export default class SearchBar extends React.Component {
                                 keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={this.renderItemView}
                                 renderSectionHeader={({ section }) => (
-                                    <Text style={{fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
+                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
                                   )}
                                 ItemSeparatorComponent={this.renderSeparatorView}
                                 ListEmptyComponent={
