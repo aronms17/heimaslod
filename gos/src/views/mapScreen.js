@@ -58,16 +58,8 @@ componentDidMount() {
     houseImages: '',
     streetId: 0
   })
-  interval = setInterval(() => {
-    let time = new Date()
-    console.log(time);
-
-  }, 1000);
 }
 
-componentWillUnmount() {
-  clearInterval(interval);
-}
 
 // GeoCode, þurfum ekki endilega
 // getGeocodeAsync= async (location) => {
