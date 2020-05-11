@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Butt
 import styles from '../styles/styles';
 import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
-import * as TaskManager from 'expo-task-manager'
+import NativeModal from 'react-native-modal';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
@@ -41,7 +41,8 @@ export default class App extends React.Component {
     houseCoordinates: [],
     streetId: 0,
     errorMessage: '',
-    inRegion: false,
+    inPoly: false,
+    display: false,
     activeSections: [],
     burgerColor: 'black'
   };
@@ -207,7 +208,8 @@ getDistance = () => {
 
   render() {
   
-    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inRegion} = this.state;
+    const { isModalVisible, houseId, houseAddress, houseDescription, houseImages, streetId, errorMessage, inPoly, display} = this.state;
+    display == inPoly;
     
     return (
 
@@ -269,13 +271,14 @@ getDistance = () => {
             />
             </View>
             {/* Geofencing modal */}
-            {/* <NativeModal
-              isVisible={this.state.inRegion}
+            <NativeModal
+              isVisible={this.state.display}
+              onBackdropPress={() => this.setState({display: false})}
             >
               <View style={styles.modalView}>
-                <Text style={{fontWeight: 'bold'}}>Þú ert nálægt punkti</Text>
+                <Text style={{fontWeight: 'bold'}}>Þú ert í poly: </Text>
               </View>
-            </NativeModal> */}
+            </NativeModal>
 
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>

@@ -240,20 +240,21 @@ userCenter() {
 }
 
 distanceFunction() {
-  console.log('Distance is: ', getDistance(
-    { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
-    { latitude: 63.9801554, longitude: -22.6047361 }
-  ));
+  // console.log('Distance is: ', getDistance(
+    // { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
+    // { latitude: 63.9801554, longitude: -22.6047361 }
+  // ));
 
-  console.log('your lat: ', this.state.location.latitude);
-  console.log('your lon: ', this.state.location.longitude);
+  // console.log('your lat: ', this.state.location.latitude);
+  // console.log('your lon: ', this.state.location.longitude);
 
-  console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
+  let pointIn =  isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
     { latitude: 64.09688236026405, longitude: -21.843223571777344 },
     { latitude: 64.08630670483652, longitude: -21.843481063842773 },
     { latitude: 64.08574405740477, longitude: -21.817216873168945 },
     { latitude: 64.09744478257068, longitude: -21.818161010742188 },
-  ]));
+  ]);
+  console.log('pointIn: ', pointIn);
 
 }
 
