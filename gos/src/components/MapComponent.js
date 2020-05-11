@@ -240,9 +240,15 @@ userCenter() {
 }
 
 distanceFunction() {
+  let polygons = json.geogirding;
+
+  polygons.forEach(poly => {
+    
+    
+  });
   // console.log('Distance is: ', getDistance(
-    // { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
-    // { latitude: 63.9801554, longitude: -22.6047361 }
+  //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
+  //   { latitude: 63.9801554, longitude: -22.6047361 }
   // ));
 
   // console.log('your lat: ', this.state.location.latitude);

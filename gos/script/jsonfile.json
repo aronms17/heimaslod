@@ -3247,10 +3247,10 @@
         },
         {
             "id": 97,
-            "address": " ",
-            "streetId": null,
-            "text": " ",
-            "images": [],
+            "address": "Steinholt",
+            "streetId": 10,
+            "text": "Húsið Steinholt stóð við Kirkjuveg 9a var reist árið 1910. Húsið var íbúðarhús en var einnig rekið þar Skóverkstæði Jóns Hafliðasonar.",
+            "images": ["http://www.heimaslod.is/images/2/20/Steinholt.jpg"],
             "coordinates": [
                 {
                     "longitude": -20.26605017889983,
@@ -13414,6 +13414,192 @@
                         "latitude": 63.440360194325244
                     }
                 ]
+            ]
+        }
+    ],
+    "geoGirding": [
+        {
+            "id": 1,
+            "name": "Smáratorg",
+            "coordinates":[
+                {
+                    "longitude": -21.88054919242859,
+                    "latitude": 64.10314803988928
+                },
+                {
+                    "longitude": -21.880205869674683,
+                    "latitude": 64.10286220190635
+                },
+                {
+                    "longitude": -21.878714561462402,
+                    "latitude": 64.10256698910312
+                },
+                {
+                    "longitude": -21.8778133392334,
+                    "latitude": 64.10274505434349
+                },
+                {
+                    "longitude": -21.87655806541443,
+                    "latitude": 64.1028294006385
+                },
+                {
+                    "longitude": -21.877974271774292,
+                    "latitude": 64.10366816376596
+                },
+                {
+                    "longitude": -21.880720853805542,
+                    "latitude": 64.10359787732388
+                },
+                {
+                    "longitude": -21.88054919242859,
+                    "latitude": 64.10314803988928
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Örvasalir",
+            "coordinates": [
+                {
+                    "longitude": -21.859724521636963,
+                    "latitude": 64.08815398394214
+                },
+                {
+                    "longitude": -21.85975670814514,
+                    "latitude": 64.0880695931527
+                },
+                {
+                    "longitude": -21.858994960784912,
+                    "latitude": 64.08802739766205
+                },
+                {
+                    "longitude": -21.858930587768555,
+                    "latitude": 64.08780704239383
+                },
+                {
+                    "longitude": -21.860239505767822,
+                    "latitude": 64.0877695349404
+                },
+                {
+                    "longitude": -21.861366033554077,
+                    "latitude": 64.0876335699981
+                },
+                {
+                    "longitude": -21.86180591583252,
+                    "latitude": 64.08794300648883
+                },
+                {
+                    "longitude": -21.861881017684937,
+                    "latitude": 64.08813523045549
+                },
+                {
+                    "longitude": -21.862170696258545,
+                    "latitude": 64.08810241182344
+                },
+                {
+                    "longitude": -21.861591339111328,
+                    "latitude": 64.08753042373681
+                },
+                {
+                    "longitude": -21.86057209968567,
+                    "latitude": 64.08762888153998
+                },
+                {
+                    "longitude": -21.85880184173584,
+                    "latitude": 64.08774140431719
+                },
+                {
+                    "longitude": -21.858565807342526,
+                    "latitude": 64.08796644850705
+                },
+                {
+                    "longitude": -21.858844757080078,
+                    "latitude": 64.08813054208186
+                },
+                {
+                    "longitude": -21.859724521636963,
+                    "latitude": 64.08815398394214
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Vallakór",
+            "coordinates": [
+                {
+                    "longitude": -21.819459199905396,
+                    "latitude": 64.08390130745882
+                },
+                {
+                    "longitude": -21.81963086128235,
+                    "latitude": 64.08399039995678
+                },
+                {
+                    "longitude": -21.822731494903564,
+                    "latitude": 64.0830947729258
+                },
+                {
+                    "longitude": -21.822431087493896,
+                    "latitude": 64.08290251415261
+                },
+                {
+                    "longitude": -21.819459199905396,
+                    "latitude": 64.08390130745882
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Smáralind",
+            "coordinates": [
+                {
+                    "longitude": -21.882104873657227,
+                    "latitude": 64.10001303327833
+                },
+                {
+                    "longitude": -21.879401206970215,
+                    "latitude": 64.10128769741972
+                },
+                {
+                    "longitude": -21.880388259887695,
+                    "latitude": 64.1018500306807
+                },
+                {
+                    "longitude": -21.882319450378414,
+                    "latitude": 64.10222491320648
+                },
+                {
+                    "longitude": -21.88455104827881,
+                    "latitude": 64.10241235257492
+                },
+                {
+                    "longitude": -21.886653900146484,
+                    "latitude": 64.10239360869491
+                },
+                {
+                    "longitude": -21.887941360473633,
+                    "latitude": 64.10235612089699
+                },
+                {
+                    "longitude": -21.887941360473633,
+                    "latitude": 64.10166258752335
+                },
+                {
+                    "longitude": -21.88828468322754,
+                    "latitude": 64.10091280226413
+                },
+                {
+                    "longitude": -21.888628005981445,
+                    "latitude": 64.1004441762152
+                },
+                {
+                    "longitude": -21.885838508605957,
+                    "latitude": 64.10005052423374
+                },
+                {
+                    "longitude": -21.882104873657227,
+                    "latitude": 64.10001303327833
+                }
             ]
         }
     ]
