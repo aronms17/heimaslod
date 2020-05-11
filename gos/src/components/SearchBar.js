@@ -11,7 +11,7 @@ export default class SearchBar extends React.Component {
         super();
         this.state = {
             expanded: false,
-            yValue: new Animated.Value(100),
+            yValue: new Animated.Value(80),
             houses: [],
             sectionHouses: [],
             inMemoryHouses: [],
@@ -37,7 +37,7 @@ export default class SearchBar extends React.Component {
         this.search('');
         Keyboard.dismiss();
         Animated.spring(this.state.yValue, {
-            toValue: 100,
+            toValue: 80,
             friction: 7,
         }).start();
     };
@@ -212,6 +212,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     bottom: {
+        marginTop: 20,
         flexDirection: 'row'
     },
     search: {
