@@ -89,7 +89,7 @@ componentDidMount() {
 
   interval = setInterval(() => {
     this.getLocationAsync();
-    console.log('live staðsetning: ', this.state.location);
+    // console.log('live staðsetning: ', this.state.location);
   }, 1000);
 
   //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
@@ -169,7 +169,7 @@ getLocationAsync = async () => {
     //this.getGeocodeAsync({latitude, longitude});
     //this.setState({ location: location });
     this.setState({ location: {latitude, longitude}});
-    console.log('Location komið í state');
+    // console.log('Location komið í state');
   }
 };
 
@@ -260,7 +260,9 @@ distanceFunction() {
 render() {
   
   const {goturColor, husColor, selectedColor, location} = this.state;
-
+  let markerlat = this.state.location.latitude;
+  let markerlon = this.state.location.longitude;
+  console.log(markerlat, markerlon)
     return (
         <MapView
           ref={this.mapViewRef}
@@ -312,6 +314,9 @@ render() {
             ))
           }
 
+          {/* <Marker
+            coordinate={{ latitude: 63.9801554, longitude: -22.6047361 }}
+          /> */}
           
             
         </MapView>
