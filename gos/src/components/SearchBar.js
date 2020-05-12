@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, Keyboard, TextInput, KeyboardAvoidingView, Animated, Easing, FlatList, ScrollView, TouchableOpacity, TouchableHighlight, SectionList } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
+import colors from '../styles/colors';
 // import { TouchableHighlight } from 'react-native-gesture-handler';
 import Houses from './../../script/jsonfile.json';
 
@@ -146,7 +147,12 @@ export default class SearchBar extends React.Component {
                         onChangeText={value => this.search(value)}
                         onTouchStart={this._moveUpAnimation}
                         />
-                        <TouchableHighlight style={styles.cancel} onPress={this._moveDownAnimation}>
+                        <TouchableHighlight 
+                            activeOpacity={0.5}
+                            underlayColor='transparent'
+                            style={styles.cancel} 
+                            onPress={this._moveDownAnimation}
+                        >
                             <Text style={{fontSize: 20}}>Hætta</Text>
                         </TouchableHighlight>
 
@@ -249,7 +255,6 @@ const styles = StyleSheet.create({
         cancel: {
             height: 35,
             width: 60,
-            //   backgroundColor: 'grey',
             margin: 15,
 
         },
