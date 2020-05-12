@@ -372,7 +372,6 @@ render() {
                [64.122840, -21.924817]
              ]}
           >
-            <Text>gerðis</Text>
           </Overlay>
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (

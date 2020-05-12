@@ -54,6 +54,13 @@ export default class houseDetailScreen extends React.Component {
 
     }
 
+    navigateStreet(streetId) {
+        console.log('streetid from housedetail: ', streetId);
+        this.props.navigation.push('streetDetailScreen', {
+            streetId
+          });
+    }
+
     setHouseColor() {
         this.setState({husColor: '#EC4D37'});
     }
@@ -65,13 +72,13 @@ export default class houseDetailScreen extends React.Component {
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
                 style={sideMenuStyle.sideMenuItem}
-                onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+                onPress={() => this.props.navigation.push('allStreetScreen')}>
               <Text style={sideMenuStyle.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight 
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
-                onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();}}>
+                onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer();}}>
                 <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
@@ -153,9 +160,7 @@ export default class houseDetailScreen extends React.Component {
                     <Button 
                         title={streetName} 
                         color="tomato"
-                        onPress={() => this.props.navigation.navigate('streetDetailScreen', {
-                            streetId
-                        })}
+                        onPress={() => this.navigateStreet(streetId)}
                     /> 
                     <View style={styles.onlyMap}>
                     <MapView

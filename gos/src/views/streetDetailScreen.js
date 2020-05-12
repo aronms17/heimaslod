@@ -32,16 +32,16 @@ export default class streetDetailScreen extends React.Component {
     }
 
     componentDidMount() {
-        const { navigation } = this.props;
-        const { streetId } = navigation.state.params;
-        const allarGotur = Array.from(Data.gotur);
-        const theStreet = allarGotur.find(({ id }) => id === streetId);
-        const streetName = theStreet.name;
-        const streetDescription = theStreet.text;
-        const streetImages = theStreet.images;
+        let { navigation } = this.props;
+        let { streetId } = this.props.navigation.state.params;
+        let allarGotur = Array.from(Data.gotur);
+        let theStreet = allarGotur.find(({ id }) => id === streetId);
+        let streetName = theStreet.name;
+        let streetDescription = theStreet.text;
+        let streetImages = theStreet.images;
 
         let ollHus = Array.from(Data.hus);
-        const husVidGotu = ollHus.filter(hus => hus.streetId == streetId).sort((a,b) => (a.address > b.address) ? 1 : -1);
+        let husVidGotu = ollHus.filter(hus => hus.streetId == streetId).sort((a,b) => (a.address > b.address) ? 1 : -1);
         
         this.setState({ streetId: streetId, 
             streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
@@ -50,9 +50,8 @@ export default class streetDetailScreen extends React.Component {
     }
 
     navigateHouse(houseId) {
-      this.props.navigation.navigate('houseDetailScreen', {
-          houseId
-        });
+      console.log('houseid from streetdetail: ', houseId);
+      this.props.navigation.push('houseDetailScreen', {houseId});
     }
 
     _renderSectionTitle = section => {

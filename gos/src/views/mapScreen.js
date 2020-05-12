@@ -88,7 +88,7 @@ closePreview() {
 
 navigateHouse(houseId) {
   this.setState({isModalVisible: false});
-  this.props.navigation.navigate('houseDetailScreen', {
+  this.props.navigation.push('houseDetailScreen', {
     houseId
   });
   this.drawer.closeDrawer();
@@ -157,7 +157,7 @@ renderDrawer = () => {
         underlayColor={colors.okkarSvarti} 
         activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
-        onPress={() => {this.props.navigation.navigate('allStreetScreen'); this.drawer.closeDrawer();}}>
+        onPress={() => {this.props.navigation.push('allStreetScreen'); this.drawer.closeDrawer();}}>
         <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
       </TouchableHighlight>
 
