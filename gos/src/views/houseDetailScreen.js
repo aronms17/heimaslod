@@ -8,6 +8,7 @@ import ImageModal from '../components/ImageModal';
 import HouseTextModal from'../components/HouseTextModal';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
+import modalStyles from '../styles/styles';
 import colors from '../styles/colors';
 export default class houseDetailScreen extends React.Component {
     constructor() {
@@ -18,6 +19,7 @@ export default class houseDetailScreen extends React.Component {
           houseAddress: '',
           streetId: null,
           houseDescription: '',
+          shortHouseDescription: '',
           houseImages: '',
           houseCoordinates: [],
           streetName: '',
@@ -100,18 +102,41 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        let { houseAddress, houseDescription, houseImages, streetName, streetId, husColor } = this.state;
-        const arrHouse = Array.from(houseImages);
+        let { houseAddress, houseDescription, shortHouseDescription, houseImages, streetName, streetId, husColor } = this.state;
+        let seeMore = 
+            <TouchableHighlight 
+                style={{
+                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato', marginTop: 10
+                }} 
+                onPress={() => this.setState({textModalVisible: true})}
+                activeOpacity={0.5}
+                backdropcolor='transparent'>
+                    <Text style={styles.desc}>Sjá meira</Text>
+            </TouchableHighlight>;
+        if(houseImages.length == 0) {
+            houseImages = ['http://heimaslod.is/images/8/8b/Loftmynd_hofnin_fyrir_gos.jpg']
+        }
+        
         if (houseDescription == " ") {
             houseDescription = 'Því miður er enginn texti tiltækur';
         }
+        if (houseDescription.length > 300) {
+            shortHouseDescription = houseDescription.substr(0,52) + ' ' + '...';
+        } else {
+            shortHouseDescription = houseDescription
+            seeMore = <Text> </Text>
+        }
+
+        let arrHouse = Array.from(houseImages);
+
         return(
             <View style={styles.container}>    
                 <ImageModal
                     isVisible={this.state.isModalVisible}
                     closeDisplay={() => this.setState({isModalVisible: false})}
                     houseImages={arrHouse}
-                />
+                >
+                </ImageModal>
                 <HouseTextModal
                     isVisible={this.state.textModalVisible}
                     closeDisplay={() => this.setState({textModalVisible: false})}
@@ -167,12 +192,20 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.descriptionContainer}>
-                <ScrollView>
-                    <Text style={styles.desc}>{houseDescription}</Text>
-                </ScrollView>
+                    <Text style={styles.desc}>{shortHouseDescription}</Text>
+                    {seeMore}
                 </View>
                 
                 <View style={styles.bottomContainer}>
+                    <TouchableHighlight 
+                        style={{
+                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato'
+                        }} 
+                        onPress={() => this.navigateStreet(streetId)}
+                        activeOpacity={0.5}
+                        backdropcolor='transparent'>
+                        <Text style={styles.desc}>{streetName}</Text>
+                    </TouchableHighlight>
                     <View style={styles.onlyMap}>
                     <MapView
                         onMapReady={() => {this.zoomTohouse(); this.setHouseColor()}}
@@ -205,14 +238,7 @@ export default class houseDetailScreen extends React.Component {
                 ))}
                         
                     </MapView>
-                    </View>
-
-                    <Button 
-                        title={streetName} 
-                        color="tomato"
-                        onPress={() => this.navigateStreet(streetId)}
-                    />
-                    
+                    </View>                    
                 </View>
                 
                 </DrawerLayout>
@@ -226,8 +252,6 @@ const styles = StyleSheet.create({
 	container: {
         flex: 1,
         backgroundColor: '#1D1B1B',
-        justifyContent: 'center'
-        
 	},
 	headerContainer: {
         flex: 2,
@@ -237,12 +261,13 @@ const styles = StyleSheet.create({
     },
     galleryContainer: {
         flex: 3,
-        marginBottom: 10
+        marginBottom: 10,
     },
     descriptionContainer: {
         flex: 4,
         paddingRight: 20,
-        paddingLeft: 20
+        paddingLeft: 20,
+        alignItems: 'center'
     },
     bottomContainer: {
         flex: 5,
