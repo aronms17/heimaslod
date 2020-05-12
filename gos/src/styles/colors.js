@@ -6,5 +6,7 @@ export default {
     okkarSvarti: '#1D1B1B',
     white: '#FFFFFF',
     green: '#43e01f',
+    hreyfingBlue: 'rgb(72, 102, 157)',
+    okkarGreyLight: 'rgb(242, 242, 242)',
   };
   

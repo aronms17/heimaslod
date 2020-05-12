@@ -35,6 +35,7 @@ const GeoModal = (props) => (
               style={styles.modal}
               propagateSwipe={true}
               swipeThreshold={300}
+              hideModalContentWhileAnimating={true}
             //   onModalShow={() => playSound()}
             >
               <View style={styles.modalView}>
