@@ -1,6 +1,6 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button, Image, ScrollView } from 'react-native';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
@@ -8,13 +8,13 @@ import NativeModal from 'react-native-modal';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
-import { Audio } from 'expo-av';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import GeoModal from './../components/GeoModal';
 
 // Afmörkun:
 // northEast: 63.472856, -20.170407
@@ -64,15 +64,6 @@ componentDidMount() {
   });
 }
 
-playSound = async () => {
-  sound = await Audio.Sound.createAsync(
-    require('./../../assets/notification.wav'),
-    { shouldPlay: true },
-    null, true
-
-  );
-  sound.playAsync();
-}
 
 
 // GeoCode, þurfum ekki endilega
@@ -248,7 +239,7 @@ getDistance = () => {
                 underlayColor='transparent'
                 activeOpacity={0.5}
                 style={styles.leftBurger}
-                onPress={() => {this.mapComponentRef.current.userCenter(); this.playSound();} }
+                onPress={() => this.mapComponentRef.current.userCenter() }
                 >
                 <MaterialIcons name='my-location' size={35} color={this.state.burgerColor}/>
               </TouchableHighlight>
@@ -284,24 +275,17 @@ getDistance = () => {
               goToHouse={() => this.navigateHouse(houseId)}
             />
             </View>
+            <View>
             {/* Geofencing modal */}
-            <NativeModal
-              isVisible={this.state.inPoly && this.state.display}
-              onBackdropPress={() => this.setState({display: false})}
-              backdropOpacity={0.3}
-              animationIn={'bounceInUp'}
-              animationOut={'bounceOutDown'}
-              swipeDirection={['up', 'down']}
-              onSwipeComplete={() => this.setState({display: false})}
-            >
-              <View style={styles.modalView}>
-                <Image resizeMethod={'scale'} style={{flex: 1, height: 50, width: '126.5%', borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
-                <Text style={{fontWeight: 'bold', color: colors.white}}>Þú ert í poly:  {this.state.polyName}</Text>
-                <Text style={{ fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
-                <Text>Árið 1973 gaus á heimaey...</Text>
-                <TouchableHighlight style={{width: 200, height: 50, borderRadius: 100/4,justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white}} onPress={() => this.setState({display: false})}><Text>Loka</Text></TouchableHighlight>
-              </View>
-            </NativeModal>
+              <GeoModal 
+                inPoly={this.state.inPoly} 
+                display={this.state.display}
+                polyName={this.state.polyName}
+                onBackdropPress={() => this.setState({display: false})}
+                onSwipeComplete={() => this.setState({display: false})}
+                close={() => this.setState({display: false})}
+              />
+            </View>
 
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
