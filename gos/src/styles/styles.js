@@ -12,9 +12,14 @@ export default StyleSheet.create({
       justifyContent: 'space-between',
   
     },
+    modal: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 0
+    },
     modalView: {
-      height: 400,
-      margin: 20,
+      height: 550,
+      width: 350,
       backgroundColor: colors.okkarSvarti,
       borderRadius: 20,
       padding: 35,
