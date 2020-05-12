@@ -1,6 +1,6 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button, Image } from 'react-native';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
@@ -13,6 +13,7 @@ import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // Afmörkun:
 // northEast: 63.472856, -20.170407
@@ -42,7 +43,7 @@ export default class App extends React.Component {
     streetId: 0,
     errorMessage: '',
     inPoly: false,
-    display: false,
+    display: true,
     polyName: '',
     activeSections: [],
     burgerColor: 'black'
@@ -193,6 +194,16 @@ changeTheme = (theme) => {
   this.drawer.closeDrawer();
 }
 
+polyIn(poly) {
+  // console.log('kominn í poly:', poly.name);
+  this.setState({inPoly: true, polyName: poly.name});
+
+}
+polyOut() {
+  // console.log('farinn úr poly');
+  this.setState({inPoly: false, polyName: '', display: true});
+}
+
 getDistance = () => {
   this.mapComponentRef.current.distanceFunction();
 }
@@ -214,7 +225,7 @@ getDistance = () => {
         drawerBackgroundColor='#1D1B1B'
         renderNavigationView={this.renderDrawer}
       >
-          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)}/>
+          <MapComponent ref={this.mapComponentRef} preview={(house) => this.previewHouse(house)} polyIn={this.polyIn.bind(this)} polyOut={this.polyOut.bind(this)} polyName={this.state.polyName} />
 
           <View pointerEvents="box-none" style={styles.components}>
             
@@ -263,12 +274,18 @@ getDistance = () => {
             </View>
             {/* Geofencing modal */}
             <NativeModal
-              isVisible={this.state.display}
-              onBackdropPress={() => this.setState({display: false})}
+              isVisible={this.state.inPoly && this.state.display}
+              onBackdropPress={() => this.setState({display: false,})}
+              backdropOpacity={0.3}
+              animationIn={'bounceInUp'}
+              animationOut={'bounceOutDown'}
             >
               <View style={styles.modalView}>
-                <Text style={{ fontSize: 30 , fontWeight: 'bold'}}>Velkomin(n) á hraunið </Text>
+                <Image resizeMethod={'scale'} style={{flex: 1, height: 50, width: '127%', borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
+                <Text style={{fontWeight: 'bold', color: colors.white}}>Þú ert í poly:  {this.state.polyName}</Text>
+                <Text style={{ fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
                 <Text>Árið 1973 gaus á heimaey...</Text>
+                <TouchableHighlight style={{width: 200, height: 50, borderRadius: 100/4,justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white}} onPress={() => this.setState({display: false})}><Text>Loka</Text></TouchableHighlight>
               </View>
             </NativeModal>
 

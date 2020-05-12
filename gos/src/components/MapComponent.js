@@ -197,8 +197,11 @@ userCenter() {
   }
 }
 
+//Fyrir hvern polygon er check ef location er innan polygon,
+//Ef ekki, er check hvort location var í polygon með state í mapscreen
+//
 distanceFunction() {
-  let polygons = prufupoly.geoGirding;
+  let polygons = prufupoly.hraun;
   
   polygons.forEach(poly => {
     if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
@@ -206,8 +209,8 @@ distanceFunction() {
       // console.log('polynafn í state:', this.props.polyName);
     }
     else if(this.props.polyName === poly.name && !isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
+      // console.log('farinn úr poly: ', this.props.polyName);
       this.props.polyOut();
-      // console.log('polynafn í state:', this.props.polyName);
     }
   })
 

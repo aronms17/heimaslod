@@ -13,10 +13,12 @@ export default StyleSheet.create({
   
     },
     modalView: {
+      height: 400,
       margin: 20,
       backgroundColor: colors.okkarSvarti,
       borderRadius: 20,
       padding: 35,
+      paddingTop: 0,
       alignItems: "center",
       shadowColor: "#000",
       shadowOffset: {
