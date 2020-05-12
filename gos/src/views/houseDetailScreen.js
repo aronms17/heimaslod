@@ -22,6 +22,7 @@ export default class houseDetailScreen extends React.Component {
           houseCoordinates: [],
           streetName: '',
           isModalVisible: false,
+          textModalVisible: false,
           husColor: null
         };
     }
@@ -112,8 +113,8 @@ export default class houseDetailScreen extends React.Component {
                     houseImages={arrHouse}
                 />
                 <HouseTextModal
-                    isVisible={true}
-                    closeDisplay={() => this.setState({isModalVisible: false})}
+                    isVisible={this.state.textModalVisible}
+                    closeDisplay={() => this.setState({textModalVisible: false})}
                     houseText={houseDescription}
                 />
 
