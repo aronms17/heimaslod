@@ -42,7 +42,6 @@ const GeoModal = (props) => (
                   <Image resizeMethod={'resize'} style={{height: 230, width: 350, borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
                 </View>
                 <View style={{marginTop: 10, alignItems: 'center', height: 200}}>
-                  <Text style={{fontWeight: 'bold', color: colors.white}}>Þú ert á svæði:  {props.polyName}</Text>
                   <Text style={{height: 40, width: '100%', fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
                   {text}
                 </View>

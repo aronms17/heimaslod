@@ -67,6 +67,7 @@ export default StyleSheet.create({
     },
     modalText: {
       color: 'white',
+      fontSize: 18,
       marginTop: 20,
       marginBottom: 20
     },

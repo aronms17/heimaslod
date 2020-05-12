@@ -35,5 +35,11 @@ export default StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white'
+      },
+      mapButtonStyle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        marginTop: 6
       }
 });

@@ -7,7 +7,7 @@ import sideMenuStyles from '../styles/sideMenuStyles';
 import NativeModal from 'react-native-modal';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { Feather, Foundation, AntDesign, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
@@ -113,38 +113,46 @@ _renderContent = section => {
     <>
     
     <View style={{flexDirection: 'row', marginTop: 15}}>
-      <Foundation style={{marginRight: 10}} name="map" size={24} color="seagreen" />
-      <TouchableHighlight 
+      <View style={{backgroundColor: 'seagreen', height: 38, width: 38, 
+        borderRadius: 35/2, justifyContent: 'center', alignItems:'center', marginRight: 10}}>
+        <Foundation name='map' size={24} color='azure'/> 
+      </View>
+      <TouchableHighlight
         underlayColor={colors.okkarSvarti}
         activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Satellite")}>
-          <Text style={sideMenuStyles.accordionText}>Loftmynd</Text>
+          <Text style={sideMenuStyles.mapButtonStyle}>Loftmynd</Text>
       </TouchableHighlight>
     </View>
 
     <View style={{flexDirection: 'row' }}>
-      <Foundation style={{marginRight: 10}} name='map' size={24} color='darkblue'/>
+    <View style={{backgroundColor: 'dimgrey', height: 38, width: 38, 
+        borderRadius: 35/2, justifyContent: 'center', alignItems:'center', marginRight: 10}}>
+        <Foundation name='map' size={24} color='azure'/> 
+      </View>
       <TouchableHighlight
         underlayColor={colors.okkarSvarti}
         activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Dark")}>
-          <Text style={sideMenuStyles.accordionText}>Dökkt</Text>
+          <Text style={sideMenuStyles.mapButtonStyle}>Dökkt</Text>
       </TouchableHighlight>
     </View>
 
-    <View style={{flexDirection: 'row'}}>
-      <Foundation style={{marginRight: 10}} name='map' size={24} color='azure'/>
+    <View style={{flexDirection: 'row' }}>
+    <View style={{backgroundColor: 'white', height: 38, width: 38, 
+        borderRadius: 35/2, justifyContent: 'center', alignItems:'center', marginRight: 10}}>
+        <Foundation name='map' size={24} color='black'/> 
+      </View>
       <TouchableHighlight
         underlayColor={colors.okkarSvarti}
         activeOpacity={0.5}
         style={sideMenuStyles.sideMenuItem}
         onPress={() => this.changeTheme("Light")}>
-          <Text style={sideMenuStyles.accordionText}>Ljóst</Text>
+          <Text style={sideMenuStyles.mapButtonStyle}>Ljóst</Text>
       </TouchableHighlight>
     </View>
-
     </>
 
   );
