@@ -8,6 +8,7 @@ import NativeModal from 'react-native-modal';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Accordion from 'react-native-collapsible/Accordion';
 import { Feather, Foundation, AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { Audio } from 'expo-av';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
@@ -60,7 +61,17 @@ componentDidMount() {
     houseDescription: '',
     houseImages: '',
     streetId: 0
-  })
+  });
+}
+
+playSound = async () => {
+  sound = await Audio.Sound.createAsync(
+    require('./../../assets/notification.wav'),
+    { shouldPlay: true },
+    null, true
+
+  );
+  sound.playAsync();
 }
 
 
@@ -237,7 +248,7 @@ getDistance = () => {
                 underlayColor='transparent'
                 activeOpacity={0.5}
                 style={styles.leftBurger}
-                onPress={() => this.mapComponentRef.current.userCenter() }
+                onPress={() => {this.mapComponentRef.current.userCenter(); this.playSound();} }
                 >
                 <MaterialIcons name='my-location' size={35} color={this.state.burgerColor}/>
               </TouchableHighlight>
@@ -276,13 +287,15 @@ getDistance = () => {
             {/* Geofencing modal */}
             <NativeModal
               isVisible={this.state.inPoly && this.state.display}
-              onBackdropPress={() => this.setState({display: false,})}
+              onBackdropPress={() => this.setState({display: false})}
               backdropOpacity={0.3}
               animationIn={'bounceInUp'}
               animationOut={'bounceOutDown'}
+              swipeDirection={['up', 'down']}
+              onSwipeComplete={() => this.setState({display: false})}
             >
               <View style={styles.modalView}>
-                <Image resizeMethod={'scale'} style={{flex: 1, height: 50, width: '127%', borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
+                <Image resizeMethod={'scale'} style={{flex: 1, height: 50, width: '126.5%', borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
                 <Text style={{fontWeight: 'bold', color: colors.white}}>Þú ert í poly:  {this.state.polyName}</Text>
                 <Text style={{ fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
                 <Text>Árið 1973 gaus á heimaey...</Text>
