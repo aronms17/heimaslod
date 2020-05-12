@@ -4,6 +4,7 @@ import sideMenuStyles from '../styles/sideMenuStyles';
 import colors from '../styles/colors';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
+import HouseTextModal from '../components/HouseTextModal';
 import Gallery from 'react-native-image-gallery';
 import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
@@ -24,8 +25,10 @@ export default class streetDetailScreen extends React.Component {
           streetId: null,
           streetName: '',
           streetDescription: '',
+          shortStreetDescription: '',
           streetImages: '',
           isModalVisible: false,
+          textModalVisible: false,
           activeSections: [],
           husVidGotu: []
         };
@@ -50,7 +53,6 @@ export default class streetDetailScreen extends React.Component {
     }
 
     navigateHouse(houseId) {
-      console.log('houseid from streetdetail: ', houseId);
       this.props.navigation.push('houseDetailScreen', {houseId});
     }
 
@@ -102,14 +104,14 @@ export default class streetDetailScreen extends React.Component {
               underlayColor={colors.okkarSvarti}
               activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
-              onPress={() => this.props.navigation.navigate('allStreetScreen')}>
+              onPress={() => this.props.navigation.push('allStreetScreen')}>
               <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight
               underlayColor={colors.okkarSvarti}
               activeOpacity={0.5}
               style={sideMenuStyles.sideMenuItem}
-              onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
+              onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer()} }>
                 <Text style={sideMenuStyles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
@@ -117,15 +119,27 @@ export default class streetDetailScreen extends React.Component {
     }
 
     render() {
-        const { streetName, streetDescription, streetImages } = this.state;
+        let { streetName, streetDescription, streetImages, shortStreetDescription } = this.state;
         const img = Array.from(streetImages);
+        if (streetDescription == " ") {
+          streetDescription = 'Því miður er enginn texti tiltækur';
+      }
+      if (streetDescription.length > 300) {
+          shortStreetDescription = streetDescription.substr(0,60) + ' ' + '...';
+      }
         return(
             <View style={styles.container}>
                 <ImageModal
                     isVisible={this.state.isModalVisible}
                     closeDisplay={() => this.setState({isModalVisible: false})}
                     houseImages={img}
-                />           
+                />
+                <HouseTextModal
+                    isVisible={this.state.textModalVisible}
+                    closeDisplay={() => this.setState({textModalVisible: false})}
+                    houseText={streetDescription}
+                >  
+                </HouseTextModal>         
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -174,9 +188,16 @@ export default class streetDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.descriptionContainer}>
-                  <ScrollView>
-                    <Text style={styles.desc}>{streetDescription}</Text>
-                  </ScrollView>
+                  <Text style={styles.desc}>{shortStreetDescription}</Text>
+                  <TouchableHighlight 
+                    style={{
+                        width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato'
+                    }} 
+                    onPress={() => this.setState({textModalVisible: true})}
+                    activeOpacity={0.5}
+                    backdropcolor='transparent'>
+                      <Text style={styles.desc}>Sjá meira</Text>
+                  </TouchableHighlight>
                   <View style={{marginBottom: 10}}>
                     <Accordion
                         underlayColor={colors.okkarSvarti}
@@ -221,7 +242,8 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     flex: 4,
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
+    marginTop: 10,
   },
   bottomContainer: {
     flex: 5,
