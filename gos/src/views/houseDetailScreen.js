@@ -5,6 +5,7 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ImageModal from '../components/ImageModal';
+import HouseTextModal from'../components/HouseTextModal';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 import colors from '../styles/colors';
@@ -55,7 +56,6 @@ export default class houseDetailScreen extends React.Component {
     }
 
     navigateStreet(streetId) {
-        console.log('streetid from housedetail: ', streetId);
         this.props.navigation.push('streetDetailScreen', {
             streetId
           });
@@ -110,6 +110,11 @@ export default class houseDetailScreen extends React.Component {
                     isVisible={this.state.isModalVisible}
                     closeDisplay={() => this.setState({isModalVisible: false})}
                     houseImages={arrHouse}
+                />
+                <HouseTextModal
+                    isVisible={true}
+                    closeDisplay={() => this.setState({isModalVisible: false})}
+                    houseText={houseDescription}
                 />
 
                 <DrawerLayout
@@ -167,11 +172,6 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Button 
-                        title={streetName} 
-                        color="tomato"
-                        onPress={() => this.navigateStreet(streetId)}
-                    /> 
                     <View style={styles.onlyMap}>
                     <MapView
                         onMapReady={() => {this.zoomTohouse(); this.setHouseColor()}}
@@ -205,6 +205,12 @@ export default class houseDetailScreen extends React.Component {
                         
                     </MapView>
                     </View>
+
+                    <Button 
+                        title={streetName} 
+                        color="tomato"
+                        onPress={() => this.navigateStreet(streetId)}
+                    />
                     
                 </View>
                 
@@ -230,6 +236,7 @@ const styles = StyleSheet.create({
     },
     galleryContainer: {
         flex: 3,
+        marginBottom: 10
     },
     descriptionContainer: {
         flex: 4,
@@ -240,20 +247,22 @@ const styles = StyleSheet.create({
         flex: 5,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        flexDirection: 'row',
+        flexDirection: 'column',
         paddingRight: 20,
-        paddingLeft: 20
+        paddingLeft: 20,
+        marginBottom: 15
     },
     bottomItems: {
         marginRight: 10
     },
     onlyMap: {
         ...StyleSheet.absoluteFillObject,
-        width: 230,
+        width: 330,
         height: 150,
         marginTop: 15,
         marginLeft: 15,
         marginRight: 15,
+        marginBottom: 15,
         position: 'relative'
     },
 	name: {
