@@ -24,10 +24,6 @@ const initialRegion = {
   latitudeDelta: 0.095,
   longitudeDelta: 0.0921
 }
-
-const hr = { latitude: 64.124182, 
-            longitude: -21.927272 };
-
 export default class MapComponent extends React.Component {
 
   constructor(props) {
@@ -124,50 +120,9 @@ getLocationAsync = async () => {
     console.log('location permission ekki gefið');
   }
   else {
-    // Geofencið
-    // const taskName = "fencing";
-    // const nyjaHraun = { latitude: 63.440845, longitude: -20.258694 };
-    // const radius = 500;
-  // 
-    // Location.startGeofencingAsync(taskName, [
-      // {
-        // ...nyjaHraun,
-        // radius
-      // }
-    // ]);
-  // 
-    // TaskManager.defineTask(taskName, task => {
-      // if (task.data.eventType === Location.GeofencingEventType.Enter) {
-        // console.log("Nálægt hrauni");
-        // console.log(task.data);
-        // this.setState({inRegion: true});
-      // }
-      // if (task.data.eventType === Location.GeofencingEventType.Exit) {
-        // Location.stopGeofencingAsync(taskName)
-        // console.log("Farnir úr punkti");
-        // this.setState({inRegion: false});
-      // }
-      // return;
-    // });
 
     let location = await Location.getCurrentPositionAsync();
-    // let location = await Location.watchPositionAsync(
-      // {
-        // enableHighAccuracy: true,
-        // distanceInterval: 1,
-        // timeInterval: 1000
-      // },
-      // newLocation => {
-        // let coords = newLocation.coords;
-        // this.props.getMyLocation sets my reducer state my_location
-        // this.props.getMyLocation({
-          // latitude: parseFloat(coords.latitude),
-          // longitude: parseFloat(coords.longitude)
-        // });
-      // },
-      // error => console.log(error)
-    // );
-
+    
     const { latitude , longitude } = location.coords;
     //this.getGeocodeAsync({latitude, longitude});
     //this.setState({ location: location });
@@ -244,8 +199,7 @@ userCenter() {
 
 distanceFunction() {
   let polygons = prufupoly.geoGirding;
-  let polyg = polygons[3];
-
+  
   polygons.forEach(poly => {
     if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
       this.props.polyIn(poly);
