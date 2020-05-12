@@ -316,7 +316,7 @@ render() {
             coordinate={{latitude: 63.436949, longitude: -20.260769}}
             rotation={0}  
           >
-            <FontAwesome5 name="map-signs" size={20} />
+            <FontAwesome5 name="map-signs" size={12} color="green" />
           </Marker>
 
           {/* <Overlay
