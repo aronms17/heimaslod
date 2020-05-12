@@ -6,7 +6,7 @@ import mapjson2 from '../json/mapstyle2.json';
 import mapjson3 from '../json/mapstyle3.json';
 import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import { Feather, MaterialIcons, FontAwesome5  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -311,22 +311,19 @@ render() {
           <Marker
             title="Búastaðarbraut"
             coordinate={{latitude: 63.436949, longitude: -20.260769}}
-            rotation={0}
-            
+            rotation={0}  
           >
-
-            <Text style={{color: 'black', width:'20%', height: 20}}>Búastaðarbraut</Text>
-          
+            <FontAwesome5 name="map-signs" size={20} />
           </Marker>
 
-          <Overlay
+          {/* <Overlay
              image={require('../../assets/gerdisb.png')}
              bounds={[
                [64.125446, -21.931473],
                [64.122840, -21.924817]
              ]}
           >
-          </Overlay>
+          </Overlay> */}
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
@@ -341,13 +338,7 @@ render() {
             ))
           }
 
-          {/* <Marker
-            coordinate={{ latitude: 63.9801554, longitude: -22.6047361 }}
-          /> */}
-          
-            
-        </MapView>
-        
+        </MapView>  
     );
   }
 }
