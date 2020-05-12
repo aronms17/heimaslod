@@ -12,8 +12,31 @@ export default StyleSheet.create({
       justifyContent: 'space-between',
   
     },
+    modal: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 0
+    },
     modalView: {
-      height: 400,
+      height: 550,
+      width: 350,
+      backgroundColor: colors.okkarSvarti,
+      borderRadius: 20,
+      padding: 35,
+      paddingTop: 0,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5
+    },
+    textModalView: {
+      height: '80%',
+      width: 320,
       margin: 20,
       backgroundColor: colors.okkarSvarti,
       borderRadius: 20,
@@ -41,5 +64,21 @@ export default StyleSheet.create({
     leftBurger: {
       marginTop: 43,
       marginRight: 7
+    },
+    modalText: {
+      color: 'white',
+      marginTop: 20,
+      marginBottom: 20
+    },
+    desc: { 
+      fontSize: 16,
+      color: 'white',
+    },
+    imageModal: {
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      height: 200,
+      backgroundColor: colors.okkarSvarti
     }
   });

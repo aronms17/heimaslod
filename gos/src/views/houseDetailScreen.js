@@ -5,8 +5,10 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ImageModal from '../components/ImageModal';
+import HouseTextModal from'../components/HouseTextModal';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
+import modalStyles from '../styles/styles';
 import colors from '../styles/colors';
 export default class houseDetailScreen extends React.Component {
     constructor() {
@@ -17,10 +19,12 @@ export default class houseDetailScreen extends React.Component {
           houseAddress: '',
           streetId: null,
           houseDescription: '',
+          shortHouseDescription: '',
           houseImages: '',
           houseCoordinates: [],
           streetName: '',
           isModalVisible: false,
+          textModalVisible: false,
           husColor: null
         };
     }
@@ -55,7 +59,6 @@ export default class houseDetailScreen extends React.Component {
     }
 
     navigateStreet(streetId) {
-        console.log('streetid from housedetail: ', streetId);
         this.props.navigation.push('streetDetailScreen', {
             streetId
           });
@@ -99,17 +102,45 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        let { houseAddress, houseDescription, houseImages, streetName, streetId, husColor } = this.state;
-        const arrHouse = Array.from(houseImages);
+        let { houseAddress, houseDescription, shortHouseDescription, houseImages, streetName, streetId, husColor } = this.state;
+        let seeMore = 
+            <TouchableHighlight 
+                style={{
+                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato', marginTop: 10
+                }} 
+                onPress={() => this.setState({textModalVisible: true})}
+                activeOpacity={0.5}
+                backdropcolor='transparent'>
+                    <Text style={styles.desc}>Sjá meira</Text>
+            </TouchableHighlight>;
+        if(houseImages.length == 0) {
+            houseImages = ['http://heimaslod.is/images/8/8b/Loftmynd_hofnin_fyrir_gos.jpg']
+        }
+        
         if (houseDescription == " ") {
             houseDescription = 'Því miður er enginn texti tiltækur';
         }
+        if (houseDescription.length > 300) {
+            shortHouseDescription = houseDescription.substr(0,52) + ' ' + '...';
+        } else {
+            shortHouseDescription = houseDescription
+            seeMore = <Text> </Text>
+        }
+
+        let arrHouse = Array.from(houseImages);
+
         return(
             <View style={styles.container}>    
                 <ImageModal
                     isVisible={this.state.isModalVisible}
                     closeDisplay={() => this.setState({isModalVisible: false})}
                     houseImages={arrHouse}
+                >
+                </ImageModal>
+                <HouseTextModal
+                    isVisible={this.state.textModalVisible}
+                    closeDisplay={() => this.setState({textModalVisible: false})}
+                    houseText={houseDescription}
                 />
 
                 <DrawerLayout
@@ -161,17 +192,20 @@ export default class houseDetailScreen extends React.Component {
                 </View>
                 
                 <View style={styles.descriptionContainer}>
-                <ScrollView>
-                    <Text style={styles.desc}>{houseDescription}</Text>
-                </ScrollView>
+                    <Text style={styles.desc}>{shortHouseDescription}</Text>
+                    {seeMore}
                 </View>
                 
                 <View style={styles.bottomContainer}>
-                    <Button 
-                        title={streetName} 
-                        color="tomato"
+                    <TouchableHighlight 
+                        style={{
+                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato'
+                        }} 
                         onPress={() => this.navigateStreet(streetId)}
-                    /> 
+                        activeOpacity={0.5}
+                        backdropcolor='transparent'>
+                        <Text style={styles.desc}>{streetName}</Text>
+                    </TouchableHighlight>
                     <View style={styles.onlyMap}>
                     <MapView
                         onMapReady={() => {this.zoomTohouse(); this.setHouseColor()}}
@@ -204,8 +238,7 @@ export default class houseDetailScreen extends React.Component {
                 ))}
                         
                     </MapView>
-                    </View>
-                    
+                    </View>                    
                 </View>
                 
                 </DrawerLayout>
@@ -219,8 +252,6 @@ const styles = StyleSheet.create({
 	container: {
         flex: 1,
         backgroundColor: '#1D1B1B',
-        justifyContent: 'center'
-        
 	},
 	headerContainer: {
         flex: 2,
@@ -230,30 +261,34 @@ const styles = StyleSheet.create({
     },
     galleryContainer: {
         flex: 3,
+        marginBottom: 10,
     },
     descriptionContainer: {
         flex: 4,
         paddingRight: 20,
-        paddingLeft: 20
+        paddingLeft: 20,
+        alignItems: 'center'
     },
     bottomContainer: {
         flex: 5,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        flexDirection: 'row',
+        flexDirection: 'column',
         paddingRight: 20,
-        paddingLeft: 20
+        paddingLeft: 20,
+        marginBottom: 15
     },
     bottomItems: {
         marginRight: 10
     },
     onlyMap: {
         ...StyleSheet.absoluteFillObject,
-        width: 230,
+        width: 330,
         height: 150,
         marginTop: 15,
         marginLeft: 15,
         marginRight: 15,
+        marginBottom: 15,
         position: 'relative'
     },
 	name: {

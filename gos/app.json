@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "gos",
-    "slug": "gos",
+    "name": "heimaslod_gos",
+    "slug": "heimaslod_gos",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -30,6 +30,7 @@
         "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses location for geofencing",
         "NSLocationAlwaysUsageDescription": "This app uses location for geofencing"
       }
-    }
+    },
+    "description": ""
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 // import MapView, { Marker, Polygon } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, TouchableHighlight, Button, Image, ScrollView } from 'react-native';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
 import sideMenuStyles from '../styles/sideMenuStyles';
@@ -14,6 +14,7 @@ import SearchBar from './../components/SearchBar';
 import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import GeoModal from './../components/GeoModal';
 
 // Afmörkun:
 // northEast: 63.472856, -20.170407
@@ -60,8 +61,9 @@ componentDidMount() {
     houseDescription: '',
     houseImages: '',
     streetId: 0
-  })
+  });
 }
+
 
 
 // GeoCode, þurfum ekki endilega
@@ -71,7 +73,8 @@ componentDidMount() {
 // }
 
 previewHouse(house) {
-  console.log('House Address: ', house.address)
+  console.log('House Address: ', house.address);
+  console.log('houseid: ', house.id);
   if(house.address === " ") {
     console.log('No name on this house!');
     // this.makeVibration();
@@ -272,22 +275,17 @@ getDistance = () => {
               goToHouse={() => this.navigateHouse(houseId)}
             />
             </View>
+            <View>
             {/* Geofencing modal */}
-            <NativeModal
-              isVisible={this.state.inPoly && this.state.display}
-              onBackdropPress={() => this.setState({display: false,})}
-              backdropOpacity={0.3}
-              animationIn={'bounceInUp'}
-              animationOut={'bounceOutDown'}
-            >
-              <View style={styles.modalView}>
-                <Image resizeMethod={'scale'} style={{flex: 1, height: 50, width: '127%', borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
-                <Text style={{fontWeight: 'bold', color: colors.white}}>Þú ert í poly:  {this.state.polyName}</Text>
-                <Text style={{ fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
-                <Text>Árið 1973 gaus á heimaey...</Text>
-                <TouchableHighlight style={{width: 200, height: 50, borderRadius: 100/4,justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white}} onPress={() => this.setState({display: false})}><Text>Loka</Text></TouchableHighlight>
-              </View>
-            </NativeModal>
+              <GeoModal 
+                inPoly={this.state.inPoly} 
+                display={this.state.display}
+                polyName={this.state.polyName}
+                onBackdropPress={() => this.setState({display: false})}
+                onSwipeComplete={() => this.setState({display: false})}
+                close={() => this.setState({display: false})}
+              />
+            </View>
 
             </View>
             <SearchBar preview={(house) => this.previewHouse(house)}/>
