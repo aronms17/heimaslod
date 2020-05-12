@@ -99,8 +99,11 @@ export default class houseDetailScreen extends React.Component {
     }
 
     render() {
-        const { houseAddress, houseDescription, houseImages, streetName, streetId, husColor } = this.state;
+        let { houseAddress, houseDescription, houseImages, streetName, streetId, husColor } = this.state;
         const arrHouse = Array.from(houseImages);
+        if (houseDescription == " ") {
+            houseDescription = 'Því miður er enginn texti tiltækur';
+        }
         return(
             <View style={styles.container}>    
                 <ImageModal
