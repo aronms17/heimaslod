@@ -5,7 +5,7 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ImageModal from '../components/ImageModal';
-import { Feather, MaterialIcons  } from '@expo/vector-icons'
+import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 import colors from '../styles/colors';
 export default class houseDetailScreen extends React.Component {
@@ -78,7 +78,7 @@ export default class houseDetailScreen extends React.Component {
             <TouchableHighlight 
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
-                onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer();}}>
+                onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();}}>
                 <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
@@ -123,6 +123,13 @@ export default class houseDetailScreen extends React.Component {
                     renderNavigationView={this.renderDrawer}
                 >
                 <View style={styles.header}>
+                    <TouchableHighlight
+                        underlayColor={colors.okkarSvarti}
+                        activeOpacity={0.5}
+                        style={{marginLeft: 20}}
+                        onPress={() => this.props.navigation.goBack()}>
+                        <Ionicons name="ios-arrow-back" size={40} color="white" />
+                    </TouchableHighlight>
                     <TouchableHighlight
                         underlayColor={colors.okkarSvarti}
                         activeOpacity={0.5}
@@ -259,10 +266,11 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     header: {
-      width: Dimensions.get('screen').width, 
-      flexDirection: 'row',
-      justifyContent: 'flex-end'
-    },
+        width: Dimensions.get('screen').width, 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+      },
     burger: {
       marginTop: 40,
       marginRight: 17

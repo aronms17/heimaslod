@@ -72,7 +72,7 @@ export default class allStreetScreen extends React.Component {
             <TouchableHighlight
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
-                onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer();} }>
+                onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
                 <Text style={styles.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
