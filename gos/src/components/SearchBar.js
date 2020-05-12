@@ -115,8 +115,8 @@ export default class SearchBar extends React.Component {
             </View>}
             <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
                 {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                <Text style={{fontSize: 20}}>{item.address}</Text>
-                <Text numberOfLines={1} >{item.text}</Text>
+                <Text style={{fontSize: 20, color: colors.white}}>{item.address}</Text>
+                <Text numberOfLines={1} style={{color: colors.white}}>{item.text}</Text>
             </View>
         </TouchableOpacity>
       );
@@ -141,7 +141,7 @@ export default class SearchBar extends React.Component {
                         ref={ component => _textInput = component}
                         autoCorrect={false}
                         placeholder="Leita"
-                        placeholderTextColor='white'
+                        placeholderTextColor='black'
                         style={ styles.searchInput }
                         // style={{backgroundColor: 'grey', color: 'white'}}
                         onChangeText={value => this.search(value)}
@@ -153,7 +153,7 @@ export default class SearchBar extends React.Component {
                             style={styles.cancel} 
                             onPress={this._moveDownAnimation}
                         >
-                            <Text style={{fontSize: 20}}>Hætta</Text>
+                            <Text style={{fontSize: 20, color: colors.white}}>Hætta</Text>
                         </TouchableHighlight>
 
                     </View>
@@ -179,7 +179,7 @@ export default class SearchBar extends React.Component {
                                 keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={this.renderItemView}
                                 renderSectionHeader={({ section }) => (
-                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: 'rgb(242, 242, 242)'}}>{section.title}</Text>
+                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: colors.okkarSvarti, color: colors.white}}>{section.title}</Text>
                                   )}
                                 ItemSeparatorComponent={this.renderSeparatorView}
                                 ListEmptyComponent={
@@ -224,10 +224,11 @@ const styles = StyleSheet.create({
     search: {
         height: 100, 
         width: Dimensions.get('window').width, 
-        backgroundColor: 'rgb(242, 242, 242)',
+        backgroundColor: colors.okkarSvarti,
         flexDirection: 'column',
         alignItems: 'center',
-        borderRadius:10,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
         shadowColor: "#000",
         // shadowOffset: {
         //     width: -1,
@@ -238,8 +239,8 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     searchInput: {
-        backgroundColor: 'grey',
-        color: 'white',
+        backgroundColor: colors.white,
+        color: colors.black,
         height: 35,
         width: Dimensions.get('window').width - 100,
         marginLeft: 15,

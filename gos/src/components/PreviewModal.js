@@ -2,6 +2,7 @@ import React from 'react'
 import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, Dimensions } from 'react-native';
 import NativeModal from 'react-native-modal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import colors from '../styles/colors';
 
 const PreviewModal = (props) => (
     <NativeModal
@@ -13,10 +14,25 @@ const PreviewModal = (props) => (
       onDismiss={() => props.closeDisplay()}
       backdropOpacity={0}
       onBackdropPress={() => props.closeDisplay()}
+      swipeDirection={'down'}
+      onSwipeComplete={() => props.closeDisplay()}
+      swipeThreshold={70}
+      style={styles.modal}
+      hideModalContentWhileAnimating={true}
       >
 
       <View style={styles.modalView}>
         <View style={styles.modalHeader}>
+              <View style={{height: 20, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+              <View style={{
+                  height: 7,
+                  borderRadius: 20,
+                  marginLeft: 10,
+                  width: "10%",
+                  backgroundColor: colors.okkarGreyLight,
+                }}
+              />
+              </View>
             <TouchableHighlight
               underlayColor='transparent'
               activeOpacity={0.5}
@@ -40,12 +56,18 @@ const PreviewModal = (props) => (
 )
 
 const styles = StyleSheet.create({
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
   text: {
     fontSize: 20,
     // marginLeft: 150
   },
   modalView: {
-    height: 150,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    height: 200,
     backgroundColor: "#1D1B1B"
   },
   openButton: {
