@@ -267,7 +267,8 @@ getDistance = () => {
               onBackdropPress={() => this.setState({display: false})}
             >
               <View style={styles.modalView}>
-                <Text style={{fontWeight: 'bold'}}>Þú ert í poly: </Text>
+                <Text style={{ fontSize: 30 , fontWeight: 'bold'}}>Velkomin(n) á hraunið </Text>
+                <Text>Árið 1973 gaus á heimaey...</Text>
               </View>
             </NativeModal>
 

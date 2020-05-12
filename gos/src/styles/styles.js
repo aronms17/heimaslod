@@ -14,7 +14,7 @@ export default StyleSheet.create({
     },
     modalView: {
       margin: 20,
-      backgroundColor: "white",
+      backgroundColor: colors.okkarSvarti,
       borderRadius: 20,
       padding: 35,
       alignItems: "center",
