@@ -58,12 +58,16 @@ export default StyleSheet.create({
       justifyContent: 'flex-end',
     },
     burger: {
+      backgroundColor: colors.hreyfingBlue,
       marginTop: 40,
       marginRight: 17,
+      padding: 7,
     },
     leftBurger: {
-      marginTop: 43,
-      marginRight: 7
+      height: 50,
+      backgroundColor: colors.hreyfingBlue,
+      marginTop: 40,
+      padding: 7,
     },
     modalText: {
       color: 'white',

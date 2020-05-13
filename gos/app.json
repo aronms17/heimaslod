@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "heimaslod_gos",
-    "slug": "heimaslod_gos",
+    "name": "gos",
+    "slug": "gos",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

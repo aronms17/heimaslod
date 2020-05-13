@@ -4,6 +4,7 @@ import NativeModal from 'react-native-modal';
 import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import colors from '../styles/colors';
 
+
 const PreviewModal = (props) => (
     <NativeModal
       style={{ justifyContent: 'flex-end' }}
