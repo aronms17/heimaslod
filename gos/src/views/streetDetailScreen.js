@@ -6,19 +6,10 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import HouseTextModal from '../components/HouseTextModal';
 import Gallery from 'react-native-image-gallery';
-import Collapsible from 'react-native-collapsible';
-import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 import HouseNamesModal from '../components/HouseNamesModal';
-
-const SECTIONS = [
-  {
-    title: 'First',
-    content: 'Lorem ipsum...',
-  }
-];
 export default class streetDetailScreen extends React.Component {
     constructor() {
         super();
@@ -50,11 +41,17 @@ export default class streetDetailScreen extends React.Component {
         
         let ollHus = Array.from(Data.hus);
         let husVidGotu = ollHus.filter(hus => hus.streetId == streetId).sort((a,b) => (a.address > b.address) ? 1 : -1);
-        let streetCoordinates = husVidGotu[0].coordinates;
+        
         this.setState({ streetId: streetId, 
             streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
-            husVidGotu: husVidGotu, streetCoordinates: streetCoordinates
+            husVidGotu: husVidGotu
         });
+
+      //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
+        this.mapViewRef.current.setMapBoundaries(
+          { latitude: 63.472856, longitude: -20.170407 },
+          { latitude: 63.378312, longitude: -20.385005 }
+        );
     }
 
     navigateHouse(houseId) {
@@ -83,25 +80,26 @@ export default class streetDetailScreen extends React.Component {
     }
 
     setHouseColor() {
-      this.setState({husColor: '#EC4D37'});
+      this.setState({husColor: colors.WATERMELON});
     }
 
     zoomToStreet() {
       let houseRegion = {
-          latitude: this.state.streetCoordinates[0][0].latitude,
-          longitude: this.state.streetCoordinates[0][0].longitude,
-          latitudeDelta: 0.0012,
-          longitudeDelta: 0.0012,
+          latitude: 63.439624,
+          longitude: -20.258505,
+          latitudeDelta: 0.0099,
+          longitudeDelta: 0.0099,
         }
         if(this.mapViewRef.current) {
           this.mapViewRef.current.animateToRegion(houseRegion, 4000)
-          
+        
         }
-  }
+    }
 
     render() {
       let { streetName, streetDescription, streetImages, shortStreetDescription, husVidGotu, husColor } = this.state;
       let img = Array.from(streetImages);
+
       let seeMore = 
       <TouchableHighlight 
           style={{
@@ -112,6 +110,7 @@ export default class streetDetailScreen extends React.Component {
           backdropcolor='transparent'>
               <Text style={{color: 'white', fontWeight: 'bold'}}>Lesa meira</Text>
       </TouchableHighlight>;
+
       if (streetDescription == " ") {
           streetDescription = 'Því miður er enginn texti tiltækur';
       }
@@ -197,7 +196,7 @@ export default class streetDetailScreen extends React.Component {
                   <View style={{marginBottom: 10}}>
                     <TouchableHighlight 
                     style={{
-                        width: 120, height: 40, borderRadius: 20/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, padding: 15
+                        width: 140, height: 60, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, padding: 15
                     }} 
                     onPress={() => this.setState({houseModalVisible: true})}
                     activeOpacity={0.5}
@@ -208,39 +207,35 @@ export default class streetDetailScreen extends React.Component {
                 </View>
 
                 <View style={styles.bottomContainer}>
-                  <Text style={{color: 'white', fontWeight: 'bold'}}>map</Text>
                   <MapView
-                      onMapReady={() => {this.zoomToStreet(); this.setHouseColor()}}
-                      ref={this.mapViewRef}
-                      mapType={'satellite'}
-                      style={{...StyleSheet.absoluteFillObject}}
-                      provider={"google"}
-                      zoomEnabled={true}
-                      zoomTapEnabled={true}
-                      rotateEnabled={true}
-                      scrollEnabled={true}
-                      pitchEnabled={true}
-                      initialRegion={{
-                        latitude: 63.4347866,
-                        longitude: -20.2844343,
-                        latitudeDelta: 0.095,
-                        longitudeDelta: 0.0921}}>
+                    onMapReady={() => {this.zoomToStreet();this.setHouseColor()}}
+                    ref={this.mapViewRef}
+                    mapType={'satellite'}
+                    minZoomLevel={12}
+                    style={{...StyleSheet.absoluteFillObject}}
+                    provider={"google"}
+                    zoomEnabled={true}
+                    zoomTapEnabled={true}
+                    rotateEnabled={true}
+                    scrollEnabled={true}
+                    pitchEnabled={true}
+                    initialRegion={{
+                      latitude: 63.4347866,
+                      longitude: -20.2844343,
+                      latitudeDelta: 0.095,
+                      longitudeDelta: 0.0921}}>
 
-                      {this.state.husVidGotu[0] != null && this.state.husVidGotu.map((hus, index1) => (
-                        hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
-                            <Polygon
-                              key = {index1 + ' ' + index2}
-                              coordinates={coordinates}
-                              fillColor={husColor}
-                            />
-                          ))
+                    {this.state.husVidGotu[0] != null && this.state.husVidGotu.map((hus, index1) => (
+                      hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
+                        <Polygon
+                          key = {index1 + ' ' + index2}
+                          coordinates={coordinates}
+                          fillColor={husColor}
+                        />
                         ))
-                      }
-
-
-                          
-                             
-                    </MapView>  
+                      ))
+                    }
+                  </MapView>
                 </View>
                 
                 
