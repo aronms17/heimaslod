@@ -190,6 +190,40 @@ export default class streetDetailScreen extends React.Component {
                   backdropcolor='transparent'>
                     <Text style={{color: 'white', fontWeight: 'bold'}}>Sjá öll hús við götu</Text>
                 </TouchableHighlight>
+
+                <MapView
+                    ref={this.mapViewRef}
+                    mapType={'satellite'}
+                    style={{...StyleSheet.absoluteFillObject}}
+                    provider={"google"}
+                    zoomEnabled={true}
+                    zoomTapEnabled={true}
+                    rotateEnabled={true}
+                    scrollEnabled={true}
+                    pitchEnabled={true}
+                    initialRegion={{
+                      latitude: 63.4347866,
+                      longitude: -20.2844343,
+                      latitudeDelta: 0.095,
+                      longitudeDelta: 0.0921}}>
+
+                    {/* <Polygon
+                        coordinates={polygonFirst}
+                        fillColor="#f55d42"
+                    /> */}
+
+                    {this.state.husVidGotu[0] != null && this.state.husVidGotu.map((hus, index1) => (
+                        hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
+                            <Polygon
+                              key = {index1 + ' ' + index2}
+                              fillColor={'watermelon'}
+                              coordinates={coordinates}
+                            />
+                          ))
+                      ))
+                    }
+                    
+                    </MapView>
     
                 </View>
                 

@@ -13,8 +13,7 @@ export default StyleSheet.create({
   
     },
     modal: {
-      justifyContent: 'center',
-      alignItems: 'center',
+      justifyContent: 'flex-end',
       margin: 0
     },
     modalView: {
@@ -36,8 +35,7 @@ export default StyleSheet.create({
     },
     textModalView: {
       height: '80%',
-      width: 320,
-      margin: 20,
+      width: Dimensions.get('screen').width,
       backgroundColor: colors.okkarSvarti,
       borderRadius: 20,
       padding: 35,

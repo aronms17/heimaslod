@@ -290,7 +290,7 @@ render() {
           }
           {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
               <Polygon
-                key = {poly.id}
+                key = {poly.id}z
                 coordinates={poly.coordinates}
               />
             ))

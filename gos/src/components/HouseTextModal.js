@@ -9,13 +9,14 @@ const HouseTextModal = (props) => (
     <NativeModal
       isVisible={props.isVisible}
       // Hægt að style-a til
-      animationIn={'fadeIn'}
+      animationIn={'slideInUp'}
       animationOut={'slideOutDown'}
-    //   onSwipeComplete={() => props.closeDisplay()}
+      onSwipeComplete={() => props.closeDisplay()}
       onBackdropPress={() => props.closeDisplay()}
+      style={{justifyContent: 'flex-end', margin: 0}}
     >
         <View style={styles.textModalView}>
-          <View style={{width: 320, paddingRight: 9, paddingTop: 7, flexDirection: 'column-reverse', justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+          <View style={{width: Dimensions.get('screen').width, paddingRight: 9, paddingTop: 7, flexDirection: 'column-reverse', justifyContent: 'flex-end', alignItems: 'flex-end'}}>
           
           <TouchableHighlight
               underlayColor='transparent'
