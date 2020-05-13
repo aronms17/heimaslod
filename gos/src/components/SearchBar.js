@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
         super();
         this.state = {
             expanded: false,
-            yValue: new Animated.Value(100),
+            yValue: new Animated.Value(90),
             cancelWidth: new Animated.Value(0),
             houses: [],
             sectionHouses: [],
@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
     _moveUpAnimation = () => {
         Animated.parallel([
             Animated.spring(this.state.yValue, {
-                toValue: Dimensions.get('window').height - 100,
+                toValue: Dimensions.get('window').height - 40,
                 friction: 9,
             }),
             Animated.spring(this.state.cancelWidth, {
@@ -47,7 +47,7 @@ export default class SearchBar extends React.Component {
 
         Animated.parallel([
             Animated.spring(this.state.yValue, {
-                toValue: 100,
+                toValue: 90,
                 friction: 7,
             }),
             Animated.spring(this.state.cancelWidth, {
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         flex: 1,
         color: colors.black,
-        height: 40,
+        height: 35,
         // width: Dimensions.get('window').width - 100,
         marginLeft: 18,
         // marginRight: 15,
@@ -278,8 +278,9 @@ const styles = StyleSheet.create({
         },
         cancel: {
             height: 35,
+            marginTop: 10,
             margin: 0,
-            marginTop: 20,
             paddingLeft: 15,
+            justifyContent: 'center',
         },
 });
