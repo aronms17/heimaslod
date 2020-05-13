@@ -29,7 +29,7 @@ const ImageModal = (props) => (
           <TouchableHighlight 
               style={{
                   width: 140, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', 
-                  backgroundColor: 'tomato', marginTop: 10, marginBottom: 350
+                  backgroundColor: colors.WATERMELON, marginTop: 10, marginBottom: 350
               }} 
               onPress={() => props.closeDisplay()}
               activeOpacity={0.5}

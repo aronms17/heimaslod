@@ -11,6 +11,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
+import HouseNamesModal from '../components/HouseNamesModal';
 
 const SECTIONS = [
   {
@@ -29,6 +30,7 @@ export default class streetDetailScreen extends React.Component {
           streetImages: '',
           isModalVisible: false,
           textModalVisible: false,
+          houseModalVisible: false,
           activeSections: [],
           husVidGotu: []
         };
@@ -56,47 +58,6 @@ export default class streetDetailScreen extends React.Component {
       this.props.navigation.push('houseDetailScreen', {houseId});
     }
 
-    _renderSectionTitle = section => {
-        return (
-          <View>
-            <Text>{section.content}</Text>
-          </View>
-        );
-    };
-    
-    _renderHeader = section => {
-      return (
-        <View style={{flexDirection: 'row'}}>
-          <Text style={{fontWeight: 'bold', color: 'white', marginRight: 5}}>Sjá hús við götu</Text>
-          <Feather name='arrow-down-circle' size={18} color='white'/>
-        </View>
-      );
-    };
-    
-    _renderContent = section => {
-      return (
-        <View>
-          <FlatList
-            data={this.state.husVidGotu}
-            renderItem={({item}) => (
-            <TouchableHighlight
-              underlayColor={colors.okkarSvarti}
-              activeOpacity={0.5}
-              onPress={() => this.navigateHouse(item.id) }
-            >
-              <Text style={styles.desc}>{item.address}</Text>
-            </TouchableHighlight>
-            )}
-            keyExtractor={item => item.id}
-          />
-        </View>
-      );
-    };
-    
-    _updateSections = activeSections => {
-      this.setState({ activeSections });
-    };
-
     renderDrawer = () => {
         return (
           <View style={sideMenuStyles.sideMenu}>
@@ -119,13 +80,29 @@ export default class streetDetailScreen extends React.Component {
     }
 
     render() {
-        let { streetName, streetDescription, streetImages, shortStreetDescription } = this.state;
-        const img = Array.from(streetImages);
-        if (streetDescription == " ") {
+      let { streetName, streetDescription, streetImages, shortStreetDescription, husVidGotu } = this.state;
+      let img = Array.from(streetImages);
+      let seeMore = 
+      <TouchableHighlight 
+          style={{
+              width: 90, height: 40, borderRadius: 20/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, margin: 10
+          }} 
+          onPress={() => this.setState({textModalVisible: true})}
+          activeOpacity={0.5}
+          backdropcolor='transparent'>
+              <Text style={{color: 'white', fontWeight: 'bold'}}>Lesa meira</Text>
+      </TouchableHighlight>;
+      if (streetDescription == " ") {
           streetDescription = 'Því miður er enginn texti tiltækur';
       }
       if (streetDescription.length > 300) {
           shortStreetDescription = streetDescription.substr(0,60) + ' ' + '...';
+      } else {
+          shortStreetDescription = streetDescription;
+          seeMore = <Text> </Text>
+      }
+      if(img.length == 0) {
+        img = ['http://heimaslod.is/images/8/8b/Loftmynd_hofnin_fyrir_gos.jpg']
       }
         return(
             <View style={styles.container}>
@@ -139,7 +116,14 @@ export default class streetDetailScreen extends React.Component {
                     closeDisplay={() => this.setState({textModalVisible: false})}
                     houseText={streetDescription}
                 >  
-                </HouseTextModal>         
+                </HouseTextModal>
+                <HouseNamesModal
+                  isVisible={this.state.houseModalVisible}
+                  closeDisplay={() => this.setState({houseModalVisible: false})}
+                  ollHus={husVidGotu}
+                  nav={(id) => this.navigateHouse(id)}
+                />
+
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
@@ -189,29 +173,23 @@ export default class streetDetailScreen extends React.Component {
                 
                 <View style={styles.descriptionContainer}>
                   <Text style={styles.desc}>{shortStreetDescription}</Text>
-                  <TouchableHighlight 
-                    style={{
-                        width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato'
-                    }} 
-                    onPress={() => this.setState({textModalVisible: true})}
-                    activeOpacity={0.5}
-                    backdropcolor='transparent'>
-                      <Text style={styles.desc}>Sjá meira</Text>
-                  </TouchableHighlight>
+                        {seeMore}
                   <View style={{marginBottom: 10}}>
-                    <Accordion
-                        underlayColor={colors.okkarSvarti}
-                        activeOpacity={0.5}
-                        sections={SECTIONS}
-                        activeSections={this.state.activeSections}
-                        renderHeader={this._renderHeader}
-                        renderContent={this._renderContent}
-                        onChange={this._updateSections}
-                    />
+                    
                   </View>
                 </View>
 
                 <View style={styles.bottomContainer}>
+
+                <TouchableHighlight 
+                  style={{
+                      width: 90, height: 40, borderRadius: 20/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, margin: 10
+                  }} 
+                  onPress={() => this.setState({houseModalVisible: true})}
+                  activeOpacity={0.5}
+                  backdropcolor='transparent'>
+                    <Text style={{color: 'white', fontWeight: 'bold'}}>Sjá öll hús við götu</Text>
+                </TouchableHighlight>
     
                 </View>
                 

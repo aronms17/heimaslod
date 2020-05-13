@@ -312,13 +312,13 @@ render() {
             coordinate={this.state.location}
           />
 
-          <Marker
+          {/* <Marker
             title="Búastaðarbraut"
             coordinate={{latitude: 63.436949, longitude: -20.260769}}
             rotation={0}  
           >
             <FontAwesome5 name="map-signs" size={12} color="green" />
-          </Marker>
+          </Marker> */}
 
           {/* <Overlay
              image={require('../../assets/gerdisb.png')}

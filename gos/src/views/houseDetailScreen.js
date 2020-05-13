@@ -106,7 +106,7 @@ export default class houseDetailScreen extends React.Component {
         let seeMore = 
             <TouchableHighlight 
                 style={{
-                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: '#8BBEE8FF', marginTop: 10
+                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, marginTop: 10
                 }} 
                 onPress={() => this.setState({textModalVisible: true})}
                 activeOpacity={0.5}
@@ -179,7 +179,7 @@ export default class houseDetailScreen extends React.Component {
                 >
                     {/* Rétt map aðferð á propsið núna */}
                     <Gallery
-                        style={{ flex: 1, backgroundColor: '#1D1B1B' }}
+                        style={{ flex: 1, backgroundColor: colors.CARBON }}
                         pageMargin={10}
                         onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
@@ -251,7 +251,7 @@ export default class houseDetailScreen extends React.Component {
 const styles = StyleSheet.create({
 	container: {
         flex: 1,
-        backgroundColor: '#1D1B1B',
+        backgroundColor: colors.CARBON,
 	},
 	headerContainer: {
         flex: 2,
@@ -297,8 +297,9 @@ const styles = StyleSheet.create({
 		color: '#fff'
     },
     desc: {
-		fontSize: 16,
-        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'black',
     },
     header: {
         width: Dimensions.get('screen').width, 

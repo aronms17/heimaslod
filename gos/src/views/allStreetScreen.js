@@ -28,7 +28,6 @@ export default class allStreetScreen extends React.Component {
     }
 
     navigateHouse(houseId) {
-        console.log('houseid from allstreet: ', houseId);
         this.props.navigation.push('houseDetailScreen', {
             houseId
           });

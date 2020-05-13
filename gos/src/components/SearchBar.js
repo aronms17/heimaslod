@@ -96,8 +96,8 @@ export default class SearchBar extends React.Component {
           <View style={{
               height: 1,
               marginLeft: 10,
-              width: "100%",
-              backgroundColor: "#CEDCCE",
+              width: "95%",
+              backgroundColor: "grey",
             }}
           />
         );
@@ -106,7 +106,7 @@ export default class SearchBar extends React.Component {
       renderItemView = ({item}) => (
         <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
             {(item.color === 'red') ? 
-            <View style={{backgroundColor: colors.sky, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+            <View style={{backgroundColor: 'royalblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                 <FontAwesome5 name='house-damage' size={15} color='white'/> 
             </View>
             :
