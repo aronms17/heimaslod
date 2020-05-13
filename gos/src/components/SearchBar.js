@@ -12,7 +12,8 @@ export default class SearchBar extends React.Component {
         super();
         this.state = {
             expanded: false,
-            yValue: new Animated.Value(80),
+            yValue: new Animated.Value(90),
+            cancelWidth: new Animated.Value(0),
             houses: [],
             sectionHouses: [],
             inMemoryHouses: [],
@@ -27,20 +28,33 @@ export default class SearchBar extends React.Component {
     };
 
     _moveUpAnimation = () => {
-        Animated.spring(this.state.yValue, {
-            toValue: Dimensions.get('window').height - 100,
-            friction: 9,
-        }).start();
+        Animated.parallel([
+            Animated.spring(this.state.yValue, {
+                toValue: Dimensions.get('window').height - 100,
+                friction: 9,
+            }),
+            Animated.spring(this.state.cancelWidth, {
+                toValue: 70,
+                friction: 9,
+            })
+        ]).start();
     };
 
     _moveDownAnimation = () => {
         _textInput.setNativeProps({text: ''});
         this.search('');
         Keyboard.dismiss();
-        Animated.spring(this.state.yValue, {
-            toValue: 80,
-            friction: 7,
-        }).start();
+
+        Animated.parallel([
+            Animated.spring(this.state.yValue, {
+                toValue: 90,
+                friction: 7,
+            }),
+            Animated.spring(this.state.cancelWidth, {
+                toValue: 1,
+                friction: 9,
+            }),
+        ]).start();
     };
 
     previewHouse(house) {
@@ -139,10 +153,11 @@ export default class SearchBar extends React.Component {
 
                         <TextInput
                         ref={ component => _textInput = component}
+                        clearButtonMode={'always'}
                         autoCorrect={false}
                         placeholder="Leita"
                         placeholderTextColor='black'
-                        style={ styles.searchInput }
+                        style={styles.searchInput}
                         // style={{backgroundColor: 'grey', color: 'white'}}
                         onChangeText={value => this.search(value)}
                         onTouchStart={this._moveUpAnimation}
@@ -153,7 +168,7 @@ export default class SearchBar extends React.Component {
                             style={styles.cancel} 
                             onPress={this._moveDownAnimation}
                         >
-                            <Text style={{fontSize: 20, color: colors.white}}>Hætta</Text>
+                            <Animated.Text style={{fontSize: 20, color: colors.white, width: this.state.cancelWidth}}>Hætta</Animated.Text>
                         </TouchableHighlight>
 
                     </View>
@@ -240,23 +255,24 @@ const styles = StyleSheet.create({
     },
     searchInput: {
         backgroundColor: colors.white,
+        flex: 1,
         color: colors.black,
         height: 35,
-        width: Dimensions.get('window').width - 100,
-        marginLeft: 15,
+        // width: Dimensions.get('window').width - 100,
+        marginLeft: 28,
         // marginRight: 15,
-        marginTop: 15,
+        marginTop: 20,
         fontSize: 28,
         padding: 10,
-        borderRadius: 10,
+        borderRadius: 20,
         fontSize: 15,
         // borderBottomWidth: 2,
         // borderBottomColor: 'blue'
         },
         cancel: {
             height: 35,
-            width: 60,
-            margin: 15,
-
+            margin: 10,
+            marginTop: 23,
+            paddingLeft: 15,
         },
 });

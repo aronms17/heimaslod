@@ -285,7 +285,7 @@ getDistance = () => {
             </View>
             <View>
             {/* Geofencing modal */}
-              <GeoModal 
+              <GeoModal
                 inPoly={this.state.inPoly} 
                 display={this.state.display}
                 polyName={this.state.polyName}
