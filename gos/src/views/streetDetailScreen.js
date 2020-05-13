@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
+import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView, Image } from 'react-native';
 import sideMenuStyles from '../styles/sideMenuStyles';
 import colors from '../styles/colors';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
@@ -22,6 +22,7 @@ const SECTIONS = [
 export default class streetDetailScreen extends React.Component {
     constructor() {
         super();
+        this.mapViewRef = React.createRef();
         this.state = {
           streetId: null,
           streetName: '',
@@ -32,7 +33,9 @@ export default class streetDetailScreen extends React.Component {
           textModalVisible: false,
           houseModalVisible: false,
           activeSections: [],
-          husVidGotu: []
+          husVidGotu: [],
+          husColor: null,
+          streetCoordinates: []
         };
     }
 
@@ -44,13 +47,13 @@ export default class streetDetailScreen extends React.Component {
         let streetName = theStreet.name;
         let streetDescription = theStreet.text;
         let streetImages = theStreet.images;
-
+        
         let ollHus = Array.from(Data.hus);
         let husVidGotu = ollHus.filter(hus => hus.streetId == streetId).sort((a,b) => (a.address > b.address) ? 1 : -1);
-        
+        let streetCoordinates = husVidGotu[0].coordinates;
         this.setState({ streetId: streetId, 
             streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
-            husVidGotu: husVidGotu
+            husVidGotu: husVidGotu, streetCoordinates: streetCoordinates
         });
     }
 
@@ -79,8 +82,25 @@ export default class streetDetailScreen extends React.Component {
         );
     }
 
+    setHouseColor() {
+      this.setState({husColor: '#EC4D37'});
+    }
+
+    zoomToStreet() {
+      let houseRegion = {
+          latitude: this.state.streetCoordinates[0][0].latitude,
+          longitude: this.state.streetCoordinates[0][0].longitude,
+          latitudeDelta: 0.0012,
+          longitudeDelta: 0.0012,
+        }
+        if(this.mapViewRef.current) {
+          this.mapViewRef.current.animateToRegion(houseRegion, 4000)
+          
+        }
+  }
+
     render() {
-      let { streetName, streetDescription, streetImages, shortStreetDescription, husVidGotu } = this.state;
+      let { streetName, streetDescription, streetImages, shortStreetDescription, husVidGotu, husColor } = this.state;
       let img = Array.from(streetImages);
       let seeMore = 
       <TouchableHighlight 
@@ -175,22 +195,52 @@ export default class streetDetailScreen extends React.Component {
                   <Text style={styles.desc}>{shortStreetDescription}</Text>
                         {seeMore}
                   <View style={{marginBottom: 10}}>
-                    
+                    <TouchableHighlight 
+                    style={{
+                        width: 120, height: 40, borderRadius: 20/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, padding: 15
+                    }} 
+                    onPress={() => this.setState({houseModalVisible: true})}
+                    activeOpacity={0.5}
+                    backdropcolor='transparent'>
+                      <Text style={{color: 'white', fontWeight: 'bold'}}>Sjá hús í götu</Text>
+                  </TouchableHighlight>
                   </View>
                 </View>
 
                 <View style={styles.bottomContainer}>
+                  <Text style={{color: 'white', fontWeight: 'bold'}}>map</Text>
+                  <MapView
+                      onMapReady={() => {this.zoomToStreet(); this.setHouseColor()}}
+                      ref={this.mapViewRef}
+                      mapType={'satellite'}
+                      style={{...StyleSheet.absoluteFillObject}}
+                      provider={"google"}
+                      zoomEnabled={true}
+                      zoomTapEnabled={true}
+                      rotateEnabled={true}
+                      scrollEnabled={true}
+                      pitchEnabled={true}
+                      initialRegion={{
+                        latitude: 63.4347866,
+                        longitude: -20.2844343,
+                        latitudeDelta: 0.095,
+                        longitudeDelta: 0.0921}}>
 
-                <TouchableHighlight 
-                  style={{
-                      width: 90, height: 40, borderRadius: 20/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, margin: 10
-                  }} 
-                  onPress={() => this.setState({houseModalVisible: true})}
-                  activeOpacity={0.5}
-                  backdropcolor='transparent'>
-                    <Text style={{color: 'white', fontWeight: 'bold'}}>Sjá öll hús við götu</Text>
-                </TouchableHighlight>
-    
+                      {this.state.husVidGotu[0] != null && this.state.husVidGotu.map((hus, index1) => (
+                        hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
+                            <Polygon
+                              key = {index1 + ' ' + index2}
+                              coordinates={coordinates}
+                              fillColor={husColor}
+                            />
+                          ))
+                        ))
+                      }
+
+
+                          
+                             
+                    </MapView>  
                 </View>
                 
                 
