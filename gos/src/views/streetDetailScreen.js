@@ -46,6 +46,12 @@ export default class streetDetailScreen extends React.Component {
             streetName: streetName, streetDescription: streetDescription, streetImages: streetImages,
             husVidGotu: husVidGotu
         });
+
+      //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
+        this.mapViewRef.current.setMapBoundaries(
+          { latitude: 63.472856, longitude: -20.170407 },
+          { latitude: 63.378312, longitude: -20.385005 }
+        );
     }
 
     navigateHouse(houseId) {
@@ -205,6 +211,7 @@ export default class streetDetailScreen extends React.Component {
                     onMapReady={() => {this.zoomToStreet();this.setHouseColor()}}
                     ref={this.mapViewRef}
                     mapType={'satellite'}
+                    minZoomLevel={12}
                     style={{...StyleSheet.absoluteFillObject}}
                     provider={"google"}
                     zoomEnabled={true}
