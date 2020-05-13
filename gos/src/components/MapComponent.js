@@ -8,6 +8,7 @@ import prufupoly from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
 import { Feather, MaterialIcons, FontAwesome5  } from '@expo/vector-icons';
 // import Geofence from 'react-native-expo-geofence';
+import colors from '../styles/colors';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import { getDistance, isPointInPolygon } from 'geolib';
@@ -78,9 +79,9 @@ componentDidMount() {
   this.getPermissionAsync();
   this.getLocationAsync();
   this.setState({
-    husColor: '#EC4D37',
+    husColor: '#DA291CFF',
     goturColor: '#262630', //'#1D1B1B'
-    selectedColor: '#33BDFF',
+    selectedColor: '#00BFFF',
     greyColor: 'grey'
   });
   this.themeChange();

@@ -33,22 +33,20 @@ const PreviewModal = (props) => (
                 }}
               />
               </View>
-            <TouchableHighlight
-              underlayColor='transparent'
-              activeOpacity={0.5}
-              onPress = { () => props.closeDisplay()}>
-              <Feather name='x-circle' size={30} color='tomato'/>
-            </TouchableHighlight>  
         </View>
           <Text style={styles.textStyle}>
             {props.address}
           </Text>
         <View style={styles.takkar}>
-          <Button
-            style={styles.takkar}
-            title="Sjá meira"
-            color="green"
-            onPress = { () => props.goToHouse() }/>
+        <TouchableHighlight 
+                style={{
+                  width: 140, height: 50, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'limegreen', marginTop: 10
+                }} 
+                onPress = { () => props.goToHouse() }
+                activeOpacity={0.5}
+                backdropcolor='transparent'>
+                    <Text style={{fontSize: 16, color: 'white', fontWeight: 'bold'}}>Sjá meira</Text>
+            </TouchableHighlight>
         </View>
       </View>
     </NativeModal>
@@ -68,7 +66,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     height: 200,
-    backgroundColor: "#1D1B1B"
+    backgroundColor: "#1D1B1B",
+    padding: 5
   },
   openButton: {
     backgroundColor: "#F194FF",
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 24,
   },
   modalText: {
     marginBottom: 15,

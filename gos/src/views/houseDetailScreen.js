@@ -106,7 +106,7 @@ export default class houseDetailScreen extends React.Component {
         let seeMore = 
             <TouchableHighlight 
                 style={{
-                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato', marginTop: 10
+                    width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: '#8BBEE8FF', marginTop: 10
                 }} 
                 onPress={() => this.setState({textModalVisible: true})}
                 activeOpacity={0.5}
@@ -199,7 +199,7 @@ export default class houseDetailScreen extends React.Component {
                 <View style={styles.bottomContainer}>
                     <TouchableHighlight 
                         style={{
-                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'tomato'
+                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7DB46CFF'
                         }} 
                         onPress={() => this.navigateStreet(streetId)}
                         activeOpacity={0.5}

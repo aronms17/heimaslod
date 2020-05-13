@@ -185,7 +185,7 @@ export default class SearchBar extends React.Component {
                                 ListEmptyComponent={
                                     <FlatList keyboardDismissMode='on-drag' keyboardShouldPersistTaps='always'
                                         data={this.state.searchHistory}
-                                        ListHeaderComponent={this.state.searchHistory.length > 0 ? <Text style={{color: 'grey'}}>Leitarsaga:</Text> : <></>}
+                                        ListHeaderComponent={this.state.searchHistory.length > 0 ? <Text style={{color: 'grey', marginLeft: 10}}>Leitarsaga:</Text> : <></>}
                                         renderItem={this.renderItemView}
                                         keyExtractor={(item) => item.id.toString()}
                                         ListEmptyComponent={<View style={{width: Dimensions.get('screen').width, height: 200, justifyContent: 'center', alignItems: 'center'}}><Text style={{color: 'grey'}}>Engin leitarsaga tiltæk</Text></View>}

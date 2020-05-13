@@ -8,5 +8,9 @@ export default {
     green: '#43e01f',
     hreyfingBlue: 'rgb(72, 102, 157)',
     okkarGreyLight: 'rgb(242, 242, 242)',
+    cherryTomato: '#E94B3CFF',
+    newGray: '#2D2926FF',
+    husColorGamli: '#EC4D37',
+    selectedGamli: '#33BDFF'
   };
   
