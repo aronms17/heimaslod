@@ -11,6 +11,11 @@ export default {
     cherryTomato: '#E94B3CFF',
     newGray: '#2D2926FF',
     husColorGamli: '#EC4D37',
-    selectedGamli: '#33BDFF'
+    selectedGamli: '#33BDFF',
+    sky: '#CAEBF2',
+    CARBON: '#A9A9A9',
+    WATERMELON: '#FF3B3F',
+    NEUTRAL: '#EFEFEF',
+    jaGrey: '#e6e8e9'
   };
   

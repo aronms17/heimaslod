@@ -106,17 +106,17 @@ export default class SearchBar extends React.Component {
       renderItemView = ({item}) => (
         <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.previewHouse(item)}>
             {(item.color === 'red') ? 
-            <View style={{backgroundColor: 'lightblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+            <View style={{backgroundColor: colors.sky, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                 <FontAwesome5 name='house-damage' size={15} color='white'/> 
             </View>
             :
-            <View style={{backgroundColor: 'tomato', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+            <View style={{backgroundColor: colors.WATERMELON, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                 <Feather name='file-text' size={15} color='white'/>
             </View>}
             <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
                 {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                <Text style={{fontSize: 20, color: colors.white}}>{item.address}</Text>
-                <Text numberOfLines={1} style={{color: colors.white}}>{item.text}</Text>
+                <Text style={{fontSize: 20, color: 'black'}}>{item.address}</Text>
+                <Text numberOfLines={1} style={{color: 'black'}}>{item.text}</Text>
             </View>
         </TouchableOpacity>
       );
@@ -153,7 +153,7 @@ export default class SearchBar extends React.Component {
                             style={styles.cancel} 
                             onPress={this._moveDownAnimation}
                         >
-                            <Text style={{fontSize: 20, color: colors.white}}>Hætta</Text>
+                            <Text style={{fontSize: 20, color: 'black'}}>Hætta</Text>
                         </TouchableHighlight>
 
                     </View>
@@ -179,7 +179,7 @@ export default class SearchBar extends React.Component {
                                 keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={this.renderItemView}
                                 renderSectionHeader={({ section }) => (
-                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: colors.okkarSvarti, color: colors.white}}>{section.title}</Text>
+                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: colors.NEUTRAL, color: 'black'}}>{section.title}</Text>
                                   )}
                                 ItemSeparatorComponent={this.renderSeparatorView}
                                 ListEmptyComponent={
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     search: {
         height: 100, 
         width: Dimensions.get('window').width, 
-        backgroundColor: colors.okkarSvarti,
+        backgroundColor: colors.NEUTRAL,
         flexDirection: 'column',
         alignItems: 'center',
         borderTopRightRadius: 20,

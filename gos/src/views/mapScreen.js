@@ -73,8 +73,6 @@ componentDidMount() {
 // }
 
 previewHouse(house) {
-  console.log('House Address: ', house.address);
-  console.log('houseid: ', house.id);
   if(house.address === " ") {
     console.log('No name on this house!');
     // this.makeVibration();
