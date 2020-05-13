@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
-import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
+import { Feather, MaterialIcons, Ionicons, FontAwesome5  } from '@expo/vector-icons'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import colors from '../styles/colors';
 // import Streets from './../components/Streets';
@@ -23,7 +23,6 @@ export default class allStreetScreen extends React.Component {
         let housedata = Data.hus;
         streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
         housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
-        // this.state.contacts.sort((a,b) => (a.firstName > b.firstName) ? 1 : -1)
         this.setState({streets: streetdata, houses: housedata, inMemoryStreets: streetdata, inMemoryHouses: housedata});
     }
 
@@ -41,25 +40,19 @@ export default class allStreetScreen extends React.Component {
     }
 
     search = input => {
+        //filterar hús sem passa við inputið
         const housesFiltered = this.state.inMemoryHouses.filter(house => {
             let houseLower = house.address.toLowerCase();
             let inputLower = input.toLowerCase();
 
             return houseLower.indexOf(inputLower) > -1;
         });
-        // const streetsFilteredByName = this.state.inMemoryStreets.filter(street => {
-        //     let streetLower = street.name.toLowerCase();
-        //     let inputLower = input.toLowerCase();
 
-        //     return streetLower.indexOf(inputLower) > -1;
-        // });
-
-        //filterað hverja götu - ef gata hefur eitthvað house.streetId sama og id á götunni return götunni
+        //filterað hverja götu - ef gata hefur eitthvað house.streetId sama og id á götunni return götunni EÐA input matchar við nafnið á götunni
         const streetsFilteredByHouse = this.state.inMemoryStreets.filter(street => {
-            if(housesFiltered.some(house => house.streetId === street.id)) {
+            if(housesFiltered.some(house => house.streetId === street.id) || street.name.toLowerCase().indexOf(input.toLowerCase()) > -1) {
                 return street;
             }
-            // ef street matchar við input þá return street
         });
 
         this.setState({houses: housesFiltered, streets: streetsFilteredByHouse});
@@ -114,6 +107,7 @@ export default class allStreetScreen extends React.Component {
                 <View style={styles.desc}>
                     <TextInput
                         style={{height: 40, fontSize: 20, color: 'white'}}
+                        clearButtonMode={'always'}
                         autoCorrect={false}
                         placeholder="Leita"
                         placeholderTextColor="white"
@@ -129,11 +123,22 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id) }>
-                                        <View style={{height: 50, width: Dimensions.get('window').width}}>
-                                            <Text style={{color: 'white', fontSize: 20}}>{house.address}</Text>
+                                    // <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id) }>
+                                    //     <View style={{height: 50, width: Dimensions.get('window').width}}>
+                                    //         <Text style={{color: 'white', fontSize: 20}}>{house.address}</Text>
+                                    //     </View>
+                                    // </TouchableOpacity>
+                                    <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.navigateHouse(house.id)}>
+                                        <View style={{backgroundColor: colors.sky, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+                                            <FontAwesome5 name='house-damage' size={15} color='white'/> 
                                         </View>
+                                        <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
+                                            <Text style={{fontSize: 20, color: colors.white}}>{house.address}</Text>
+                                            <Text numberOfLines={1} style={{color: colors.white}}>{house.text}</Text>
+                                        </View>
+                                        
                                     </TouchableOpacity>
+                                    
                                     ))
                                 }
                             </View>
@@ -150,7 +155,7 @@ export default class allStreetScreen extends React.Component {
 const styles = StyleSheet.create({
 	container: {
         flex: 1,
-        backgroundColor: '#1D1B1B',
+        backgroundColor: colors.CARBON,
         justifyContent: 'center',
         paddingLeft: 15
         
