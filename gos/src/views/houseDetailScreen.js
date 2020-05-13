@@ -161,6 +161,7 @@ export default class houseDetailScreen extends React.Component {
                         onPress={() => this.props.navigation.goBack()}>
                         <Ionicons name="ios-arrow-back" size={40} color="white" />
                     </TouchableHighlight>
+                    
                     <TouchableHighlight
                         underlayColor={colors.okkarSvarti}
                         activeOpacity={0.5}
@@ -184,7 +185,7 @@ export default class houseDetailScreen extends React.Component {
                         onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
                             arrHouse.map((element) => (
-                                { source: { uri: element } }
+                                { source: { uri: element }, dimensions: {  } }
                             ))
                         }
                     />
