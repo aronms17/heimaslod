@@ -79,7 +79,7 @@ componentDidMount() {
   this.getPermissionAsync();
   this.getLocationAsync();
   this.setState({
-    husColor: '#DA291CFF',
+    husColor: '#FF3B3F',
     goturColor: '#262630', //'#1D1B1B'
     selectedColor: '#00BFFF',
     greyColor: 'grey'

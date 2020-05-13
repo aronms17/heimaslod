@@ -19,7 +19,6 @@ export default class allStreetScreen extends React.Component {
     }
 
     componentDidMount() {
-        console.log('did mount in allstreet')
         let streetdata = Data.gotur;
         let housedata = Data.hus;
         streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);

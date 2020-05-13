@@ -3,7 +3,7 @@ import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, Scrol
 import NativeModal from 'react-native-modal';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons  } from '@expo/vector-icons';
 
 const HouseTextModal = (props) => (
     <NativeModal
@@ -19,9 +19,12 @@ const HouseTextModal = (props) => (
           
           <TouchableHighlight
               underlayColor='transparent'
-              activeOpacity={0.5}
-              onPress = { () => props.closeDisplay()}>
-              <Feather name='x-circle' size={30} color='tomato'/>
+              activeOpacity={0}
+              onPress = { () => props.closeDisplay()}
+              style={{backgroundColor: colors.WATERMELON, height: 32, width: 32, 
+                borderRadius: 32/2, justifyContent: 'center', alignItems:'center', margin: 5}}
+              >
+              <MaterialCommunityIcons name='close' size={22} color='white'/>
             </TouchableHighlight>
             </View>
             <ScrollView>

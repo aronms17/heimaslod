@@ -39,15 +39,16 @@ const PreviewModal = (props) => (
             {props.address}
           </Text>
         <View style={styles.takkar}>
-        <TouchableHighlight 
-                style={{
-                  width: 140, height: 50, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'limegreen', marginTop: 10
-                }} 
-                onPress = { () => props.goToHouse() }
-                activeOpacity={0.5}
-                backdropcolor='transparent'>
-                    <Text style={{fontSize: 16, color: 'white', fontWeight: 'bold'}}>Sjá meira</Text>
-            </TouchableHighlight>
+          <TouchableHighlight 
+                  style={{
+                    width: 140, height: 50, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, marginTop: 10
+                  }} 
+                  onPress = { () => props.goToHouse() }
+                  activeOpacity={0.5}
+                  backdropcolor='transparent'>
+                      <Text style={{fontSize: 16, color: 'white', fontWeight: 'bold'}}>Sjá meira</Text>
+          </TouchableHighlight>
+          
         </View>
       </View>
     </NativeModal>
