@@ -193,7 +193,7 @@ renderDrawer = () => {
 }
 
 changeTheme = (theme) => {
-  if(theme === "Dark" || theme === "Satellite") {
+  if(theme === "Dark") {
     this.setState({burgerColor: 'white'});
   }
   else {
@@ -239,7 +239,7 @@ getDistance = () => {
           <View pointerEvents="box-none" style={styles.components}>
             
             <View style={styles.header}>
-              <View style={{flexDirection: 'row', backgroundColor: colors.NEUTRAL, height: 70, width:140, justifyContent: 'center', alignItems: 'center', shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, }}>
+              <View style={{flexDirection: 'row', backgroundColor: (this.state.burgerColor === 'white') ? colors.okkarSvarti : colors.NEUTRAL, height: 70, width:140, justifyContent: 'center', alignItems: 'center', shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, }}>
               <TouchableHighlight
                 underlayColor='transparent'
                 activeOpacity={0.5}
@@ -294,7 +294,7 @@ getDistance = () => {
             </View>
 
             </View>
-            <SearchBar preview={(house) => this.previewHouse(house)}/>
+            <SearchBar burgerColor={this.state.burgerColor} preview={(house) => this.previewHouse(house)}/>
           </View>
         </DrawerLayout>
     );
