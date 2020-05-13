@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
         super();
         this.state = {
             expanded: false,
-            yValue: new Animated.Value(90),
+            yValue: new Animated.Value(100),
             cancelWidth: new Animated.Value(0),
             houses: [],
             sectionHouses: [],
@@ -47,7 +47,7 @@ export default class SearchBar extends React.Component {
 
         Animated.parallel([
             Animated.spring(this.state.yValue, {
-                toValue: 90,
+                toValue: 100,
                 friction: 7,
             }),
             Animated.spring(this.state.cancelWidth, {
@@ -148,7 +148,14 @@ export default class SearchBar extends React.Component {
 
                 {/* <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}> */}
                     <Animated.View style={[styles.search, {height: this.state.yValue}]}>
-
+                    <View style={{
+                            height: 7,
+                            borderRadius: 20,
+                            width: "10%",
+                            marginTop: 10,
+                            backgroundColor: colors.greyLight,
+                            }}
+                        />
                     <View style={styles.top}>
 
                         <TextInput
@@ -156,7 +163,7 @@ export default class SearchBar extends React.Component {
                         clearButtonMode={'always'}
                         autoCorrect={false}
                         placeholder="Leita"
-                        placeholderTextColor='black'
+                        placeholderTextColor='grey'
                         style={styles.searchInput}
                         // style={{backgroundColor: 'grey', color: 'white'}}
                         onChangeText={value => this.search(value)}
@@ -168,7 +175,7 @@ export default class SearchBar extends React.Component {
                             style={styles.cancel} 
                             onPress={this._moveDownAnimation}
                         >
-                            <Animated.Text style={{fontSize: 20, color: colors.black, width: this.state.cancelWidth}}>Hætta</Animated.Text>
+                            <Animated.Text style={{fontSize: 20, color: 'grey', width: this.state.cancelWidth}}>Hætta</Animated.Text>
                         </TouchableHighlight>
 
                     </View>
@@ -257,22 +264,22 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         flex: 1,
         color: colors.black,
-        height: 35,
+        height: 40,
         // width: Dimensions.get('window').width - 100,
-        marginLeft: 28,
+        marginLeft: 18,
         // marginRight: 15,
-        marginTop: 20,
+        marginTop: 10,
         fontSize: 28,
         padding: 10,
-        borderRadius: 20,
+        borderRadius: 10,
         fontSize: 15,
         // borderBottomWidth: 2,
         // borderBottomColor: 'blue'
         },
         cancel: {
             height: 35,
-            margin: 10,
-            marginTop: 23,
+            margin: 0,
+            marginTop: 20,
             paddingLeft: 15,
         },
 });

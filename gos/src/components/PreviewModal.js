@@ -28,7 +28,6 @@ const PreviewModal = (props) => (
               <View style={{
                   height: 7,
                   borderRadius: 20,
-                  marginLeft: 10,
                   width: "10%",
                   backgroundColor: colors.okkarGreyLight,
                 }}
