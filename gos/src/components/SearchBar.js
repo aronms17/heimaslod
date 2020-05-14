@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
         super();
         this.state = {
             expanded: false,
-            yValue: new Animated.Value(100),
+            yValue: new Animated.Value(90),
             cancelWidth: new Animated.Value(0),
             houses: [],
             sectionHouses: [],
@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
     _moveUpAnimation = () => {
         Animated.parallel([
             Animated.spring(this.state.yValue, {
-                toValue: Dimensions.get('window').height - 100,
+                toValue: Dimensions.get('window').height - 40,
                 friction: 9,
             }),
             Animated.spring(this.state.cancelWidth, {
@@ -47,7 +47,7 @@ export default class SearchBar extends React.Component {
 
         Animated.parallel([
             Animated.spring(this.state.yValue, {
-                toValue: 100,
+                toValue: 90,
                 friction: 7,
             }),
             Animated.spring(this.state.cancelWidth, {
@@ -129,8 +129,8 @@ export default class SearchBar extends React.Component {
             </View>}
             <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
                 {/* <View style={{height: 20, width: 20, backgroundColor: item.color}}></View> */}
-                <Text style={{fontSize: 20, color: 'black'}}>{item.address}</Text>
-                <Text numberOfLines={1} style={{color: 'black'}}>{item.text}</Text>
+                <Text style={{fontSize: 20, color: (this.props.burgerColor === 'white') ? 'white' : 'black'}}>{item.address}</Text>
+                <Text numberOfLines={1} style={{color: (this.props.burgerColor === 'white') ? 'white' : 'black'}}>{item.text}</Text>
             </View>
         </TouchableOpacity>
       );
@@ -147,7 +147,7 @@ export default class SearchBar extends React.Component {
                 
 
                 {/* <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}> */}
-                    <Animated.View style={[styles.search, {height: this.state.yValue}]}>
+                    <Animated.View style={[styles.search, {backgroundColor: (this.props.burgerColor === 'white') ? colors.okkarSvarti : colors.NEUTRAL}, {height: this.state.yValue}]}>
                     <View style={{
                             height: 7,
                             borderRadius: 20,
@@ -201,7 +201,7 @@ export default class SearchBar extends React.Component {
                                 keyExtractor={(item, index) => (item + index).toString()}
                                 renderItem={this.renderItemView}
                                 renderSectionHeader={({ section }) => (
-                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: colors.NEUTRAL, color: 'black'}}>{section.title}</Text>
+                                    <Text style={{marginLeft: 7,fontSize: 30, backgroundColor: (this.props.burgerColor === 'white') ? colors.okkarSvarti : colors.NEUTRAL, color: (this.props.burgerColor === 'white') ? 'white' : 'black'}}>{section.title}</Text>
                                   )}
                                 ItemSeparatorComponent={this.renderSeparatorView}
                                 ListEmptyComponent={
@@ -237,7 +237,8 @@ export default class SearchBar extends React.Component {
 
 const styles = StyleSheet.create({
     top: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 10,
     },
     bottom: {
         marginTop: 20,
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         flex: 1,
         color: colors.black,
-        height: 40,
+        height: 35,
         // width: Dimensions.get('window').width - 100,
         marginLeft: 18,
         // marginRight: 15,
@@ -278,8 +279,9 @@ const styles = StyleSheet.create({
         },
         cancel: {
             height: 35,
+            marginTop: 10,
             margin: 0,
-            marginTop: 20,
             paddingLeft: 15,
+            justifyContent: 'center',
         },
 });
