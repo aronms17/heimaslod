@@ -5,7 +5,8 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ImageModal from '../components/ImageModal';
-import HouseTextModal from'../components/HouseTextModal';
+import HouseTextModal from '../components/HouseTextModal';
+import AboutUsModal from '../components/AboutUsModal';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
 import Data from './../../script/jsonfile.json';
 import modalStyles from '../styles/styles';
@@ -25,7 +26,8 @@ export default class houseDetailScreen extends React.Component {
           streetName: '',
           isModalVisible: false,
           textModalVisible: false,
-          husColor: null
+          husColor: null,
+          aboutVisible: false
         };
     }
 
@@ -71,6 +73,18 @@ export default class houseDetailScreen extends React.Component {
     renderDrawer = () => {
         return (
           <View style={sideMenuStyle.sideMenu}>
+
+            <View style={{flexDirection: 'row'}}>
+                <TouchableHighlight
+                  underlayColor={colors.okkarSvarti} 
+                  activeOpacity={0.5}
+                  style={sideMenuStyle.sideMenuItem}
+                  onPress={() => {this.setState({aboutVisible: true}); this.drawer.closeDrawer();}}>
+                  <Text style={{color: 'white', fontSize: 20}}>Um verkefnið</Text>
+                </TouchableHighlight>
+                <Ionicons name='ios-information-circle' size={22} color="white" style={{marginLeft: 5}}/>
+            </View>
+            
             <TouchableHighlight
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
@@ -81,6 +95,7 @@ export default class houseDetailScreen extends React.Component {
             <TouchableHighlight 
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
+                style={sideMenuStyle.sideMenuItem}
                 onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();}}>
                 <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
@@ -141,6 +156,11 @@ export default class houseDetailScreen extends React.Component {
                     isVisible={this.state.textModalVisible}
                     closeDisplay={() => this.setState({textModalVisible: false})}
                     houseText={houseDescription}
+                />
+
+                <AboutUsModal
+                    isVisible={this.state.aboutVisible}
+                    closeDisplay={() => this.setState({aboutVisible: false})}
                 />
 
                 <DrawerLayout

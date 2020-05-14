@@ -50,6 +50,23 @@ export default StyleSheet.create({
       shadowRadius: 3.84,
       elevation: 5
     },
+    aboutModalView: {
+      height: '40%',
+      width: Dimensions.get('screen').width,
+      backgroundColor: colors.okkarSvarti,
+      borderRadius: 20,
+      padding: 35,
+      paddingTop: 0,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5
+    },
     header: {
       width: Dimensions.get('screen').width, 
       flexDirection: 'row',

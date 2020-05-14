@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, FlatList, StyleSheet, Dimensions, Button, ScrollView, Image } from 'react-native';
-import sideMenuStyles from '../styles/sideMenuStyles';
+import sideMenuStyle from '../styles/sideMenuStyles';
 import colors from '../styles/colors';
 import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import ImageModal from '../components/ImageModal';
 import HouseTextModal from '../components/HouseTextModal';
+import AboutUsModal from '../components/AboutUsModal';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
@@ -26,7 +27,8 @@ export default class streetDetailScreen extends React.Component {
           activeSections: [],
           husVidGotu: [],
           husColor: null,
-          streetCoordinates: []
+          streetCoordinates: [],
+          aboutVisible: false
         };
     }
 
@@ -60,20 +62,30 @@ export default class streetDetailScreen extends React.Component {
 
     renderDrawer = () => {
         return (
-          <View style={sideMenuStyles.sideMenu}>
+          <View style={sideMenuStyle.sideMenu}>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableHighlight
+                underlayColor={colors.okkarSvarti} 
+                activeOpacity={0.5}
+                style={sideMenuStyle.sideMenuItem}
+                onPress={() => {this.setState({aboutVisible: true}); this.drawer.closeDrawer();}}>
+                <Text style={{color: 'white', fontSize: 20}}>Um verkefnið</Text>
+              </TouchableHighlight>
+              <Ionicons name='ios-information-circle' size={22} color="white" style={{marginLeft: 5}}/>
+            </View>
             <TouchableHighlight
               underlayColor={colors.okkarSvarti}
               activeOpacity={0.5}
-              style={sideMenuStyles.sideMenuItem}
+              style={sideMenuStyle.sideMenuItem}
               onPress={() => this.props.navigation.push('allStreetScreen')}>
-              <Text style={sideMenuStyles.sideMenuText}>Götur og hús</Text>
+              <Text style={sideMenuStyle.sideMenuText}>Götur og hús</Text>
             </TouchableHighlight>
             <TouchableHighlight
               underlayColor={colors.okkarSvarti}
               activeOpacity={0.5}
-              style={sideMenuStyles.sideMenuItem}
+              style={sideMenuStyle.sideMenuItem}
               onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer()} }>
-                <Text style={sideMenuStyles.sideMenuText}>Kort</Text>
+                <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
         );
@@ -141,6 +153,11 @@ export default class streetDetailScreen extends React.Component {
                   closeDisplay={() => this.setState({houseModalVisible: false})}
                   ollHus={husVidGotu}
                   nav={(id) => this.navigateHouse(id)}
+                />
+
+                <AboutUsModal
+                  isVisible={this.state.aboutVisible}
+                  closeDisplay={() => this.setState({aboutVisible: false})}
                 />
 
                 <DrawerLayout
