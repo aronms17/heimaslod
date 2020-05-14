@@ -237,7 +237,8 @@ export default class SearchBar extends React.Component {
 
 const styles = StyleSheet.create({
     top: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 10,
     },
     bottom: {
         marginTop: 20,

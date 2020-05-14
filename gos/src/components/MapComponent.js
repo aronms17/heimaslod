@@ -19,12 +19,6 @@ import { getDistance, isPointInPolygon } from 'geolib';
 // southWest: 63.378312, -20.385005
 
 
-const initialRegion = {
-  latitude: 63.4347866,
-  longitude: -20.2844343,
-  latitudeDelta: 0.095,
-  longitudeDelta: 0.0921
-}
 export default class MapComponent extends React.Component {
 
   constructor(props) {
@@ -46,30 +40,6 @@ export default class MapComponent extends React.Component {
       latitudeDelta: 0.095,
       longitudeDelta: 0.0921,
     },
-
-      coordinates: [
-        {
-            longitude: -21.91939830780029,
-            latitude: 64.13533053097066
-        },
-        {
-            longitude: -21.92025661468506,
-            latitude: 64.13514331343482
-        },
-        {
-            longitude: -21.919677257537842,
-            latitude: 64.13460505599053
-        },
-        {
-            longitude: -21.9186794757843,
-            latitude: 64.13533053097066
-        },
-        {
-            longitude: -21.91939830780029,
-            latitude: 64.13533053097066
-        },
-      ],
-      point: {latitude: 64.1350631, longitude: -21.9192012},
       errorMessage: 'error',
       mapLoaded: false,
   };
@@ -100,7 +70,6 @@ componentDidMount() {
 }
 
 componentWillUnmount() {
-
   clearInterval(interval);
 }
 
@@ -161,12 +130,6 @@ houseDeselect() {
   this.setState({selectedId: null});
 }
 
-// isInPoly() {
-//   var maxKm = 0.05;
-//   var result = Geofence.filterByProximity(this.state.point, this.state.coordinates, maxKm);
-//   console.log(result);
-// }
-
 zoomToHraun() {
   let houseRegion = {
       latitude: 63.440421,
@@ -214,35 +177,6 @@ distanceFunction() {
       this.props.polyOut();
     }
   })
-
-  
-
-  // polygons.forEach(poly => {
-  //   if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
-  //     console.log('er í:', poly.name)
-  //     this.props.polyIn(poly);
-  //     } 
-  //     else if (this.props.polyStateName === poly.name && !inPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [poly.coordinates])) {
-  //       this.props.polyOut();
-  //     }
-
-  //   }
-  // );
-  // console.log('Distance is: ', getDistance(
-  //   { latitude: this.state.location.latitude, longitude: this.state.location.longitude },
-  //   { latitude: 63.9801554, longitude: -22.6047361 }
-  // ));
-
-  // console.log('your lat: ', this.state.location.latitude);
-  // console.log('your lon: ', this.state.location.longitude);
-
-  // console.log('ispoint in polygon: ', isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, [
-  //   { latitude: 64.09688236026405, longitude: -21.843223571777344 },
-  //   { latitude: 64.08630670483652, longitude: -21.843481063842773 },
-  //   { latitude: 64.08574405740477, longitude: -21.817216873168945 },
-  //   { latitude: 64.09744478257068, longitude: -21.818161010742188 },
-  // ]));
-
 }
 
 render() {
@@ -263,19 +197,12 @@ render() {
           onMapReady={() => {this.zoomToHraun(); this.setState({mapLoaded: true})}}
           >
 
-          {/* <Marker coordinate={hr}><Text>🎓</Text></Marker> */}
+          {/* Marker sem uppfærist miðað við núverandi staðsetningu */}
+          <Marker
+            coordinate={this.state.location}
+          />
 
           {/* Polygonarnir */} 
-          {/* {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index) => (
-              <Polygon
-                key = {hus.id}
-                coordinates={hus.coordinates[0]}
-                fillColor={hus.id === this.state.selectedId ? selectedColor : husColor}
-                tappable={true}
-                onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
-              />
-            ))
-          } */}
           {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index1) => (
               hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
                   <Polygon
@@ -288,46 +215,6 @@ render() {
                 ))
             ))
           }
-          {prufupoly.geoGirding[0] != null && prufupoly.geoGirding.map((poly, index) => (
-              <Polygon
-                key = {poly.id}z
-                coordinates={poly.coordinates}
-              />
-            ))
-          }
-          {/* {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata) => (
-              <Polygon
-                key = {gata.id}
-                coordinates={gata.coordinates}
-                fillColor={goturColor}
-                tappable={false}
-                onPress={() => console.log('gata id: ' + gata.id)}
-              />
-            ))
-          } */}
-
-          {/* Marker sem uppfærist miðað við núverandi staðsetningu */}
-
-          <Marker
-            coordinate={this.state.location}
-          />
-
-          {/* <Marker
-            title="Búastaðarbraut"
-            coordinate={{latitude: 63.436949, longitude: -20.260769}}
-            rotation={0}  
-          >
-            <FontAwesome5 name="map-signs" size={12} color="green" />
-          </Marker> */}
-
-          {/* <Overlay
-             image={require('../../assets/gerdisb.png')}
-             bounds={[
-               [64.125446, -21.931473],
-               [64.122840, -21.924817]
-             ]}
-          >
-          </Overlay> */}
 
             {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
@@ -335,8 +222,6 @@ render() {
                     key = {index1 + ' ' + index2}
                     fillColor={goturColor}
                     coordinates={coordinates}
-                    // tappable={true}
-                    // onPress={() => {this.props.preview(hus); Vibration.vibrate(7);}}
                   />
                 ))
             ))
