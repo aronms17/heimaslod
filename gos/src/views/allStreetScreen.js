@@ -123,7 +123,7 @@ export default class allStreetScreen extends React.Component {
                     </TouchableHighlight>
                 </View>
 
-                
+                <View style={{padding: 10}}>
                 <View style={styles.desc}>
                     <TextInput
                         style={{height: 40, fontSize: 20, color: 'white'}}
@@ -143,18 +143,13 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    // <TouchableOpacity key={house.id} onPress={() => this.navigateHouse(house.id) }>
-                                    //     <View style={{height: 50, width: Dimensions.get('window').width}}>
-                                    //         <Text style={{color: 'white', fontSize: 20}}>{house.address}</Text>
-                                    //     </View>
-                                    // </TouchableOpacity>
                                     <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.navigateHouse(house.id)}>
-                                        <View style={{backgroundColor: colors.sky, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+                                        <View style={{backgroundColor: 'royalblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                                             <FontAwesome5 name='house-damage' size={15} color='white'/> 
                                         </View>
                                         <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>
                                             <Text style={{fontSize: 20, color: colors.white}}>{house.address}</Text>
-                                            <Text numberOfLines={1} style={{color: colors.white}}>{house.text}</Text>
+                                            <Text numberOfLines={1} style={{color: colors.white}}>{(house.text === " ") ? 'Því miður er enginn texti tiltækur' : house.text}</Text>
                                         </View>
                                         
                                     </TouchableOpacity>
@@ -166,6 +161,7 @@ export default class allStreetScreen extends React.Component {
                     )}
                     keyExtractor={item => item.id.toString()}
                 />
+                </View>
                 </DrawerLayout>
             </View>
         );
@@ -177,8 +173,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.okkarSvarti,
         justifyContent: 'center',
-        paddingLeft: 15
-        
 	},
 	headerContainer: {
         flex: 2,
@@ -223,7 +217,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
         color: '#fff',
         paddingRight: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
     },
     sideMenu: {
         flex:1,
@@ -245,6 +239,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
+        padding: 10,
       },
       burger: {
         marginTop: 40,
