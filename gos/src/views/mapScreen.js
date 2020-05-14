@@ -151,6 +151,20 @@ _renderContent = section => {
           <Text style={sideMenuStyles.mapButtonStyle}>Ljóst</Text>
       </TouchableHighlight>
     </View>
+
+    <View style={{flexDirection: 'row' }}>
+    <View style={{height: 38, width: 38, 
+        borderRadius: 35/2, justifyContent: 'center', alignItems:'center', marginRight: 10}}>
+        <Text style={{fontSize: 35}}>🤡</Text>
+      </View>
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti}
+        activeOpacity={0.5}
+        style={sideMenuStyles.sideMenuItem}
+        onPress={() => this.changeTheme("Light")}>
+          <Text style={sideMenuStyles.mapButtonStyle}>Trúða</Text>
+      </TouchableHighlight>
+    </View>
     </>
 
   );

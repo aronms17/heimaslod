@@ -1,16 +1,17 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableHighlight, Vibration } from 'react-native';
 import NativeModal from 'react-native-modal';
 import colors from '../styles/colors';
 import { Audio } from 'expo-av';
 
 const playSound = async () => {
     sound = await Audio.Sound.createAsync(
-      require('./../../assets/rocksound.wav'),
+      require('./../../assets/geoModalSoundCompressed.mp3'),
       { shouldPlay: true },
       null, true
     );
     sound.playAsync();
+    Vibration.vibrate(7);
   }
 
 const text = 
@@ -36,11 +37,11 @@ const GeoModal = (props) => (
               propagateSwipe={true}
               swipeThreshold={300}
               hideModalContentWhileAnimating={true}
-            //   onModalShow={() => playSound()}
+              onModalShow={() => playSound()}
             >
               <View style={styles.modalView}>
                 <View style={{width: 350}}>
-                  <Image resizeMethod={'resize'} style={{height: 230, width: 350, borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/gos_44.jpg')}/>
+                  <Image resizeMethod={'resize'} style={{height: 230, width: 350, borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/1973.jpg')}/>
                 </View>
                 <View style={{marginTop: 10, alignItems: 'center', height: 200}}>
                   <Text style={{height: 40, width: '100%', fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
