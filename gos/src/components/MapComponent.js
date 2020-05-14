@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
 import mapjson3 from '../json/mapstyle3.json';
-import prufupoly from '../../script/jsonfile.json';
+import data from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
 import colors from '../styles/colors';
 import * as Location from 'expo-location';
@@ -162,7 +162,7 @@ userCenter() {
 //Ef ekki, er check hvort location var í polygon með state í mapscreen
 //
 distanceFunction() {
-  let polygons = prufupoly.hraun;
+  let polygons = data.hraun;
   
   polygons.forEach(poly => {
     if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
@@ -200,7 +200,7 @@ render() {
           />
 
           {/* Polygonarnir */} 
-          {prufupoly.hus[0] != null && prufupoly.hus.map((hus, index1) => (
+          {data.hus[0] != null && data.hus.map((hus, index1) => (
               hus.coordinates[0] != null && hus.coordinates.map((coordinates, index2) => (
                   <Polygon
                     key = {index1 + ' ' + index2}
@@ -213,7 +213,7 @@ render() {
             ))
           }
 
-            {prufupoly.gotur[0] != null && prufupoly.gotur.map((gata, index1) => (
+            {data.gotur[0] != null && data.gotur.map((gata, index1) => (
               gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
                   <Polygon
                     key = {index1 + ' ' + index2}
