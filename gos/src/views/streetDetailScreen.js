@@ -84,7 +84,7 @@ export default class streetDetailScreen extends React.Component {
             underlayColor={colors.okkarSvarti}
             activeOpacity={0.5}
             style={sideMenuStyle.sideMenuItem}
-            onPress={() => {this.props.navigation.push('mapScreen'); this.drawer.closeDrawer()} }>
+            onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer()} }>
               <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
           </TouchableHighlight>
         </View>
