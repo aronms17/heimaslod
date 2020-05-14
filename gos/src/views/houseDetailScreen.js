@@ -8,7 +8,7 @@ import ImageModal from '../components/ImageModal';
 import HouseTextModal from '../components/HouseTextModal';
 import AboutUsModal from '../components/AboutUsModal';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
-import Data from './../../script/jsonfile.json';
+import Data from './../../data/data.json';
 import colors from '../styles/colors';
 export default class houseDetailScreen extends React.Component {
   constructor() {

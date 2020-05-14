@@ -3,7 +3,7 @@ import MapView, { Marker, Overlay, UrlTile, Polygon } from 'react-native-maps';
 import { Alert, StyleSheet, Text, View, Dimensions, Image, FlatList, setNativeProps } from 'react-native';
 import data from './src/houses.json';
 import mapjson from './src/mapstyle.json';
-import prufupoly from './script/jsonfile.json';
+import prufupoly from './data/data.json';
 import CustomPolygon from './src/CustomPolygon.js';
 
 export default class App extends React.Component {

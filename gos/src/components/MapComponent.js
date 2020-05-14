@@ -1,10 +1,9 @@
 import React from 'react';
-import MapView, { Marker, Polygon, Overlay } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
-import mapjson from '../json/mapstyle.json';
-import mapjson2 from '../json/mapstyle2.json';
-import mapjson3 from '../json/mapstyle3.json';
-import data from '../../script/jsonfile.json';
+import MapView, { Marker, Polygon } from 'react-native-maps';
+import { StyleSheet, Dimensions, Vibration } from 'react-native';
+import mapjsonLight from '../styles/mapStyles/mapstyleLight.json';
+import mapjsonDark from '../styles/mapStyles/mapstyleDark.json';
+import data from '../../data/data.json';
 import colors from '../styles/colors';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -93,13 +92,13 @@ getLocationAsync = async () => {
 
 themeChange(theme) {
   if(theme === 'Dark') {
-    this.setState({theme: mapjson2, satellite: false});
+    this.setState({theme: mapjsonDark, satellite: false});
   } 
   else if(theme === 'Satellite') {
     this.setState({satellite: true});
   }
   else {
-    this.setState({theme: mapjson, satellite: false});
+    this.setState({theme: mapjsonLight, satellite: false});
   }
 }
 

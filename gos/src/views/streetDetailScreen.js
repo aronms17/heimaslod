@@ -9,7 +9,7 @@ import AboutUsModal from '../components/AboutUsModal';
 import Gallery from 'react-native-image-gallery';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import { Feather, MaterialIcons, Ionicons  } from '@expo/vector-icons'
-import Data from './../../script/jsonfile.json';
+import Data from './../../data/data.json';
 import HouseNamesModal from '../components/HouseNamesModal';
 export default class streetDetailScreen extends React.Component {
   constructor() {

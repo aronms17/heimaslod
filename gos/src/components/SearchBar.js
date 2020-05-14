@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions, Keyboard, TextInput, Animated, FlatList, TouchableOpacity, TouchableHighlight, SectionList } from 'react-native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import colors from '../styles/colors';
-import Houses from './../../script/jsonfile.json';
+import Houses from './../../data/data.json';
 
 
 export default class SearchBar extends React.Component {

@@ -5,7 +5,7 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import colors from '../styles/colors';
 import sideMenuStyle from '../styles/sideMenuStyles';
 import AboutUsModal from '../components/AboutUsModal';
-import Data from '../../script/jsonfile.json';
+import Data from '../../data/data.json';
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class allStreetScreen extends React.Component {
