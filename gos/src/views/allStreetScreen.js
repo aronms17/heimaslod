@@ -5,59 +5,58 @@ import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import colors from '../styles/colors';
 import sideMenuStyle from '../styles/sideMenuStyles';
 import AboutUsModal from '../components/AboutUsModal';
-// import Streets from './../components/Streets';
 import Data from '../../script/jsonfile.json';
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class allStreetScreen extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          streets: [],
-          houses: [],
-          inMemoryStreets: [],
-          inMemoryHouses: [],
-          aboutVisible: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      streets: [],
+      houses: [],
+      inMemoryStreets: [],
+      inMemoryHouses: [],
+      aboutVisible: false
+    };
+  }
 
-    componentDidMount() {
-        let streetdata = Data.gotur;
-        let housedata = Data.hus;
-        streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
-        housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
-        this.setState({streets: streetdata, houses: housedata, inMemoryStreets: streetdata, inMemoryHouses: housedata});
-    }
+  componentDidMount() {
+    let streetdata = Data.gotur;
+    let housedata = Data.hus;
+    streetdata = streetdata.filter(gotur => gotur.name.length > 1).sort((a,b) => (a.name > b.name) ? 1 : -1);
+    housedata = housedata.filter(gotur => gotur.address.length > 1).sort((a,b) => (a.address > b.address) ? 1 : -1);
+    this.setState({streets: streetdata, houses: housedata, inMemoryStreets: streetdata, inMemoryHouses: housedata});
+  }
 
-    navigateHouse(houseId) {
-        this.props.navigation.push('houseDetailScreen', {
-            houseId
-          });
-    }
+  navigateHouse(houseId) {
+    this.props.navigation.push('houseDetailScreen', {
+        houseId
+      });
+  }
 
-    navigateStreet(streetId) {
-        this.props.navigation.push('streetDetailScreen', {
-            streetId
-          });
-    }
+  navigateStreet(streetId) {
+    this.props.navigation.push('streetDetailScreen', {
+        streetId
+    });
+  }
 
     search = input => {
-        //filterar hús sem passa við inputið
-        const housesFiltered = this.state.inMemoryHouses.filter(house => {
-            let houseLower = house.address.toLowerCase();
-            let inputLower = input.toLowerCase();
+      //filterar hús sem passa við inputið
+      const housesFiltered = this.state.inMemoryHouses.filter(house => {
+        let houseLower = house.address.toLowerCase();
+        let inputLower = input.toLowerCase();
 
-            return houseLower.indexOf(inputLower) > -1;
-        });
+          return houseLower.indexOf(inputLower) > -1;
+      });
 
-        //filterað hverja götu - ef gata hefur eitthvað house.streetId sama og id á götunni return götunni EÐA input matchar við nafnið á götunni
-        const streetsFilteredByHouse = this.state.inMemoryStreets.filter(street => {
-            if(housesFiltered.some(house => house.streetId === street.id) || street.name.toLowerCase().indexOf(input.toLowerCase()) > -1) {
-                return street;
-            }
-        });
+      //filterað hverja götu - ef gata hefur eitthvað house.streetId sama og id á götunni return götunni EÐA input matchar við nafnið á götunni
+      const streetsFilteredByHouse = this.state.inMemoryStreets.filter(street => {
+          if(housesFiltered.some(house => house.streetId === street.id) || street.name.toLowerCase().indexOf(input.toLowerCase()) > -1) {
+              return street;
+          }
+      });
 
-        this.setState({houses: housesFiltered, streets: streetsFilteredByHouse});
+      this.setState({houses: housesFiltered, streets: streetsFilteredByHouse});
     }
 
     renderDrawer = () => {

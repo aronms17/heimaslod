@@ -6,18 +6,15 @@ import mapjson2 from '../json/mapstyle2.json';
 import mapjson3 from '../json/mapstyle3.json';
 import data from '../../script/jsonfile.json';
 import CustomPolygon from './CustomPolygon';
-import { Feather, MaterialIcons, FontAwesome5  } from '@expo/vector-icons';
-// import Geofence from 'react-native-expo-geofence';
 import colors from '../styles/colors';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import { getDistance, isPointInPolygon } from 'geolib';
+import { isPointInPolygon } from 'geolib';
 
 
 // Afmörkun:
 // northEast: 63.472856, -20.170407
 // southWest: 63.378312, -20.385005
-
 
 export default class MapComponent extends React.Component {
 
@@ -62,7 +59,7 @@ componentDidMount() {
     // console.log('live staðsetning: ', this.state.location);
   }, 1000);
 
-  //afmarkar eyjuna, ekki viss hvort það eigi heima i componentdidmount
+  // afmarkar eyjuna
   //this.mapViewRef.current.setMapBoundaries(
   //  { latitude: 63.472856, longitude: -20.170407 },
   //  { latitude: 63.378312, longitude: -20.385005 }
