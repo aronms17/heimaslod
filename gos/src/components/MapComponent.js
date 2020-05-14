@@ -5,16 +5,11 @@ import mapjson from '../json/mapstyle.json';
 import mapjson2 from '../json/mapstyle2.json';
 import mapjson3 from '../json/mapstyle3.json';
 import data from '../../script/jsonfile.json';
-import CustomPolygon from './CustomPolygon';
 import colors from '../styles/colors';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import { isPointInPolygon } from 'geolib';
 
-
-// Afmörkun:
-// northEast: 63.472856, -20.170407
-// southWest: 63.378312, -20.385005
 
 export default class MapComponent extends React.Component {
 
@@ -23,8 +18,8 @@ export default class MapComponent extends React.Component {
   this.mapViewRef = React.createRef();
   this.myRef = []; 
   this.state = {
-    husColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 0.2)'*/,
-    goturColor: null /* you can use isIOS() ? null : 'rgba(60, 165, 255, 1)'*/,
+    husColor: null,
+    goturColor: null,
     selectedColor: null,
     greyColor: null,
     location: { latitude: 63.9801554, longitude: -22.6047361 },
@@ -53,17 +48,16 @@ componentDidMount() {
   });
   this.themeChange();
 
-  interval = setInterval(() => {
-    this.getLocationAsync();
-    this.distanceFunction();
-    // console.log('live staðsetning: ', this.state.location);
-  }, 1000);
-
   // afmarkar eyjuna
   //this.mapViewRef.current.setMapBoundaries(
   //  { latitude: 63.472856, longitude: -20.170407 },
   //  { latitude: 63.378312, longitude: -20.385005 }
   //);
+
+  interval = setInterval(() => {
+    this.getLocationAsync();
+    this.distanceFunction();
+  }, 1000);
 }
 
 componentWillUnmount() {
@@ -94,7 +88,6 @@ getLocationAsync = async () => {
     //this.getGeocodeAsync({latitude, longitude});
     //this.setState({ location: location });
     this.setState({ location: {latitude, longitude}});
-    // console.log('Location komið í state');
   }
 };
 
@@ -160,17 +153,14 @@ userCenter() {
 
 //Fyrir hvern polygon er check ef location er innan polygon,
 //Ef ekki, er check hvort location var í polygon með state í mapscreen
-//
 distanceFunction() {
   let polygons = data.hraun;
   
   polygons.forEach(poly => {
     if(isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
       this.props.polyIn(poly);
-      // console.log('polynafn í state:', this.props.polyName);
     }
     else if(this.props.polyName === poly.name && !isPointInPolygon({ latitude: this.state.location.latitude, longitude: this.state.location.longitude }, poly.coordinates)) {
-      // console.log('farinn úr poly: ', this.props.polyName);
       this.props.polyOut();
     }
   })
@@ -213,16 +203,16 @@ render() {
             ))
           }
 
-            {data.gotur[0] != null && data.gotur.map((gata, index1) => (
-              gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
-                  <Polygon
-                    key = {index1 + ' ' + index2}
-                    fillColor={goturColor}
-                    coordinates={coordinates}
-                  />
-                ))
-            ))
-          }
+          {data.gotur[0] != null && data.gotur.map((gata, index1) => (
+            gata.coordinates[0] != null && gata.coordinates.map((coordinates, index2) => (
+                <Polygon
+                  key = {index1 + ' ' + index2}
+                  fillColor={goturColor}
+                  coordinates={coordinates}
+                />
+              ))
+          ))
+        }
 
         </MapView>  
     );

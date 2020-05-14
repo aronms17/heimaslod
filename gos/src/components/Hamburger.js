@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
-import { View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 
 const Hamburger = ({

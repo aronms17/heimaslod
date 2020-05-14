@@ -25,33 +25,33 @@ const text =
     </Text>;
 
 const GeoModal = (props) => (
-            <NativeModal
-              isVisible={props.inPoly && props.display}
-              onBackdropPress={() => props.onBackdropPress()}
-              backdropOpacity={0.3}
-              animationIn={'bounceInUp'}
-              animationOut={'bounceOutDown'}
-              swipeDirection={['up', 'down']}
-              onSwipeComplete={() => props.onSwipeComplete()}
-              style={styles.modal}
-              propagateSwipe={true}
-              swipeThreshold={300}
-              hideModalContentWhileAnimating={true}
-              onModalShow={() => playSound()}
-            >
-              <View style={styles.modalView}>
-                <View style={{width: 350}}>
-                  <Image resizeMethod={'resize'} style={{height: 230, width: 350, borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/1973.jpg')}/>
-                </View>
-                <View style={{marginTop: 10, alignItems: 'center', height: 200}}>
-                  <Text style={{height: 40, width: '100%', fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
-                  {text}
-                </View>
-                <View style={{marginTop: 0, justifyContent:'flex-end', height:'20%'}}>
-                  <TouchableHighlight style={{width: 200, height: 50, borderRadius: 100/4,justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white}} onPress={() => props.close()}><Text style={{fontWeight: 'bold'}}>Loka</Text></TouchableHighlight>
-                </View>
-              </View>
-            </NativeModal>
+    <NativeModal
+      isVisible={props.inPoly && props.display}
+      onBackdropPress={() => props.onBackdropPress()}
+      backdropOpacity={0.3}
+      animationIn={'bounceInUp'}
+      animationOut={'bounceOutDown'}
+      swipeDirection={['up', 'down']}
+      onSwipeComplete={() => props.onSwipeComplete()}
+      style={styles.modal}
+      propagateSwipe={true}
+      swipeThreshold={300}
+      hideModalContentWhileAnimating={true}
+      onModalShow={() => playSound()}
+    >
+      <View style={styles.modalView}>
+        <View style={{width: 350}}>
+          <Image resizeMethod={'resize'} style={{height: 230, width: 350, borderTopLeftRadius: 20, borderTopRightRadius: 20}} source={require('../../assets/1973.jpg')}/>
+        </View>
+        <View style={{marginTop: 10, alignItems: 'center', height: 200}}>
+          <Text style={{height: 40, width: '100%', fontSize: 30 , fontWeight: 'bold', color: colors.white}}>Velkomin(n) á hraunið </Text>
+          {text}
+        </View>
+        <View style={{marginTop: 0, justifyContent:'flex-end', height:'20%'}}>
+          <TouchableHighlight style={{width: 200, height: 50, borderRadius: 100/4,justifyContent: 'center', alignItems: 'center', backgroundColor: colors.white}} onPress={() => props.close()}><Text style={{fontWeight: 'bold'}}>Loka</Text></TouchableHighlight>
+        </View>
+      </View>
+    </NativeModal>
 
 )
 

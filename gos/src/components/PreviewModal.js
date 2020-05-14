@@ -1,7 +1,6 @@
 import React from 'react'
-import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import NativeModal from 'react-native-modal';
-import { Feather, MaterialIcons  } from '@expo/vector-icons';
 import colors from '../styles/colors';
 
 
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    // marginLeft: 150
   },
   modalView: {
     borderTopRightRadius: 20,

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Modal, View, Image, Text, StyleSheet, Button, TouchableHighlight, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableHighlight, Dimensions, TouchableOpacity } from 'react-native';
 import NativeModal from 'react-native-modal';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
-import { Feather, MaterialCommunityIcons, FontAwesome5  } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
 
 const HouseNamesModal = (props) => (

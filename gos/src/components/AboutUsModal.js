@@ -1,9 +1,9 @@
 import React from 'react'
-import { Modal, View, Image, Text, StyleSheet, Linking, TouchableHighlight, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Linking, TouchableHighlight, Dimensions } from 'react-native';
 import NativeModal from 'react-native-modal';
 import styles from '../styles/styles';
 import colors from '../styles/colors';
-import { Feather, MaterialCommunityIcons  } from '@expo/vector-icons';
+import { MaterialCommunityIcons  } from '@expo/vector-icons';
 
 let heima =  
   <Text style={{color: 'royalblue', fontSize: 18}}
