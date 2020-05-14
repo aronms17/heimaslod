@@ -13,7 +13,8 @@ export default StyleSheet.create({
     
       },
       sideMenuItem: {
-        marginBottom: 30
+        marginBottom: 30,
+        flexDirection: 'row'
       },
       sideMenuMiddleItem: {
         marginBottom: 300
@@ -41,5 +42,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         marginTop: 6
+      },
+      aboutUs: {
+        fontSize: 20,
+        color: 'white'
       }
 });

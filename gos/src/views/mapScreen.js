@@ -7,14 +7,13 @@ import sideMenuStyles from '../styles/sideMenuStyles';
 import NativeModal from 'react-native-modal';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import Accordion from 'react-native-collapsible/Accordion';
-import { Feather, Foundation, AntDesign, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
+import { Feather, Foundation, AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 import PreviewModal from '../components/PreviewModal';
 import SearchBar from './../components/SearchBar';
-import SideMenu from '../components/SideMenu';
 import MapComponent from './../components/MapComponent';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import GeoModal from './../components/GeoModal';
+import AboutUsModal from '../components/AboutUsModal';
 
 // Afmörkun:
 // northEast: 63.472856, -20.170407
@@ -47,7 +46,8 @@ export default class App extends React.Component {
     display: true,
     polyName: '',
     activeSections: [],
-    burgerColor: 'black'
+    burgerColor: 'black',
+    aboutVisible: false
   };
 }
 
@@ -162,7 +162,21 @@ _updateSections = activeSections => {
 
 renderDrawer = () => {
   return (
+    
+
     <View style={sideMenuStyles.sideMenu}>
+
+      <View style={{flexDirection: 'row'}}>
+      <TouchableHighlight
+        underlayColor={colors.okkarSvarti} 
+        activeOpacity={0.5}
+        style={sideMenuStyles.sideMenuItem}
+        onPress={() => {this.setState({aboutVisible: true}); this.drawer.closeDrawer();}}>
+        <Text style={{color: 'white', fontSize: 20}}>Um verkefnið</Text>
+      </TouchableHighlight>
+      <Ionicons name='ios-information-circle' size={22} color="white" style={{marginLeft: 5}}/>
+      </View>
+
       <TouchableHighlight
         underlayColor={colors.okkarSvarti} 
         activeOpacity={0.5}
@@ -181,11 +195,6 @@ renderDrawer = () => {
           renderContent={this._renderContent}
           onChange={this._updateSections}
         />
-      </View>
-
-      <View style={sideMenuStyles.sideMenuBottomItem}>
-        <Text style={sideMenuStyles.sideMenuBottomText}>Gosar ehf</Text>
-        <AntDesign name='trademark' size={15} color="white" style={{marginLeft: 5}}/>
       </View>
 
     </View>
@@ -280,6 +289,12 @@ getDistance = () => {
               closeDisplay={() => {this.setState({isModalVisible: false}); this.mapComponentRef.current.houseDeselect();  }}
               goToHouse={() => this.navigateHouse(houseId)}
             />
+
+            <AboutUsModal
+              isVisible={this.state.aboutVisible}
+              closeDisplay={() => this.setState({aboutVisible: false})}
+            />
+
             </View>
             <View>
             {/* Geofencing modal */}

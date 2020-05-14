@@ -3,6 +3,8 @@ import { Text, View, TouchableHighlight, StyleSheet, Dimensions, FlatList, Touch
 import { Feather, MaterialIcons, Ionicons, FontAwesome5  } from '@expo/vector-icons'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import colors from '../styles/colors';
+import sideMenuStyle from '../styles/sideMenuStyles';
+import AboutUsModal from '../components/AboutUsModal';
 // import Streets from './../components/Streets';
 import Data from '../../script/jsonfile.json';
 import { TextInput } from 'react-native-gesture-handler';
@@ -14,7 +16,8 @@ export default class allStreetScreen extends React.Component {
           streets: [],
           houses: [],
           inMemoryStreets: [],
-          inMemoryHouses: []
+          inMemoryHouses: [],
+          aboutVisible: false
         };
     }
 
@@ -59,12 +62,25 @@ export default class allStreetScreen extends React.Component {
 
     renderDrawer = () => {
         return (
-          <View style={styles.sideMenu}>
+          <View style={sideMenuStyle.sideMenu}>
+
+            <View style={{flexDirection: 'row'}}>
+                <TouchableHighlight
+                  underlayColor={colors.okkarSvarti} 
+                  activeOpacity={0.5}
+                  style={sideMenuStyle.sideMenuItem}
+                  onPress={() => {this.setState({aboutVisible: true}); this.drawer.closeDrawer();}}>
+                  <Text style={{color: 'white', fontSize: 20}}>Um verkefnið</Text>
+                </TouchableHighlight>
+                <Ionicons name='ios-information-circle' size={22} color="white" style={{marginLeft: 5}}/>
+            </View>
+
             <TouchableHighlight
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
+                style={sideMenuStyle.sideMenuItem}
                 onPress={() => {this.props.navigation.navigate('mapScreen'); this.drawer.closeDrawer();} }>
-                <Text style={styles.sideMenuText}>Kort</Text>
+                <Text style={sideMenuStyle.sideMenuText}>Kort</Text>
             </TouchableHighlight>
           </View>
         );
@@ -74,7 +90,12 @@ export default class allStreetScreen extends React.Component {
 
     render() {
         return(
+
             <View style={styles.container}>
+                <AboutUsModal
+                    isVisible={this.state.aboutVisible}
+                    closeDisplay={() => this.setState({aboutVisible: false})}
+                />
                 <DrawerLayout
                     ref={drawer => {
                       this.drawer = drawer;
