@@ -142,7 +142,7 @@ export default class allStreetScreen extends React.Component {
                             </TouchableOpacity>
                             <View>
                                 {this.state.houses[0] != null && this.state.houses.filter(house => house.streetId === item.id).map((house) => (
-                                    <TouchableOpacity style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.navigateHouse(house.id)}>
+                                    <TouchableOpacity key={house.id} style={{margin: 5, marginVertical: 15, flexDirection: 'row'}} onPress={() => this.navigateHouse(house.id)}>
                                         <View style={{backgroundColor: 'royalblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                                             <FontAwesome5 name='house-damage' size={15} color='white'/> 
                                         </View>
