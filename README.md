@@ -4,7 +4,7 @@ Afurð verkefnisins er smáforrit sem birtir upplýsingar um byggingar sem fóru
 
 ## Verkefnið
 
-Þetta verkefni er lokaverkefni til BSc prófs í tölvunarfræði og hugbúnaðarverkfræði. Meðlimir hópsinseru Aron Máni Símonarson, Baldvin Búi Wernersson og Þórður Örn Stefánsson. Í smáforritinu geta notendur séð núverandistaðsetningu sína á korti og húsin og göturnar undir hrauninu. Þetta býður upp á nýja leið til að sjáfyrir sér byggðina eins og hún var fyrir gos. Hægt verður að ýta á hús og sjá þá upplýsingar um þaðauk mynda. Hugmyndin kom upp eftir samtal við Frosta Gíslason hjá Nýsköpunarmiðstöð Íslands.Allir textar og myndir koma frá vefsíðunni Heimaslóð sem er upplýsingavefur um Vestmannaeyjar.
+Þetta verkefni er lokaverkefni til BSc prófs í tölvunarfræði og hugbúnaðarverkfræði. Meðlimir hópsins eru Aron Máni Símonarson, Baldvin Búi Wernersson og Þórður Örn Stefánsson. Í smáforritinu geta notendur séð núverandi staðsetningu sína á korti og húsin og göturnar undir hrauninu. Þetta býður upp á nýja leið til að sjáfyrir sér byggðina eins og hún var fyrir gos. Hægt verður að ýta á hús og sjá þá upplýsingar um þaðauk mynda. Hugmyndin kom upp eftir samtal við Frosta Gíslason hjá Nýsköpunarmiðstöð Íslands.Allir textar og myndir koma frá vefsíðunni Heimaslóð sem er upplýsingavefur um Vestmannaeyjar.
 
 ### Uppsetning
 
