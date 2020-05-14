@@ -39,7 +39,7 @@ const HouseNamesModal = (props) => (
                   style={{width: 340, height: 75, flexDirection: 'row'}}
                   onPress={() => {props.nav(item.id); props.closeDisplay()}}
                 >
-                  <View style={{backgroundColor: colors.sky, height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
+                  <View style={{backgroundColor: 'royalblue', height: 35, width: 35, borderRadius: 35/2, justifyContent: 'center', alignItems:'center', margin: 5}}>
                       <FontAwesome5 name='house-damage' size={15} color='white'/> 
                   </View>
                   <View style={{marginLeft: 5, marginTop: 3, flex: 8}}>

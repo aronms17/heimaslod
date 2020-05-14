@@ -84,7 +84,7 @@ export default class houseDetailScreen extends React.Component {
                 </TouchableHighlight>
                 <Ionicons name='ios-information-circle' size={22} color="white" style={{marginLeft: 5}}/>
             </View>
-            
+
             <TouchableHighlight
                 underlayColor={colors.okkarSvarti}
                 activeOpacity={0.5}
@@ -200,7 +200,7 @@ export default class houseDetailScreen extends React.Component {
                 >
                     {/* Rétt map aðferð á propsið núna */}
                     <Gallery
-                        style={{ flex: 1, backgroundColor: colors.CARBON }}
+                        style={{ flex: 1, backgroundColor: colors.okkarSvarti }}
                         pageMargin={10}
                         onSingleTapConfirmed={() => this.setState({isModalVisible: true})}
                         images={
@@ -215,19 +215,20 @@ export default class houseDetailScreen extends React.Component {
                 <View style={styles.descriptionContainer}>
                     <Text style={styles.desc}>{shortHouseDescription}</Text>
                     {seeMore}
-                </View>
-                
-                <View style={styles.bottomContainer}>
                     <TouchableHighlight 
                         style={{
-                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7DB46CFF'
+                            width: 100, height: 40, borderRadius: 100/4, justifyContent: 'center', alignItems: 'center', 
+                            backgroundColor: 'royalblue', marginTop: 15
                         }} 
                         onPress={() => this.navigateStreet(streetId)}
                         activeOpacity={0.5}
                         backdropcolor='transparent'>
                         <Text style={styles.desc}>{streetName}</Text>
                     </TouchableHighlight>
-                    <View style={styles.onlyMap}>
+                </View>
+                
+                <View style={styles.bottomContainer}>
+
                     <MapView
                         onMapReady={() => {this.zoomTohouse(); this.setHouseColor()}}
                         ref={this.mapViewRef}
@@ -260,7 +261,6 @@ export default class houseDetailScreen extends React.Component {
                         
                     </MapView>
                     </View>                    
-                </View>
                 
                 </DrawerLayout>
 
@@ -272,7 +272,7 @@ export default class houseDetailScreen extends React.Component {
 const styles = StyleSheet.create({
 	container: {
         flex: 1,
-        backgroundColor: colors.CARBON,
+        backgroundColor: colors.okkarSvarti,
 	},
 	headerContainer: {
         flex: 2,
@@ -315,12 +315,11 @@ const styles = StyleSheet.create({
 	name: {
         fontSize: 36,
         fontWeight: 'bold',
-		color: '#fff'
+		color: 'white'
     },
     desc: {
         fontSize: 16,
-        fontWeight: 'bold',
-        color: 'black',
+        color: 'white',
     },
     header: {
         width: Dimensions.get('screen').width, 

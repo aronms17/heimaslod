@@ -213,7 +213,7 @@ export default class streetDetailScreen extends React.Component {
                   <View style={{marginBottom: 10}}>
                     <TouchableHighlight 
                     style={{
-                        width: 140, height: 60, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.WATERMELON, padding: 15
+                        width: 140, height: 60, borderRadius: 140/4, justifyContent: 'center', alignItems: 'center', backgroundColor: 'royalblue', padding: 15
                     }} 
                     onPress={() => this.setState({houseModalVisible: true})}
                     activeOpacity={0.5}
@@ -231,11 +231,11 @@ export default class streetDetailScreen extends React.Component {
                     minZoomLevel={12}
                     style={{...StyleSheet.absoluteFillObject}}
                     provider={"google"}
-                    zoomEnabled={true}
-                    zoomTapEnabled={true}
-                    rotateEnabled={true}
-                    scrollEnabled={true}
-                    pitchEnabled={true}
+                    zoomEnabled={false}
+                    zoomTapEnabled={false}
+                    rotateEnabled={false}
+                    scrollEnabled={false}
+                    pitchEnabled={false}
                     initialRegion={{
                       latitude: 63.4347866,
                       longitude: -20.2844343,
@@ -283,7 +283,9 @@ const styles = StyleSheet.create({
     flex: 4,
     paddingLeft: 20,
     paddingRight: 20,
+    paddingBottom: 20,
     marginTop: 10,
+    alignItems: 'center'
   },
   bottomContainer: {
     flex: 5,
@@ -291,7 +293,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   bottomItems: {
     marginRight: 10
